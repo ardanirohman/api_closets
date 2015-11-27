@@ -894,8 +894,8 @@ type listing :
 
         {
             "trigger_type":"item_submitted",
-            "sender_uid" :1,
-            "product_id": 10
+            "sender_uid" :-1,
+            "product_title": "sample product title"
         }
 
 + Response 200 (application/json)
@@ -917,9 +917,8 @@ type cart :
 
         {
             "trigger_type":"pending_bank_transfer",
-            "sender_uid" :1,
-            "product_id": 10,
-            "order_id" : 12
+            "buyer_name":"user"
+            "product_title":"product title sample"
         }
 
 + Response 200 (application/json)
@@ -960,7 +959,7 @@ type postsales :
 + Request
 
         {
-            "trigger_type":"item_submitted",
+            "trigger_type":"order_new",
             "sender_uid" :1,
             "product_id": 10,
             "order_id":12
