@@ -435,13 +435,14 @@ Api Design For activity such as social feed,conversation listing, conversation d
         }
            
 
-## Get Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}]
+## Get Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}{?country_code}]
 ### get feed buying[GET]
 + Parameters
 
     + limit : 20 (number)
     + uid : 1 (number)
     + page : 1
+    + country_code: SG (string)
 
 + Response 200 (application/json)
 
@@ -554,13 +555,14 @@ Api Design For activity such as social feed,conversation listing, conversation d
             "page" : 1
         }
 
-## Get Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}]
+## Get Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}{?country_code}]
 ### get feed selling [GET]
 + Parameters
 
     + limit : 20 (number)
     + uid : 1 (number)
     + page : 1
+    + country_code: SG (string)
 
 + Response 200 (application/json)
 
