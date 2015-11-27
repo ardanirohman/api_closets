@@ -683,7 +683,8 @@ param {type}
     - offer_made
     - offer_withdrawn
     - offer_revise
-    - offer_declined/offer_accepted
+    - offer_declined
+    - offer_accepted
 ### action conversation chat [POST]
 + Request
 
@@ -692,6 +693,10 @@ param {type}
            "sender_uid":23,
            "recepient_uid":24,
            "image":"-",
+           "buyer_offer_price":0,
+           "seller_offer_price":0,
+           "buyer_currency_code":"SGD",
+           "seller_currency_code":"SGD",
            "message":"bla bla bla"
            
         }
