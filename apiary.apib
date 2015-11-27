@@ -920,3 +920,22 @@ type postsales :
             "status":true,
             "message":"trigger action sent"
         }
+
+## Trigger Center follow [/trigger/action/following]
+param {type}
+type following :
+    - user_register
+### Action trigger [POST]
++ Request
+
+        {
+            "trigger_type":"user_register",
+            "sender_uid" :1,
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
