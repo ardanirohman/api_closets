@@ -838,6 +838,33 @@ type social :
             "message":"trigger action sent"
         }
 
+## Trigger Center Listing [/trigger/action/chat]
+for seller and buyer
+param {type}
+    - message_sent
+    - photo_send
+    - offer_made
+    - offer_withdrawn
+    - offer_revise
+    - offer_declined/offer_accepted
+
+### Action trigger [POST]
++ Request
+
+        {
+            "trigger_type":"message_sent",
+            "sender_uid" :1,
+            "recepient_uid" : 2,
+            "message" : "sample message"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
+
 ## Trigger Center Listing [/trigger/action/listing]
 param {type}
 type listing :
