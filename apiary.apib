@@ -913,7 +913,8 @@ type cart :
         {
             "trigger_type":"item_submitted",
             "sender_uid" :1,
-            "product_id": 10
+            "product_id": 10,
+            "order_id" : 12
         }
 
 + Response 200 (application/json)
@@ -931,7 +932,24 @@ type postsales :
     - order_collection_succeeded
     - order_collection_failed
     - order_authentication_succeeded
-    - 
+    - order_delivery_succeeded
+    - order_delivery_failed
+    - order_completed
+    - order_payment_completed
+    - order_cancelled
+    - cancelled_refund_completed
+    - order_authentication_failed
+    - authfailed_refund_completed
+    - authfailed_delivery_scheduled
+    - authfailed_delivery_succeeded
+    - authfailed_delivery_failed
+    - return_collection_scheduled
+    - return_collection_succeeded
+    - return_collection_failed
+    - return_refund_completed
+    - return_delivery_scheduled
+    - return_delivery_succeeded
+    - return_delivery_failed
 
 ### Action trigger [POST]
 + Request
@@ -939,7 +957,8 @@ type postsales :
         {
             "trigger_type":"item_submitted",
             "sender_uid" :1,
-            "product_id": 10
+            "product_id": 10,
+            "order_id":12
         }
 
 + Response 200 (application/json)
