@@ -1,0 +1,950 @@
+FORMAT: 1A
+HOST: http://closets.apiblueprint.org/api/v2
+
+# Closets API
+Documentation of API Closets 2.0.
+
+# Group Feed
+Api Design For Follower Following Feed Discover Recommendation
+## Get Followers And Followees [/following/follow{?limit}{?uid}{?page}{?type}]
+
+### List Follow [GET]
++ Parameters
+
+    + limit : 10  (number)
+    + uid : 1 (number)
+    + page : 1 (number)
+    + type : followees (string) - followees or followers
+    
++ Response 200 (application/json)
+
+        {
+            "type" : "followees",
+            "data" :
+            [
+               {
+                    "seller":{
+                        "uid":2,
+                        "nickname" : "test 2",
+                        "avatar" : "test2.jpg",
+                        "items_count":10,
+                        "followed":true
+                    },
+                    "product" : [
+                        {
+                            "id":0,
+                            "image":"test.jpg",
+                            "status":"open",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":1,
+                            "image":"test1.jpg",
+                            "status":"open",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":2,
+                            "image":"test1.jpg",
+                            "status":"open",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":3,
+                            "image":"test1.jpg",
+                            "status":"open",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":4,
+                            "image":"test1.jpg",
+                            "status":"open",
+                            "created_at":123452,
+                            "updated_at":123452
+                        }
+                    ]
+                }
+            ],
+            "limit" : 20,
+            "page" : 1
+        }
+
+## Follow Unfollow Action [/following/follow]
+### Follow Unfollow Action [POST]
+
++ Request (application/json)
+
+        {
+            "followee_uid":20,
+            "uid": 2,
+            "action" : "follow/unfollow"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message" : "following successful / unfollow successful"
+        }
+
+
+## Get Discover [/following/discover{?limit}{?uid}{?page}{?country_code}{?refresh}]
+
+### List Discover [GET]
++ Parameters
+
+    + limit : 20 (number)
+    + uid : 1 (number)
+    + page : 1 (number)
+    + country_code : SG (string)
+    + refresh : 23123 (number) - timestamp when the page is first loaded
+    
++ Response 200 (application/json)
+
+        {
+            "data" : 
+            [
+                {
+                    
+                    "product":{
+                        "id":0,
+                        "image":"test.jpg",
+                        "status":"open",
+                        "created_at":123452,
+                        "updated_at":123452
+                    }
+                },
+                {
+                    "product":{
+                        "id":1,
+                        "image":"test.jpg",
+                        "status":"open",
+                        "created_at":123452,
+                        "updated_at":123452
+                    }
+                },
+                {
+                    "product":{
+                        "id":2,
+                        "image":"test.jpg",
+                        "status":"open",
+                        "created_at":123452,
+                        "updated_at":123452
+                    }
+                }
+            ],
+            "limit" : 20,
+            "page" : 1
+        }
+
+## Get Recommended [/following/recommended{?limit}{?uid}{?page}{?country_code}{?language_code}{?refresh}]
+### List Recommended [GET]
+
++ Parameters
+
+    + limit : 20 (number)
+    + uid : 1 (number)
+    + page : 1 (number)
+    + country_code : SG (string)
+    + language_code : EN (string)
+    + refresh : 1232 (number) - timestamp when the page is first loaded 
+    
++ Response 200 (application/json)
+
+        {
+            "data" : 
+            [
+                {
+                    "type":"spotlight",
+                    "type_label":"recommended by",
+                    "followee_uid":0,
+                    "seller":{
+                        "uid":2,
+                        "nickname" : "test 2",
+                        "avatar" : "test2.jpg",
+                        "items_count":10
+                    },
+                    "product" : [
+                        {
+                            "id":0,
+                            "image":"test.jpg",
+                            "status":"open",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":1,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":2,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":3,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":4,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        }
+                    ]
+                },
+                {
+                    "type":"liked",
+                    "type_label":"based on you liked",
+                    "followee_uid":0,
+                    "seller":{
+                        "uid":2,
+                        "nickname" : "test 2",
+                        "avatar" : "test2.jpg",
+                        "items_count":10
+                    },
+                    "product" : [
+                        {
+                            "id":0,
+                            "image":"test.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":1,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":2,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":3,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":4,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        }
+                    ]
+                },
+                {
+                    "type":"followee",
+                    "type_label":"recommended by",
+                    "followee_uid":0,
+                    "seller":{
+                        "uid":2,
+                        "nickname" : "test 2",
+                        "avatar" : "test2.jpg",
+                        "items_count":10
+                    },
+                    "product" : [
+                        {
+                            "id":0,
+                            "image":"test.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":1,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":2,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":3,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        },
+                        {
+                            "id":4,
+                            "image":"test1.jpg",
+                            "created_at":123452,
+                            "updated_at":123452
+                        }
+                    ]
+                }
+                
+            ],
+            "limit" : 20,
+            "page" : 1
+        }
+
+## Get Following [/following/feed/{?limit}{?uid}{?page}{?country_code}]
+### List Following Feed [GET]
+
++ Parameters
+
+    + limit : 20 (number)
+    + uid : 1 (number)
+    + page : 1 (number)
+    + country_code : SG (string)
+    
++ Response 200 (application/json)
+
+        {
+            "data" : 
+            [
+                {
+                    "seller":{
+                        "uid":2,
+                        "nickname" : "test 2",
+                        "avatar" : "test2.jpg"
+                    },
+                    "product" : {
+                        "id":0,
+                        "image":"test.jpg",
+                        "title":"women leather",
+                        "brand_name":"PRADA",
+                        "likes_count":0,
+                        "comments_count":0,
+                        "liked":true,
+                        "commented":true,
+                        "currency_code":"SGD",
+                        "description":"test",
+                        "status":"open",
+                        "selling_price":123.5,
+                        "country_code":"SG",
+                        "created_at":123452,
+                        "updated_at":123452
+                    }
+                }
+            ],
+            "limit" : 20,
+            "page" : 1
+        }
+
+# Group Activity And Conversation
+Api Design For activity such as social feed,conversation listing, conversation detail
+
+## Social Activity Feed [/activity/social{?limit}{?uid}{?page}{?country_code}]
+### List Social Feed [GET]
++ Parameters
+
+    + limit : 20 (number)
+    + uid   : 1 (number)
+    + page  : 1 (number)
+    + country_code : SG (string)
+    
++ Response 200 (application/json) 
+
+        {
+            "data" : [
+                {
+                   "sender" : {
+                        "uid" : 3,
+                        "nickname" : "A3",
+                        "avatar"   : "test4.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":2134,
+                        "image":"product4.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "sender" : {
+                        "uid" : 4,
+                        "nickname" : "A4",
+                        "avatar"   : "test4.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":2134,
+                        "image":"product4.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "sender" : {
+                        "uid" : 5,
+                        "nickname" : "A5",
+                        "avatar"   : "test5.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":2134,
+                        "image":"product5.jpeg",
+                        "status":"sold"
+                    }
+                }
+            ],
+            "limit": 20,
+            "page" : 1
+        }
+           
+
+## Get Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}]
+### get feed buying[GET]
++ Parameters
+
+    + limit : 20 (number)
+    + uid : 1 (number)
+    + page : 1
+
++ Response 200 (application/json)
+
+        {
+            "data" : [
+                {
+                     "sender" : {
+                        "uid" : -1,
+                        "nickname" : "Reebonz Atelier",
+                        "avatar"   : "reebonz_atelier.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code" : "SGD",
+                        "offer_price":900,
+                        "payout_price":800,
+                        "is_buyer_archive":false,
+                        "is_seller_archive":false,
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "negoitation_status":"-",
+                        "offer_price_commision":123,
+                        "icon":"icon",
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                     "sender" : {
+                        "uid" : 2,
+                        "nickname" : "Ardani",
+                        "avatar"   : "test_ardani.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code" : "SGD",
+                        "offer_price":900,
+                        "payout_price":800,
+                        "is_buyer_archive":false,
+                        "is_seller_archive":false,
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "negoitation_status":"-",
+                        "offer_price_commision":123,
+                        "icon":"icon",
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                     "sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code" : "SGD",
+                        "offer_price":900,
+                        "payout_price":800,
+                        "is_buyer_archive":false,
+                        "is_seller_archive":false,
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "negoitation_status":"-",
+                        "offer_price_commision":123,
+                        "icon":"icon",
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                }
+            ],
+            "limit": 20,
+            "page" : 1
+        }
+
+## Get Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}]
+### get feed selling [GET]
++ Parameters
+
+    + limit : 20 (number)
+    + uid : 1 (number)
+    + page : 1
+
++ Response 200 (application/json)
+
+        {
+            "data" : [
+                {
+                     "sender" : {
+                        "uid" : -1,
+                        "nickname" : "Reebonz Atelier",
+                        "avatar"   : "reebonz_atelier.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code" : "SGD",
+                        "last_offer_price":900,
+                        "last_payout_price":800,
+                        "is_buyer_archive":false,
+                        "is_seller_archive":false,
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "last_negoitation_status":"-",
+                        "last_offer_price_commision":123,
+                        "icon":"icon",
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                     "sender" : {
+                        "uid" : 2,
+                        "nickname" : "Ardani",
+                        "avatar"   : "test_ardani.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code" : "SGD",
+                        "last_offer_price":900,
+                        "last_payout_price":800,
+                        "is_buyer_archive":false,
+                        "is_seller_archive":false,
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "last_negoitation_status":"-",
+                        "last_offer_price_commision":123,
+                        "icon":"icon",
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                     "sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.php"
+                    },
+                    "conversation" : {
+                        "id" :1,
+                        "seller_uid" : 2,
+                        "buyer_uid":1,
+                        "destination_page" : "pdt detail",
+                        "system_message_code" : "liked",
+                        "message":"test",
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code" : "SGD",
+                        "last_offer_price":900,
+                        "last_payout_price":800,
+                        "is_buyer_archive":false,
+                        "is_seller_archive":false,
+                        "is_seen":true,
+                        "is_opened_buyer":true,
+                        "is_opened_seller":true,
+                        "last_negoitation_status":"-",
+                        "last_offer_price_commision":123,
+                        "icon":"icon",
+                        "created_at":21331313,
+                        "updated_at":12312312
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                }
+            ],
+            "limit": 20,
+            "page" : 1
+        }
+        
+
+## Action Chat Conversation [/conversation/chat]
+for seller and buyer
+### action conversation chat [POST]
++ Request
+
+        {
+           "type" : "message_sent/photo_send/offer_made/offer_withdrawn/offer_revise/offer_declined/offer_accepted",
+           "sender_uid":23,
+           "recepient_uid":24,
+           "image":"test.jpeg",
+           "message":"bla bla bla"
+           
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "data" : {
+                "status":true,
+                "message":"sent"
+            }
+        }
+
+## GET Chat Conversation [/conversation/chat/detail{?conversation_id}{?limit}{?page}{?sender_uid}]
+### action conversation chat [GET]
++ Parameters
+
+    + conversation_id : 1 (number)
+    + sender_uid:2 (number)
+    + limit : 20 (number)
+    + page : 1 (number)
+
++ Response 200 (application/json)
+
+        {
+            "data" : [
+                "product" :{
+                    "id" : 12,
+                    "brand_name":"prada",
+                    "category":"bags",
+                    "currency_code":"SGD",
+                    "country_code":"SG",
+                    "title":"saint laurent",
+                    "description":" sample description",
+                    "status":"open"
+                },
+                "seller": {
+                    "uid":1231,
+                    "nickname":"yessika",
+                    "avatar":"yessika.jpeg"
+                },
+                "conservation" :{
+                    "id":1,
+                    "buyer_uid":1242,
+                    "other_buyers":0,
+                    "last_offer_price":900,
+                    "last_payout_price":800,
+                    "last_negoitation_status":"-",
+                    "last_offer_price_commision":123,
+                },
+                "conservation_detail" :[
+                    {
+                        "id" : 1,
+                        "image":null,
+                        "message_code":"offer",
+                        "sender_uid":1231,
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code":"SGD",
+                        "seller_offer_price":0,
+                        "buyer_offer_price":0,
+                        "seller_payout_price":0,
+                        "order_id":0,
+                        "negotiation_status":null,
+                        "destination_path":"-",
+                        "created_at":12313131
+                    },
+                    {
+                        "id" : 2,
+                        "image":null,
+                        "message_code":"offer",
+                        "sender_uid":2,
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code":"SGD",
+                        "seller_offer_price":0,
+                        "buyer_offer_price":0,
+                        "seller_payout_price":0,
+                        "order_id":0,
+                        "negotiation_status":null,
+                        "destination_path":"-",
+                        "created_at":12313131
+                    },
+                    {
+                        "id" : 3,
+                        "image":null,
+                        "message_code":"offer",
+                        "sender_uid":-1,
+                        "buyer_currency_code":"SGD",
+                        "seller_currency_code":"SGD",
+                        "seller_offer_price":0,
+                        "buyer_offer_price":0,
+                        "seller_payout_price":0,
+                        "order_id":0,
+                        "negotiation_status":null,
+                        "destination_path":"-",
+                        "created_at":12313131
+                    }   
+                ]
+            ],
+            "limit" : 20,
+            "page" : 1
+        }
+
+## Action Negotiation Conversation [/conservation/negotiation]
+send conversation for system 
+### action negotiation chat [POST]
++ Request
+
+        {
+            "type" : "offer_accepted_reminder/accept_expired",
+            "sender_uid":23,
+            "recepient_uid":24,
+            "image":"test.jpeg",
+            "message":"bla bla bla"   
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data" : null
+        }
+
+## Action Negotiation Conversation [/conservation/sales]
+send conversation for system 
+### action conversation sales chat [POST]
++ Request
+
+        {
+            
+        }
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## Action Negotiation Conversation [/conservation/postsales]
+send conversation for system 
+### action conversation postsales chat [POST]
++ Request
+
+        {
+        
+        }
++ Response 200 (application/json)
+
+        {
+            "data" : null
+        }
+
+## Count Notification [/activity/notification/count{?uid}]
+### Count Activity Notification un seen [GET]
++ Parameters
+
+    + uid : 1 (number)
+    
++ Response 200 (application/json)
+
+        {
+            "data" :
+                "notification" : 23
+        }
+
+# Group Action Trigger Center
+Api Design for action trigger center
+
+## Trigger Center Social [/trigger/action/social]
+param {type}
+type social :
+    - liked
+    - commented
+    - comment_tagged
+    - item-sold
+    - item_price_drop
+    - item_deleted
+    - followed
+
+### Action trigger [POST]
++ Request
+
+        {
+            "trigger_type":"liked",
+            "sender_uid" :1,
+            "product_id": 10
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
+
+## Trigger Center Listing [/trigger/action/listing]
+param {type}
+type listing :
+    - item_submitted
+    - item_approved
+    - item_rejected
+
+### Action trigger [POST]
++ Request
+
+        {
+            "trigger_type":"item_submitted",
+            "sender_uid" :1,
+            "product_id": 10
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
+
+## Trigger Center Cart [/trigger/action/cart]
+param {type}
+type cart :
+    - pending_bank_transfer
+    - pending_offline_ipp
+    - pending_cancelled
+
+### Action trigger [POST]
++ Request
+
+        {
+            "trigger_type":"item_submitted",
+            "sender_uid" :1,
+            "product_id": 10
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
+
+## Trigger Center Post Sales [/trigger/action/postsales]
+param {type}
+type postsales :
+    - order_new
+    - order_collection_scheduled
+    - order_collection_succeeded
+    - order_collection_failed
+    - order_authentication_succeeded
+    - 
+
+### Action trigger [POST]
++ Request
+
+        {
+            "trigger_type":"item_submitted",
+            "sender_uid" :1,
+            "product_id": 10
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
