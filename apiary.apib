@@ -687,10 +687,8 @@ param {type}
            "sender_uid":23,
            "conversation_id":24,
            "image":"-",
-           "buyer_offer_price":0,
-           "seller_offer_price":0,
-           "buyer_currency_code":"SGD",
-           "seller_currency_code":"SGD",
+           "offer_price":0,
+           "currency_code":"SGD",
            "message":"bla bla bla"
            
         }
@@ -704,7 +702,7 @@ param {type}
             }
         }
 
-## Get Chat Conversation [/conversation/chat/detail{?conversation_id}{?limit}{?page}{?sender_uid}]
+## Get Chat Conversation [/conversation/chat/detail{?conversation_id}{?limit}{?page}{?sender_uid}{?language_code}]
 ### conversation chat [GET]
 + Parameters
 
@@ -712,6 +710,7 @@ param {type}
     + sender_uid:2 (number)
     + limit : 20 (number)
     + page : 1 (number)
+    + language_code : EN (string)
 
 + Response 200 (application/json)
 
@@ -731,12 +730,12 @@ param {type}
                 "seller": {
                     "uid":1231,
                     "nickname":"yessika",
-                    "avatar":"yessika.jpeg"
+                    "avatar":"yessika.jpg"
                 },
                 "buyer": {
                     "uid":1232,
                     "nickname":"ardani",
-                    "avatar":"ardani.jpeg"
+                    "avatar":"ardani.jpg"
                 },
                 "conversation" :{
                     "id":1,
