@@ -443,29 +443,23 @@ Api Design For activity such as social feed,conversation listing, conversation d
         {
             "data" : [
                 {
-                     "last_sender" : {
+                     "last_seller_sender" : {
                         "uid" : -1,
                         "nickname" : "Reebonz Atelier",
                         "avatar"   : "reebonz_atelier.jpg"
                     },
                     "conversation" : {
                         "id" :1,
-                        "seller_uid" : 2,
-                        "buyer_uid":1,
-                        "last_destination_page" : "pdt detail",
-                        "last_system_message_code" : "liked",
+                        "last_buyer_destination_page" : "pdt detail",
+                        "last_buyer_icon_filename":"icon.png",
+                        "last_buyer_system_message_code" : "liked",
                         "last_message":"test",
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code" : "SGD",
-                        "last_offer_price":900,
-                        "last_payout_price":800,
+                        "last_negotiation_status":"-",
                         "is_buyer_archive":false,
                         "is_seller_archive":false,
                         "is_seen":true,
                         "is_opened_buyer":true,
                         "is_opened_seller":true,
-                        "last_negoitation_status":"-",
-                        "last_offer_price_commission":123,
                         "icon_filename":"icon",
                         "created_at":21331313,
                         "updated_at":12312312
@@ -477,29 +471,23 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     }
                 },
                 {
-                     "last_sender" : {
+                     "last_seller_sender" : {
                         "uid" : 2,
                         "nickname" : "Ardani",
                         "avatar"   : "test_ardani.jpg"
                     },
                     "conversation" : {
                         "id" :1,
-                        "seller_uid" : 2,
-                        "buyer_uid":1,
-                        "last_destination_page" : "pdt detail",
-                        "last_system_message_code" : "liked",
+                        "last_buyer_destination_page" : "pdt detail",
+                        "last_buyer_icon_filename":"icon.png",
+                        "last_buyer_system_message_code" : "liked",
                         "last_message":"test",
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code" : "SGD",
-                        "last_offer_price":900,
-                        "last_payout_price":800,
+                        "last_negotiation_status":"-",
                         "is_buyer_archive":false,
                         "is_seller_archive":false,
                         "is_seen":true,
                         "is_opened_buyer":true,
                         "is_opened_seller":true,
-                        "last_negoitation_status":"-",
-                        "last_offer_price_commission":123,
                         "icon_filename":"icon",
                         "created_at":21331313,
                         "updated_at":12312312
@@ -511,29 +499,23 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     }
                 },
                 {
-                     "last_sender" : {
+                     "last_seller_sender" : {
                         "uid" : 3,
                         "nickname" : "Eko",
                         "avatar"   : "test_Eko.jpg"
                     },
                     "conversation" : {
                         "id" :1,
-                        "seller_uid" : 2,
-                        "buyer_uid":1,
-                        "last_destination_page" : "pdt detail",
-                        "last_system_message_code" : "liked",
+                        "last_buyer_destination_page" : "pdt detail",
+                        "last_buyer_icon_filename":"icon.png",
+                        "last_buyer_system_message_code" : "liked",
                         "last_message":"test",
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code" : "SGD",
-                        "last_offer_price":900,
-                        "last_payout_price":800,
+                        "last_negotiation_status":"-",
                         "is_buyer_archive":false,
                         "is_seller_archive":false,
                         "is_seen":true,
                         "is_opened_buyer":true,
                         "is_opened_seller":true,
-                        "last_negoitation_status":"-",
-                        "last_offer_price_commission":123,
                         "icon_filename":"icon",
                         "created_at":21331313,
                         "updated_at":12312312
@@ -563,29 +545,23 @@ Api Design For activity such as social feed,conversation listing, conversation d
         {
             "data" : [
                 {
-                     "last_sender" : {
+                     "last_buyer_sender" : {
                         "uid" : -1,
                         "nickname" : "Reebonz Atelier",
-                        "avatar"   : "reebonz_atelier.php"
+                        "avatar"   : "reebonz_atelier.jpg"
                     },
                     "conversation" : {
                         "id" :1,
-                        "seller_uid" : 2,
-                        "buyer_uid":1,
-                        "last_destination_page" : "pdt detail",
-                        "last_system_message_code" : "liked",
+                        "last_seller_destination_page" : "pdt detail",
+                        "last_seller_icon_filename":"icon.png",
+                        "last_seller_system_message_code" : "liked",
                         "last_message":"test",
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code" : "SGD",
-                        "last_offer_price":900,
-                        "last_payout_price":800,
+                        "last_negotiation_status":"-",
                         "is_buyer_archive":false,
                         "is_seller_archive":false,
                         "is_seen":true,
                         "is_opened_buyer":true,
                         "is_opened_seller":true,
-                        "last_negoitation_status":"-",
-                        "last_offer_price_commission":123,
                         "icon_filename":"icon",
                         "created_at":21331313,
                         "updated_at":12312312
@@ -597,69 +573,58 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     }
                 },
                 {
-                     "last_sender" : {
+                     "last_buyer_sender" : {
                         "uid" : 2,
                         "nickname" : "Ardani",
-                        "avatar"   : "test_ardani.php"
+                        "avatar"   : "test_ardani.jpg"
                     },
                     "conversation" : {
                         "id" :1,
-                        "seller_uid" : 2,
-                        "buyer_uid":1,
-                        "last_destination_page" : "pdt detail",
-                        "last_system_message_code" : "liked",
+                        "last_seller_destination_page" : "pdt detail",
+                        "last_seller_icon_filename":"icon.png",
+                        "last_seller_system_message_code" : "liked",
                         "last_message":"test",
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code" : "SGD",
-                        "last_offer_price":900,
-                        "last_payout_price":800,
+                        "last_negotiation_status":"-",
                         "is_buyer_archive":false,
                         "is_seller_archive":false,
                         "is_seen":true,
                         "is_opened_buyer":true,
                         "is_opened_seller":true,
-                        "last_negoitation_status":"-",
-                        "last_offer_price_commission":123,
                         "icon_filename":"icon",
                         "created_at":21331313,
                         "updated_at":12312312
                     },
                     "product":{
                         "id":213,
-                        "image":"product.jpeg",
+                        "image":"product.jpg",
                         "status":"sold"
                     }
                 },
                 {
-                     "sender" : {
+                     "last_buyer_sender" : {
                         "uid" : 3,
                         "nickname" : "Eko",
-                        "avatar"   : "test_Eko.php"
+                        "avatar"   : "test_Eko.jpg"
                     },
                     "conversation" : {
                         "id" :1,
-                        "buyer_uid":1,
-                        "last_destination_page" : "pdt detail",
-                        "last_system_message_code" : "liked",
+                        "last_seller_destination_page" : "pdt detail",
+                        "last_seller_icon_filename":"icon.png",
+                        "last_seller_system_message_code" : "liked",
                         "last_message":"test",
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code" : "SGD",
-                        "last_offer_price":900,
-                        "last_payout_price":800,
+                        "last_negotiation_status":"-",
                         "is_buyer_archive":false,
                         "is_seller_archive":false,
                         "is_seen":true,
                         "is_opened_buyer":true,
                         "is_opened_seller":true,
-                        "last_negoitation_status":"-",
-                        "last_offer_price_commission":123,
                         "icon_filename":"icon",
                         "created_at":21331313,
                         "updated_at":12312312
                     },
                     "product":{
                         "id":213,
-                        "image":"product.jpeg",
+                        "image":"product.jpg",
                         "status":"sold"
                     }
                 }
