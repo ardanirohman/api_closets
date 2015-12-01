@@ -358,7 +358,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                    "sender" : {
                         "uid" : 3,
                         "nickname" : "A3",
-                        "avatar"   : "test4.php"
+                        "avatar"   : "test4.jpg"
                     },
                     "social_feed" : {
                         "id" :1,
@@ -373,7 +373,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     },
                     "product":{
                         "id":2134,
-                        "image":"product4.jpeg",
+                        "image":"product4.jpg",
                         "status":"sold"
                     }
                 },
@@ -381,7 +381,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     "sender" : {
                         "uid" : 4,
                         "nickname" : "A4",
-                        "avatar"   : "test4.php"
+                        "avatar"   : "test4.jpg"
                     },
                     "social_feed" : {
                         "id" :1,
@@ -396,7 +396,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     },
                     "product":{
                         "id":2134,
-                        "image":"product4.jpeg",
+                        "image":"product4.jpg",
                         "status":"sold"
                     }
                 },
@@ -404,7 +404,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     "sender" : {
                         "uid" : 5,
                         "nickname" : "A5",
-                        "avatar"   : "test5.php"
+                        "avatar"   : "test5.jpg"
                     },
                     "social_feed" : {
                         "id" :1,
@@ -419,7 +419,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                     },
                     "product":{
                         "id":2134,
-                        "image":"product5.jpeg",
+                        "image":"product5.jpg",
                         "status":"sold"
                     }
                 }
@@ -429,14 +429,14 @@ Api Design For activity such as social feed,conversation listing, conversation d
         }
            
 
-## Get Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}{?country_code}]
+## Get Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}{?language_code}]
 ### Get feed buying[GET]
 + Parameters
 
     + limit : 20 (number)
     + uid : 1 (number)
     + page : 1
-    + country_code: SG (string)
+    + language_code : EN (string)
 
 + Response 200 (application/json)
 
@@ -446,7 +446,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                      "last_sender" : {
                         "uid" : -1,
                         "nickname" : "Reebonz Atelier",
-                        "avatar"   : "reebonz_atelier.php"
+                        "avatar"   : "reebonz_atelier.jpg"
                     },
                     "conversation" : {
                         "id" :1,
@@ -480,7 +480,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                      "last_sender" : {
                         "uid" : 2,
                         "nickname" : "Ardani",
-                        "avatar"   : "test_ardani.php"
+                        "avatar"   : "test_ardani.jpg"
                     },
                     "conversation" : {
                         "id" :1,
@@ -514,7 +514,7 @@ Api Design For activity such as social feed,conversation listing, conversation d
                      "last_sender" : {
                         "uid" : 3,
                         "nickname" : "Eko",
-                        "avatar"   : "test_Eko.php"
+                        "avatar"   : "test_Eko.jpg"
                     },
                     "conversation" : {
                         "id" :1,
@@ -549,14 +549,14 @@ Api Design For activity such as social feed,conversation listing, conversation d
             "page" : 1
         }
 
-## Get Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}{?country_code}]
+## Get Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}{?language_code}]
 ### Get feed selling [GET]
 + Parameters
 
     + limit : 20 (number)
     + uid : 1 (number)
     + page : 1
-    + country_code: SG (string)
+    + language_code: EN (string)
 
 + Response 200 (application/json)
 
