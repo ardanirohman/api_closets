@@ -4,6 +4,24 @@ HOST: http://closets.apiblueprint.org/api/v2
 # Closets API
 Documentation of API Closets 2.0.
 
+# Group Product
+Api Design for new data from closets 2.0
+## GET : Product  [/product/detail{?product_id}{?uid}]
+
+### List Product Detail [GET]
++ Parameters
+
+    + uid : 1 (number) - user uid login 
+
++ Response 200 (application/json)
+
+        {
+            "product" : {
+                "icon_filename":"icon.png",
+                "product_status_message": "you have purchased this item"
+            }
+        }
+
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
 ## GET : Followers And Followees [/following/follow{?limit}{?uid}{?page}{?type}]
