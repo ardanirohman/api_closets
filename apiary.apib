@@ -717,7 +717,7 @@ param {type}
                     {
                         "id" : 1,
                         "message_image":null,
-                        "message_code":"offer",
+                        "system_message_code":"offer",
                         "sender_uid":1231,
                         "buyer_currency_code":"SGD",
                         "seller_currency_code":"SGD",
@@ -726,7 +726,12 @@ param {type}
                         "seller_payout_price":0,
                         "order_id":0,
                         "icon_filename":"cart",
-                        "message":"test",
+                        "message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
+                        "token_message":{
+                            "seller_name" : "shopoholic",
+                            "date" : "1.45 today",
+                            "offer_price":"SGD 100"
+                        },
                         "negotiation_status":null,
                         "destination_path":"-",
                         "created_at":12313131
@@ -743,7 +748,10 @@ param {type}
                         "seller_payout_price":0,
                         "order_id":0,
                         "icon_filename":"cart",
-                        "message":"test",
+                        "message":"ITEM PURCHASED\n Congrats! You purchased this item from [seller_name]",
+                        "token_message":{
+                            "seller_name":"shopoholic"
+                        },
                         "negotiation_status":null,
                         "destination_path":"-",
                         "created_at":12313131
