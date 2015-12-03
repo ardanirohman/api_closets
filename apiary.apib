@@ -820,7 +820,7 @@ param {type}
 # Group Action Trigger Center
 Api Design for action trigger center
 
-## POST : Trigger Center Social [/trigger/action/social]
+## POST : Trigger Center Social [/trigger/social]
 param {type}
 type social :
     - liked
@@ -848,7 +848,7 @@ type social :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Chat [/trigger/action/chat]
+## POST : Trigger Center Chat [/trigger/chat]
 for seller and buyer
 param {type}
     - message_sent
@@ -879,7 +879,7 @@ param {type}
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Listing [/trigger/action/listing]
+## POST : Trigger Center Listing [/trigger/listing]
 param {type}
 type listing :
     - item_submitted
@@ -902,7 +902,7 @@ type listing :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Cart [/trigger/action/cart]
+## POST : Trigger Center Cart [/trigger/cart]
 param {type}
 type cart :
     - pending_bank_transfer
@@ -925,7 +925,7 @@ type cart :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Post Sales [/trigger/action/postsales]
+## POST : Trigger Center Post Sales [/trigger/postsales]
 param {type}
 type postsales :
     - order_new
@@ -974,7 +974,7 @@ type postsales :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Follow [/trigger/action/following]
+## POST : Trigger Center Follow [/trigger/following]
 param {type}
 type following :
     - user_register
