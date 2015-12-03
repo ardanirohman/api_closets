@@ -677,7 +677,9 @@ param {type}
            "image":"-",
            "offer_price":0,
            "currency_code":"SGD",
-           "message":"bla bla bla"
+           "message":"bla bla bla",
+           "product_id":1
+           
            
         }
         
@@ -838,6 +840,7 @@ type social :
             "trigger_type":"liked",
             "sender_uid" :1,
             "product_id": 10,
+            "language_code":"EN",
             "message":"if trigger type commented or comment_tagged"
         }
 
@@ -868,6 +871,7 @@ param {type}
             "product_id":1,
             "message" : "sample message",
             "offer_price":0,
+            "language_code":"EN",
             "buyer_currency_code":"SGD",
             "seller_currency_code":"SGD"
         }
@@ -892,7 +896,8 @@ type listing :
         {
             "trigger_type":"item_submitted",
             "sender_uid" :-1,
-            "product_title": "sample product title"
+            "product_title": "sample product title",
+            "language_code":"EN"
         }
 
 + Response 200 (application/json)
@@ -915,7 +920,8 @@ type cart :
         {
             "trigger_type":"pending_bank_transfer",
             "buyer_name":"user"
-            "product_title":"product title sample"
+            "product_title":"product title sample",
+            "language_code":"EN"
         }
 
 + Response 200 (application/json)
@@ -965,6 +971,7 @@ type postsales :
             "buyer_pickup_date":"2015-11-10",
             "seller_return_date":"2015-11-10"
             "refund_promise":"1 business day",
+            "language_code":"EN"
         }
 
 + Response 200 (application/json)
