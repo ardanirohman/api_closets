@@ -453,7 +453,7 @@ order by updated_at and unseen per page 5
            
 
 ## GET : Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}{?language_code}]
-### List Buying Feed [GET]
+### List Buying Feed [POST]
 + Parameters
 
     + limit : 20 (number)
@@ -555,7 +555,7 @@ order by updated_at and unseen per page 5
         }
 
 ## GET : Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}{?language_code}]
-### List Selling feed [GET]
+### List Selling feed [POST]
 + Parameters
 
     + limit : 20 (number)
@@ -691,7 +691,7 @@ param {type}
         }
 
 ## GET : Chat Conversation [/activity/chat{?conversation_id}{?limit}{?page}{?sender_uid}{?language_code}]
-### List Conversation chat [GET]
+### List Conversation chat [POST]
 + Parameters
 
     + conversation_id : 1 (number)
