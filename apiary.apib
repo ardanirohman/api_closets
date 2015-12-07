@@ -957,24 +957,6 @@ type postsales :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Follow [/trigger/following]
-param {type}
-type following :
-    - user_register
-### Action trigger follow [POST]
-+ Request
-
-        {
-            "trigger_type":"user_register",
-            "sender_uid" :1,
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status":true,
-            "message":"trigger action sent"
-        }
 
 ## POST : Trigger Like [/trigger/like]
 for like product
