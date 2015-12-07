@@ -937,11 +937,17 @@ type postsales :
 + Request
 
         {
-            "trigger_type":"order_new",
+            "type":"order_new",
+            "seller_uid":1233,
+            "buyer_uid":2000,
+            "seller_name":"sample seller name",
+            "buyer_name":"sample buyer name",
             "product_id":1,
             "schedule_collection_expiry":"1 business day",
             "refund_promise":"1 business day",
-            "language_code":"EN"
+            "seller_return_date":"date time",
+            "seller_pickup_date":23223443,
+            "buyer_pickup_date":3424242
         }
 
 + Response 200 (application/json)
