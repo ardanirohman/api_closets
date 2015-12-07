@@ -662,6 +662,31 @@ for seller and buyer
 param {type}
     - message_sent
     - photo_sent
+### Action Conversation chat [POST]
++ Request
+
+        {
+           "type" : "message_sent",
+           "seller_sender_uid":23,
+           "buyer_sender_uid":23,
+           "conversation_id":24,
+           "image":"-",
+           "message":"bla bla bla",
+           "product_id":1
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "data" : {
+                "status":true,
+                "message":"sent"
+            }
+        }
+
+## POST : Action Offer Conversation [/activity/send_offer]
+for seller and buyer
+param {type}
     - offer_made
     - offer_withdrawn
     - offer_revise
@@ -671,13 +696,14 @@ param {type}
 + Request
 
         {
-           "type" : "message_sent",
-           "sender_uid":23,
+           "type" : "offer_made",
+           "seller_sender_uid":22,
+           "buyer_sender_uid":23,
            "conversation_id":24,
-           "image":"-",
-           "offer_price":0,
-           "currency_code":"SGD",
-           "message":"bla bla bla",
+           "buyer_offer_price":0,
+           "seller_offer_price":0
+           "seller_currency_code":"SGD",
+           "buyer_currency_code":"SGD",
            "product_id":1,
            "negotiation_status":"-"
         }
