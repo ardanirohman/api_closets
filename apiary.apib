@@ -1000,8 +1000,9 @@ for like product
 
         {
             "product_id":1,
-            "uid":1,
-            "action":"like/unlike"
+            "sender_uid":1,
+            "action":"like/unlike",
+            "seller_uid":12,
         }
 
 + Response 200 (application/json)
@@ -1019,6 +1020,7 @@ for comment
 
         {
             "product_id":1,
+            "seller_uid":12,
             "uid":1
         }
 
