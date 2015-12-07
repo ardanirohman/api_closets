@@ -847,7 +847,7 @@ param {type}
 # Group Action Trigger Center
 Api Design for action trigger center
 
-## FUNCTION : Trigger Center Chat [/trigger/chat]
+## FUNCTION : Trigger Chat [/trigger/chat]
 function will call if conversation chat API, there no API
 param {type}
     - message_sent
@@ -872,7 +872,7 @@ param {type}
             "message":"trigger action sent"
         }
 
-## FUNCTION : Trigger Center Offer [/trigger/offer]
+## FUNCTION : Trigger Offer [/trigger/offer]
 function will call if conversation chat, there no API 
 param {type}
     - offer_made
@@ -906,7 +906,7 @@ param {type}
         }
 
 
-## POST : Trigger Center Order Status [/trigger/order]
+## POST : Trigger Order Status [/trigger/order]
 param {type}
 type cart :
     - pending_bank_transfer
@@ -922,7 +922,10 @@ type cart :
             "buyer_name":"sample buyer name",
             "seller_uid":12312,
             "buyer_uid":2134,
-            "product_id":1
+            "product_id":1,
+            "selling_price":21312,
+            "reebonz_bank_account":"reebonz bank account",
+            "order_id":12332
         }
 
 + Response 200 (application/json)
@@ -932,7 +935,7 @@ type cart :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Post Sales [/trigger/postsales]
+## POST : Trigger Post Sales [/trigger/postsales]
 param {type}
 type postsales :
     - order_new
