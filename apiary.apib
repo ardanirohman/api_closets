@@ -907,8 +907,8 @@ param {type}
 
 
 ## POST : Trigger Order Status [/trigger/order]
-param {type}
-type cart :
+param {order_status}
+type order :
     - pending_bank_transfer
     - pending_offline_ipp
     - pending_cancelled
@@ -936,8 +936,8 @@ type cart :
         }
 
 ## POST : Trigger Post Sales [/trigger/postsales]
-param {type}
-type postsales :
+param {fulfillment_status}
+type fulfillment_status :
     - order_new
     - order_collection_scheduled
     - order_collection_succeeded
