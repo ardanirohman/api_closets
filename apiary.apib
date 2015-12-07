@@ -882,7 +882,7 @@ param {type}
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Listing [/trigger/listing]
+## POST : Trigger Center Listing [/trigger/listings]
 param {type}
 type listing :
     - item_submitted
@@ -1043,22 +1043,14 @@ for product - item_sold - item_price_drop - item_deleted
                 "status":"new",
                 "seller_uid":23,
                 "title":"bags",
-                "price":123,
-                "country_code":"SG",
-                "currency_code":"SGD",
-                "updated_at":1123123,
-                "updated_by":"seller@email.com"
+                "price":123
             },
             "new":{
                 "product_id":1,
                 "status":"open",
                 "seller_uid":23,
                 "title":"bags",
-                "price":200,
-                "country_code":"SG",
-                "currency_code":"SGD",
-                "updated_at":1123123,
-                "updated_by":"seller@email.com"
+                "price":200
             }
         }
 
@@ -1069,3 +1061,19 @@ for product - item_sold - item_price_drop - item_deleted
             "message":"trigger action sent"
         }
 
+## POST : Trigger Product [/trigger/listing]
+for update status product by atelier 
+### Action trigger product [POST]
++ Request
+
+        {
+            "product_id":1,
+            "status":"open"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
