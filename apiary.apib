@@ -821,26 +821,22 @@ param {type}
 # Group Action Trigger Center
 Api Design for action trigger center
 
-## POST : Trigger Center Social [/trigger/social]
+## POST : Trigger Center Chat [/trigger/chat]
+for seller and buyer
 param {type}
-type social :
-    - liked
-    - commented
-    - comment_tagged
-    - item-sold
-    - item_price_drop
-    - item_deleted
-    - followed
+    - message_sent
+    - photo_sent
+    
 
-### Action trigger social [POST]
+### Action trigger chat [POST]
 + Request
 
         {
-            "trigger_type":"liked",
             "sender_uid" :1,
-            "product_id": 10,
-            "language_code":"EN",
-            "message":"if trigger type commented or comment_tagged"
+            "recepient_uid" : 2,
+            "product_id":1,
+            "type":"message_sent/photo_sent",
+            "message" : "sample message",
         }
 
 + Response 200 (application/json)
@@ -850,11 +846,9 @@ type social :
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Chat [/trigger/chat]
+## POST : Trigger Center Chat [/trigger/offer]
 for seller and buyer
 param {type}
-    - message_sent
-    - photo_send
     - offer_made
     - offer_withdrawn
     - offer_revise
@@ -864,11 +858,10 @@ param {type}
 + Request
 
         {
-            "trigger_type":"message_sent",
+            "type":"offer_made/offer_withdrawn/offer_revise/offer_declined/offer_accepted",
             "sender_uid" :1,
             "recepient_uid" : 2,
             "product_id":1,
-            "message" : "sample message",
             "offer_price":0,
             "language_code":"EN",
             "buyer_currency_code":"SGD",
@@ -882,29 +875,6 @@ param {type}
             "message":"trigger action sent"
         }
 
-## POST : Trigger Center Listing [/trigger/listings]
-param {type}
-type listing :
-    - item_submitted
-    - item_approved
-    - item_rejected
-
-### Action trigger listing [POST]
-+ Request
-
-        {
-            "trigger_type":"item_submitted",
-            "sender_uid" :-1,
-            "product_id":1,
-            "language_code":"EN"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status":true,
-            "message":"trigger action sent"
-        }
 
 ## POST : Trigger Center Cart [/trigger/cart]
 param {type}
