@@ -1032,4 +1032,40 @@ for comment
             "message":"trigger action sent"
         }
 
+## POST : Trigger Product Update [/trigger/product_update]
+for product
+### Action trigger product update [POST]
++ Request
+
+        {
+            "old":{
+                "product_id":1,
+                "status":"new",
+                "seller_uid":23,
+                "title":"bags",
+                "price":123,
+                "country_code":"SG",
+                "currency_code":"SGD",
+                "updated_at":1123123,
+                "updated_by":"seller@email.com"
+            },
+            "new":{
+                "product_id":1,
+                "status":"open",
+                "seller_uid":23,
+                "title":"bags",
+                "price":200,
+                "country_code":"SG",
+                "currency_code":"SGD",
+                "updated_at":1123123,
+                "updated_by":"seller@email.com"
+            }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"trigger action sent"
+        }
 
