@@ -1892,7 +1892,10 @@ social_ids - all social ids for user order by unseen & updated at
                 ],
                 
             },
-            "social_ids":[1,2,3,4,5],
+            "social_ids":{
+                "new" :[1,2,3,4,5],
+                "old" :[1,2,3,4,5]
+            },
             "limit": 20,
             "page" : 1
         }
@@ -2092,7 +2095,10 @@ social_ids - all social ids for user order by unseen & updated at
                     }
                 ]
             },
-            "conversation_ids":[1,2,3,4,5]
+            "conversation_ids":{
+                "new" : [1,2,3,4,5],
+                "old" : [16,7,8,9]
+            },
             "limit": 20,
             "page" : 1
         }
@@ -2405,6 +2411,25 @@ param {type}
             "data" :{
                 "status" : true,
                 "message" : "archieve successful"
+            }
+        }
+
+## POST : Open Social Feed Action [/activity/open_social_feed]
+### Action Archieve [POST]
+
++ Request
+
+        {
+            "social_feed_id" : 1,
+            "uid":1
+        }
+    
++ Response 200 (application/json)
+
+        {
+            "data" :{
+                "status" : true,
+                "message" : "social feed opened successful"
             }
         }
 
