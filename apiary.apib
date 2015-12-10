@@ -1805,84 +1805,91 @@ social_ids - all social ids for user order by unseen & updated at
     
 + Response 200 (application/json) 
 
-        {
-            "data" : [
-                {
-                    "id":1,
-                    "destination_page" : "pdt detail",
-                    "is_seen":true,
-                    "is_opened":true,
-                    "created_at":21331313,
-                    "updated_at":12312312,
-                    "sender" : {
-                        "uid" : 4,
-                        "nickname" : "A4",
-                        "avatar"   : "test4.jpg"
-                    },
-                    "social_feed" : {
-                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
-                        "system_message_tokens": {
-                            "sender_name":"user nickname",
-                            "product_title":"bags"
-                        }
-                    },
-                    "product":{
-                        "id":2134,
-                        "image":"product4.jpg",
-                        "status":"sold"
-                    }
+        {   
+            
+            "data" : {
+                "header" : {
+                    "social_is_opened" : false 
                 },
-                {
-                    "id":1,
-                    "destination_page" : "pdt detail",
-                    "is_seen":true,
-                    "is_opened":true,
-                    "created_at":21331313,
-                    "updated_at":12312312,
-                    "sender" : {
-                        "uid" : 4,
-                        "nickname" : "A4",
-                        "avatar"   : "test4.jpg"
-                    },
-                    "social_feed" : {
-                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
-                        "system_message_tokens": {
-                            "sender_name":"user nickname",
-                            "product_title":"bags"
+                "body" :[
+                    {
+                        "id":1,
+                        "destination_page" : "pdt detail",
+                        "is_seen":true,
+                        "is_opened":true,
+                        "created_at":21331313,
+                        "updated_at":12312312,
+                        "sender" : {
+                            "uid" : 4,
+                            "nickname" : "A4",
+                            "avatar"   : "test4.jpg"
+                        },
+                        "social_feed" : {
+                            "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                            "system_message_tokens": {
+                                "sender_name":"user nickname",
+                                "product_title":"bags"
+                            }
+                        },
+                        "product":{
+                            "id":2134,
+                            "image":"product4.jpg",
+                            "status":"sold"
                         }
                     },
-                    "product":{
-                        "id":2134,
-                        "image":"product4.jpg",
-                        "status":"sold"
-                    }
-                },
-                {
-                    "id":1,
-                    "destination_page" : "pdt detail",
-                    "is_seen":true,
-                    "is_opened":true,
-                    "created_at":21331313,
-                    "updated_at":12312312,
-                    "sender" : {
-                        "uid" : 4,
-                        "nickname" : "A4",
-                        "avatar"   : "test4.jpg"
-                    },
-                    "social_feed" : {
-                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
-                        "system_message_tokens": {
-                            "sender_name":"user nickname",
-                            "product_title":"bags"
+                    {
+                        "id":1,
+                        "destination_page" : "pdt detail",
+                        "is_seen":true,
+                        "is_opened":true,
+                        "created_at":21331313,
+                        "updated_at":12312312,
+                        "sender" : {
+                            "uid" : 4,
+                            "nickname" : "A4",
+                            "avatar"   : "test4.jpg"
+                        },
+                        "social_feed" : {
+                            "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                            "system_message_tokens": {
+                                "sender_name":"user nickname",
+                                "product_title":"bags"
+                            }
+                        },
+                        "product":{
+                            "id":2134,
+                            "image":"product4.jpg",
+                            "status":"sold"
                         }
                     },
-                    "product":{
-                        "id":2134,
-                        "image":"product4.jpg",
-                        "status":"sold"
-                    }
-                }
-            ],
+                    {
+                        "id":1,
+                        "destination_page" : "pdt detail",
+                        "is_seen":true,
+                        "is_opened":true,
+                        "created_at":21331313,
+                        "updated_at":12312312,
+                        "sender" : {
+                            "uid" : 4,
+                            "nickname" : "A4",
+                            "avatar"   : "test4.jpg"
+                        },
+                        "social_feed" : {
+                            "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                            "system_message_tokens": {
+                                "sender_name":"user nickname",
+                                "product_title":"bags"
+                            }
+                        },
+                        "product":{
+                            "id":2134,
+                            "image":"product4.jpg",
+                            "status":"sold"
+                        }
+                    }   
+                ],
+                
+            },
             "social_ids":[1,2,3,4,5],
             "limit": 20,
             "page" : 1
