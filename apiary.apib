@@ -1817,8 +1817,11 @@ social_ids - all social ids for user order by unseen & updated at
                         "id" :1,
                         "recipient_uid" : 2,
                         "destination_page" : "pdt detail",
-                        "system_message_code" : "liked",
-                        "message":"test",
+                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                        "system_message_tokens": {
+                            "sender_name":"user nickname",
+                            "product_title":"bags"
+                        },
                         "is_seen":true,
                         "is_opened":true,
                         "created_at":21331313,
