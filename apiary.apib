@@ -1808,50 +1808,23 @@ social_ids - all social ids for user order by unseen & updated at
         {
             "data" : [
                 {
-                   "sender" : {
-                        "uid" : 3,
-                        "nickname" : "A3",
-                        "avatar"   : "test4.jpg"
-                    },
-                    "social_feed" : {
-                        "id" :1,
-                        "recipient_uid" : 2,
-                        "destination_page" : "pdt detail",
-                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
-                        "system_message_tokens": {
-                            "sender_name":"user nickname",
-                            "product_title":"bags"
-                        },
-                        "is_seen":true,
-                        "is_opened":true,
-                        "created_at":21331313,
-                        "updated_at":12312312
-                    },
-                    "product":{
-                        "id":2134,
-                        "image":"product4.jpg",
-                        "status":"sold"
-                    }
-                },
-                {
+                    "id":1,
+                    "destination_page" : "pdt detail",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
                     "sender" : {
                         "uid" : 4,
                         "nickname" : "A4",
                         "avatar"   : "test4.jpg"
                     },
                     "social_feed" : {
-                        "id" :1,
-                        "recipient_uid" : 2,
-                        "destination_page" : "pdt detail",
                         "system_message" : "[sender_name] reduce the price of the item [product_title]",
                         "system_message_tokens": {
                             "sender_name":"user nickname",
                             "product_title":"bags"
-                        },
-                        "is_seen":true,
-                        "is_opened":true,
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        }
                     },
                     "product":{
                         "id":2134,
@@ -1860,28 +1833,52 @@ social_ids - all social ids for user order by unseen & updated at
                     }
                 },
                 {
+                    "id":1,
+                    "destination_page" : "pdt detail",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
                     "sender" : {
-                        "uid" : 5,
-                        "nickname" : "A5",
-                        "avatar"   : "test5.jpg"
+                        "uid" : 4,
+                        "nickname" : "A4",
+                        "avatar"   : "test4.jpg"
                     },
                     "social_feed" : {
-                        "id" :1,
-                        "recipient_uid" : 2,
-                        "destination_page" : "pdt detail",
                         "system_message" : "[sender_name] reduce the price of the item [product_title]",
                         "system_message_tokens": {
                             "sender_name":"user nickname",
                             "product_title":"bags"
-                        },
-                        "is_seen":true,
-                        "is_opened":true,
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        }
                     },
                     "product":{
                         "id":2134,
-                        "image":"product5.jpg",
+                        "image":"product4.jpg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "id":1,
+                    "destination_page" : "pdt detail",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "sender" : {
+                        "uid" : 4,
+                        "nickname" : "A4",
+                        "avatar"   : "test4.jpg"
+                    },
+                    "social_feed" : {
+                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                        "system_message_tokens": {
+                            "sender_name":"user nickname",
+                            "product_title":"bags"
+                        }
+                    },
+                    "product":{
+                        "id":2134,
+                        "image":"product4.jpg",
                         "status":"sold"
                     }
                 }
@@ -1891,13 +1888,13 @@ social_ids - all social ids for user order by unseen & updated at
             "page" : 1
         }
            
-## POST : Social Activity Feed [/activity/get_social_detail_byids]
+## POST : Social Activity Feed By Ids [/activity/get_social_detail_byids]
 
-### List Social feed [POST]
+### List Social feed By Ids [POST]
 + Request
 
         {
-            "social_id" : [1,2,3,5],
+            "social_ids" : [1,2,3,5],
             "uid" : 1
         }
 
@@ -1907,44 +1904,23 @@ social_ids - all social ids for user order by unseen & updated at
         {
             "data" : [
                 {
-                   "sender" : {
-                        "uid" : 3,
-                        "nickname" : "A3",
-                        "avatar"   : "test4.jpg"
-                    },
-                    "social_feed" : {
-                        "id" :1,
-                        "recipient_uid" : 2,
-                        "destination_page" : "pdt detail",
-                        "system_message_code" : "liked",
-                        "message":"test",
-                        "is_seen":true,
-                        "is_opened":true,
-                        "created_at":21331313,
-                        "updated_at":12312312
-                    },
-                    "product":{
-                        "id":2134,
-                        "image":"product4.jpg",
-                        "status":"sold"
-                    }
-                },
-                {
+                    "id":1,
+                    "destination_page" : "pdt detail",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
                     "sender" : {
                         "uid" : 4,
                         "nickname" : "A4",
                         "avatar"   : "test4.jpg"
                     },
                     "social_feed" : {
-                        "id" :1,
-                        "recipient_uid" : 2,
-                        "destination_page" : "pdt detail",
-                        "system_message_code" : "liked",
-                        "message":"test",
-                        "is_seen":true,
-                        "is_opened":true,
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                        "system_message_tokens": {
+                            "sender_name":"user nickname",
+                            "product_title":"bags"
+                        }
                     },
                     "product":{
                         "id":2134,
@@ -1953,124 +1929,145 @@ social_ids - all social ids for user order by unseen & updated at
                     }
                 },
                 {
+                    "id":1,
+                    "destination_page" : "pdt detail",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
                     "sender" : {
-                        "uid" : 5,
-                        "nickname" : "A5",
-                        "avatar"   : "test5.jpg"
+                        "uid" : 4,
+                        "nickname" : "A4",
+                        "avatar"   : "test4.jpg"
                     },
                     "social_feed" : {
-                        "id" :1,
-                        "recipient_uid" : 2,
-                        "destination_page" : "pdt detail",
-                        "system_message_code" : "liked",
-                        "message":"test",
-                        "is_seen":true,
-                        "is_opened":true,
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                        "system_message_tokens": {
+                            "sender_name":"user nickname",
+                            "product_title":"bags"
+                        }
                     },
                     "product":{
                         "id":2134,
-                        "image":"product5.jpg",
+                        "image":"product4.jpg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "id":1,
+                    "destination_page" : "pdt detail",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "sender" : {
+                        "uid" : 4,
+                        "nickname" : "A4",
+                        "avatar"   : "test4.jpg"
+                    },
+                    "social_feed" : {
+                        "system_message" : "[sender_name] reduce the price of the item [product_title]",
+                        "system_message_tokens": {
+                            "sender_name":"user nickname",
+                            "product_title":"bags"
+                        }
+                    },
+                    "product":{
+                        "id":2134,
+                        "image":"product4.jpg",
                         "status":"sold"
                     }
                 }
-            ],
-            "limit": 20,
-            "page" : 1
-        
+            ]
         }
         
-## GET : Buying Activity Feed [/activity/buying{?limit}{?uid}{?page}{?language_code}]
-### List Buying Feed [POST]
+
+## GET : Get Buying / Selling Conversation List [/activity/conversation{?limit}{?uid}{?page}{?language_code}{?type}]
+"conversation_ids" : all ids conversation
+### Get Conversation List [POST]
 + Parameters
 
     + limit : 20 (number)
     + uid : 1 (number)
     + page : 1
     + language_code : EN (string)
+    + type : selling/buying
 
 + Response 200 (application/json)
 
         {
             "data" : [
                 {
-                     "last_seller_sender" : {
-                        "uid" : -1,
-                        "nickname" : "Reebonz Atelier",
-                        "avatar"   : "reebonz_atelier.jpg"
-                    },
-                    "conversation" : {
-                        "id" :1,
-                        "last_buyer_destination_page" : "pdt detail",
-                        "last_buyer_icon_filename":"icon.png",
-                        "last_buyer_system_message_code" : "liked",
-                        "last_message":"test",
-                        "last_negotiation_status":"-",
-                        "is_buyer_archive":false,
-                        "is_seller_archive":false,
-                        "is_seen":true,
-                        "is_opened_buyer":true,
-                        "is_opened_seller":true,
-                        "icon_filename":"icon",
-                        "created_at":21331313,
-                        "updated_at":12312312
-                    },
-                    "product":{
-                        "id":213,
-                        "image":"product.jpeg",
-                        "status":"sold"
-                    }
-                },
-                {
-                     "last_seller_sender" : {
-                        "uid" : 2,
-                        "nickname" : "Ardani",
-                        "avatar"   : "test_ardani.jpg"
-                    },
-                    "conversation" : {
-                        "id" :1,
-                        "last_buyer_destination_page" : "pdt detail",
-                        "last_buyer_icon_filename":"icon.png",
-                        "last_buyer_system_message_code" : "liked",
-                        "last_message":"test",
-                        "last_negotiation_status":"-",
-                        "is_buyer_archive":false,
-                        "is_seller_archive":false,
-                        "is_seen":true,
-                        "is_opened_buyer":true,
-                        "is_opened_seller":true,
-                        "icon_filename":"icon",
-                        "created_at":21331313,
-                        "updated_at":12312312
-                    },
-                    "product":{
-                        "id":213,
-                        "image":"product.jpeg",
-                        "status":"sold"
-                    }
-                },
-                {
-                     "last_seller_sender" : {
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
                         "uid" : 3,
                         "nickname" : "Eko",
                         "avatar"   : "test_Eko.jpg"
                     },
                     "conversation" : {
-                        "id" :1,
-                        "last_buyer_destination_page" : "pdt detail",
-                        "last_buyer_icon_filename":"icon.png",
-                        "last_buyer_system_message_code" : "liked",
-                        "last_message":"test",
-                        "last_negotiation_status":"-",
-                        "is_buyer_archive":false,
-                        "is_seller_archive":false,
-                        "is_seen":true,
-                        "is_opened_buyer":true,
-                        "is_opened_seller":true,
-                        "icon_filename":"icon",
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.jpg"
+                    },
+                    "conversation" : {
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.jpg"
+                    },
+                    "conversation" : {
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
                     },
                     "product":{
                         "id":213,
@@ -2079,44 +2076,46 @@ social_ids - all social ids for user order by unseen & updated at
                     }
                 }
             ],
+            "conversation_ids":[1,2,3,4,5]
             "limit": 20,
             "page" : 1
         }
 
-## GET : Selling Activity Feed [/activity/selling{?limit}{?uid}{?page}{?type}{?language_code}]
-### List Selling feed [POST]
-+ Parameters
 
-    + limit : 20 (number)
-    + uid : 1 (number)
-    + page : 1
-    + language_code: EN (string)
+
+## POST : Get Buying / Selling Conversation List By Ids [/activity/get_conversation_detail_byids]
+### Get Conversation List By Ids [POST]
++ Request
+    
+        {
+            "conversation_ids":[1,2,3,4],
+            "type":"selling/buying",
+            "uid":1
+        }
 
 + Response 200 (application/json)
 
         {
             "data" : [
                 {
-                     "last_buyer_sender" : {
-                        "uid" : -1,
-                        "nickname" : "Reebonz Atelier",
-                        "avatar"   : "reebonz_atelier.jpg"
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.jpg"
                     },
                     "conversation" : {
-                        "id" :1,
-                        "last_seller_destination_page" : "pdt detail",
-                        "last_seller_icon_filename":"icon.png",
-                        "last_seller_system_message_code" : "liked",
-                        "last_message":"test",
-                        "last_negotiation_status":"-",
-                        "is_buyer_archive":false,
-                        "is_seller_archive":false,
-                        "is_seen":true,
-                        "is_opened_buyer":true,
-                        "is_opened_seller":true,
-                        "icon_filename":"icon",
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
                     },
                     "product":{
                         "id":213,
@@ -2125,66 +2124,164 @@ social_ids - all social ids for user order by unseen & updated at
                     }
                 },
                 {
-                     "last_buyer_sender" : {
-                        "uid" : 2,
-                        "nickname" : "Ardani",
-                        "avatar"   : "test_ardani.jpg"
-                    },
-                    "conversation" : {
-                        "id" :1,
-                        "last_seller_destination_page" : "pdt detail",
-                        "last_seller_icon_filename":"icon.png",
-                        "last_seller_system_message_code" : "liked",
-                        "last_message":"test",
-                        "last_negotiation_status":"-",
-                        "is_buyer_archive":false,
-                        "is_seller_archive":false,
-                        "is_seen":true,
-                        "is_opened_buyer":true,
-                        "is_opened_seller":true,
-                        "icon_filename":"icon",
-                        "created_at":21331313,
-                        "updated_at":12312312
-                    },
-                    "product":{
-                        "id":213,
-                        "image":"product.jpg",
-                        "status":"sold"
-                    }
-                },
-                {
-                     "last_buyer_sender" : {
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
                         "uid" : 3,
                         "nickname" : "Eko",
                         "avatar"   : "test_Eko.jpg"
                     },
                     "conversation" : {
-                        "id" :1,
-                        "last_seller_destination_page" : "pdt detail",
-                        "last_seller_icon_filename":"icon.png",
-                        "last_seller_system_message_code" : "liked",
-                        "last_message":"test",
-                        "last_negotiation_status":"-",
-                        "is_buyer_archive":false,
-                        "is_seller_archive":false,
-                        "is_seen":true,
-                        "is_opened_buyer":true,
-                        "is_opened_seller":true,
-                        "icon_filename":"icon",
-                        "created_at":21331313,
-                        "updated_at":12312312
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
                     },
                     "product":{
                         "id":213,
-                        "image":"product.jpg",
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.jpg"
+                    },
+                    "conversation" : {
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
+                        "status":"sold"
+                    }
+                },
+                {
+                    "id" :1,
+                    "last_destination_page" : "pdt detail",
+                    "last_icon_filename":"icon.png",
+                    "is_seen":true,
+                    "is_opened":true,
+                    "created_at":21331313,
+                    "updated_at":12312312,
+                    "last_sender" : {
+                        "uid" : 3,
+                        "nickname" : "Eko",
+                        "avatar"   : "test_Eko.jpg"
+                    },
+                    "conversation" : {
+                        "last_system_message" : "[sender_name] has made offer [offer_price]",
+                        "last_system_message_tokens":{
+                            "sender_name" : "sender nickname",
+                            "offer_price": 500
+                        }
+                    },
+                    "product":{
+                        "id":213,
+                        "image":"product.jpeg",
                         "status":"sold"
                     }
                 }
-            ],
-            "limit": 20,
-            "page" : 1
+            ]
         }
         
+## GET : Conversation Detail By Id [/activity/conversation_detail{?conversation_id}{?limit}{?page}{?uid}{?language_code}]
+### List Conversation Detail By Id [GET]
++ Parameters
+
+    + conversation_id : 1 (number)
+    + uid:2 (number)
+    + limit : 20 (number)
+    + page : 1 (number)
+    + language_code : EN (string)
+
++ Response 200 (application/json)
+
+        {
+            
+            "data" : {
+                "header": {
+                    "product":{
+                        "id" : 12,
+                        "brand_name":"prada",
+                        "image":"product.jpeg",
+                        "category":"bags",
+                        "currency_code":"SGD",
+                        "country_code":"SG",
+                        "title":"saint laurent",
+                        "status":"open"
+                    },
+                    "other_buyers":0,
+                    "currency_code":"SGD",
+                    "last_offer_price":900,
+                    "last_payout_price":800,
+                    "last_negotiation_status":"-",
+                    "user": {
+                        "uid":1231,
+                        "nickname":"yessika",
+                        "avatar":"yessika.jpg"
+                    }
+                },
+                "body" :[
+                    {
+                        "id" : 1,
+                        "sender":{
+                            "uid" : 1231,
+                            "nickname": "yessika",
+                            "avatar": "yessika.jpg"
+                            
+                        },
+                        "system_message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
+                        "system_message_tokens":{
+                            "seller_name" : "shopoholic",
+                            "date" : "1.45 today",
+                            "offer_price":"SGD 100",
+                            "icon_filename":"icon.jpg"
+                        },
+                        "destination_path":"-",
+                        "created_at":12313131
+                    },
+                    {
+                        "id" : 1,
+                        "sender":{
+                            "uid" : 1231,
+                            "nickname": "ardani",
+                            "avatar": "ardani.jpg"
+                            
+                        },
+                        "system_message":"[message]",
+                        "system_message_tokens":{
+                            "message":"hello"
+                        },
+                        "destination_path":"-",
+                        "created_at":12313131
+                    },
+                ],
+                "negotiation_action": ["accept","reject"]
+            },
+            
+            "limit" : 20,
+            "page" : 1
+        }
 
 ## POST : Action Chat Conversation [/activity/send_chat]
 for seller and buyer
@@ -2227,14 +2324,12 @@ param {type}
 + Request
 
         {
-           "type" : "offer_made",
+           "action" : "offer_made",
            "seller_uid":22,
            "buyer_uid":23,
            "sender_uid":23,
-           "buyer_offer_price":0,
-           "seller_offer_price":0,
-           "seller_currency_code":"SGD",
-           "buyer_currency_code":"SGD",
+           "offer_price":0,
+           "currency_code":"SGD",
            "product_id":1
         }
         
@@ -2242,121 +2337,25 @@ param {type}
 
         {
             "data" : {
-                "status":true,
-                "message":"sent"
+                "body" : {
+                    "id" : 1,
+                    "sender":{
+                        "uid" : 1231,
+                        "nickname": "yessika",
+                        "avatar": "yessika.jpg"
+                    },
+                    "system_message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
+                    "system_message_tokens":{
+                        "seller_name" : "shopoholic",
+                        "date" : "1.45 today",
+                        "offer_price":"SGD 100",
+                        "icon_filename":"icon.jpg"
+                    },
+                    "destination_path":"-",
+                    "created_at":12313131
+                },
+                "negotiation_action": ["accept","reject"],
             }
-        }
-
-## GET : Chat Conversation [/activity/chat{?conversation_id}{?limit}{?page}{?sender_uid}{?language_code}]
-### List Conversation chat [POST]
-+ Parameters
-
-    + conversation_id : 1 (number)
-    + sender_uid:2 (number)
-    + limit : 20 (number)
-    + page : 1 (number)
-    + language_code : EN (string)
-
-+ Response 200 (application/json)
-
-        {
-            "data" : {
-                "product":{
-                    "id" : 12,
-                    "brand_name":"prada",
-                    "image":"product.jpeg",
-                    "category":"bags",
-                    "currency_code":"SGD",
-                    "country_code":"SG",
-                    "title":"saint laurent",
-                    "description":" sample description",
-                    "status":"open"
-                },
-                "seller": {
-                    "uid":1231,
-                    "nickname":"yessika",
-                    "avatar":"yessika.jpg"
-                },
-                "buyer": {
-                    "uid":1232,
-                    "nickname":"ardani",
-                    "avatar":"ardani.jpg"
-                },
-                "conversation" :{
-                    "id":1,
-                    "other_buyers":0,
-                    "buyer_currency_code":"SGD",
-                    "seller_currency_code":"SGD",
-                    "buyer_last_offer_price":900,
-                    "seller_last_offer_price":900,
-                    "last_payout_price":800,
-                    "last_negotiation_status":"-",
-                    "last_offer_price_commission":123
-                },
-                "conversation_detail" :[
-                    {
-                        "id" : 1,
-                        "message_image":null,
-                        "system_message_code":"offer",
-                        "sender_uid":1231,
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code":"SGD",
-                        "seller_offer_price":0,
-                        "buyer_offer_price":0,
-                        "seller_payout_price":0,
-                        "order_id":0,
-                        "icon_filename":"cart",
-                        "message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
-                        "token_message":{
-                            "seller_name" : "shopoholic",
-                            "date" : "1.45 today",
-                            "offer_price":"SGD 100"
-                        },
-                        "negotiation_status":null,
-                        "destination_path":"-",
-                        "created_at":12313131
-                    },
-                    {
-                        "id" : 2,
-                        "message_image":null,
-                        "system_message_code":"offer",
-                        "sender_uid":2,
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code":"SGD",
-                        "seller_offer_price":0,
-                        "buyer_offer_price":0,
-                        "seller_payout_price":0,
-                        "order_id":0,
-                        "icon_filename":"cart",
-                        "message":"ITEM PURCHASED\n Congrats! You purchased this item from [seller_name]",
-                        "token_message":{
-                            "seller_name":"shopoholic"
-                        },
-                        "negotiation_status":null,
-                        "destination_path":"-",
-                        "created_at":12313131
-                    },
-                    {
-                        "id" : 3,
-                        "message_image":null,
-                        "system_message_code":"offer",
-                        "sender_uid":-1,
-                        "buyer_currency_code":"SGD",
-                        "seller_currency_code":"SGD",
-                        "seller_offer_price":0,
-                        "buyer_offer_price":0,
-                        "seller_payout_price":0,
-                        "order_id":0,
-                        "icon_filename":"cart",
-                        "message":"test",
-                        "negotiation_status":null,
-                        "destination_path":"-",
-                        "created_at":12313131
-                    }   
-                ]
-            },
-            "limit" : 20,
-            "page" : 1
         }
 
 
@@ -2371,6 +2370,25 @@ param {type}
         {
             "data" :{
                 "notification" : 23
+            }
+        }
+
+## POST : Archieve Action [/activity/archieve]
+### Action Archieve [POST]
+
++ Request
+
+        {
+            "conversation_id" : 1,
+            "uid":1
+        }
+    
++ Response 200 (application/json)
+
+        {
+            "data" :{
+                "status" : true,
+                "message" : "archieve successful"
             }
         }
 
@@ -2417,10 +2435,8 @@ param {type}
 + Request
 
         {
-            "type":"offer_made/offer_withdrawn/offer_revise/offer_declined/offer_accepted",
+            "action":"offer_made/offer_withdrawn/offer_revise/offer_declined/offer_accepted",
             "sender_uid" :1,
-            "seller_name":"name seller",
-            "buyer_name":"name buyer",
             "recepient_uid" : 2,
             "product_id":1,
             "product_title":"product title",
