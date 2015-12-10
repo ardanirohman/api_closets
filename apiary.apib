@@ -1809,7 +1809,9 @@ social_ids - all social ids for user order by unseen & updated at
             
             "data" : {
                 "header" : {
-                    "social_is_opened" : false 
+                    "social_is_opened" : false,
+                    "buying_is_opened" : true,
+                    "selling_is_opened" : false
                 },
                 "body" :[
                     {
@@ -2003,86 +2005,93 @@ social_ids - all social ids for user order by unseen & updated at
 + Response 200 (application/json)
 
         {
-            "data" : [
-                {
-                    "id" :1,
-                    "last_destination_page" : "pdt detail",
-                    "last_icon_filename":"icon.png",
-                    "is_seen":true,
-                    "is_opened":true,
-                    "created_at":21331313,
-                    "updated_at":12312312,
-                    "last_sender" : {
-                        "uid" : 3,
-                        "nickname" : "Eko",
-                        "avatar"   : "test_Eko.jpg"
-                    },
-                    "conversation" : {
-                        "last_system_message" : "[sender_name] has made offer [offer_price]",
-                        "last_system_message_tokens":{
-                            "sender_name" : "sender nickname",
-                            "offer_price": 500
+            "data" : {
+            "header" : {
+                "social_is_opened" : true,
+                "buying_is_opened" : false,
+                "selling_is_opened" : true
+            },
+            "body" : [
+                    {
+                        "id" :1,
+                        "last_destination_page" : "pdt detail",
+                        "last_icon_filename":"icon.png",
+                        "is_seen":true,
+                        "is_opened":true,
+                        "created_at":21331313,
+                        "updated_at":12312312,
+                        "last_sender" : {
+                            "uid" : 3,
+                            "nickname" : "Eko",
+                            "avatar"   : "test_Eko.jpg"
+                        },
+                        "conversation" : {
+                            "last_system_message" : "[sender_name] has made offer [offer_price]",
+                            "last_system_message_tokens":{
+                                "sender_name" : "sender nickname",
+                                "offer_price": 500
+                            }
+                        },
+                        "product":{
+                            "id":213,
+                            "image":"product.jpeg",
+                            "status":"sold"
                         }
                     },
-                    "product":{
-                        "id":213,
-                        "image":"product.jpeg",
-                        "status":"sold"
-                    }
-                },
-                {
-                    "id" :1,
-                    "last_destination_page" : "pdt detail",
-                    "last_icon_filename":"icon.png",
-                    "is_seen":true,
-                    "is_opened":true,
-                    "created_at":21331313,
-                    "updated_at":12312312,
-                    "last_sender" : {
-                        "uid" : 3,
-                        "nickname" : "Eko",
-                        "avatar"   : "test_Eko.jpg"
-                    },
-                    "conversation" : {
-                        "last_system_message" : "[sender_name] has made offer [offer_price]",
-                        "last_system_message_tokens":{
-                            "sender_name" : "sender nickname",
-                            "offer_price": 500
+                    {
+                        "id" :1,
+                        "last_destination_page" : "pdt detail",
+                        "last_icon_filename":"icon.png",
+                        "is_seen":true,
+                        "is_opened":true,
+                        "created_at":21331313,
+                        "updated_at":12312312,
+                        "last_sender" : {
+                            "uid" : 3,
+                            "nickname" : "Eko",
+                            "avatar"   : "test_Eko.jpg"
+                        },
+                        "conversation" : {
+                            "last_system_message" : "[sender_name] has made offer [offer_price]",
+                            "last_system_message_tokens":{
+                                "sender_name" : "sender nickname",
+                                "offer_price": 500
+                            }
+                        },
+                        "product":{
+                            "id":213,
+                            "image":"product.jpeg",
+                            "status":"sold"
                         }
                     },
-                    "product":{
-                        "id":213,
-                        "image":"product.jpeg",
-                        "status":"sold"
-                    }
-                },
-                {
-                    "id" :1,
-                    "last_destination_page" : "pdt detail",
-                    "last_icon_filename":"icon.png",
-                    "is_seen":true,
-                    "is_opened":true,
-                    "created_at":21331313,
-                    "updated_at":12312312,
-                    "last_sender" : {
-                        "uid" : 3,
-                        "nickname" : "Eko",
-                        "avatar"   : "test_Eko.jpg"
-                    },
-                    "conversation" : {
-                        "last_system_message" : "[sender_name] has made offer [offer_price]",
-                        "last_system_message_tokens":{
-                            "sender_name" : "sender nickname",
-                            "offer_price": 500
+                    {
+                        "id" :1,
+                        "last_destination_page" : "pdt detail",
+                        "last_icon_filename":"icon.png",
+                        "is_seen":true,
+                        "is_opened":true,
+                        "created_at":21331313,
+                        "updated_at":12312312,
+                        "last_sender" : {
+                            "uid" : 3,
+                            "nickname" : "Eko",
+                            "avatar"   : "test_Eko.jpg"
+                        },
+                        "conversation" : {
+                            "last_system_message" : "[sender_name] has made offer [offer_price]",
+                            "last_system_message_tokens":{
+                                "sender_name" : "sender nickname",
+                                "offer_price": 500
+                            }
+                        },
+                        "product":{
+                            "id":213,
+                            "image":"product.jpeg",
+                            "status":"sold"
                         }
-                    },
-                    "product":{
-                        "id":213,
-                        "image":"product.jpeg",
-                        "status":"sold"
                     }
-                }
-            ],
+                ]
+            },
             "conversation_ids":[1,2,3,4,5]
             "limit": 20,
             "page" : 1
