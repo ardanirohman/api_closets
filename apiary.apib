@@ -2436,67 +2436,6 @@ param {type}
 # Group Action Trigger Center
 Api Design for action trigger center
 
-## FUNCTION : Trigger Chat [/trigger/chat]
-function will call if conversation chat API, there no API
-param {type}
-    - message_sent
-    - photo_sent
-    
-
-### Action trigger chat [POST]
-+ Request
-
-        {
-            "seller_uid" :1,
-            "buyer_uid" : 2,
-            "sender_uid":1,
-            "product_id":1,
-            "type":"message_sent/photo_sent",
-            "message" : "sample message",
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status":true,
-            "message":"trigger action sent"
-        }
-
-## FUNCTION : Trigger Offer [/trigger/offer]
-function will call if conversation chat, there no API 
-param {type}
-    - offer_made
-    - offer_withdrawn
-    - offer_revise
-    - offer_declined
-    - offer_accepted
-    - offer_accepted_reminder
-    - offer_expired
-
-### Action trigger offer [POST]
-+ Request
-
-        {
-            "action":"offer_made/offer_withdrawn/offer_revise/offer_declined/offer_accepted",
-            "sender_uid" :1,
-            "recepient_uid" : 2,
-            "product_id":1,
-            "product_title":"product title",
-            "seller_offer_price":0,
-            "buyer_offer_price":0,
-            "buyer_currency_code":"SGD",
-            "seller_currency_code":"SGD",
-            "expiry_time":"time"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status":true,
-            "message":"trigger action sent"
-        }
-
-
 ## POST : Trigger Order Status [/trigger/order]
 param {order_status}
 type order :
