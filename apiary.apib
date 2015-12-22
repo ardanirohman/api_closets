@@ -2399,8 +2399,8 @@ param {type}
         }
 
 
-## GET : Count Unseen Notification [/notification/activity{?uid}]
-### Count activity notification unseen [GET]
+## POST : Count Unseen Notification [/notification/activity{?uid}]
+### Count activity notification unseen [POST]
 + Parameters
 
     + uid : 1 (number)
@@ -2413,7 +2413,7 @@ param {type}
             }
         }
 
-## POST : Archieve Conversation Action [/activity/conversation_archieve]
+## POST : Archieve Conversation Action [/activity/conversation_archive]
 ### Action Archieve Conversation [POST]
 
 + Request
@@ -2428,18 +2428,17 @@ param {type}
         {
             "data" :{
                 "status" : true,
-                "message" : "archieve successful"
+                "message" : "archive successful"
             }
         }
 
-## POST : Archive Social Feed Action [/activity/social_archive]
-### Action Archieve Social Feed [POST]
+## POST : Open Social Feed Action [/activity/social_open]
+### Action Open Social Feed [POST]
 
 + Request
 
         {
-            "social_feed_id" : 1,
-            "uid":1
+            "social_feed_id" : 1
         }
     
 + Response 200 (application/json)
@@ -2447,7 +2446,7 @@ param {type}
         {
             "data" :{
                 "status" : true,
-                "message" : "social feed opened successful"
+                "message" : "opened successful"
             }
         }
 
@@ -2608,7 +2607,7 @@ for update status product by atelier
 
         {
             "product_id":1,
-            "product_title":"bags",
+            "seller_uid":12,
             "action":"approve/reject"
         }
 
