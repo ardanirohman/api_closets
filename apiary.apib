@@ -18,12 +18,22 @@ default username : admin password: R1b0nz
 
 ## POST : User Login  [/user/login.json]
 ### Post User Login [POST]
+
 + Request
 
-        {
-            "username" : "admin",
-            "password" :"R1b0nz"
-        }
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
+
+            {
+                "username" : "admin",
+                "password" :"R1b0nz"
+            }
+
 + Response 200 (application/json)
 
         {
@@ -55,34 +65,33 @@ default username : admin password: R1b0nz
 
 ## POST : User Logout  [/user/logout.json]
 ### Post User Logout [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
 + Response 200 (application/json)
 
         [
             true
         ]
 
-# Group Product
-Api Design for new data from closets 2.0
-## GET : Product  [/product/detail.json{?product_id}{?uid}]
-### List Product Detail [GET]
-+ Parameters
-
-    + uid : 1 (number) - user uid login 
-
-+ Response 200 (application/json)
-
-        {
-            "product" : {
-                "icon_filename":"icon.png",
-                "product_status_message": "you have purchased this item"
-            }
-        }
-
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
 ## GET : Followers And Followees [/following/follow.json{?limit}{?uid}{?page}{?type}]
 
 ### List Follow [GET]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
 + Parameters
 
     + limit : 10  (number)
@@ -151,12 +160,18 @@ Api Design For Follower Following Feed Discover Recommendation
 ### Follow Unfollow Action [POST]
 
 + Request (application/json)
+    + Headers
 
-        {
-            "followee_uid":20,
-            "uid": 2,
-            "action" : "follow/unfollow"
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "followee_uid":20,
+                "uid": 2,
+                "action" : "follow/unfollow"
+            }
 
 + Response 200 (application/json)
 
@@ -169,6 +184,12 @@ Api Design For Follower Following Feed Discover Recommendation
 ## GET : Discover [/following/discover.json{?limit}{?uid}{?page}{?country_code}{?refresh}]
 
 ### List Discover [GET]
++ Request (application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
 + Parameters
 
     + limit : 20 (number)
@@ -371,7 +392,12 @@ Api Design For Follower Following Feed Discover Recommendation
 
 ## GET : Recommended [/following/recommended.json{?limit}{?uid}{?page}{?country_code}{?language_code}{?refresh}]
 ### List Recommended [GET]
++ Request (application/json)
+    + Headers
 
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
 + Parameters
 
     + limit : 20 (number)
@@ -1362,7 +1388,11 @@ Api Design For Follower Following Feed Discover Recommendation
 
 ## GET : Following [/following/feed.json{?limit}{?uid}{?page}{?country_code}]
 ### List Following Feed [GET]
++ Request (application/json)
+    + Headers
 
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
 + Parameters
 
     + limit : 20 (number)
@@ -1867,15 +1897,22 @@ Api Design For activity such as social feed,conversation listing, conversation d
 order by updated_at and unseen per page 5,
 social_ids - all social ids for user order by unseen & updated at 
 ### List Social feed [POST]
-+ Request
 
-        {
-            "limit" : 20,
-            "uid"   : 1,
-            "page"  : 1 - always 1,
-            "language_code":"EN"
-        }
++ Request (application/json)
+    
+    + Headers
+        
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
 
+            {
+                "limit" : 20,
+                "uid"   : 1,
+                "page"  : 1 - always 1,
+                "language_code":"EN"
+            }
     
 + Response 200 (application/json) 
 
@@ -1977,12 +2014,20 @@ social_ids - all social ids for user order by unseen & updated at
 ## POST : Social Activity Feed By Ids [/activity/get_social_detail_byids.json]
 
 ### List Social feed By Ids [POST]
-+ Request
 
-        {
-            "social_ids" : [1,2,3,5],
-            "uid" : 1
-        }
++ Request (application/json)
+    
+    + Headers
+        
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
+
+            {
+                "social_ids" : [1,2,3,5],
+                "uid" : 1
+            }
 
     
 + Response 200 (application/json)
@@ -2071,6 +2116,13 @@ social_ids - all social ids for user order by unseen & updated at
 ## POST : Get Buying / Selling Conversation List [/activity/conversation.json{?limit}{?uid}{?page}{?language_code}{?type}]
 "conversation_ids" : all ids conversation
 ### Get Conversation List [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
 + Parameters
 
     + limit : 20 (number)
@@ -2181,13 +2233,20 @@ social_ids - all social ids for user order by unseen & updated at
 
 ## POST : Get Buying / Selling Conversation List By Ids [/activity/get_conversation_detail_byids.json]
 ### Get Conversation List By Ids [POST]
-+ Request
++ Request(application/json)
+
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
     
-        {
-            "conversation_ids":[1,2,3,4],
-            "type":"selling/buying",
-            "uid":1
-        }
+    + Body
+    
+            {
+                "conversation_ids":[1,2,3,4],
+                "type":"selling/buying",
+                "uid":1
+            }
 
 + Response 200 (application/json)
 
@@ -2302,6 +2361,12 @@ social_ids - all social ids for user order by unseen & updated at
         
 ## GET : Conversation Details By Id [/activity/conversation_details.json{?conversation_id}{?limit}{?page}{?uid}{?language_code}]
 ### List Conversation Details By Id [GET]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
 + Parameters
 
     + conversation_id : 1 (number)
@@ -2385,17 +2450,23 @@ param {type}
     - message_sent
     - photo_sent
 ### Action Conversation chat [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-           "type" : "message_sent",
-           "seller_uid":20,
-           "buyer_uid":23,
-           "sender_uid":23,
-           "image":"-",
-           "message":"bla bla bla",
-           "product_id":1
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
+    
+            {
+                "type" : "message_sent",
+                "seller_uid":20,
+                "buyer_uid":23,
+                "sender_uid":23,
+                "image":"-",
+                "message":"bla bla bla",
+                "product_id":1
+            }
         
 + Response 200 (application/json)
 
@@ -2417,17 +2488,22 @@ param {type}
     - offer_accepted_reminder
     - offer_expired
 ### Action Offer Conversation [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-           "action" : "offer_made",
-           "seller_uid":22,
-           "buyer_uid":23,
-           "sender_uid":23,
-           "offer_price":0,
-           "currency_code":"SGD",
-           "product_id":1
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+        
+            {
+               "action" : "offer_made",
+               "seller_uid":22,
+               "buyer_uid":23,
+               "sender_uid":23,
+               "offer_price":0,
+               "currency_code":"SGD",
+               "product_id":1
+            }
         
 + Response 200 (application/json)
 
@@ -2457,6 +2533,12 @@ param {type}
 
 ## POST : Count Unseen Notification [/notification/activity.json{?uid}]
 ### Count activity notification unseen [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
 + Parameters
 
     + uid : 1 (number)
@@ -2472,12 +2554,17 @@ param {type}
 ## POST : Archieve Conversation Action [/activity/conversation_archive.json]
 ### Action Archieve Conversation [POST]
 
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "conversation_id" : 1,
-            "uid":1
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+    
+            {
+                "conversation_id" : 1,
+                "uid":1
+            }
     
 + Response 200 (application/json)
 
@@ -2491,11 +2578,17 @@ param {type}
 ## POST : Open Social Feed Action [/activity/social_open.json]
 ### Action Open Social Feed [POST]
 
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "social_feed_id" : 1
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
+    
+            {
+                "social_feed_id" : 1
+            }
     
 + Response 200 (application/json)
 
@@ -2517,19 +2610,24 @@ type order :
     - pending_cancelled
 
 ### Action trigger order status [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "order_status":"pending_bank_transfer/pending_offline_ipp/pending_cancelled",
-            "seller_uid":12312,
-            "buyer_uid":2134,
-            "product_id":1,
-            "selling_price":21312,
-            "reebonz_bank_account":"reebonz bank account",
-            "order_id":12332,
-            "currency_code":"SGD",
-            "bank_transfer_expiry":"time expiry" 
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+    
+            {
+                "order_status":"pending_bank_transfer/pending_offline_ipp/pending_cancelled",
+                "seller_uid":12312,
+                "buyer_uid":2134,
+                "product_id":1,
+                "selling_price":21312,
+                "reebonz_bank_account":"reebonz bank account",
+                "order_id":12332,
+                "currency_code":"SGD",
+                "bank_transfer_expiry":"time expiry" 
+            }
 
 + Response 200 (application/json)
 
@@ -2566,19 +2664,25 @@ type fulfillment_status :
     - return_delivery_failed
 
 ### Action trigger post sales [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "fulfillment_status":"order_new",
-            "seller_uid":1233,
-            "buyer_uid":2000,
-            "product_id":1,
-            "schedule_collection_expiry":"1",
-            "refund_promise":"1",
-            "seller_return_date":"date time",
-            "seller_pickup_date":"date time",
-            "buyer_pickup_date":"date time"
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "fulfillment_status":"order_new",
+                "seller_uid":1233,
+                "buyer_uid":2000,
+                "product_id":1,
+                "schedule_collection_expiry":"1",
+                "refund_promise":"1",
+                "seller_return_date":"date time",
+                "seller_pickup_date":"date time",
+                "buyer_pickup_date":"date time"
+            }
 
 + Response 200 (application/json)
 
@@ -2591,14 +2695,19 @@ type fulfillment_status :
 ## POST : Trigger Like [/trigger/like.json]
 for like product
 ### Action trigger like [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "product_id":1,
-            "sender_uid":1,
-            "action":"like/unlike",
-            "seller_uid":12,
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+    
+            {
+                "product_id":1,
+                "sender_uid":1,
+                "action":"like/unlike",
+                "seller_uid":12,
+            }
 
 + Response 200 (application/json)
 
@@ -2610,15 +2719,20 @@ for like product
 ## POST : Trigger Comment [/trigger/comment.json]
 for comment
 ### Action trigger comment [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "product_id":1,
-            "seller_uid":12,
-            "sender_uid":1,
-            "message":"sample message",
-            "action":"insert/delete"
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+    
+            {
+                "product_id":1,
+                "seller_uid":12,
+                "sender_uid":1,
+                "message":"sample message",
+                "action":"insert/delete"
+            }
 
 + Response 200 (application/json)
 
@@ -2630,24 +2744,29 @@ for comment
 ## POST : Trigger Product [/trigger/product.json]
 for product - item_sold - item_price_drop - item_deleted - item submitted
 ### Action trigger product [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "old":{
-                "product_id":1,
-                "status":"new",
-                "seller_uid":23,
-                "title":"bags",
-                "price":123
-            },
-            "new":{
-                "product_id":1,
-                "status":"open",
-                "seller_uid":23,
-                "title":"bags",
-                "price":200
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+    
+            {
+                "old":{
+                    "product_id":1,
+                    "status":"new",
+                    "seller_uid":23,
+                    "title":"bags",
+                    "price":123
+                },
+                "new":{
+                    "product_id":1,
+                    "status":"open",
+                    "seller_uid":23,
+                    "title":"bags",
+                    "price":200
+                }
             }
-        }
 
 + Response 200 (application/json)
 
@@ -2659,13 +2778,18 @@ for product - item_sold - item_price_drop - item_deleted - item submitted
 ## POST : Trigger Listing [/trigger/listing.json]
 for update status product by atelier 
 ### Action trigger listing [POST]
-+ Request
++ Request(application/json)
+    + Headers
 
-        {
-            "product_id":1,
-            "seller_uid":12,
-            "action":"approve/reject"
-        }
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+    
+            {
+                "product_id":1,
+                "seller_uid":12,
+                "action":"approve/reject"
+            }
 
 + Response 200 (application/json)
 
