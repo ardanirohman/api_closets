@@ -4,10 +4,66 @@ HOST: http://api.closets.local.closets.ardani.rb.skyshi.com/closets/rest/v2
 # Closets API
 Documentation of API Closets 2.0.
 
+# Group User Auth
+Api for get authentication for user closets
+default username : admin password: R1b0nz
+## POST : Token Auth  [/user/token.json]
+### Get Token Auth [POST]
+
++ Response 200 (application/json)
+
+        {
+            "token": "6mIYkXFpFMBdzn2VmeoBUDo0h0Dit3NEwL2mG5K8v0Y"
+        }
+
+## POST : User Login  [/user/login.json]
+### Post User Login [POST]
++ Request
+
+        {
+            "username" : "admin",
+            "password" :"R1b0nz"
+        }
++ Response 200 (application/json)
+
+        {
+          "sessid": "lb6vzNc7i0gIW4Z51hIXSbELNgp9t6S0j_6VfFEQznI",
+          "session_name": "SESSc702652cdef3c297c544a85b5b5e5c83",
+          "token": "Ax1YoRimgEYH9bo3LK1frw8fR0TpRnctfAmeqKOlK7k",
+          "user": {
+            "uid": "1",
+            "name": "admin",
+            "mail": "rizqinofa.muliawan@reebonz.com",
+            "theme": "",
+            "signature": "",
+            "signature_format": null,
+            "created": "1447405847",
+            "access": "1450859920",
+            "login": 1450860079,
+            "status": "1",
+            "timezone": "Asia/Singapore",
+            "language": "",
+            "picture": null,
+            "init": "rizqinofa.muliawan@reebonz.com",
+            "data": false,
+            "roles": {
+              "2": "authenticated user",
+              "3": "administrator"
+            }
+          }
+        }
+
+## POST : User Logout  [/user/logout.json]
+### Post User Logout [POST]
++ Response 200 (application/json)
+
+        [
+            true
+        ]
+
 # Group Product
 Api Design for new data from closets 2.0
-## GET : Product  [/product/detail{?product_id}{?uid}]
-
+## GET : Product  [/product/detail.json{?product_id}{?uid}]
 ### List Product Detail [GET]
 + Parameters
 
@@ -24,7 +80,7 @@ Api Design for new data from closets 2.0
 
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
-## GET : Followers And Followees [/following/follow{?limit}{?uid}{?page}{?type}]
+## GET : Followers And Followees [/following/follow.json{?limit}{?uid}{?page}{?type}]
 
 ### List Follow [GET]
 + Parameters
@@ -91,7 +147,7 @@ Api Design For Follower Following Feed Discover Recommendation
             "page" : 1
         }
 
-## POST : Follow Unfollow Action [/following/follow]
+## POST : Follow Unfollow Action [/following/follow.json]
 ### Follow Unfollow Action [POST]
 
 + Request (application/json)
@@ -110,7 +166,7 @@ Api Design For Follower Following Feed Discover Recommendation
         }
 
 
-## GET : Discover [/following/discover{?limit}{?uid}{?page}{?country_code}{?refresh}]
+## GET : Discover [/following/discover.json{?limit}{?uid}{?page}{?country_code}{?refresh}]
 
 ### List Discover [GET]
 + Parameters
@@ -313,7 +369,7 @@ Api Design For Follower Following Feed Discover Recommendation
           "refresh": "39534331449553766"
         }
 
-## GET : Recommended [/following/recommended{?limit}{?uid}{?page}{?country_code}{?language_code}{?refresh}]
+## GET : Recommended [/following/recommended.json{?limit}{?uid}{?page}{?country_code}{?language_code}{?refresh}]
 ### List Recommended [GET]
 
 + Parameters
@@ -1304,7 +1360,7 @@ Api Design For Follower Following Feed Discover Recommendation
               "refresh": "39534331449553394"
             }
 
-## GET : Following [/following/feed{?limit}{?uid}{?page}{?country_code}]
+## GET : Following [/following/feed.json{?limit}{?uid}{?page}{?country_code}]
 ### List Following Feed [GET]
 
 + Parameters
