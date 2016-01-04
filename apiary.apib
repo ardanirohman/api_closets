@@ -6,7 +6,7 @@ Documentation of API Closets 2.0.
 
 # Group User Auth
 Api for get authentication for user closets
-default username : admin password: R1b0nz
+default username : admin password: R1b0nz, Cookie is "session_name = sessid ", you can get from result of user login 
 ## POST : Token Auth  [/user/token.json]
 ### Get Token Auth [POST]
 
@@ -72,6 +72,7 @@ default username : admin password: R1b0nz
             Content-Type: application/json
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
 
 + Response 200 (application/json)
 
@@ -91,6 +92,7 @@ Api Design For Follower Following Feed Discover Recommendation
             Content-Type: application/json
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
 
 + Parameters
 
@@ -164,9 +166,10 @@ Api Design For Follower Following Feed Discover Recommendation
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
 
     + Body
-
+    
             {
                 "followee_uid":20,
                 "uid": 2,
@@ -189,6 +192,7 @@ Api Design For Follower Following Feed Discover Recommendation
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
             
 + Parameters
 
@@ -397,6 +401,7 @@ Api Design For Follower Following Feed Discover Recommendation
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
             
 + Parameters
 
@@ -1393,6 +1398,8 @@ Api Design For Follower Following Feed Discover Recommendation
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
 + Parameters
 
     + limit : 20 (number)
@@ -1901,12 +1908,13 @@ social_ids - all social ids for user order by unseen & updated at
 + Request (application/json)
     
     + Headers
-        
+
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
     
     + Body
-
+    
             {
                 "limit" : 20,
                 "uid"   : 1,
@@ -2018,12 +2026,13 @@ social_ids - all social ids for user order by unseen & updated at
 + Request (application/json)
     
     + Headers
-        
+
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
     
     + Body
-
+    
             {
                 "social_ids" : [1,2,3,5],
                 "uid" : 1
@@ -2122,13 +2131,13 @@ social_ids - all social ids for user order by unseen & updated at
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
             
 + Parameters
 
     + limit : 20 (number)
     + uid : 1 (number)
     + page : 1
-    + language_code : EN (string)
     + type : selling/buying
 
 + Response 200 (application/json)
@@ -2236,9 +2245,10 @@ social_ids - all social ids for user order by unseen & updated at
 + Request(application/json)
 
     + Headers
-
+    
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
     
     + Body
     
@@ -2366,6 +2376,7 @@ social_ids - all social ids for user order by unseen & updated at
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
             
 + Parameters
 
@@ -2373,7 +2384,6 @@ social_ids - all social ids for user order by unseen & updated at
     + uid:2 (number)
     + limit : 20 (number)
     + page : 1 (number)
-    + language_code : EN (string)
 
 + Response 200 (application/json)
 
@@ -2455,6 +2465,7 @@ param {type}
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
     
     + Body
     
@@ -2493,8 +2504,10 @@ param {type}
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
     + Body
-        
+            
             {
                "action" : "offer_made",
                "seller_uid":22,
@@ -2538,6 +2551,7 @@ param {type}
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
 
 + Parameters
 
@@ -2559,6 +2573,7 @@ param {type}
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
     + Body
     
             {
@@ -2583,6 +2598,7 @@ param {type}
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
     
     + Body
     
@@ -2615,6 +2631,8 @@ type order :
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
     + Body
     
             {
@@ -2669,6 +2687,7 @@ type fulfillment_status :
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
             
     + Body
     
@@ -2700,6 +2719,8 @@ for like product
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
     + Body
     
             {
@@ -2724,6 +2745,8 @@ for comment
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
     + Body
     
             {
@@ -2749,6 +2772,8 @@ for product - item_sold - item_price_drop - item_deleted - item submitted
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
     + Body
     
             {
@@ -2783,6 +2808,8 @@ for update status product by atelier
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
     + Body
     
             {
