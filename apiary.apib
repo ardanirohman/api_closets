@@ -80,6 +80,167 @@ default username : admin password: R1b0nz, Cookie is "session_name = sessid ", y
             true
         ]
 
+# Group Preset
+Api Design for Preset Data
+## GET : Country [/preset/country.json{?country_code}]
+### List Country [GET]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
++ Parameters
+
+    + country_code : SG (string) - optional
+    
++ Response 200 (application/json)
+
+        {
+            "data" : 
+            [
+                {
+                    "code" : "SG",
+                    "name" : "Singapore",
+                    "currency_code" : "SGD",
+                    "contact_email" : "closets@reebonz.com",
+                    "contact_no" : 123456,
+                    "url" : "http://www.reebonz.com.sg",
+                    "default_language_code" : "EN"
+                },
+                {
+                    "code" : "MY",
+                    "name" : "Malaysia",
+                    "currency_code" : "MYR",
+                    "contact_email" : "conciergemy@reebonz.com",
+                    "contact_no" : 123456,
+                    "url" : "http://www.reebonz.com.my",
+                    "default_language_code" : "EN"
+                },
+                {
+                    "code" : "HK",
+                    "name" : "Hongkong",
+                    "currency_code" : "HKD",
+                    "contact_email" : "conciergehk@reebonz.com",
+                    "contact_no" : 123456,
+                    "url" : "http://www.reebonz.com.hk",
+                    "default_language_code" : "zh-hk"
+                }
+            ]
+        }
+
+## GET : Category [/preset/category.json{country_code}{language_code}{?category_id}]
+show active category
+### List Category [GET]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
++ Parameters
+
+    + country_code : SG (string)
+    + language_code : EN (string)
+    + category_id : 1 (number) - optional
+    
++ Response 200 (application/json)
+
+        {
+            "data" : 
+            [
+                {
+                    "id" : 1,
+                    "category_name" : "APPAREL",
+                    "localization" : "APPAREL",
+                },
+                {
+                    "id" : 2,
+                    "category_name" : "ACCESSORIES",
+                    "localization" : "ACCESSORIES",
+                },
+                {
+                    "id" : 3,
+                    "category_name" : "JEWELLERY",
+                    "localization" : "JEWELLERY",
+                }
+            ]
+        }
+
+## GET : Brand [/preset/brand.json{country_code}{category_id}{?brand_id}]
+show active brand 
+### List Brand [GET]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
++ Parameters
+
+    + country_code : SG (string)
+    + category_id : 1 (number)
+    + brand_id : 1 (number) - optional
+    
++ Response 200 (application/json)
+
+        {
+            "data" : 
+            [
+                {
+                    "id" : 1,
+                    "brand_name" : "3.1 PHILLIP LIM",
+                    "min_price" : 200
+                },
+                {
+                    "id" : 2,
+                    "brand_name" : "A.LANGE & SÖHNE",
+                    "min_price" : 200
+                },
+                {
+                    "id" : 3,
+                    "brand_name" : "AGNÈS B",
+                    "min_price" : 200
+                }
+            ]
+        }
+
+## GET : Commission [/preset/commission.json{country_code}{category_id}{brand_id}{price}]
+### List Commission [GET]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+            
++ Parameters
+
+    + country_code : SG (string)
+    + category_id : 1 (number)
+    + brand_id : 1 (number)
+    + price: 1000 (number)
+    
++ Response 200 (application/json)
+
+        {
+            "data" :
+            {
+                "brand_name" : "3.1 PHILLIP LIM",
+                "commission" : "0.1"
+            }
+        }
+
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
 ## GET : Followers And Followees [/following/follow.json{?limit}{?uid}{?page}{?type}]
@@ -2640,11 +2801,8 @@ type order :
                 "seller_uid":12312,
                 "buyer_uid":2134,
                 "product_id":1,
-                "selling_price":21312,
-                "reebonz_bank_account":"reebonz bank account",
                 "order_id":12332,
-                "currency_code":"SGD",
-                "bank_transfer_expiry":"time expiry" 
+                "reebonz_bank_account":"reebonz bank account",
             }
 
 + Response 200 (application/json)
