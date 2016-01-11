@@ -131,7 +131,7 @@ Api Design for Preset Data
             ]
         }
 
-## GET : Category [/preset/category.json{country_code}{language_code}{?category_id}]
+## GET : Category [/preset/category.json{?country_code}{?language_code}{?category_id}]
 show active category
 ### List Category [GET]
 + Request
@@ -152,27 +152,27 @@ show active category
 + Response 200 (application/json)
 
         {
-            "data" : 
+            "data" :
             [
                 {
                     "id" : 1,
                     "category_name" : "APPAREL",
-                    "localization" : "APPAREL",
+                    "localization" : "APPAREL"
                 },
                 {
                     "id" : 2,
                     "category_name" : "ACCESSORIES",
-                    "localization" : "ACCESSORIES",
+                    "localization" : "ACCESSORIES"
                 },
                 {
                     "id" : 3,
                     "category_name" : "JEWELLERY",
-                    "localization" : "JEWELLERY",
+                    "localization" : "JEWELLERY"
                 }
             ]
         }
 
-## GET : Brand [/preset/brand.json{country_code}{category_id}{?brand_id}]
+## GET : Brand [/preset/brand.json{?country_code}{?category_id}{?brand_id}]
 show active brand 
 ### List Brand [GET]
 + Request
@@ -198,22 +198,25 @@ show active brand
                 {
                     "id" : 1,
                     "brand_name" : "3.1 PHILLIP LIM",
+                    "currency_code" : "SGD",
                     "min_price" : 200
                 },
                 {
                     "id" : 2,
                     "brand_name" : "A.LANGE & SÖHNE",
+                    "currency_code" : "SGD",
                     "min_price" : 200
                 },
                 {
                     "id" : 3,
                     "brand_name" : "AGNÈS B",
+                    "currency_code" : "SGD",
                     "min_price" : 200
                 }
             ]
         }
 
-## GET : Commission [/preset/commission.json{country_code}{category_id}{brand_id}{price}]
+## GET : Commission [/preset/commission.json{?country_code}{?category_id}{?price}]
 ### List Commission [GET]
 + Request
 
@@ -228,7 +231,6 @@ show active brand
 
     + country_code : SG (string)
     + category_id : 1 (number)
-    + brand_id : 1 (number)
     + price: 1000 (number)
     
 + Response 200 (application/json)
@@ -236,7 +238,7 @@ show active brand
         {
             "data" :
             {
-                "brand_name" : "3.1 PHILLIP LIM",
+                "category_name" : "ACCESSORIS",
                 "commission" : "0.1"
             }
         }
@@ -370,7 +372,7 @@ Api Design For Follower Following Feed Discover Recommendation
           "data": [
             {
               "product": {
-                "id": "60",
+                "id": "5063",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -379,7 +381,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "35",
+                "id": "5075",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -388,7 +390,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "70",
+                "id": "5187",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -397,7 +399,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "33",
+                "id": "5188",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -406,7 +408,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "54",
+                "id": "5189",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -415,7 +417,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "48",
+                "id": "5303",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -424,7 +426,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "75",
+                "id": "5321",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -433,7 +435,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "51",
+                "id": "5420",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -442,7 +444,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "25",
+                "id": "5435",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -451,7 +453,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "77",
+                "id": "5478",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -460,7 +462,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "59",
+                "id": "5482",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -469,7 +471,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "68",
+                "id": "5483",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -478,7 +480,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "43",
+                "id": "5484",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -487,7 +489,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "23",
+                "id": "5661",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -496,7 +498,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "3",
+                "id": "5857",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -505,7 +507,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "8",
+                "id": "5866",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -514,7 +516,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "58",
+                "id": "5885",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1449021713",
@@ -523,7 +525,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "19",
+                "id": "5886",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -532,7 +534,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "20",
+                "id": "5933",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
@@ -541,7 +543,7 @@ Api Design For Follower Following Feed Discover Recommendation
             },
             {
               "product": {
-                "id": "18",
+                "id": "5161",
                 "image": "mobile-3093791-05.01.15-04-27-26-0-960x1280.jpg",
                 "status": "open",
                 "created_at": "1448964087",
