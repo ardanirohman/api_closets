@@ -245,7 +245,7 @@ show active brand
 
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
-## GET : Followers And Followees [/following/follow.json{?limit}{?uid}{?page}{?type}]
+## GET : Followers And Followees [/following/follow.json{?limit}{?uid}{?page}{?type}{?visit_uid}]
 
 ### List Follow [GET]
 + Request
@@ -263,6 +263,7 @@ Api Design For Follower Following Feed Discover Recommendation
     + uid : 1 (number)
     + page : 1 (number)
     + type : followees (string) - followees or followers
+    + visit_uid : 2 (number)
     
 + Response 200 (application/json)
 
@@ -502,7 +503,7 @@ Api Design For Follower Following Feed Discover Recommendation
             "total" : 100
         }
         
-## GET : Followers [/following/followers.json{?limit}{?uid}{?page}{?type}]
+## GET : Followers [/following/followers.json{?limit}{?uid}{?page}{?type}{?visit_uid}]
 
 ### List Followers [GET]
 + Request
@@ -520,6 +521,7 @@ Api Design For Follower Following Feed Discover Recommendation
     + uid : 1 (number)
     + page : 1 (number)
     + type : followees (string) - followees or followers
+    + visit_uid : 2 (number)
     
 + Response 200 (application/json)
 
