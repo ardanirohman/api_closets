@@ -245,7 +245,7 @@ show active brand
 
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
-## GET : Followers And Followees [/following/follow.json{?limit}{?uid}{?page}{?type}]
+## GET : Followers And Followees [/following/follow.json{?limit}{?offset}{?uid}{?type}]
 
 ### List Follow [GET]
 + Request
@@ -260,8 +260,8 @@ Api Design For Follower Following Feed Discover Recommendation
 + Parameters
 
     + limit : 10  (number)
+    + offset : 0 (number)
     + uid : 1 (number)
-    + page : 1 (number)
     + type : followees (string) - followees or followers
     
 + Response 200 (application/json)
@@ -497,12 +497,12 @@ Api Design For Follower Following Feed Discover Recommendation
                 ]
               }
             ],
-            "page" : 1,
+            "offset" : 12345,
             "next_page": 1,
             "total" : 100
         }
         
-## GET : Followers [/following/followers.json{?limit}{?uid}{?page}{?type}]
+## GET : Followers [/following/followers.json{?limit}{?offset}{?uid}{?type}]
 
 ### List Followers [GET]
 + Request
@@ -517,8 +517,8 @@ Api Design For Follower Following Feed Discover Recommendation
 + Parameters
 
     + limit : 10  (number)
+    + offset : 0 (number)
     + uid : 1 (number)
-    + page : 1 (number)
     + type : followees (string) - followees or followers
     
 + Response 200 (application/json)
@@ -754,12 +754,12 @@ Api Design For Follower Following Feed Discover Recommendation
                 ]
               }
             ],
-            "page" : 1,
+            "offset" : 12345,
             "next_page": 1,
             "total" : 100
         }
         
-## GET : Followers And Followees with visit uid [/following/follow.json{?limit}{?uid}{?page}{?type}{?visit_uid}]
+## GET : Followers And Followees with visit uid [/following/follow.json{?limit}{?offset}{?uid}{?type}{?visit_uid}]
 
 ### List Follow [GET]
 + Request
@@ -774,8 +774,8 @@ Api Design For Follower Following Feed Discover Recommendation
 + Parameters
 
     + limit : 10  (number)
+    + offset : 0 (number)
     + uid : 1 (number)
-    + page : 1 (number)
     + type : followees (string) - followees or followers
     + visit_uid : 2 (number)
     
@@ -1012,12 +1012,12 @@ Api Design For Follower Following Feed Discover Recommendation
                 ]
               }
             ],
-            "page" : 1,
+            "offset" : 12345,
             "next_page": 1,
             "total" : 100
         }
         
-## GET : Followers with visit uid [/following/followers.json{?limit}{?uid}{?page}{?type}{?visit_uid}]
+## GET : Followers with visit uid [/following/followers.json{?limit}{?offset}{?uid}{?type}{?visit_uid}]
 
 ### List Followers [GET]
 + Request
@@ -1032,8 +1032,8 @@ Api Design For Follower Following Feed Discover Recommendation
 + Parameters
 
     + limit : 10  (number)
+    + offset : 0 (number)
     + uid : 1 (number)
-    + page : 1 (number)
     + type : followees (string) - followees or followers
     + visit_uid : 2 (number)
     
@@ -1270,7 +1270,7 @@ Api Design For Follower Following Feed Discover Recommendation
                 ]
               }
             ],
-            "page" : 1,
+            "offset" : 12345,
             "next_page": 1,
             "total" : 100
         }
