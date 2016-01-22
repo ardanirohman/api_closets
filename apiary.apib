@@ -236,11 +236,52 @@ show active brand
 + Response 200 (application/json)
 
         {
-            "data" :
-            {
-                "category_name" : "ACCESSORIS",
-                "commission" : "0.1"
-            }
+            "data" :[
+                {
+                    "category_id":1,
+                    "category_name" : "ACCESSORIS",
+                    "commission" : [
+                        {
+                            "min_price":0,
+                            "max_price":1000,
+                            "commission_value":"0.1"
+                        },
+                        {
+                            "min_price":1000,
+                            "max_price":1500,
+                            "commission_value":"0.2"
+                        },
+                        {
+                            "min_price":1500,
+                            "max_price":2000,
+                            "commission_value":"0.3"
+                        }
+                        
+                    [
+                },
+                {
+                    "category_id":2,
+                    "category_name" : "BAGS",
+                    "commission" : [
+                        {
+                            "min_price":0,
+                            "max_price":1000,
+                            "commission_value":"0.1"
+                        },
+                        {
+                            "min_price":1000,
+                            "max_price":1500,
+                            "commission_value":"0.2"
+                        },
+                        {
+                            "min_price":1500,
+                            "max_price":2000,
+                            "commission_value":"0.3"
+                        }
+                        
+                    [
+                }
+            ]
         }
 
 # Group Feed
