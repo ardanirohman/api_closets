@@ -256,8 +256,7 @@ show active brand
                             "max_price":2000,
                             "commission_value":"0.3"
                         }
-                        
-                    [
+                    ]
                 },
                 {
                     "category_id":2,
@@ -279,13 +278,36 @@ show active brand
                             "commission_value":"0.3"
                         }
                         
-                    [
+                    ]
                 }
             ]
         }
 
 # Group Feed
 Api Design For Follower Following Feed Discover Recommendation
+
+## GET : Follow Status [/following/follow_status.json{?uid}{?visit_uid}]
+
+### List Follow [GET]
++ Request
+
+    + Headers
+    
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
+
++ Parameters
+    + uid : 1 (number)
+    + visit_uid : 2 (number)
+    
++ Response 200 (application/json)
+
+        {
+            "followed" : true
+        }
+        
 ## GET : Followers And Followees [/following/follow.json{?limit}{?offset}{?uid}{?type}{?visit_uid}]
 
 ### List Follow [GET]
