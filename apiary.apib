@@ -216,7 +216,7 @@ show active brand
             ]
         }
 
-## GET : Commission [/preset/commission.json{?country_code}{?category_id}{?price}]
+## GET : Commission [/preset/commission.json{?country_code}{?category_id}{?price}{?seller_uid}]
 ### List Commission [GET]
 + Request
 
@@ -232,7 +232,7 @@ show active brand
     + country_code : SG (string)
     + category_id : 1 (number)
     + price: 1000 (number)
-    
+    + seller_uid:1 (number)
 + Response 200 (application/json)
 
         {
