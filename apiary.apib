@@ -180,11 +180,70 @@ Api Auth for SSO user closets to Titan
                 }   
             }
 
+# Group Profile
+user profile in closets
+## POST : Create / Update Profile User  [/user/profile.json]
+### Create / Update Profile User [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            
+    + Body
+
+            {
+                "uid":111,
+                "nickname":"user",
+                "first_name":"user",
+                "last_name":"last name",
+                "country":"SG",
+                "picture":"image.jpg",
+                "description": "sample description",
+                "user_mail":"user@reebonz.com",
+                "language_preference":"EN"
+                
+            }
+
++ Response 200 (application/json)
+
+            {
+                "data" : {
+                    "status" : true,
+                    "message": "insert/update successfully"
+                }
+            }
+
+## GET : Get Profile User  [/user/getprofile.json{?uid}]
+### Get Profile User [GET]
++ Parameter
+    + uid : 111 (number) - d6 uid
+    
++ Response 200 (application/json)
+
+            {
+                "data" : {
+                    "user" :{
+                        "uid":111,
+                        "nickname":"user",
+                        "first_name":"user",
+                        "last_name":"last name",
+                        "country":"SG",
+                        "picture":"image.jpg",
+                        "description": "sample description",
+                        "user_mail":"user@reebonz.com",
+                        "language_preference":"EN"
+                    }
+                }
+            }
+
 
 # Group User Auth
 Api for get authentication for user closets
 *  default username : admin password: R1b0nz, 
 *  Cookie is "session_name = sessid ", you can get from result of user login 
+
 ## POST : Token Auth  [/user/token.json]
 ### Get Token Auth [POST]
 
@@ -460,9 +519,432 @@ show active brand
                 }
             ]
         }
+# Group Product Item
+Api For Product
+
+## POST : Product Submit [/product/submit.json]
+### Submit New Item Product [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    + Body
+
+            {
+                "category_id":1,
+                "brand_id":1,
+                "platform":"mobile",
+                "country_code":"SG",
+                "currency_code":"SGD",
+                "original_price":1000,
+                "selling_price":900,
+                "payout_commission":"100",
+                "title":"title item",
+                "description":"description item",
+                "reebonz_stock":0,
+                "refrence_code":"",
+                "uid":111
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data":{
+                "status" : true,
+                "message": "product submit successfully"
+            }
+        }
+
+## POST : Product Update [/product/update.json]
+### Submit New Item Product [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1,
+                "category_id":1,
+                "brand_id":1,
+                "platform":"mobile",
+                "country_code":"SG",
+                "currency_code":"SGD",
+                "original_price":1000,
+                "selling_price":900,
+                "payout_commission":"100",
+                "status":"new",
+                "title":"title item",
+                "description":"description item",
+                "reebonz_stock":0,
+                "refrence_code":"",
+                "uid":111
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "product update successfully"
+            }
+        }
+
+## POST : Product Approve [/product/approve.json]
+### Submit New Item Product [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1
+            }
+
+
++ Response 200 (application/json)
+
+            {
+                "data": {
+                    "status" : true,
+                    "message": "product approve successfully"
+                }
+            }
+
+
+## POST : Product Reject [/product/reject.json]
+### Submit New Item Product [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "product reject successfully"
+            }
+        }
+
+
+## POST : Product Delete [/product/delete.json]
+### Submit New Item Product [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1,
+                "uid":111
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "product delete successfully"
+            }
+        }
+
+
+## POST : Product Listing [/product/list.json]
+### Submit New Item Product [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "page":"1",
+                "country_code":"SG",
+                "uid":"3587445",
+                "brand_name":"Chloe|Prada",
+                "category":"Apparel|Bags",
+                "sortby":"price-asc",
+                "sold":"1"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "seller":{
+                        "user_id": 3500842,
+                        "user_nick": "seller",
+                        "user_avatar": "avatar.jpg"
+                    },
+                    "product":{
+                        "id": "12832",
+                        "sku": "",
+                        "country_code": "SG",
+                        "currency_code": "SGD",
+                        "title": "hshsbs",
+                        "description": "bxbdb",
+                        "brand_name": "3.1 PHILLIP LIM",
+                        "images": [
+                          "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
+                        ],
+                        "original_price": 500,
+                        "selling_price": 450,
+                        "like_count": 0,
+                        "comment_count": 0,
+                        "created_date": "2015-10-02T14:22:55Z",
+                        "status_id": 1
+                    }
+                },
+                {
+                    "seller":{
+                        "user_id": 3500842,
+                        "user_nick": "seller",
+                        "user_avatar": "avatar.jpg"
+                    },
+                    "product":{
+                        "id": "12832",
+                        "sku": "",
+                        "country_code": "SG",
+                        "currency_code": "SGD",
+                        "title": "hshsbs",
+                        "description": "bxbdb",
+                        "brand_name": "3.1 PHILLIP LIM",
+                        "images": [
+                          "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
+                        ],
+                        "original_price": 500,
+                        "selling_price": 450,
+                        "like_count": 0,
+                        "comment_count": 0,
+                        "created_date": "2015-10-02T14:22:55Z",
+                        "status_id": 1
+                    }
+                },
+                {
+                    "seller":{
+                        "user_id": 3500842,
+                        "user_nick": "seller",
+                        "user_avatar": "avatar.jpg"
+                    },
+                    "product":{
+                        "id": "12832",
+                        "sku": "",
+                        "country_code": "SG",
+                        "currency_code": "SGD",
+                        "title": "hshsbs",
+                        "description": "bxbdb",
+                        "brand_name": "3.1 PHILLIP LIM",
+                        "images": [
+                          "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
+                        ],
+                        "original_price": 500,
+                        "selling_price": 450,
+                        "like_count": 0,
+                        "comment_count": 0,
+                        "created_date": "2015-10-02T14:22:55Z",
+                        "status_id": 1
+                    }
+                }
+            ]
+                
+        }
+
+## GET : Product Sold Offline [/product/sold_offline.json]
+### Item Product Sold  [GET]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1,
+                "uid":111
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "product update sold offline successfully"
+            }
+        }
+
+## GET : Product Detail [/product/detail.json{?product_id}]
+### Item Product Detail [GET]
++ Parameters
+    + product_id : 1 (number)
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "seller":{
+                    "user_id": 3500842,
+                    "user_nick": "seller",
+                    "user_avatar": "avatar.jpg"
+                },
+                "product":{
+                    "id": "12832",
+                    "sku": "",
+                    "country_code": "SG",
+                    "currency_code": "SGD",
+                    "title": "hshsbs",
+                    "description": "bxbdb",
+                    "brand_name": "3.1 PHILLIP LIM",
+                    "images": [
+                      "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
+                    ],
+                    "original_price": 500,
+                    "selling_price": 450,
+                    "like_count": 0,
+                    "comment_count": 0,
+                    "created_date": "2015-10-02T14:22:55Z",
+                    "status_id": 1
+                }
+            }
+        }
+        
+## POST : Product Like / Unlike [/product/like.json]
+### Product like / Unlike [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1,
+                "uid":111
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "product like / unlike successfully"
+            }
+        }
+
+## POST : Product Comment [/product/comment.json]
+### Product Comment [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id":1,
+                "uid":111,
+                "comment":"sample comment"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "comment send successfully"
+            }
+        }
+
+
+## GET : Product Get Comment [/product/get_comment.json{?product_id}{?page}]
+### Product Get Comment [GET]
++ Parameters
+    + product_id:111 (number)
+    + page:0 - if set "all" will be show all comment
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "user":{
+                        "uid" : 112,
+                        "nickname" : "reebonz",
+                        "avatar": "avatar.jpg"
+                    },
+                    "comment":{
+                        "text":"test comment",
+                        "created_at":12313131
+                    }
+                },
+                {
+                    "user":{
+                        "uid" : 112,
+                        "nickname" : "reebonz",
+                        "avatar": "avatar.jpg"
+                    },
+                    "comment":{
+                        "text":"hello",
+                        "created_at":12313131
+                    }
+                },
+                {
+                    "user":{
+                        "uid" : 112,
+                        "nickname" : "reebonz",
+                        "avatar": "avatar.jpg"
+                    },
+                    "comment":{
+                        "text":"nice product",
+                        "created_at":12313131
+                    }
+                }
+            ]
+        }
 
 # Group Feed
-Api Design For Follower Following Feed Discover Recommendation
+Api For Follower Following Feed Discover Recommendation
 
 ## GET : Follow Status [/following/follow_status.json{?uid}{?visit_uid}]
 
@@ -2820,8 +3302,8 @@ social_ids - all social ids for user order by unseen & updated at
 ## POST : Action Chat Conversation [/activity/send_chat.json]
 for seller and buyer
 param {type}
-    - message_sent
-    - photo_sent
+*  message_sent
+*  photo_sent
 ### Action Conversation chat [POST]
 + Request(application/json)
     + Headers
@@ -2854,13 +3336,13 @@ param {type}
 ## POST : Action Offer Conversation [/activity/send_offer.json]
 for seller and buyer
 param {type}
-    - offer_made
-    - offer_withdrawn
-    - offer_revise
-    - offer_declined
-    - offer_accepted
-    - offer_accepted_reminder
-    - offer_expired
+*  offer_made
+*  offer_withdrawn
+*  offer_revise
+*  offer_declined
+*  offer_accepted
+*  offer_accepted_reminder
+*  offer_expired
 ### Action Offer Conversation [POST]
 + Request(application/json)
     + Headers
@@ -2984,9 +3466,9 @@ Api Design for action trigger center
 ## POST : Trigger Order Status [/trigger/order.json]
 param {order_status}
 type order :
-    - pending_bank_transfer
-    - pending_offline_ipp
-    - pending_cancelled
+*  pending_bank_transfer
+*  pending_offline_ipp
+*  pending_cancelled
 
 ### Action trigger order status [POST]
 + Request(application/json)
@@ -3017,29 +3499,29 @@ type order :
 ## POST : Trigger Post Sales [/trigger/postsales.json]
 param {fulfillment_status}
 type fulfillment_status :
-    - order_new
-    - order_collection_scheduled
-    - order_collection_succeeded
-    - order_collection_failed
-    - order_authentication_succeeded
-    - order_delivery_succeeded
-    - order_delivery_failed
-    - order_completed
-    - order_payment_completed
-    - order_cancelled
-    - cancelled_refund_completed
-    - order_authentication_failed
-    - authfailed_refund_completed
-    - authfailed_delivery_scheduled
-    - authfailed_delivery_succeeded
-    - authfailed_delivery_failed
-    - return_collection_scheduled
-    - return_collection_succeeded
-    - return_collection_failed
-    - return_refund_completed
-    - return_delivery_scheduled
-    - return_delivery_succeeded
-    - return_delivery_failed
+*  order_new
+*  order_collection_scheduled
+*  order_collection_succeeded
+*  order_collection_failed
+*  order_authentication_succeeded
+*  order_delivery_succeeded
+*  order_delivery_failed
+*  order_completed
+*  order_payment_completed
+*  order_cancelled
+*  cancelled_refund_completed
+*  order_authentication_failed
+*  authfailed_refund_completed
+*  authfailed_delivery_scheduled
+*  authfailed_delivery_succeeded
+*  authfailed_delivery_failed
+*  return_collection_scheduled
+*  return_collection_succeeded
+*  return_collection_failed
+*  return_refund_completed
+*  return_delivery_scheduled
+*  return_delivery_succeeded
+*  return_delivery_failed
 
 ### Action trigger post sales [POST]
 + Request(application/json)
@@ -3125,7 +3607,11 @@ for comment
         }
 
 ## POST : Trigger Product [/trigger/product.json]
-for product - item_sold - item_price_drop - item_deleted - item submitted
+for product 
+*  item_sold 
+*  item_price_drop
+*  item_deleted
+*  item submitted
 ### Action trigger product [POST]
 + Request(application/json)
     + Headers
