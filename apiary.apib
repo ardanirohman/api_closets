@@ -9,7 +9,7 @@ Api Auth for SSO user closets to Titan
 >  ACCOUNT_CODE = "RBZ0001"
 >  SECRET_KEY = "f0c9fc1cb63bf86e83eb5858000786b9"
 
-*  SIT: http://www.sit.sso.reebonz-dev.com:8080
+*  SIT: http://sso.sit.titan.reebonz-dev.com:8080
 *  UAT: http://sso.uat.titan.reebonz-dev.com:8080
 *  PROD: http://10.100.96.31:8080
 
@@ -36,8 +36,7 @@ Api Auth for SSO user closets to Titan
                 "drupal_uid" : "111",
                 "country_code" : "SG"
                 "is_pwd_random":0,
-                "email_verified" : 1,
-                "account_code" : "xxx"
+                "email_verified" : 1
             }
     
 
@@ -183,8 +182,9 @@ Api Auth for SSO user closets to Titan
             }
 
 # Group Profile
+
 user profile in closets
-## POST : Create / Update Profile User  [/user/profile.json]
+## POST : Create / Update Profile User  [/users/profile.json]
 ### Create / Update Profile User [POST]
 + Request
 
@@ -196,7 +196,7 @@ user profile in closets
     + Body
 
             {
-                "uid":111,
+                "drupal_uid":111,
                 "nickname":"user",
                 "first_name":"user",
                 "last_name":"last name",
@@ -205,7 +205,6 @@ user profile in closets
                 "description": "sample description",
                 "user_mail":"user@reebonz.com",
                 "language_preference":"EN"
-                
             }
 
 + Response 200 (application/json)
@@ -217,7 +216,7 @@ user profile in closets
                 }
             }
 
-## GET : Get Profile User  [/user/getprofile.json{?uid}]
+## GET : Get Profile User  [/users/getprofile.json{?uid}]
 ### Get Profile User [GET]
 + Parameter
     + uid : 111 (number) - d6 uid
@@ -227,7 +226,7 @@ user profile in closets
             {
                 "data" : {
                     "user" :{
-                        "uid":111,
+                        "drupal_uid":111,
                         "nickname":"user",
                         "first_name":"user",
                         "last_name":"last name",
@@ -240,84 +239,6 @@ user profile in closets
                 }
             }
 
-
-# Group User Auth
-Api for get authentication for user closets
-*  default username : admin password: R1b0nz, 
-*  Cookie is "session_name = sessid ", you can get from result of user login 
-
-## POST : Token Auth  [/user/token.json]
-### Get Token Auth [POST]
-
-+ Response 200 (application/json)
-
-        {
-            "token": "6mIYkXFpFMBdzn2VmeoBUDo0h0Dit3NEwL2mG5K8v0Y"
-        }
-
-## POST : User Login  [/user/login.json]
-### Post User Login [POST]
-
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-    + Body
-
-            {
-                "username" : "admin",
-                "password" :"R1b0nz"
-            }
-
-+ Response 200 (application/json)
-
-        {
-          "sessid": "lb6vzNc7i0gIW4Z51hIXSbELNgp9t6S0j_6VfFEQznI",
-          "session_name": "SESSc702652cdef3c297c544a85b5b5e5c83",
-          "token": "Ax1YoRimgEYH9bo3LK1frw8fR0TpRnctfAmeqKOlK7k",
-          "user": {
-            "uid": "1",
-            "name": "admin",
-            "mail": "rizqinofa.muliawan@reebonz.com",
-            "theme": "",
-            "signature": "",
-            "signature_format": null,
-            "created": "1447405847",
-            "access": "1450859920",
-            "login": 1450860079,
-            "status": "1",
-            "timezone": "Asia/Singapore",
-            "language": "",
-            "picture": null,
-            "init": "rizqinofa.muliawan@reebonz.com",
-            "data": false,
-            "roles": {
-              "2": "authenticated user",
-              "3": "administrator"
-            }
-          }
-        }
-
-## POST : User Logout  [/user/logout.json]
-### Post User Logout [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-            Cookie:SESSc702652cdef3c297c544a85b5b5e5c83=jFyaN8DGKyrnEezk2VF7kLRxs9bYQ90U2_MK1t-kOA8
-
-+ Response 200 (application/json)
-
-        [
-            true
-        ]
 
 # Group Preset
 Api Design for Preset Data
