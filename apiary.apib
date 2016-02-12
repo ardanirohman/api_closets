@@ -77,10 +77,8 @@ Api Auth for SSO user closets to Titan
                     "status":true,
                     "user" :{
                         "email" : "email@reebonz.com",
-                        "drupal_uid" : 111,
-                        "token" : "token sample"
-                    },
-                    "message":"login using token successfully"
+                        "sso_token" : "token sample"
+                    }
                 }   
             }
 
@@ -103,20 +101,59 @@ Api Auth for SSO user closets to Titan
 
 + Response 200 (application/json)
 
-            {
-                "data" : {
-                    "status":true,
-                    "user" :{
-                        "email" : "email@reebonz.com",
-                        "drupal_uid" : 111,
-                        "token" : "sampletoken",
-                        "X-CSRF-Token":"wwer2dd2342dawd32r2"
-                    },
-                    "message":"login successfully"
-                }   
+            {  
+               "data":{  
+                  "status":true,
+                  "user":{  
+                     "status":true,
+                     "user":{  
+                        "uid":"3501795",
+                        "name":"candra.laksono+sso11@reebonz.com",
+                        "pass":"$S$DJfCv5Gl4rsTkR6zl6HYSwBuHPTGZHc7Ft3VArMs9ziX5M8Ju0sj",
+                        "mail":"candra.laksono+sso11@reebonz.com",
+                        "theme":"",
+                        "signature":"",
+                        "signature_format":null,
+                        "created":"1455178209",
+                        "access":"1455248451",
+                        "login":"1455178623",
+                        "status":"1",
+                        "timezone":null,
+                        "language":"",
+                        "picture":"0",
+                        "init":"candra.laksono+sso11@reebonz.com",
+                        "data":{  
+                           "drupal_uid":3501795,
+                           "country_code":"SG",
+                           "first_name":"candra",
+                           "last_name":"laksono",
+                           "nickname":"candra_3501795",
+                           "language_preference":"EN",
+                           "description":null,
+                           "avatar":null,
+                           "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
+                           "email_verified":1,
+                           "email":"candra.laksono+sso11@reebonz.com",
+                           "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
+                           "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
+                        },
+                        "sid":"IEEje8ylRKhLmVNpAjLZhqDJd5iQ-YVMuvR4v5eSUZc",
+                        "ssid":"",
+                        "hostname":"::1",
+                        "timestamp":"1455248451",
+                        "cache":"0",
+                        "session":"",
+                        "roles":{  
+                           "2":"authenticated user"
+                        }
+                     }
+                  }
+               }
             }
 
 ## POST : SSO Update Auth Login [/sso/update_auth.json]
+>  drupal_uid : **mandatory** , email : option, password : optional, country_code : opional
+
 ### Update Authentication [POST]
 
 + Request
@@ -140,11 +177,6 @@ Api Auth for SSO user closets to Titan
             {
                 "data" : {
                     "status":true,
-                    "user" :{
-                        "email" : "email@reebonz.com",
-                        "drupal_uid" : 111,
-                        "country_code" : "SG"
-                    },
                     "message":"update authentication successfully"
                 }   
             }
@@ -1872,7 +1904,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "3953433_usertes",
                     "avatar": "profile_4434541_1433823320.jpg",
-                    "item_count": 5
+                    "item_count": 5,
+                    "followed":true
                   },
                   "product": [
                     {
@@ -1917,7 +1950,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "tes_random",
                     "avatar": "profile_3500811_1443496941.jpg",
-                    "item_count": 5
+                    "item_count": 5,
+                    "followed":true
                   },
                   "product": [
                     {
@@ -1992,7 +2026,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "nickname_3953433",
                     "avatar": "profile_1092884_1448602368.jpg",
-                    "item_count": 5
+                    "item_count": 5,
+                    "followed":false
                   },
                   "product": [
                     {
@@ -2097,7 +2132,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "tes_random_avatar",
                     "avatar": "profile_1092884_1448602368.jpg",
-                    "item_count": 5
+                    "item_count": 5,
+                    "followed":true
                   },
                   "product": [
                     {
@@ -2148,7 +2184,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "random_avatar_2",
                     "avatar": "profile_3500811_1443496941.jpg",
-                    "item_count": 5
+                    "item_count": 5,
+                    "followed":false
                   },
                   "product": [
                     {
@@ -2217,7 +2254,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "random_3",
                     "avatar": "profile_3500811_1443496941.jpg",
-                    "item_count": 5
+                    "item_count": 5,
+                    "followed":true
                   },
                   "product": [
                     {
@@ -2412,7 +2450,8 @@ Api For Follower Following Feed Discover Recommendation
                     "uid": "3953433",
                     "nickname": "spotlight_seller",
                     "avatar": "profile_3500811_1443496941.jpg",
-                    "item_count": 8
+                    "item_count": 8,
+                    "followed":false
                   },
                   "product": [
                     {
