@@ -479,6 +479,244 @@ show active brand
                 }
             ]
         }
+        
+## GET : Attributes [/preset/product_attributes.json{?language_code}]
+### Get product attibutes [GET]
++ Parameters
+    + language_code : EN (string)
+    
++ Response 200 (application/json)
+
+        {
+            "data" : [
+                {   
+                    "id" : 1,
+                    "code" : "COLOR",
+                    "name" : "COLOR",
+                    "weight": 0,
+                    "helper" : "choose colors",
+                    "is_multiple" : true,
+                    "option_count" : 2,
+                    "options" : [
+                        {
+                            "id" : 1,
+                            "code" : "#FFFFFF",
+                            "name" : "WHITE",
+                            "weight": 0
+                        },
+                        {
+                            "id" : 2,
+                            "code" : "#000000",
+                            "name" : "BLACK",
+                            "weight" : 1
+                        },
+                    ]
+                },
+                {
+                    "id" : 2,
+                    "code" : "GENDER",
+                    "name" : "GENDER",
+                    "weight": 1,
+                    "helper" : "",
+                    "is_multiple" : true,
+                    "option_count" : 2,
+                    "options" : [
+                        {
+                            "id" : 3,
+                            "code" : "F",
+                            "name" : "For Women",
+                            "weight": 0
+                        },
+                        {
+                            "id" : 4,
+                            "code" : "M",
+                            "name" : "For Men",
+                            "weight" : 1
+                        },
+                    ]
+                },
+                {
+                    "id" : 3,
+                    "code" : "CONDITION",
+                    "name" : "CONDITION",
+                    "weight": 2,
+                    "helper" : "choose condition",
+                    "is_multiple" : true,
+                    "option_count" : 2,
+                    "options" : [
+                        {
+                            "id" : 5,
+                            "code" : "NEW WITH TAGS",
+                            "name" : "NEW WITH TAGS",
+                            "weight": 0
+                        },
+                        {
+                            "id" : 6,
+                            "code" : "LIKE NEW",
+                            "name" : "LIKE NEW",
+                            "weight" : 1
+                        },
+                    ]
+                }
+            ]
+        }
+
+## GET : Flags [/preset/product_flags.json{?language_code}{?country_code}]
+### Get product flags [GET]
++ Parameters
+    + language_code : EN (string)
+    + country_code : SG (string)
+    
++ Response 200 (application/json)
+
+        {
+            "data" : [
+                {
+                    "id" : 1,
+                    "code" : "CHAT",
+                    "name" : "CHAT",
+                    "weight": 0,
+                    "default_value":true
+                },
+                {
+                    "id" : 2,
+                    "code" : "NEGO",
+                    "name" : "NEGO",
+                    "weight": 1,
+                    "default_value" : false
+                }
+            ]
+        }
+
+## GET : Size [/preset/product_size.json{?language_code}{?category_id}{?variant_code}]
+### Get product size [GET]
++ Parameters
+    + language_code : EN (string)
+    + category_id : 1 (number)
+    + variant_code : "F/M" (string) - optional
+ 
++ Response 200 (application/json)
+
+        {
+            "data" : [
+                {
+                    "variant_code" : "F",
+                    "variant_name" : "FEMALE",
+                    "type" : "chart",
+                    "data" :{
+                            "group" : [
+                                {
+                                    "id" : 1,
+                                    "code": "US",
+                                    "name": "US",
+                                    "weight": 0
+                                },
+                                {
+                                    "id" : 2,
+                                    "code": "UK",
+                                    "name": "Uk",
+                                    "weight": 1
+                                },
+                                {
+                                    "id" : 3,
+                                    "code": "EU",
+                                    "name": "EU",
+                                    "weight": 2
+                                }
+                            ],
+                            "value" : [
+                                {
+                                    "id" : 1,
+                                    "size" : [2,7,40]
+                                },
+                                {
+                                    "id" : 2,
+                                    "size" : [3,8,41]
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "variant_code" : "M",
+                    "variant_name" : "MALE",
+                    "type" : "chart",
+                    "data" :{
+                            "group" : [
+                                {
+                                    "code": "US",
+                                    "name": "US",
+                                    "weight": 0
+                                },
+                                {
+                                    "code": "UK",
+                                    "name": "UK",
+                                    "weight": 1
+                                },
+                                {
+                                    "code": "EU",
+                                    "name": "EU"
+                                    "weight": 2
+                                }
+                            ],
+                            "value" : [
+                                {
+                                    "id" : 1,
+                                    "size" : [2,7,40]
+                                },
+                                {
+                                    "id" : 2,
+                                    "size" : [3,8,41]
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "variant_code" : "INCH",
+                    "variant_name" : "INCH",
+                    "type" : "field",
+                    "data" :{
+                        "group" : [
+                                {
+                                    "code": "WIDTH",
+                                    "name": "WIDTH",
+                                    "weight" : 0
+                                },
+                                {
+                                    "code": "LENGTH",
+                                    "name": "LENGTH",
+                                    "weight" : 1
+                                },
+                                {
+                                    "code": "HEIGHT",
+                                    "name": "HEIGHT",
+                                    "weight" : 2
+                                }
+                            ],
+                        "value" : [
+                        ]
+                    }
+                },
+                {
+                    "variant_code" : "CM",
+                    "variant_name" : "CM",
+                    "type" : "field",
+                    "data" :{
+                        "group" : [
+                                {
+                                    "code": "LENGTH",
+                                    "name": "LENGTH",
+                                    "weight" : 0
+                                }
+                            ],
+                        "value" : [
+                        ]
+                    }
+                }
+            ]
+        }
+    
 # Group Product Item
 Api For Product
 
@@ -492,21 +730,76 @@ Api For Product
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
     + Body
-
+    
             {
-                "category_id":1,
-                "brand_id":1,
-                "platform":"mobile",
-                "country_code":"SG",
-                "currency_code":"SGD",
-                "original_price":1000,
-                "selling_price":900,
-                "payout_commission":"100",
-                "title":"title item",
-                "description":"description item",
-                "reebonz_stock":0,
-                "refrence_code":"",
-                "uid":111
+                "category_id" : 1,
+                "brand_id" : 1,
+                "platform" : "mobile",
+                "country_code" : "SG",
+                "currency_code" : "SGD",
+                "original_price": 1000,
+                "selling_price" : 900,
+                "payout_price" : 100,
+                "title" : "title item",
+                "description" : "description item",
+                "reference_code": "",
+                "images" : [
+                    "image1.jpg",
+                    "image2.jpg",
+                    "image3.jpg"
+                ],
+                "uid" : 111,
+                "attributes":[
+                    {
+                        "id" : 1,
+                        "code" : "COLOR",
+                        "option_ids" : [1,2]
+                    },
+                    {
+                        "id" : 2,
+                        "code" : "CONDITION",
+                        "option_ids" : [3]
+                    },
+                ],
+                "sizes":[
+                    {
+                        "type" : "chart",
+                        "value_id" : 1,
+                    },
+                    {
+                        "type" : "field",
+                        "group" : [
+                            {
+                                "id" : 1,
+                                "code" : "LENGTH",
+                                "value": "23",
+                            },
+                            {
+                                "id" : 2,
+                                "code" : "HEIGHT",
+                                "value": "23",
+                            },
+                            {
+                                "id" : 3,
+                                "code" : "WIDTH",
+                                "value": "23",
+                            }
+                        ]
+                    }
+                ],
+                "flags" : [
+                    {
+                        "id" : 1,
+                        "code" : "CHAT",
+                        "value": true
+                    },
+                    {
+                        "id" : 2,
+                        "code" : "NEGO",
+                        "value" : false
+                    }
+                ]
+                
             }
 
 + Response 200 (application/json)
@@ -519,7 +812,7 @@ Api For Product
         }
 
 ## POST : Product Update [/product/update.json]
-### Submit New Item Product [POST]
+### Update Product [POST]
 + Request
 
     + Headers
@@ -529,23 +822,77 @@ Api For Product
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
 
     + Body
-
+    
             {
-                "product_id":1,
-                "category_id":1,
-                "brand_id":1,
-                "platform":"mobile",
-                "country_code":"SG",
-                "currency_code":"SGD",
-                "original_price":1000,
-                "selling_price":900,
-                "payout_commission":"100",
-                "status":"new",
-                "title":"title item",
-                "description":"description item",
-                "reebonz_stock":0,
-                "refrence_code":"",
-                "uid":111
+                "id" : 1,
+                "category_id" : 1,
+                "brand_id" : 1,
+                "platform" : "mobile",
+                "country_code" : "SG",
+                "currency_code" : "SGD",
+                "original_price": 1000,
+                "selling_price" : 900,
+                "payout_price" : 100,
+                "title" : "title item",
+                "description" : "description item",
+                "reference_code": "",
+                "images" : [
+                    "image1.jpg",
+                    "image2.jpg",
+                    "image3.jpg"
+                ],
+                "uid" : 111,
+                "attributes":[
+                    {
+                        "id" : 1,
+                        "code" : "COLOR",
+                        "option_ids" : [1,2]
+                    },
+                    {
+                        "id" : 2,
+                        "code" : "CONDITION",
+                        "option_ids" : [3]
+                    },
+                ],
+                "sizes":[
+                    {
+                        "type" : "chart",
+                        "value_id" : 1,
+                    },
+                    {
+                        "type" : "field",
+                        "group" : [
+                            {
+                                "id" : 1,
+                                "code" : "LENGTH",
+                                "value": "23",
+                            },
+                            {
+                                "id" : 2,
+                                "code" : "HEIGHT",
+                                "value": "23",
+                            },
+                            {
+                                "id" : 3,
+                                "code" : "WIDTH",
+                                "value": "23",
+                            }
+                        ]
+                    }
+                ],
+                "flags" : [
+                    {
+                        "id" : 1,
+                        "code" : "CHAT",
+                        "value": true
+                    },
+                    {
+                        "id" : 2,
+                        "code" : "NEGO",
+                        "value" : false
+                    }
+                ]
+                
             }
 
 + Response 200 (application/json)
@@ -557,88 +904,22 @@ Api For Product
             }
         }
 
-## POST : Product Approve [/product/approve.json]
-### Submit New Item Product [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-    + Body
-
-            {
-                "product_id":1
-            }
-
-
-+ Response 200 (application/json)
-
-            {
-                "data": {
-                    "status" : true,
-                    "message": "product approve successfully"
-                }
-            }
-
-
-## POST : Product Reject [/product/reject.json]
-### Submit New Item Product [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-    + Body
-
-            {
-                "product_id":1
-            }
+## GET : Product Status [/product/status.json]
+### Product Status [GET]
 
 + Response 200 (application/json)
 
         {
             "data": {
                 "status" : true,
-                "message": "product reject successfully"
+                "message": "product update successfully"
             }
         }
 
-
-## POST : Product Delete [/product/delete.json]
-### Submit New Item Product [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-    + Body
-
-            {
-                "product_id":1,
-                "uid":111
-            }
-
-+ Response 200 (application/json)
-
-        {
-            "data": {
-                "status" : true,
-                "message": "product delete successfully"
-            }
-        }
 
 
 ## POST : Product Listing [/product/list.json]
-### Submit New Item Product [POST]
+### Product Listing [POST]
 + Request
 
     + Headers
