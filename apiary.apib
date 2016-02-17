@@ -910,12 +910,82 @@ Api For Product
 + Response 200 (application/json)
 
         {
+            "data": [
+                {
+                    "id" : 1,
+                    "name" : "new"
+                },
+                {
+                    "id" : 2,
+                    "name" : "approved"
+                },
+                {
+                    "id" : 3,
+                    "name" : "sold"
+                },
+                {
+                    "id" : 4,
+                    "name" : "rejected"
+                },
+                {
+                    "id" : 5,
+                    "name" : "unpublishd"
+                }
+            ]
+        }
+
+## POST : Product Update Status [/product/update_status.json]
+### Product Update Status [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+    
+            {
+                "id" : 1,
+                "uid" : 2323,
+                "status" : "unpublished"
+            }
+
++ Response 200 (application/json)
+
+        {
             "data": {
                 "status" : true,
-                "message": "product update successfully"
+                "message": "product update status successfully"
             }
         }
 
+## POST : Product Mark As Sold [/product/update_sold_offline.json]
+### Product Mark Sold [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+    
+            {
+                "id" : 1,
+                "uid" : 2323
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "product update sold offline successfully"
+            }
+        }
 
 
 ## POST : Product Listing [/product/list.json]
