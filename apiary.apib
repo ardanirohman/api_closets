@@ -45,7 +45,6 @@ Api Auth for SSO user closets to Titan
                 "data" : {
                     "status":true,
                     "user" : {
-                        "d6_uid" : 345322,
                         "drupal_uid" : 111
                     },
                     "message":"register successfully"
@@ -103,52 +102,20 @@ Api Auth for SSO user closets to Titan
 
             {  
                "data":{  
-                  "status":true,
-                  "user":{  
-                     "status":true,
-                     "user":{  
-                        "uid":"3501795",
-                        "name":"candra.laksono+sso11@reebonz.com",
-                        "pass":"$S$DJfCv5Gl4rsTkR6zl6HYSwBuHPTGZHc7Ft3VArMs9ziX5M8Ju0sj",
-                        "mail":"candra.laksono+sso11@reebonz.com",
-                        "theme":"",
-                        "signature":"",
-                        "signature_format":null,
-                        "created":"1455178209",
-                        "access":"1455248451",
-                        "login":"1455178623",
-                        "status":"1",
-                        "timezone":null,
-                        "language":"",
-                        "picture":"0",
-                        "init":"candra.laksono+sso11@reebonz.com",
-                        "data":{  
-                           "drupal_uid":3501795,
-                           "country_code":"SG",
-                           "first_name":"candra",
-                           "last_name":"laksono",
-                           "nickname":"candra_3501795",
-                           "language_preference":"EN",
-                           "description":null,
-                           "avatar":null,
-                           "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
-                           "email_verified":1,
-                           "email":"candra.laksono+sso11@reebonz.com",
-                           "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
-                           "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
-                        },
-                        "sid":"IEEje8ylRKhLmVNpAjLZhqDJd5iQ-YVMuvR4v5eSUZc",
-                        "ssid":"",
-                        "hostname":"::1",
-                        "timestamp":"1455248451",
-                        "cache":"0",
-                        "session":"",
-                        "roles":{  
-                           "2":"authenticated user"
-                        }
-                     }
-                  }
-               }
+                   "drupal_uid":3501795,
+                   "country_code":"SG",
+                   "first_name":"candra",
+                   "last_name":"laksono",
+                   "nickname":"candra_3501795",
+                   "language_preference":"EN",
+                   "description":null,
+                   "avatar":null,
+                   "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
+                   "email_verified":1,
+                   "email":"candra.laksono+sso11@reebonz.com",
+                   "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
+                   "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
+                }
             }
 
 ## POST : SSO Update Auth Login [/sso/update_auth.json]
@@ -212,11 +179,51 @@ Api Auth for SSO user closets to Titan
                 }   
             }
 
-# Group Profile
-
+# Group Profile 
 user profile in closets
-## POST : Create / Update Profile User  [/users/profile.json]
-### Create / Update Profile User [POST]
+
+## GET : Closets Profile [/users/closets_profile.json{?uid}{?requestor_uid}]
+### Get Closets Profile [GET]
+
++ Parameters
+    + uid : 23233
+    + requestor_uid : 11111
+    
++ Response 200 (application/json)
+
+        {
+            "data" : {
+                "user" : {
+                    "nickname" : "nickname user",
+                    "avatar" : "avatar.jpg",
+                    "description" : "desc",
+                    "last_login" : 123131313,
+                    "created_at" : 21231313
+                },
+                "ratings" : [
+                    {
+                        "icon" : "sad.jpg",
+                        "count" : 10
+                    },
+                    {
+                        "icon" : "normal.jpg",
+                        "count" : 3
+                    },
+                    {
+                        "icon" : "happy.jpg",
+                        "count" : 20
+                    },
+                ],
+                "item_count" : 121,
+                "like_count" : 200,
+                "following_count" : 317,
+                "followers_count" : 200,
+                "following_status" : true
+            }
+        }
+
+## POST : Update Profile User  [/users/profile.json]
+### Update Profile User [POST]
 + Request
 
     + Headers
@@ -283,6 +290,31 @@ user profile in closets
 
 # Group Preset
 Api Design for Preset Data
+
+## GET : Ratings Options [/preset/rating_options.json]
+### GET Rating options [POST]
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "id" : 1,
+                    "icon" : "sad.jpg",
+                    "weight" : 1
+                },
+                {
+                    "id" : 2,
+                    "icon" : "normal.jpg",
+                    "weight" : 2
+                },
+                {
+                    "id" : 3,
+                    "icon" : "happy.jpg",
+                    "weight" : 3
+                }
+            ]
+        }
 ## GET : Country [/preset/country.json{?country_code}]
 ### List Country [GET]
 + Request
@@ -988,172 +1020,6 @@ Api For Product
         }
 
 
-## POST : Product Listing [/product/list.json]
-### Product Listing [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-    + Body
-
-            {
-                "page":"1",
-                "country_code":"SG",
-                "uid":"3587445",
-                "brand_name":"Chloe|Prada",
-                "category":"Apparel|Bags",
-                "sortby":"price-asc",
-                "sold":"1"
-            }
-
-+ Response 200 (application/json)
-
-        {
-            "data": [
-                {
-                    "seller":{
-                        "user_id": 3500842,
-                        "user_nick": "seller",
-                        "user_avatar": "avatar.jpg"
-                    },
-                    "product":{
-                        "id": "12832",
-                        "sku": "",
-                        "country_code": "SG",
-                        "currency_code": "SGD",
-                        "title": "hshsbs",
-                        "description": "bxbdb",
-                        "brand_name": "3.1 PHILLIP LIM",
-                        "images": [
-                          "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
-                        ],
-                        "original_price": 500,
-                        "selling_price": 450,
-                        "like_count": 0,
-                        "comment_count": 0,
-                        "created_date": "2015-10-02T14:22:55Z",
-                        "status_id": 1
-                    }
-                },
-                {
-                    "seller":{
-                        "user_id": 3500842,
-                        "user_nick": "seller",
-                        "user_avatar": "avatar.jpg"
-                    },
-                    "product":{
-                        "id": "12832",
-                        "sku": "",
-                        "country_code": "SG",
-                        "currency_code": "SGD",
-                        "title": "hshsbs",
-                        "description": "bxbdb",
-                        "brand_name": "3.1 PHILLIP LIM",
-                        "images": [
-                          "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
-                        ],
-                        "original_price": 500,
-                        "selling_price": 450,
-                        "like_count": 0,
-                        "comment_count": 0,
-                        "created_date": "2015-10-02T14:22:55Z",
-                        "status_id": 1
-                    }
-                },
-                {
-                    "seller":{
-                        "user_id": 3500842,
-                        "user_nick": "seller",
-                        "user_avatar": "avatar.jpg"
-                    },
-                    "product":{
-                        "id": "12832",
-                        "sku": "",
-                        "country_code": "SG",
-                        "currency_code": "SGD",
-                        "title": "hshsbs",
-                        "description": "bxbdb",
-                        "brand_name": "3.1 PHILLIP LIM",
-                        "images": [
-                          "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
-                        ],
-                        "original_price": 500,
-                        "selling_price": 450,
-                        "like_count": 0,
-                        "comment_count": 0,
-                        "created_date": "2015-10-02T14:22:55Z",
-                        "status_id": 1
-                    }
-                }
-            ]
-                
-        }
-
-## GET : Product Sold Offline [/product/sold_offline.json]
-### Item Product Sold  [GET]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-    + Body
-
-            {
-                "product_id":1,
-                "uid":111
-            }
-
-+ Response 200 (application/json)
-
-        {
-            "data": {
-                "status" : true,
-                "message": "product update sold offline successfully"
-            }
-        }
-
-## GET : Product Detail [/product/detail.json{?product_id}]
-### Item Product Detail [GET]
-+ Parameters
-    + product_id : 1 (number)
-
-+ Response 200 (application/json)
-
-        {
-            "data": {
-                "seller":{
-                    "user_id": 3500842,
-                    "user_nick": "seller",
-                    "user_avatar": "avatar.jpg"
-                },
-                "product":{
-                    "id": "12832",
-                    "sku": "",
-                    "country_code": "SG",
-                    "currency_code": "SGD",
-                    "title": "hshsbs",
-                    "description": "bxbdb",
-                    "brand_name": "3.1 PHILLIP LIM",
-                    "images": [
-                      "mobile-3500842-02.10.15-13-22-12-0-960x720.jpg"
-                    ],
-                    "original_price": 500,
-                    "selling_price": 450,
-                    "like_count": 0,
-                    "comment_count": 0,
-                    "created_date": "2015-10-02T14:22:55Z",
-                    "status_id": 1
-                }
-            }
-        }
-        
 ## POST : Product Like / Unlike [/product/like.json]
 ### Product like / Unlike [POST]
 + Request
@@ -1168,7 +1034,8 @@ Api For Product
 
             {
                 "product_id":1,
-                "uid":111
+                "uid":111,
+                "action":"like/unlike"
             }
 
 + Response 200 (application/json)
@@ -1207,16 +1074,45 @@ Api For Product
             }
         }
 
+## POST : Product Comment [/product/unpublish_comment.json]
+### Product Comment [POST]
++ Request
 
-## GET : Product Get Comment [/product/get_comment.json{?product_id}{?page}]
-### Product Get Comment [GET]
-+ Parameters
-    + product_id:111 (number)
-    + page:0 - if set "all" will be show all comment
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "product_id" : 1213133,
+                "comment_id": 1,
+                "uid":111
+            }
 
 + Response 200 (application/json)
 
         {
+            "data": {
+                "status" : true,
+                "message": "comment unpublish successfully"
+            }
+        }
+
+
+## GET : Product Get Comment [/product/get_comment.json{?product_id}{?limit}{?last_created_at}]
+### Product Get Comment [GET]
++ Parameters
+    + product_id:111 (number)
+    + last_created_at : 123435
+    + limit : 10
+
++ Response 200 (application/json)
+
+        {
+            "count" : 100,
             "data": [
                 {
                     "user":{
@@ -1252,6 +1148,82 @@ Api For Product
                     }
                 }
             ]
+        }
+
+# Group Rating
+Api rating user seller and buyer
+
+## GET : Ratings [/user/get_ratings.json{?uid}{?type}{?limit}{?last_created_at}]
+### Get Rating [GET]
++ Parameters
+    + uid : 111 (number)
+    + last_created_at : 123435
+    + limit : 10
+    + type : "seller/buyer" (string) - optional
+
++ Response 200 (application/json)
+
+        {
+            "count" : 100,
+            "data": [
+                {
+                    "user":{
+                        "uid" : 112,
+                        "nickname" : "nickname",
+                        "avatar": "avatar.jpg"
+                    },
+                    "rating":{
+                        "comment" : "comment text",
+                        "created_at" : 12313131,
+                        "type" : "seller",
+                        "icon" : "smile.jpg"
+                    },
+                },
+                {
+                    "user":{
+                        "uid" : 112,
+                        "nickname" : "nickname",
+                        "avatar" : "avatar.jpg"
+                    },
+                    "rating":{
+                        "comment" : "comment text",
+                        "created_at" : 12313131,
+                        "type" : "buyer",
+                        "icon" : "sad.jpg"
+                    },
+                },
+            ]
+        }
+    
+## POST : Ratings [/user/rating.json]
+### Post Ratings [POST]
+
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+
+            {
+                "uid" : 3333,
+                "sender_uid":111,
+                "comment":"sample comment",
+                "rate_id": 1,
+                "type" : "seller/buyer",
+                "order_id":1
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "status" : true,
+                "message": "rate send successfully"
+            }
         }
 
 # Group Feed
