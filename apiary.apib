@@ -51,36 +51,6 @@ Api Auth for SSO user closets to Titan
                 }   
             }
             
-## POST : Generate SSO Token API [/sso/token.json]
->  This API call is to facilitate SSO Token creation when user login into Reebonz.com via 3rd party service.
-
-### Generate Token [POST]
-
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-  
-    + Body
-
-            {
-                "drupal_uid" : "111"
-            }
-            
-+ Response 200 (application/json)
-
-            {
-                "data" : {
-                    "status":true,
-                    "user" :{
-                        "email" : "email@reebonz.com",
-                        "sso_token" : "token sample"
-                    }
-                }   
-            }
-
 ## POST : SSO Login [/sso/login.json]
 ### Login Using Email and Password [POST]
 
@@ -102,21 +72,109 @@ Api Auth for SSO user closets to Titan
 
             {  
                "data":{  
-                   "drupal_uid":3501795,
-                   "country_code":"SG",
-                   "first_name":"candra",
-                   "last_name":"laksono",
-                   "nickname":"candra_3501795",
-                   "language_preference":"EN",
-                   "description":null,
-                   "avatar":null,
-                   "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
-                   "email_verified":1,
-                   "email":"candra.laksono+sso11@reebonz.com",
-                   "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
-                   "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
+                    "status" : true,
+                    "user" : {
+                       "drupal_uid":3501795,
+                       "country_code":"SG",
+                       "first_name":"candra",
+                       "last_name":"laksono",
+                       "nickname":"candra_3501795",
+                       "language_preference":"EN",
+                       "description":null,
+                       "avatar":null,
+                       "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
+                       "email_verified":1,
+                       "email":"candra.laksono+sso11@reebonz.com",
+                       "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
+                       "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
+                    }
                 }
             }
+
+## POST : SSO Login Token [/sso/login_token.json]
+### Login Using Drupal Uid and Token SSO [POST]
+
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+
+    + Body
+
+            {
+                "drupal_uid" : "12343123",
+                "sso_token" : "b81a4a99789c3aaf5d420308c564f6369ec914c2"
+            }
+
++ Response 200 (application/json)
+
+            {  
+               "data":{  
+                    "status" : true,
+                    "user" : {
+                       "drupal_uid":3501795,
+                       "country_code":"SG",
+                       "first_name":"candra",
+                       "last_name":"laksono",
+                       "nickname":"candra_3501795",
+                       "language_preference":"EN",
+                       "description":null,
+                       "avatar":null,
+                       "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
+                       "email_verified":1,
+                       "email":"candra.laksono+sso11@reebonz.com",
+                       "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
+                       "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
+                    }
+                }
+            }
+
+## POST : SSO Login Facebook [/sso/login_facebook.json]
+### Login Facebook [POST]
+
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+
+    + Body
+
+            {
+                "fbid" : 12312423242342,
+                "email" : "email@reebonz.com",
+                "first_name" : "yessika",
+                "last_name" : "naftali",
+                "country_code" : "SG"
+                
+            }
+
++ Response 200 (application/json)
+
+            {  
+               "data":{  
+                    "status" : true,
+                    "user" : {
+                       "drupal_uid":3501795,
+                       "country_code":"SG",
+                       "first_name":"candra",
+                       "last_name":"laksono",
+                       "nickname":"candra_3501795",
+                       "language_preference":"EN",
+                       "description":null,
+                       "avatar":null,
+                       "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
+                       "email_verified":1,
+                       "email":"candra.laksono+sso11@reebonz.com",
+                       "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
+                       "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
+                    }
+                }
+            }
+
 
 ## POST : SSO Update Auth Login [/sso/update_auth.json]
 >  drupal_uid : **mandatory** , email : option, password : optional, country_code : opional
@@ -148,36 +206,6 @@ Api Auth for SSO user closets to Titan
                 }   
             }
 
-
-## POST : SSO Login by token [/sso/login_token.json]
-### Login Using Token [POST]
-
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-
-    + Body
-
-            {
-                "drupal_uid" : "111",
-                "token" : "sampeltoken"
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "data" : {
-                    "status":true,
-                    "user" :{
-                        "email" : "email@reebonz.com",
-                        "drupal_uid" : 111
-                    },
-                    "message":"login using token successfully"
-                }   
-            }
 
 # Group Profile 
 user profile in closets
@@ -751,6 +779,175 @@ show active brand
     
 # Group Product Item
 Api For Product
+## GET : Product Detail [/product/detail.json{?product_id}{?requestor_uid}{?country_code}]
+### Get Product Detail [GET]
+
++ Parameters
+    + product_id : 1 (number) 
+    + requestor_uid : 2 (number)
+    + country_code : SG (string)
+    
++ Response 200 (application/json)
+
+        {
+            "data":{
+                "product" : {
+                    "id": "12695",
+                    "sku": "",
+                    "country_code": "SG",
+                    "currency_code": "SGD",
+                    "title": "Product",
+                    "description": "Desc Product",
+                    "brand_name": "PRADA",
+                    "images": [
+                        "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                        "mobile-3500810-25.09.16-09-01-20-0-960x720.jpg",
+                        "mobile-3500810-25.09.17-09-01-20-0-960x720.jpg"
+                    ],
+                    "selling_price": 1000,
+                    "old_selling_price": 1150,
+                    "like_count": 10,
+                    "comment_count": 2,
+                    "liked": true,
+                    "commented" : true,
+                    "created_date": "2015-09-23T17:22:03Z",
+                    "updated_date": "2015-09-23T17:22:03Z",
+                    "category_name": "BAGS",
+                    "status": "open",
+                    "size": [
+                        {
+                            "code": "L",
+                            "name": "Length",
+                            "value": 12,
+                            "weight" : 0,
+                            "variant":"inch"
+                        },
+                        {
+                            "code": "H",
+                            "name": "Height",
+                            "value": 12,
+                            "weight" : 1,
+                            "variant":"inch"
+                        }
+                    ],
+                    "color": [
+                        {
+                            "code" : "#ffffff",
+                            "name" : "white",
+                            "weight" : 0
+                        },
+                        {
+                            "code" : "#000000",
+                            "name" : "black",
+                            "weight" : 1
+                        }
+                    ],
+                    "material":[
+                        {
+                            "code" : "Leather",
+                            "name" : "Leather",
+                            "weight" : 0
+                        },
+                        {
+                            "code" : "Fabric",
+                            "name" : "Fabric",
+                            "weight" : 1
+                        }
+                    ],
+                    "includes" : [
+                        {
+                            "code" : "Receipt",
+                            "name" : "Receipt",
+                            "weight" : 0
+                        },
+                        {
+                            "code" : "Authenticity Card",
+                            "name" : "Authenticity Card",
+                            "weight" : 1
+                        }
+                    ],
+                    "condition" : [
+                        {
+                            "code" : "New",
+                            "name" : "New with tags",
+                            "weight" : 0
+                        }
+                    ]
+                    
+                },
+                "comment" : {
+                    "count" : 10,
+                    "data": [
+                        {
+                            "user" :{
+                                "uid" : 112,
+                                "nickname" : "reebonz",
+                                "avatar": "avatar.jpg"
+                            },
+                            "comment":{
+                                "text":"test comment",
+                                "created_at":12313131
+                            }
+                        },
+                        {
+                            "user" :{
+                                "uid" : 113,
+                                "nickname" : "reebonz",
+                                "avatar": "avatar.jpg"
+                            },
+                            "comment":{
+                                "text":"test comment",
+                                "created_at":12313131
+                            }
+                        }
+                    ]
+                },
+                "seller" : {
+                    "user_id": 3500717,
+                    "nickname" : "nickname user",
+                    "avatar" : "avatar.jpg",
+                    "item_count" : 53,
+                    "created_at" : 21231313,
+                    "ratings" : [
+                        {
+                            "icon" : "sad.jpg",
+                            "count" : 10
+                        },
+                        {
+                            "icon" : "normal.jpg",
+                            "count" : 3
+                        },
+                        {
+                            "icon" : "happy.jpg",
+                            "count" : 20
+                        }
+                    ],
+                    "products": [
+                        {
+                            "id": "4991",
+                            "image": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                            "status": "new_order",
+                            "created_at": "2015-09-25T10:01:22Z",
+                            "updated_at": "2015-09-25T10:01:22Z"
+                        },
+                        {
+                            "id": "5063",
+                            "image": "mobile-3500829-01.10.15-09-38-21-0-540x960.jpg",
+                            "status": "accept",
+                            "created_at": "2015-10-01T10:38:27Z",
+                            "updated_at": "2015-10-05T02:06:34Z"
+                        },
+                        {
+                            "id": "5028",
+                            "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
+                            "status": "sold",
+                            "created_at": "2015-09-29T12:54:38Z",
+                            "updated_at": "2015-10-05T19:28:13Z"
+                        }
+                    ]
+                }
+            }
+        }
 
 ## POST : Product Submit [/product/submit.json]
 ### Submit New Item Product [POST]
@@ -1021,6 +1218,7 @@ Api For Product
 
 
 ## POST : Product Like / Unlike [/product/like.json]
+same function with trigger like
 ### Product like / Unlike [POST]
 + Request
 
@@ -1048,6 +1246,7 @@ Api For Product
         }
 
 ## POST : Product Comment [/product/comment.json]
+same function with trigger comment
 ### Product Comment [POST]
 + Request
 
