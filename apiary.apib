@@ -220,11 +220,12 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
 # Group Profile 
 user profile in closets
 
-## GET : Closets Profile [/users/closets_profile.json{?uid}{?requestor_uid}]
+## GET : Closets Profile [/users/closets_profile.json{?uid}{?nickname}{?requestor_uid}]
 ### Get Closets Profile [GET]
 
 + Parameters
     + uid : 23233
+    + nickname : fandy (string)
     + requestor_uid : 11111
     
 + Response 200 (application/json)
@@ -405,6 +406,7 @@ Api Design for Preset Data
 
 ## GET : Category [/preset/category.json{?country_code}{?language_code}{?category_id}]
 >  status : ready
+
 show active category
 ### List Category [GET]
 + Request
@@ -445,6 +447,8 @@ show active category
         }
 
 ## GET : Brand [/preset/brand.json{?country_code}{?category_id}{?brand_id}]
+>  status : ready
+
 show active brand 
 ### List Brand [GET]
 + Request
@@ -488,6 +492,8 @@ show active brand
         }
 
 ## GET : Commission [/preset/commission.json{?country_code}{?category_id}{?price}{?seller_uid}]
+>  status : ready
+
 ### List Commission [GET]
 + Request
 
@@ -792,13 +798,13 @@ show active brand
     
 # Group Product Item
 Api For Product
-## GET : Product Detail [/product/detail.json{?product_id}{?requestor_uid}{?country_code}]
+## GET : Product Detail [/product/detail.json{?product_id}{?country_code}{?language_code}]
 ### Get Product Detail [GET]
 
 + Parameters
     + product_id : 1 (number) 
-    + requestor_uid : 2 (number)
     + country_code : SG (string)
+    + language_code : EN (string)
     
 + Response 200 (application/json)
 
@@ -818,7 +824,8 @@ Api For Product
                         "mobile-3500810-25.09.17-09-01-20-0-960x720.jpg"
                     ],
                     "selling_price": 1000,
-                    "old_selling_price": 1150,
+                    "original_price": 1150,
+                    "offer_accepted_price":800,
                     "like_count": 10,
                     "comment_count": 2,
                     "liked": true,
@@ -827,20 +834,40 @@ Api For Product
                     "updated_date": "2015-09-23T17:22:03Z",
                     "category_name": "BAGS",
                     "status": "open",
+                    "gender": [
+                        {
+                            "code" : "F",
+                            "name" : "Female",
+                            "weight" : -1
+                        }
+                    ],
                     "size": [
                         {
+                            "id": 1,
                             "code": "L",
                             "name": "Length",
                             "value": 12,
                             "weight" : 0,
-                            "variant":"inch"
+                            "variant_name":"inch",
+                            "type": "field"
                         },
                         {
+                            "id" : 2,
                             "code": "H",
                             "name": "Height",
                             "value": 12,
                             "weight" : 1,
-                            "variant":"inch"
+                            "variant_name":"inch",
+                            "type": "field"
+                        },
+                        {
+                            "id" : 3,
+                            "code": "UK",
+                            "name": "UK",
+                            "value": 10,
+                            "weight" : 2,
+                            "variant_name":"Female",
+                            "type": "chart"
                         }
                     ],
                     "color": [
@@ -909,7 +936,7 @@ Api For Product
                                 "avatar": "avatar.jpg"
                             },
                             "comment":{
-                                "text":"test comment",
+                                "text":"test comment @nickname",
                                 "created_at":12313131
                             }
                         }
@@ -919,8 +946,9 @@ Api For Product
                     "user_id": 3500717,
                     "nickname" : "nickname user",
                     "avatar" : "avatar.jpg",
-                    "item_count" : 53,
+                    "product_count" : 53,
                     "created_at" : 21231313,
+                    "is_followed": true,
                     "ratings" : [
                         {
                             "icon" : "sad.jpg",
@@ -939,23 +967,59 @@ Api For Product
                         {
                             "id": "4991",
                             "image": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
-                            "status": "new_order",
+                            "status": "approved",
                             "created_at": "2015-09-25T10:01:22Z",
                             "updated_at": "2015-09-25T10:01:22Z"
                         },
                         {
                             "id": "5063",
                             "image": "mobile-3500829-01.10.15-09-38-21-0-540x960.jpg",
-                            "status": "accept",
+                            "status": "approved",
                             "created_at": "2015-10-01T10:38:27Z",
                             "updated_at": "2015-10-05T02:06:34Z"
                         },
                         {
                             "id": "5028",
                             "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
+                            "status": "approved",
+                            "created_at": "2015-09-29T12:54:38Z",
+                            "updated_at": "2015-10-05T19:28:13Z"
+                        },
+                        {
+                            "id": "5029",
+                            "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
                             "status": "sold",
                             "created_at": "2015-09-29T12:54:38Z",
                             "updated_at": "2015-10-05T19:28:13Z"
+                        },
+                        {
+                            "id": "5030",
+                            "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
+                            "status": "sold",
+                            "created_at": "2015-09-29T12:54:38Z",
+                            "updated_at": "2015-10-05T19:28:13Z"
+                        }
+                    ],
+                    "action_button" : [
+                    <!-- if buyer -->
+                        {
+                            "name" : "chat to buy",
+                            "destination" : "conversation_detail",
+                            
+                        },
+                        {
+                            "name" : "buy now",
+                            "destination" : "conversation"
+                        },
+                        {
+                            "name" : "Continue Chat",
+                            "destination" : "conversation_detail",
+                            "conversation_id" : 1
+                        }
+                    <!-- if seller -->
+                        {
+                            "name" : "View 2 offers",
+                            "destination" : "conversation_listing"
                         }
                     ]
                 }
@@ -4654,4 +4718,114 @@ for update status product by atelier
         {
             "status":true,
             "message":"trigger action sent"
+        }
+
+# Group Order
+as middleware for existing system order. so endpoint same with existing but
+base url using v2.
+## POST : Order Create [/order/create.json]
+create order.
+### create order [POST]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## POST : Order Update Status [/order/order/update_status.json]
+update status order
+### update status order [POST]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## POST : Order Update Checkout [/order/order/update_checkout_order.json]
+Update billing, shipping, selling price, payment and status order
+### update checkout order [POST]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## POST : Order Update Checkout offline [/order/order/update_checkout_order_offline.json]
+Update status order to offline pending
+### update checkout offline order [POST]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## POST : Order Master Return Response [/order/order/get_order_master_for_return_response.json]
+Get Order from master database for Return Response
+### update checkout offline order [POST]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## GET : Get Order [/order/get.json{offer_id}]
+get order
+### get order [GET]
++ Parameters
+    + offer_id : 1 (number)
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+        
+## POST : Order History [/order_history/order_history/views.json]
+get order history user.
+### get order history user [GET]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## POST : Order Detail [/order_history/order_history/order_detail_closet.json]
+get order detail
+### get order detail [POST]
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
+## GET : Order Shipping Fee [/order/get_order_by_price.json{?country_code}{?price}]
+get shipping fee
+### get shipping fee [GET]
++ Parameters
+    + country_code : SG (string)
+    + price : 100 (number)
+
++ Response 200 (application/json)
+
+        {
+            "shipping_fee": 5,
+            "total_price": 305
+        }
+
+## POST : Offer Buy [/subscriber/offer/buy.json]
+get shipping fee
+### offer buy [GET]
+
++ Response 200 (application/json)
+
+        {
+            "shipping_fee": 5,
+            "total_price": 305
         }
