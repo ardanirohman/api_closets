@@ -999,30 +999,29 @@ Api For Product
                             "created_at": "2015-09-29T12:54:38Z",
                             "updated_at": "2015-10-05T19:28:13Z"
                         }
-                    ],
-                    "action_button" : [
-                    <!-- if buyer -->
-                        {
-                            "name" : "chat to buy",
-                            "destination" : "conversation_detail",
-                            
-                        },
-                        {
-                            "name" : "buy now",
-                            "destination" : "conversation"
-                        },
-                        {
-                            "name" : "Continue Chat",
-                            "destination" : "conversation_detail",
-                            "conversation_id" : 1
-                        }
-                    <!-- if seller -->
-                        {
-                            "name" : "View 2 offers",
-                            "destination" : "conversation_listing"
-                        }
                     ]
-                }
+                },
+                "action_button" : [
+                    
+                    {
+                        "name" : "chat to buy",
+                        "destination" : "conversation_detail"
+                        
+                    },
+                    {
+                        "name" : "buy now",
+                        "destination" : "conversation"
+                    },
+                    {
+                        "name" : "Continue Chat",
+                        "destination" : "conversation_detail",
+                        "conversation_id" : 1
+                    },
+                    {
+                        "name" : "View 2 offers",
+                        "destination" : "conversation_listing"
+                    }
+                ]
             }
         }
 
@@ -4333,6 +4332,7 @@ social_ids - all social ids for user order by unseen & updated at
                             "icon_filename":"icon.jpg"
                         },
                         "destination_path":"-",
+                        "fulfillment_id":NULL,
                         "created_at":12313131
                     },
                     {
@@ -4348,6 +4348,7 @@ social_ids - all social ids for user order by unseen & updated at
                             "message":"hello"
                         },
                         "destination_path":"-",
+                        "fulfillment_id":141414,
                         "created_at":12313131
                     },
                 ],
@@ -4773,7 +4774,7 @@ Get Order from master database for Return Response
             
         }
 
-## GET : Get Order [/order/get.json{offer_id}]
+## GET : Get Order [/order/get_order.json{offer_id}]
 get order
 ### get order [GET]
 + Parameters
