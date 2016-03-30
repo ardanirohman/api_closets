@@ -1233,14 +1233,17 @@ Api For Product
             }
         }
 
-## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?seller_uid}]
+## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?seller_uid}{?product_id}{?limit}{?page}]
 ### Get Product listing [GET]
 
 + Parameters
     + country_code : SG (string)
     + language_code : EN (string)
     + field : title,description,images (string) - optional
-    + seller_uid : 1 (number) - optional
+    + seller_uid : 123,1231 (string) - optional
+    + product_id : 12,32,23 (string) - optional
+    + limit : 10 (integer) - optional
+    + page : 1 (integer) - optional
     
 + Response 200 (application/json)
 
