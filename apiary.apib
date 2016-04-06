@@ -1302,7 +1302,7 @@ field available ex : product.id , product.sku etc
             }
         }
 
-## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?section}{?uid}{?seller_uid}{?product_id}{?limit}{?page}]
+## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?section}{?uid}{?seller_uid}{?product_id}{?limit_per_seller}{?limit}{?page}]
 field available ex : product.id , product.sku etc
 ### Get Product listing [GET]
 
@@ -1312,8 +1312,9 @@ field available ex : product.id , product.sku etc
     + field : product.id , product.sku (string) - optional
     + section : product , seller (string) - optional
     + uid : 1231 (integer) - optional
-    + seller_uid : 123,1231 (string) - optional
+    + seller_uid : 123,1231,1,11,1 (string) - optional
     + product_id : 12,32,23 (string) - optional
+    + limit_per_seller : 3 (integer) - optional
     + limit : 10 (integer) - optional
     + page : 1 (integer) - optional
     
