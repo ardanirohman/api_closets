@@ -278,7 +278,6 @@ user profile in closets
     + Body
 
             {
-                "drupal_uid":111,
                 "nickname":"user",
                 "first_name":"user",
                 "last_name":"last name",
@@ -298,8 +297,10 @@ user profile in closets
                 }
             }
 
-## GET : Get Profile User  [/users/getprofile.json]
-### Get Profile User [POST]
+## POST : User Blacklist  [/users/blacklist.json]
+### user blacklist [POST]
+need log for change
+
 + Request
 
     + Headers
@@ -310,9 +311,30 @@ user profile in closets
     + Body
 
             {
-                "drupal_uid":111
+                "uid" : 111,
+                "remark" : "fake",
+                "reference_id": "1232113",
+                "reference_type": "product/order",
+                "is_blacklist": "0/1"
             }
-    
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message": "user blacklist successfully",
+                "data" : {
+                }
+            }
+
+## GET : Get Profile User  [/users/getprofile.json{?field}]
+### Get Profile User [GET]
+contact number -> titan
+addresses -> titan
+
+
++ Parameters
+    + field : user.uid,user.last_name (string) - optional
 + Response 200 (application/json)
 
             {
@@ -320,11 +342,46 @@ user profile in closets
                 "message": "",
                 "data" : {
                     "user" :{
-                        "drupal_uid":111,
+                        "uid":111,
                         "nickname":"user",
                         "first_name":"user",
                         "last_name":"last name",
                         "country":"SG",
+                        "is_blacklist":1,
+                        "contact_number":1223,
+                        "addresses":
+                        [
+                            {
+                                "id":1,
+                                "given_name":"User",
+                                "family_name":"Test",
+                                "address_1":"address 1",
+                                "address_2":"address 2",
+                                "identity_no":"",
+                                "city":"Jakut",
+                                "state":"",
+                                "postal_code":"14350",
+                                "country_name":"Singapore",
+                                "country_code":"SG",
+                                "mobile_phone":"112233",
+                                "is_primary":false
+                            },
+                            {
+                                "id":2,
+                                "given_name":"User",
+                                "family_name":"Test",
+                                "address_1":"address 1",
+                                "address_2":"address 2",
+                                "identity_no":"",
+                                "city":"Jakut",
+                                "state":"",
+                                "postal_code":"14350",
+                                "country_name":"Singapore",
+                                "country_code":"SG",
+                                "mobile_phone":"112233",
+                                "is_primary":false
+                            }
+                        ],
                         "picture":"image.jpg",
                         "description": "sample description",
                         "user_mail":"user@reebonz.com",
@@ -995,14 +1052,15 @@ show active brand
 
 # Group Product Item
 Api For Product
-## GET : Product Detail [/product/product_detail.json{?product_id}{?country_code}{?language_code}{?field}]
+## GET : Product Detail [/product/product_detail.json{?product_id}{?country_code}{?language_code}{?field}{?section}]
 ### Get Product Detail [GET]
-
+field available ex : product.id , product.sku etc
 + Parameters
     + product_id : 1 (number) 
     + country_code : SG (string)
     + language_code : EN (string)
-    + field : title,description,images (string) - optional
+    + field : product.id , product.sku (string) - optional
+    + section: product,seller
     
 + Response 200 (application/json)
 
@@ -1013,11 +1071,15 @@ Api For Product
                 "product" : {
                     "id": "12695",
                     "sku": "",
+                    "uid" :123,
                     "country_code": "SG",
                     "currency_code": "SGD",
                     "title": "Product",
                     "description": "Desc Product",
                     "brand_name": "PRADA",
+                    "category_id" :1,
+                    "brand_id":1,
+                    "contact_number": "",
                     "images": [
                         "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
                         "mobile-3500810-25.09.16-09-01-20-0-960x720.jpg",
@@ -1044,6 +1106,7 @@ Api For Product
                     ],
                     "gender": [
                         {
+                            "id" : 1,
                             "code" : "F",
                             "name" : "Female",
                             "weight" : 1
@@ -1080,11 +1143,13 @@ Api For Product
                     ],
                     "color": [
                         {
+                            "id" : 2,
                             "code" : "#ffffff",
                             "name" : "white",
                             "weight" : 0
                         },
                         {
+                            "id" : 3,
                             "code" : "#000000",
                             "name" : "black",
                             "weight" : 1
@@ -1092,11 +1157,13 @@ Api For Product
                     ],
                     "material":[
                         {
+                            "id" : 4,
                             "code" : "Leather",
                             "name" : "Leather",
                             "weight" : 0
                         },
                         {
+                            "id" : 5,
                             "code" : "Fabric",
                             "name" : "Fabric",
                             "weight" : 1
@@ -1104,11 +1171,13 @@ Api For Product
                     ],
                     "includes" : [
                         {
+                            "id" : 6,
                             "code" : "Receipt",
                             "name" : "Receipt",
                             "weight" : 0
                         },
                         {
+                            "id" : 7,
                             "code" : "Authenticity Card",
                             "name" : "Authenticity Card",
                             "weight" : 1
@@ -1116,6 +1185,7 @@ Api For Product
                     ],
                     "condition" : [
                         {
+                            "id" : 8,
                             "code" : "New",
                             "name" : "New with tags",
                             "weight" : 0
@@ -1222,8 +1292,7 @@ Api For Product
                     },
                     {
                         "name" : "Continue Chat",
-                        "destination" : "conversation_detail",
-                        "conversation_id" : 1
+                        "destination" : "conversation_detail"
                     },
                     {
                         "name" : "View 2 offers",
@@ -1233,13 +1302,16 @@ Api For Product
             }
         }
 
-## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?seller_uid}{?product_id}{?limit}{?page}]
+## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?section}{?uid}{?seller_uid}{?product_id}{?limit}{?page}]
+field available ex : product.id , product.sku etc
 ### Get Product listing [GET]
 
 + Parameters
     + country_code : SG (string)
     + language_code : EN (string)
-    + field : title,description,images (string) - optional
+    + field : product.id , product.sku (string) - optional
+    + section : product , seller (string) - optional
+    + uid : 1231 (integer) - optional
     + seller_uid : 123,1231 (string) - optional
     + product_id : 12,32,23 (string) - optional
     + limit : 10 (integer) - optional
@@ -1255,8 +1327,10 @@ Api For Product
                     "product" : {
                         "id": "12695",
                         "sku": "",
+                        "uid" :123,
                         "country_code": "SG",
                         "currency_code": "SGD",
+                        "contact_number": "",
                         "title": "Product",
                         "description": "Desc Product",
                         "brand_name": "PRADA",
@@ -1389,8 +1463,10 @@ Api For Product
                     "product" : {
                         "id": "12696",
                         "sku": "",
+                        "uid" :123,
                         "country_code": "SG",
                         "currency_code": "SGD",
+                        "contact_number": "",
                         "title": "Product",
                         "description": "Desc Product",
                         "brand_name": "PRADA",
@@ -1540,6 +1616,7 @@ Api For Product
                 "platform" : "mobile",
                 "country_code" : "SG",
                 "currency_code" : "SGD",
+                "contact_number": "",
                 "original_price": 1000,
                 "selling_price" : 900,
                 "payout_price" : 100,
@@ -1547,9 +1624,18 @@ Api For Product
                 "description" : "description item",
                 "reference_code": "",
                 "images" : [
-                    "image1.jpg",
-                    "image2.jpg",
-                    "image3.jpg"
+                    {
+                        "image" : "image1.jpg",
+                        "weight" : 1
+                    },
+                    {
+                        "image" : "image2.jpg",
+                        "weight" : 2
+                    },
+                    {
+                        "image" : "image3.jpg",
+                        "weight" : 3
+                    }
                 ],
                 "uid" : 111,
                 "attributes":[
@@ -1562,12 +1648,13 @@ Api For Product
                         "id" : 2,
                         "code" : "CONDITION",
                         "option_ids" : [3]
-                    },
+                    }
                 ],
                 "sizes":[
                     {
+                        "id" : 1,
                         "type" : "chart",
-                        "value_id" : 1,
+                        "value_id" : 1
                     },
                     {
                         "type" : "field",
@@ -1575,17 +1662,17 @@ Api For Product
                             {
                                 "id" : 1,
                                 "code" : "LENGTH",
-                                "value": "23",
+                                "value": "23"
                             },
                             {
                                 "id" : 2,
                                 "code" : "HEIGHT",
-                                "value": "23",
+                                "value": "23"
                             },
                             {
                                 "id" : 3,
                                 "code" : "WIDTH",
-                                "value": "23",
+                                "value": "23"
                             }
                         ]
                     }
@@ -1633,6 +1720,7 @@ Api For Product
                 "platform" : "mobile",
                 "country_code" : "SG",
                 "currency_code" : "SGD",
+                "contact_number": "",
                 "original_price": 1000,
                 "selling_price" : 900,
                 "payout_price" : 100,
@@ -1640,9 +1728,18 @@ Api For Product
                 "description" : "description item",
                 "reference_code": "",
                 "images" : [
-                    "image1.jpg",
-                    "image2.jpg",
-                    "image3.jpg"
+                    {
+                        "image" : "image1.jpg",
+                        "weight" : 1
+                    },
+                    {
+                        "image" : "image2.jpg",
+                        "weight" : 2
+                    },
+                    {
+                        "image" : "image3.jpg",
+                        "weight" : 3
+                    }
                 ],
                 "uid" : 111,
                 "attributes":[
@@ -1659,6 +1756,7 @@ Api For Product
                 ],
                 "sizes":[
                     {
+                        "id" : 1,
                         "type" : "chart",
                         "value_id" : 1,
                     },
@@ -1829,7 +1927,7 @@ same function with trigger like
             }
         }
 
-## POST : Product Comment [/product/comment.json]
+## POST : Product Comment [/product/product_comment.json]
 same function with trigger comment
 ### Product Comment [POST]
 + Request
@@ -1935,6 +2033,7 @@ same function with trigger comment
         }
 
 ## GET : Sales History [/product/sales_history.json{?limit}{?page}{?language_code}]
+
 ### Sales History [GET]
 + Parameters
     + limit : 10 (number)
@@ -1950,55 +2049,31 @@ same function with trigger comment
             "data" : [
                 {
                     "product" : {
+                        "id" : 12,
                         "title": "laurel Magnolia",
                         "brand_name": "HERMES",
-                        "image": "product.jpg"    
+                        "image": "product.jpg",
+                        "status_code" : "sold",
+                        "status_name" : "sold",
+                        "status_color" : "#FFFFFF"
+                    },
+                    "order" : {
+                        "id" : 1,
+                        "created_at": 12312342,
+                        "updated_at": 12312402,
+                        "fulfillment_status_name" : "purchased",
+                        "fulfillment_status_color": "#000000",
+                        "fulfillment_status_code": "purchased",
                     },
                     "system_message" : {
-                        "name" : "Delivery In Progress",
                         "message" : "[sender_name] this item was successfully",
                         "tokens" :{
-                            "sender_name" : "attelier"
-                        },
-                        "created_at":12312342
+                            "sender_name" : "reebonz"
+                        }
                     }
                 }
             ]
         }
-
-
-## GET : Order History [/product/order_history.json{?limit}{?page}{?language_code}]
-### Order History [GET]
-+ Parameters
-    + limit : 10 (number)
-    + page: 1 (number)
-    + language_code : EN (string)
-
-+ Response 200 (application/json)
-
-        {
-            "status": true,
-            "message": "",
-            "count" : 30,
-            "data" : [
-                {
-                    "product" : {
-                        "title": "laurel Magnolia",
-                        "brand_name": "HERMES",
-                        "image": "product.jpg"    
-                    },
-                    "system_message" : {
-                        "name" : "Purchased",
-                        "message" : "[sender_name] this item was successfully",
-                        "tokens" :{
-                            "sender_name" : "attelier"
-                        },
-                        "created_at":12312342
-                    }
-                }
-            ]
-        }
-
 
 # Group Rating
 Api rating user seller and buyer
@@ -2045,6 +2120,22 @@ Api rating user seller and buyer
                     },
                 },
             ]
+        }
+
+## GET : Last Contact Number [/user/get_last_contact.json{?uid}]
+### Get Rating [GET]
++ Parameters
+    + uid : 111 (number)
+
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message": "",
+            "count" : 100,
+            "data": {
+                "contact_number" : 111
+            }
         }
     
 ## POST : Ratings [/user/rating.json]
@@ -5512,7 +5603,7 @@ get checkout order.
             }
         }
 
-## POST : Place Order [/order/orde/place_order.json]
+## POST : Place Order [/order/order/place_order.json]
 place order.
 ### Place order [POST]
 + Request(application/json)
@@ -5635,9 +5726,8 @@ update order status.
                 "order_id":"1",
                 "order_status":"payment_received",
                 "buyer_uid":"111",
-                "erp_payment_code":"",
-                "payment_received_timestamp":"",
-                "approval_code":""
+                "approval_code":"",
+                "payment_received_timestamp":""
             }
 + Response 200 (application/json)
 
@@ -5649,4 +5739,43 @@ update order status.
                 "order_id":"1",
                 "order_status":"payment_received"
             }
+        }
+
+## GET : Order History [/order/order_history.json{?limit}{?page}{?language_code}]
+### Order History [GET]
++ Parameters
+    + limit : 10 (number)
+    + page: 1 (number)
+    + language_code : EN (string)
+
++ Response 200 (application/json)
+
+        {
+            "status": true,
+            "message": "",
+            "count" : 30,
+            "data" : [
+                {
+                    "product" : {
+                        "id" : 12,
+                        "title": "laurel Magnolia",
+                        "brand_name": "HERMES",
+                        "image": "product.jpg"    
+                    },
+                    "order" : {
+                        "id" : 1,
+                        "created_at": 12312342,
+                        "updated_at": 12312402,
+                        "fulfillment_status_name" : "purchased",
+                        "fulfillment_status_color": "#000000",
+                        "fulfillment_status_code": "purchased",
+                    },
+                    "system_message" : {
+                        "message" : "[sender_name] this item was successfully",
+                        "tokens" :{
+                            "sender_name" : "reebonz"
+                        }
+                    }
+                }
+            ]
         }
