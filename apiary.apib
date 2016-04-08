@@ -33,8 +33,6 @@ Api Auth for SSO user closets to Titan
     + Body
 
             {
-                "first_name" : "yessika",
-                "last_name": "naftali",
                 "email" : "admin@reebonz.com",
                 "password" : "hello",
                 "country_code" : "SG"
@@ -85,6 +83,9 @@ Api Auth for SSO user closets to Titan
                        "last_name":"laksono",
                        "nickname":"candra_3501795",
                        "language_preference":"EN",
+                       "email": "candra.laksono@reebonz.com",
+                       "currency_code": "SGD",
+                       "country_code": "SG",
                        "description":null,
                        "avatar":null,
                        "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
@@ -128,6 +129,9 @@ Api Auth for SSO user closets to Titan
                        "last_name":"laksono",
                        "nickname":"candra_3501795",
                        "language_preference":"EN",
+                       "email": "candra.laksono@reebonz.com",
+                       "currency_code": "SGD",
+                       "country_code": "SG",
                        "description":null,
                        "avatar":null,
                        "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
@@ -156,8 +160,6 @@ Api Auth for SSO user closets to Titan
             {
                 "fbid" : 12312423242342,
                 "email" : "email@reebonz.com",
-                "first_name" : "yessika",
-                "last_name" : "naftali",
                 "country_code" : "SG"
                 
             }
@@ -176,10 +178,12 @@ Api Auth for SSO user closets to Titan
                        "last_name":"laksono",
                        "nickname":"candra_3501795",
                        "language_preference":"EN",
+                       "email": "candra.laksono@reebonz.com",
+                       "currency_code": "SGD",
+                       "country_code": "SG",
                        "description":null,
                        "avatar":null,
                        "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
-                       "email_verified":1,
                        "email":"candra.laksono+sso11@reebonz.com",
                        "cookie":"SESSc702652cdef3c297c544a85b5b5e5c83=Ei8xDmKWKYxcTrF6XNhPp9vK-twfnZQGbO1jy6HF-oE",
                        "csrf_token":"fNYtk3YvpIexH9DIMZ67Ym0AWqlwtL0UkW8r3CUTu34"
@@ -223,13 +227,12 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
 # Group Profile 
 user profile in closets
 
-## GET : Closets Profile [/users/closets_profile.json{?uid}{?nickname}{?requestor_uid}]
+## GET : Closets Profile [/users/closets_profile.json{?uid}{?nickname}]
 ### Get Closets Profile [GET]
 
 + Parameters
-    + uid : 23233
-    + nickname : fandy (string)
-    + requestor_uid : 11111
+    + uid : 23233 (number) - optional
+    + nickname : fandy (string) - optional
     
 + Response 200 (application/json)
 
@@ -266,7 +269,7 @@ user profile in closets
             }
         }
 
-## POST : Update Profile User  [/users/profile.json]
+## POST : Update Profile User  [/users/users_profile.json]
 ### Update Profile User [POST]
 + Request
 
@@ -1600,7 +1603,7 @@ field available ex : product.id , product.sku etc
             ]
         }
 
-## POST : Product Submit [/product/submit.json]
+## POST : Product Submit [/product/product_submit.json]
 ### Submit New Item Product [POST]
 + Request
 
@@ -1702,7 +1705,7 @@ field available ex : product.id , product.sku etc
             }
         }
 
-## POST : Product Update [/product/update.json]
+## POST : Product Update [/product/product_update.json]
 ### Update Product [POST]
 + Request
 
@@ -2193,7 +2196,12 @@ Api For Follower Following Feed Discover Recommendation
 + Response 200 (application/json)
 
         {
-            "followed" : true
+            "status":true,
+            "message": "",
+            "data" : {
+                "followed" : true
+            }
+            
         }
         
 ## GET : Followers And Followees [/following/follow.json{?limit}{?offset}{?uid}{?type}{?visit_uid}]
@@ -4472,7 +4480,7 @@ social_ids - all social ids for user order by unseen & updated at
                 ]
             },
             "social_ids":{
-                "new" :[1,2,3,4,5],
+                "new" :[6,7,8,9,10],
                 "old" :[1,2,3,4,5]
             },
             "limit": 20,
@@ -4862,6 +4870,8 @@ social_ids - all social ids for user order by unseen & updated at
                         "category":"bags",
                         "currency_code":"SGD",
                         "country_code":"SG",
+                        "selling_price":500,
+                        "original_price":600,
                         "title":"saint laurent",
                         "status":"open"
                     },
@@ -4893,7 +4903,7 @@ social_ids - all social ids for user order by unseen & updated at
                             "icon_filename":"icon.jpg"
                         },
                         "destination_path":"-",
-                        "fulfillment_id":NULL,
+                        "fulfillment_id": null,
                         "created_at":12313131
                     },
                     {
@@ -4911,11 +4921,10 @@ social_ids - all social ids for user order by unseen & updated at
                         "destination_path":"-",
                         "fulfillment_id":141414,
                         "created_at":12313131
-                    },
+                    }
                 ],
-                "negotiation_action": ["accept","reject"]
+              "negotiation_action": ["accept","reject"]
             },
-            
             "limit" : 20,
             "page" : 1
         }
