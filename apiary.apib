@@ -223,6 +223,29 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
                 "data" : {}   
             }
 
+## POST : SSO Logout [/sso/logout.json]
+>  status : ready
+
+### Logoutuser [POST]
+
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
+
+
+
++ Response 200 (application/json)
+
+            {
+              "status": true,
+              "message": "logout user successfully",
+              "data": []
+            }
+
 
 # Group Profile 
 user profile in closets
@@ -4583,8 +4606,7 @@ social_ids - all social ids for user order by unseen & updated at
                             "system_message_code":"item_sold",
                             "system_message" : "[sender:nickname] sold this item to another Buyer.",
                             "system_message_tokens": {
-                                "sender_name":"user nickname",
-                                "product_title":"bags"
+                                "sender:nickname":"user nickname"
                             }
                         },
                         "product": {
@@ -4610,7 +4632,7 @@ social_ids - all social ids for user order by unseen & updated at
                             "system_message_code":"item_price_drop",
                             "system_message" : "[sender:nickname] reduced the price of the item",
                             "system_message_tokens": {
-                                "sender_name":"Candra_3500070"
+                                "sender:nickname":"Candra_3500070"
                             }
                         },
                         "product": {
@@ -4636,7 +4658,7 @@ social_ids - all social ids for user order by unseen & updated at
                             "system_message_code":"item_deleted",
                             "system_message" : "[sender:nickname] removed this item.",
                             "system_message_tokens": {
-                                "sender_name":"Candra_3500070"
+                                "sender:nickname":"Candra_3500070"
                             }
                         },
                         "product": {
