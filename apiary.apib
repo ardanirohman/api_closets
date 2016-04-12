@@ -649,79 +649,161 @@ show active brand
 + Response 200 (application/json)
 
         {
-            "status" : true,
-            "message" : "",
-            "data" : [
-                {   
-                    "id" : 1,
-                    "code" : "COLOR",
-                    "name" : "COLOR",
-                    "weight": 0,
-                    "helper" : "choose colors",
-                    "is_multiple" : true,
-                    "option_count" : 2,
-                    "options" : [
-                        {
-                            "id" : 1,
-                            "code" : "#FFFFFF",
-                            "name" : "WHITE",
-                            "weight": 0
-                        },
-                        {
-                            "id" : 2,
-                            "code" : "#000000",
-                            "name" : "BLACK",
-                            "weight" : 1
-                        }
-                    ]
+          "status": true,
+          "message": "",
+          "data": {
+            "1": {
+              "id": 1,
+              "code": "COLOR",
+              "name": "Color",
+              "weight": 1,
+              "helper": "",
+              "data_type": "list",
+              "option_count": 5,
+              "options": [
+                {
+                  "id": 1,
+                  "code": "FF0000",
+                  "name": "Red",
+                  "weight": 1
                 },
                 {
-                    "id" : 2,
-                    "code" : "GENDER",
-                    "name" : "GENDER",
-                    "weight": 1,
-                    "helper" : "",
-                    "is_multiple" : true,
-                    "option_count" : 2,
-                    "options" : [
-                        {
-                            "id" : 3,
-                            "code" : "F",
-                            "name" : "For Women",
-                            "weight": 0
-                        },
-                        {
-                            "id" : 4,
-                            "code" : "M",
-                            "name" : "For Men",
-                            "weight" : 1
-                        }
-                    ]
+                  "id": 2,
+                  "code": "00FF00",
+                  "name": "Green",
+                  "weight": 2
                 },
                 {
-                    "id" : 3,
-                    "code" : "CONDITION",
-                    "name" : "CONDITION",
-                    "weight": 2,
-                    "helper" : "choose condition",
-                    "is_multiple" : true,
-                    "option_count" : 2,
-                    "options" : [
-                        {
-                            "id" : 5,
-                            "code" : "NEW WITH TAGS",
-                            "name" : "NEW WITH TAGS",
-                            "weight": 0
-                        },
-                        {
-                            "id" : 6,
-                            "code" : "LIKE NEW",
-                            "name" : "LIKE NEW",
-                            "weight" : 1
-                        }
-                    ]
+                  "id": 3,
+                  "code": "0000FF",
+                  "name": "Blue",
+                  "weight": 3
+                },
+                {
+                  "id": 4,
+                  "code": "000000",
+                  "name": "Black",
+                  "weight": 4
+                },
+                {
+                  "id": 5,
+                  "code": "FFFFFF",
+                  "name": "White",
+                  "weight": 5
                 }
-            ]
+              ]
+            },
+            "2": {
+              "id": 2,
+              "code": "MATERIAL",
+              "name": "Material",
+              "weight": 2,
+              "helper": "",
+              "data_type": "list",
+              "option_count": 4,
+              "options": [
+                {
+                  "id": 6,
+                  "code": "LEATHER",
+                  "name": "Leather",
+                  "weight": 1
+                },
+                {
+                  "id": 7,
+                  "code": "PLASTIC",
+                  "name": "Plastic",
+                  "weight": 2
+                },
+                {
+                  "id": 8,
+                  "code": "METAL",
+                  "name": "Metal",
+                  "weight": 3
+                },
+                {
+                  "id": 9,
+                  "code": "WOOD",
+                  "name": "Wood",
+                  "weight": 4
+                }
+              ]
+            },
+            "3": {
+              "id": 3,
+              "code": "GENDER",
+              "name": "Gender",
+              "weight": 3,
+              "helper": "",
+              "data_type": "checkbox",
+              "option_count": 2,
+              "options": [
+                {
+                  "id": 10,
+                  "code": "MALE",
+                  "name": "Male",
+                  "weight": 2
+                },
+                {
+                  "id": 11,
+                  "code": "FEMALE",
+                  "name": "Female",
+                  "weight": 1
+                }
+              ]
+            },
+            "4": {
+              "id": 4,
+              "code": "CONDITION",
+              "name": "Condition",
+              "weight": 4,
+              "helper": "",
+              "data_type": "radio",
+              "option_count": 1,
+              "options": [
+                {
+                  "id": 12,
+                  "code": "LIKE_NEW",
+                  "name": "Like New",
+                  "weight": 1
+                }
+              ]
+            },
+            "5": {
+              "id": 5,
+              "code": "COMES",
+              "name": "Comes With",
+              "weight": 5,
+              "helper": "",
+              "data_type": "checkbox",
+              "option_count": 4,
+              "options": [
+                {
+                  "id": 13,
+                  "code": "RECEIPT",
+                  "name": "Receipt",
+                  "weight": 1
+                },
+                {
+                  "id": 14,
+                  "code": "AUTHENTICITY_CARD",
+                  "name": "Authenticity card",
+                  "weight": 2
+                },
+                {
+                  "id": 15,
+                  "code": "ORIGINAL_BOX",
+                  "name": "Original Box",
+                  "weight": 3
+                },
+                {
+                  "id": 16,
+                  "code": "DUSTBAG",
+                  "name": "Original Dustbag",
+                  "weight": 4
+                }
+              ]
+            }
+          }
         }
 
 ## GET : Flags [/preset/product_flags.json{?language_code}{?country_code}]
@@ -4862,7 +4944,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "avatar": ""
                         }
                     },
-                    
+        
                     {
                         "id": "10",
                         "last_destination_page": "",
@@ -4875,7 +4957,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "last_system_message": "[seller:nickname] declined your offer of [conversation:buyer_currency_code] [conversation:buyer_last_offer_price].",
                           "last_system_message_tokens": {
                             "seller:nickname": "Herman_575026",
-                            "conversation:buyer_currency_code":SGD,
+                            "conversation:buyer_currency_code":"SGD",
                             "conversation:buyer_last_offer_price":1000
                           }
                         },
@@ -4902,7 +4984,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "last_system_message": "You declined the offer of [conversation:seller_currency_code] [conversation:seller_last_offer_price] from [buyer:nickname].",
                           "last_system_message_tokens": {
                             "buyer:nickname": "Yeyeye",
-                            "conversation:seller_currency_code":SGD,
+                            "conversation:seller_currency_code":"SGD",
                             "conversation:seller_last_offer_price":1000
                           }
                         },
@@ -4917,7 +4999,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "avatar": ""
                         }
                     },
-                    
+        
                     {
                         "id": "10",
                         "last_destination_page": "",
@@ -4930,7 +5012,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "last_system_message": "[buyer:nickname] made an offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] on this item.",
                           "last_system_message_tokens": {
                             "buyer:nickname": "Herman_575026",
-                            "conversation:seller_currency_code":SGD,
+                            "conversation:seller_currency_code": "SGD",
                             "conversation_detail:seller_last_offer_price":1000
                           }
                         },
@@ -4956,7 +5038,7 @@ social_ids - all social ids for user order by unseen & updated at
                         "conversation": {
                           "last_system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
                           "last_system_message_tokens": {
-                            "conversation:buyer_currency_code":SGD,
+                            "conversation:buyer_currency_code": "SGD",
                             "conversation_detail:buyer_last_offer_price":1000
                           }
                         },
