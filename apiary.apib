@@ -5013,7 +5013,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "last_system_message_tokens": {
                             "buyer:nickname": "Herman_575026",
                             "conversation:seller_currency_code": "SGD",
-                            "conversation_detail:seller_last_offer_price":1000
+                            "conversation_detail:seller_offer_price":1000
                           }
                         },
                         "product": {
@@ -6185,4 +6185,157 @@ update order status.
                     }
                 }
             ]
+        }
+        
+# Group Fulfillment
+still use existing api v1 fulfillment.
+## POST : Fulfillment API [/fulfillment/fulfillment/get.json]
+get fulfillment data.
+### fulfillment api [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "uid":001,
+                "is_seller":"1",
+                "product_id":1,
+                "preffered_language":"en"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "fulfillment_timeline": [
+                "Item Sold",
+                "Collection",
+                "Delivery",
+                "Payment"
+            ],
+            "fulfillment_selected_timeline": 3,
+            "fulfillment_timeline_is_complete": true,
+            "fulfillment_status": "PAYMENT COMPLETED",
+            "fulfillment_body1": "Thank you for selling on Closets!\n\nPayment has been made via your selected payment mode:",
+            "fulfillment_box": "PAYOUT AMOUNT:\nSGD 2,429\n\nPAYMENT MODE:\nBank Transfer",
+            "fulfillment_body2": "For Bank Transfers, the bank may take up to 2 business days to process the transfer to your account.",
+            "fulfillment_notification": {
+                "message": ""
+            },
+            "fulfillment_button": [
+                ""
+            ],
+            "language_code": "en",
+            "is_seller": true,
+            "status": "order_payment_completed",
+            "closet_response": {
+                "error": 0,
+                "items": [
+                    {
+                        "buyer_uid": "3660771",
+                        "buyer_nickname": "weiwei82",
+                        "buyer_avatar": "",
+                        "seller_uid": "4972618",
+                        "seller_nickname": "Tan_4972618",
+                        "seller_avatar": "",
+                        "payout_amount": "SGD 2,429",
+                        "formated_selling_price": "SGD 2,699",
+                        "order_total": "SGD 2,709",
+                        "order_total_amount": "2709.00",
+                        "collection_date_max": "Tuesday 22nd March 2016 05:36 PM",
+                        "buyer_refund_payment_mode": "",
+                        "seller_payment_mode": "Bank Transfer",
+                        "buyer_original_payment_method": "ep_on_ipp_uob",
+                        "update_date": "2016-03-21 17:36:34",
+                        "order_id": "327284",
+                        "status": "order_payment_completed",
+                        "seller_collection_date": "Thursday 17th March 2016",
+                        "seller_collection_time": "9am to 6pm",
+                        "buyer_delivery_date": "Saturday 19th March 2016",
+                        "seller_collected_date": "Thursday 17th March 2016",
+                        "buyer_delivery_time": "Saturday, 7pm-10pm",
+                        "buyer_delivered_date": "Saturday 19th March 2016",
+                        "buyer_delivered_time": "Saturday, 7pm-10pm",
+                        "buyer_refund_date_max": "Monday 21st March 2016",
+                        "seller_payment_date_max": "Wednesday 23rd March 2016",
+                        "seller_return_date_max": "Friday 29th April 2016",
+                        "buyer_refund_date": "Wednesday 30th March 2016",
+                        "buyer_refund_amount": "SGD 2,689",
+                        "buyer_refund_full_amount": "SGD 2,709"
+                    }
+                ]
+            },
+            "pickup_data_response": {
+                "First Name": "Tan",
+                "Last Name": "Sally",
+                "Contact Number": "93377056",
+                "NIRC/Passport Number": "S8237205I",
+                "Preferred Date": "2016-03-17",
+                "Preferred Time": "9am to 6pm",
+                "Address 1": " 9 Woodlands Ave 9, Singapore 738964 ",
+                "Address 2": null,
+                "State": "Singapore",
+                "Country": "Singapore",
+                "City": "Singapore",
+                "Postal Code": "738964",
+                "Payment Mode": "Bank Transfer",
+                "Payment Info": "*Bank Name: POSB savings\n*Bank Account Number: 030278976\n*Payee Name: Chua Hui Keat"
+            },
+            "return_data_response": {
+                "order_id": "327284",
+                "order_date": "1458030021",
+                "seller_uid": "4972618",
+                "buyer_uid": "3660771",
+                "return_address1": null,
+                "return_address2": null,
+                "return_state": null,
+                "return_city": null,
+                "return_country": null,
+                "return_postal_code": null,
+                "return_contact_number": "93377056",
+                "return_username": "Tan Sally",
+                "return_date": null,
+                "return_time": null,
+                "fulfillment_status": "order_payment_completed"
+            },
+            "refund_data_response": {
+                "order_id": "327284",
+                "order_date": "1458030021",
+                "seller_uid": "4972618",
+                "buyer_uid": "3660771",
+                "refund_address1": null,
+                "refund_address2": null,
+                "refund_state": null,
+                "refund_city": null,
+                "refund_country": null,
+                "refund_postal_code": null,
+                "refund_contact_number": null,
+                "refund_username": "WeiYoong Yang",
+                "refund_date": null,
+                "refund_time": null,
+                "buyer_payment_mode": null,
+                "buyer_payment_info": null,
+                "buyer_passport_number": null,
+                "fulfillment_status": "order_payment_completed"
+            },
+            "delivery_data_response": {
+                "order_id": "327284",
+                "order_date": "1458030021",
+                "seller_uid": "4972618",
+                "buyer_uid": "3660771",
+                "shipping_address1": "Block 653B, Jurong West Street 61, #11-452",
+                "shipping_address2": null,
+                "shipping_state": null,
+                "shipping_city": "Singapore",
+                "shipping_country": "Singapore",
+                "shipping_postal_code": "642653",
+                "shipping_contact_number": "81280896",
+                "shipping_username": "Wei Yoong Yang",
+                "shipping_date": "2016-03-19",
+                "shipping_time": "Saturday, 7pm-10pm",
+                "fulfillment_status": "order_payment_completed"
+            }
         }
