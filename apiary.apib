@@ -1197,7 +1197,7 @@ field available ex : product.id , product.sku etc
                     "brand_name": "PRADA",
                     "category_id" :1,
                     "brand_id":1,
-                    "contact_number": "",
+                    "contact_number": "62494853",
                     "images": [
                         "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
                         "mobile-3500810-25.09.16-09-01-20-0-960x720.jpg",
@@ -4782,7 +4782,6 @@ social_ids - all social ids for user order by unseen & updated at
         
 
 ## POST : Get Buying / Selling Conversation List [/activity/conversation.json{?limit}{?uid}{?page}{?language_code}{?type}]
-"conversation_ids" : all ids conversation
 ### Get Conversation List [POST]
 
 + Request(application/json)
@@ -4819,6 +4818,12 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1443778150",
                         "updated_at": "1443778150",
                         "conversation": {
+                          "last_offer" : null,
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : null,
                           "last_system_message": "\"[conversation_detail:message]\"",
                           "last_system_message_tokens": {
                             "conversation_detail:message": "halo"
@@ -4827,7 +4832,9 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "12722",
                           "image": "mobile-3500457-28.09.15-14-38-47-0-960x1280.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": "3500457",
@@ -4844,12 +4851,20 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1443758273",
                         "updated_at": "1443758273",
                         "conversation": {
+                          "last_offer" : null,
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : null,
                           "last_system_message": "You sent a photo to this Buyer."
                         },
                         "product": {
                           "id": "12784",
                           "image": "mobile-3500842-30.09.15-21-43-15-0-960x720.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 3500842,
@@ -4866,6 +4881,12 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1443758273",
                         "updated_at": "1443758273",
                         "conversation": {
+                          "last_offer" : null,
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : null,
                           "last_system_message": "[seller:nickname] sent you a photo.",
                           "last_system_message_tokens": {
                             "seller:nickname": "Argo SG"
@@ -4874,7 +4895,9 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "12784",
                           "image": "mobile-3500842-30.09.15-21-43-15-0-960x720.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 3500842,
@@ -4891,6 +4914,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1455701289",
                         "updated_at": "1459391488",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer made",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
                           "last_system_message_tokens": {
                             "conversation:buyer_currency_code": "SGD",
@@ -4900,12 +4935,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "82138",
                           "image": "mobile-3501725-02.02.16-17-16-41-0-540x960.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": "3500871",
                           "nickname": "Yessika_3500871",
-                          "avatar": ""
+                          "avatar": "yessika.jpg"
                         }
                     },
                     {
@@ -4917,6 +4954,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1443761092",
                         "updated_at": "1443761092",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer made",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "[buyer:nickname] made an offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] on this item.",
                           "last_system_message_tokens": {
                             "buyer:nickname": "buyer_tt",
@@ -4927,7 +4976,9 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "12781",
                           "image": "mobile-3500842-30.09.15-21-21-16-0-960x720.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": "3500811",
@@ -4944,6 +4995,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1450424178",
                         "updated_at": "1450424177",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer withdraw",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "[buyer:nickname] withdrew the offer for this item.",
                           "last_system_message_tokens": {
                             "buyer:nickname": "Herman_575026"
@@ -4952,12 +5015,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "81769",
                           "image": "mobile-575026-18.12.15-14-54-08-0-960x540.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 575026,
                           "nickname": "Herman_575026",
-                          "avatar": ""
+                          "avatar": "herman.jpg"
                         }
                     },
                     {
@@ -4969,17 +5034,31 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1454556168",
                         "updated_at": "1454556168",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer withdraw",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "You withdrew your offer for this item."
                         },
                         "product": {
                           "id": "82155",
                           "image": "mobile-3500871-04.02.16-10-10-20-0-960x1280.jpg",
-                          "status": "sold"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 3500874,
                           "nickname": "Yeyeye",
-                          "avatar": ""
+                          "avatar": "yessika.jpg"
                         }
                     },
         
@@ -4992,6 +5071,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1450424178",
                         "updated_at": "1450424177",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer decline",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "[seller:nickname] declined your offer of [conversation:buyer_currency_code] [conversation:buyer_last_offer_price].",
                           "last_system_message_tokens": {
                             "seller:nickname": "Herman_575026",
@@ -5002,12 +5093,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "81769",
                           "image": "mobile-575026-18.12.15-14-54-08-0-960x540.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 575026,
                           "nickname": "Herman_575026",
-                          "avatar": ""
+                          "avatar": "herman.jpg"
                         }
                     },
                     {
@@ -5019,6 +5112,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1454556168",
                         "updated_at": "1454556168",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer decline",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "You declined the offer of [conversation:seller_currency_code] [conversation:seller_last_offer_price] from [buyer:nickname].",
                           "last_system_message_tokens": {
                             "buyer:nickname": "Yeyeye",
@@ -5029,12 +5134,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "82155",
                           "image": "mobile-3500871-04.02.16-10-10-20-0-960x1280.jpg",
-                          "status": "sold"
+                          "status": "sold",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 3500874,
                           "nickname": "Yeyeye",
-                          "avatar": ""
+                          "avatar": "yessika.jpg"
                         }
                     },
         
@@ -5047,6 +5154,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1450424178",
                         "updated_at": "1450424177",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "made offer",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "[buyer:nickname] made an offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] on this item.",
                           "last_system_message_tokens": {
                             "buyer:nickname": "Herman_575026",
@@ -5057,12 +5176,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "81769",
                           "image": "mobile-575026-18.12.15-14-54-08-0-960x540.jpg",
-                          "status": "open"
+                          "status": "open",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 575026,
                           "nickname": "Herman_575026",
-                          "avatar": ""
+                          "avatar": "herman.jpg"
                         }
                     },
                     {
@@ -5074,6 +5195,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1454556168",
                         "updated_at": "1454556168",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "made offer",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
                           "last_system_message_tokens": {
                             "conversation:buyer_currency_code": "SGD",
@@ -5083,12 +5216,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "82155",
                           "image": "mobile-3500871-04.02.16-10-10-20-0-960x1280.jpg",
-                          "status": "sold"
+                          "status": "sold",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 3500874,
                           "nickname": "Yeyeye",
-                          "avatar": ""
+                          "avatar": "yessika.jpg"
                         }
                     },
                     {
@@ -5100,6 +5235,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1443537584",
                         "updated_at": "1443537584",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "accept offer",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "You accepted the offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] from [buyer:nickname].",
                           "last_system_message_tokens": {
                             "conversation:seller_currency_code": "SGD",
@@ -5110,7 +5257,9 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "12750",
                           "image": "mobile-400342-29.09.15-22-28-44-0-720x1280.jpg",
-                          "status": "sold"
+                          "status": "sold",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 400342,
@@ -5127,6 +5276,18 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1443537584",
                         "updated_at": "1443537584",
                         "conversation": {
+                          "last_offer" : {
+                            "currency_code":"SGD",
+                            "offer_price": 1450
+                          },
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "purchased",
+                            "status_color": "#FFFFFFF"
+                          },
                           "last_system_message": "[seller:nickname] accepted your offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price]. Complete payment by [dates:offer_accepted_expiry] today/tomorrow to secure your item.",
                           "last_system_message_tokens": {
                             "seller:nickname": "Herman_sgp",
@@ -5138,12 +5299,14 @@ social_ids - all social ids for user order by unseen & updated at
                         "product": {
                           "id": "12750",
                           "image": "mobile-400342-29.09.15-22-28-44-0-720x1280.jpg",
-                          "status": "sold"
+                          "status": "sold",
+                          "brand_name": "HERMES",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": 400342,
                           "nickname": "Herman_sgp",
-                          "avatar": null
+                          "avatar": "herman.jpg"
                         }
                     },
                     {
@@ -5155,11 +5318,23 @@ social_ids - all social ids for user order by unseen & updated at
                         "created_at": "1455701289",
                         "updated_at": "1455701289",
                         "conversation": {
-                          "last_system_message": "Your offer to purchase this item has expired."
+                          "last_offer" : null,
+                          "last_sender": {
+                            "uid": 1243,
+                            "nickname": "Yessika"
+                          },
+                          "last_status" : {
+                            "status_name" : "offer_expired",
+                            "status_color": "#FFFFFFF"
+                          },
+                          "last_system_message": "Your offer to purchase this item has expired.",
+                          "last_system_message_tokens" : null
                         },
-                        "product": {
+                        "product":{
                           "id": "12734",
                           "image": "mobile-400220-29.09.15-15-08-47-0-720x1280.jpg",
+                          "brand_name": "PRADA",
+                          "title" : "Lindy Eutope",
                           "status": "open"
                         },
                         "sender": {
@@ -5199,7 +5374,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "image": "mobile-400220-29.09.15-15-08-47-0-720x1280.jpg",
                           "status": "open",
                           "brand_name": "HERMES",
-                          "title" : "Lindy Eutope",
+                          "title" : "Lindy Eutope"
                         },
                         "sender": {
                           "uid": "-1",
@@ -5216,7 +5391,6 @@ social_ids - all social ids for user order by unseen & updated at
             "limit": 20,
             "page" : 1
         }
-
 
 
 ## POST : Get Buying / Selling Conversation List By Ids [/activity/get_conversation_byids.json]
