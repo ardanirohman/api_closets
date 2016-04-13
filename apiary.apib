@@ -250,7 +250,66 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
 # Group Profile 
 user profile in closets
 
+## POST : Check Exist Nickname [/users/change_password.json]
+status : new
+
+### Post Exist Nickname [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
+
+    + Body 
+        
+            {
+                "old_password" : "old password"
+                "new_password": "password"
+            }
+
++ Response 200 (application/json)
+        
+            {
+                "status" : true,
+                "message" : "change password successfull",
+                "data" : []
+            }
+        
+
+## POST : Check Exist Nickname [/users/exist_nickname.json]
+status : new
+### Post Exist Nickname [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
+
+    + Body 
+                
+            {
+                "nickname": "test"
+            }
+
++ Response 200 (application/json)
+    
+            {
+                "status":true,
+                "message":"nickname is exist",
+                "data" : []
+            }
+
+
 ## GET : Closets Profile [/users/closets_profile.json{?uid}{?nickname}]
+
+if uid = requestor uid then show all status except unpublished also return sales count and order count
+else just item approve and sold and hide (0) sales and order count
+
+status : changed
 ### Get Closets Profile [GET]
 
 + Parameters
@@ -286,6 +345,8 @@ user profile in closets
                 ],
                 "item_count" : 121,
                 "like_count" : 200,
+                "sales_count" : 200,
+                "order_count" : 200,
                 "following_count" : 317,
                 "followers_count" : 200,
                 "following_status" : true
@@ -1168,6 +1229,86 @@ show active brand
 
 # Group Product Item
 Api For Product
+
+## GET : Product List by liked[/product/product_liked.json{?uid}{?limit}{?page}]
+status : new
+### Get Product List by liked [GET]
++ Parameters
+    + limit : 20 (number) 
+    + uid : 123 (number)
+    + page : 1 (number)
+    
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":"",
+            "data" : [
+                {
+                    "product" : {
+                        "id": "12695",
+                        "sku": "",
+                        "uid" :123,
+                        "country_code": "SG",
+                        "currency_code": "SGD",
+                        "contact_number": "",
+                        "title": "Product",
+                        "brand_name": "PRADA",
+                        "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                        "selling_price": 1000,
+                        "original_price": 1150,
+                        "offer_accepted_price":800,
+                        "like_count": 10,
+                        "comment_count": 2,
+                        "liked": true,
+                        "commented" : true,
+                        "created_date": "12242424234",
+                        "updated_date": "12312312313",
+                        "category_name": "BAGS",
+                        "status": "open",
+                        "flags" : [
+                            {
+                                "code" : "reebonz_stock",
+                                "name" : "reebonz stock",
+                                "value": 1
+                            }
+                        ]
+                },
+                {
+                    "product" : {
+                        "id": "12695",
+                        "sku": "",
+                        "uid" :123,
+                        "country_code": "SG",
+                        "currency_code": "SGD",
+                        "contact_number": "",
+                        "title": "Product",
+                        "brand_name": "PRADA",
+                        "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                        "selling_price": 1000,
+                        "original_price": 1150,
+                        "offer_accepted_price":800,
+                        "like_count": 10,
+                        "comment_count": 2,
+                        "liked": true,
+                        "commented" : true,
+                        "created_date": "12242424234",
+                        "updated_date": "12312312313",
+                        "category_name": "BAGS",
+                        "status": "open",
+                        "flags" : [
+                            {
+                                "code" : "reebonz_stock",
+                                "name" : "reebonz stock",
+                                "value": 1
+                            }
+                        ]
+                },
+                
+            ]
+        }
+
+
 ## GET : Product Detail [/product/product_detail.json{?product_id}{?country_code}{?language_code}{?field}{?section}]
 >  status : ready
 
@@ -1421,7 +1562,14 @@ field available ex : product.id , product.sku etc
         }
 
 ## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?section}{?uid}{?seller_uid}{?product_id}{?limit_per_seller}{?limit}{?page}]
+closets profile product for mobile
+
 field available ex : product.id , product.sku etc
+if uid session = uid parameter and uid session = seller_uid parameter then show all except unpublished
+else show only sold approved
+
+status : changed
+
 ### Get Product listing [GET]
 
 + Parameters
@@ -1429,8 +1577,8 @@ field available ex : product.id , product.sku etc
     + language_code : EN (string)
     + field : product.id , product.sku (string) - optional
     + section : product , seller (string) - optional
-    + uid : 1231 (integer) - optional
-    + seller_uid : 123,1231,1,11,1 (string) - optional
+    + uid : 1231 (integer) - optional it is to check is commented , liked and followed
+    + seller_uid : 123,1231,1,11,1 (string) - optional it is for filter item seller
     + product_id : 12,32,23 (string) - optional
     + limit_per_seller : 3 (integer) - optional
     + limit : 10 (integer) - optional
@@ -1451,13 +1599,8 @@ field available ex : product.id , product.sku etc
                         "currency_code": "SGD",
                         "contact_number": "",
                         "title": "Product",
-                        "description": "Desc Product",
                         "brand_name": "PRADA",
-                        "images": [
-                            "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
-                            "mobile-3500810-25.09.16-09-01-20-0-960x720.jpg",
-                            "mobile-3500810-25.09.17-09-01-20-0-960x720.jpg"
-                        ],
+                        "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
                         "selling_price": 1000,
                         "original_price": 1150,
                         "offer_accepted_price":800,
@@ -1474,85 +1617,6 @@ field available ex : product.id , product.sku etc
                                 "code" : "reebonz_stock",
                                 "name" : "reebonz stock",
                                 "value": 1
-                            }
-                        ],
-                        "gender": [
-                            {
-                                "code" : "F",
-                                "name" : "Female",
-                                "weight" : 1
-                            }
-                        ],
-                        "size": [
-                            {
-                                "id": 1,
-                                "code": "L",
-                                "name": "Length",
-                                "value": 12,
-                                "weight" : 0,
-                                "variant_name":"inch",
-                                "type": "field"
-                            },
-                            {
-                                "id" : 2,
-                                "code": "H",
-                                "name": "Height",
-                                "value": 12,
-                                "weight" : 1,
-                                "variant_name":"inch",
-                                "type": "field"
-                            },
-                            {
-                                "id" : 3,
-                                "code": "UK",
-                                "name": "UK",
-                                "value": 10,
-                                "weight" : 2,
-                                "variant_name":"Female",
-                                "type": "chart"
-                            }
-                        ],
-                        "color": [
-                            {
-                                "code" : "#ffffff",
-                                "name" : "white",
-                                "weight" : 0
-                            },
-                            {
-                                "code" : "#000000",
-                                "name" : "black",
-                                "weight" : 1
-                            }
-                        ],
-                        "material":[
-                            {
-                                "code" : "Leather",
-                                "name" : "Leather",
-                                "weight" : 0
-                            },
-                            {
-                                "code" : "Fabric",
-                                "name" : "Fabric",
-                                "weight" : 1
-                            }
-                        ],
-                        "includes" : [
-                            {
-                                "code" : "Receipt",
-                                "name" : "Receipt",
-                                "weight" : 0
-                            },
-                            {
-                                "code" : "Authenticity Card",
-                                "name" : "Authenticity Card",
-                                "weight" : 1
-                            }
-                        ],
-                        "condition" : [
-                            {
-                                "code" : "New",
-                                "name" : "New with tags",
-                                "weight" : 0
                             }
                         ],
                         "seller" : {
@@ -1587,13 +1651,8 @@ field available ex : product.id , product.sku etc
                         "currency_code": "SGD",
                         "contact_number": "",
                         "title": "Product",
-                        "description": "Desc Product",
                         "brand_name": "PRADA",
-                        "images": [
-                            "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
-                            "mobile-3500810-25.09.16-09-01-20-0-960x720.jpg",
-                            "mobile-3500810-25.09.17-09-01-20-0-960x720.jpg"
-                        ],
+                        "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
                         "selling_price": 1000,
                         "original_price": 1150,
                         "offer_accepted_price":800,
@@ -1610,85 +1669,6 @@ field available ex : product.id , product.sku etc
                                 "code" : "reebonz_stock",
                                 "name" : "reebonz stock",
                                 "value": 1
-                            }
-                        ],
-                        "gender": [
-                            {
-                                "code" : "F",
-                                "name" : "Female",
-                                "weight" : 1
-                            }
-                        ],
-                        "size": [
-                            {
-                                "id": 1,
-                                "code": "L",
-                                "name": "Length",
-                                "value": 12,
-                                "weight" : 0,
-                                "variant_name":"inch",
-                                "type": "field"
-                            },
-                            {
-                                "id" : 2,
-                                "code": "H",
-                                "name": "Height",
-                                "value": 12,
-                                "weight" : 1,
-                                "variant_name":"inch",
-                                "type": "field"
-                            },
-                            {
-                                "id" : 3,
-                                "code": "UK",
-                                "name": "UK",
-                                "value": 10,
-                                "weight" : 2,
-                                "variant_name":"Female",
-                                "type": "chart"
-                            }
-                        ],
-                        "color": [
-                            {
-                                "code" : "#ffffff",
-                                "name" : "white",
-                                "weight" : 0
-                            },
-                            {
-                                "code" : "#000000",
-                                "name" : "black",
-                                "weight" : 1
-                            }
-                        ],
-                        "material":[
-                            {
-                                "code" : "Leather",
-                                "name" : "Leather",
-                                "weight" : 0
-                            },
-                            {
-                                "code" : "Fabric",
-                                "name" : "Fabric",
-                                "weight" : 1
-                            }
-                        ],
-                        "includes" : [
-                            {
-                                "code" : "Receipt",
-                                "name" : "Receipt",
-                                "weight" : 0
-                            },
-                            {
-                                "code" : "Authenticity Card",
-                                "name" : "Authenticity Card",
-                                "weight" : 1
-                            }
-                        ],
-                        "condition" : [
-                            {
-                                "code" : "New",
-                                "name" : "New with tags",
-                                "weight" : 0
                             }
                         ],
                         "seller" : {
@@ -2169,49 +2149,7 @@ same function with trigger comment
             ]
         }
 
-## GET : Sales History [/product/sales_history.json{?limit}{?page}{?language_code}]
->  status : ready
 
-### Sales History [GET]
-+ Parameters
-    + limit : 10 (number)
-    + page: 1 (number)
-    + language_code : EN (string)
-    
-+ Response 200 (application/json)
-
-        {
-            "status": true,
-            "message": "",
-            "count" : 30,
-            "data" : [
-                {
-                    "product" : {
-                        "id" : 12,
-                        "title": "laurel Magnolia",
-                        "brand_name": "HERMES",
-                        "image": "product.jpg",
-                        "status_code" : "sold",
-                        "status_name" : "sold",
-                        "status_color" : "#FFFFFF"
-                    },
-                    "order" : {
-                        "id" : 1,
-                        "created_at": 12312342,
-                        "updated_at": 12312402,
-                        "fulfillment_status_name" : "purchased",
-                        "fulfillment_status_color": "#000000",
-                        "fulfillment_status_code": "purchased",
-                    },
-                    "system_message" : {
-                        "message" : "[sender_name] this item was successfully",
-                        "tokens" :{
-                            "sender_name" : "reebonz"
-                        }
-                    }
-                }
-            ]
-        }
 
 # Group Rating
 Api rating user seller and buyer
@@ -4700,7 +4638,7 @@ social_ids - all social ids for user order by unseen & updated at
         }
            
 ## POST : Social Activity Feed By Ids [/activity/get_social_byids.json]
-
+status : modify
 ### List Social feed By Ids [POST]
 
 + Request (application/json)
@@ -4782,6 +4720,7 @@ social_ids - all social ids for user order by unseen & updated at
         
 
 ## POST : Get Buying / Selling Conversation List [/activity/conversation.json{?limit}{?uid}{?page}{?language_code}{?type}]
+status : modify
 ### Get Conversation List [POST]
 
 + Request(application/json)
@@ -4924,7 +4863,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer made",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
                           "last_system_message_tokens": {
@@ -4964,7 +4903,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer made",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "[buyer:nickname] made an offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] on this item.",
                           "last_system_message_tokens": {
@@ -5005,7 +4944,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer withdraw",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "[buyer:nickname] withdrew the offer for this item.",
                           "last_system_message_tokens": {
@@ -5044,7 +4983,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer withdraw",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "You withdrew your offer for this item."
                         },
@@ -5081,7 +5020,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer decline",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "[seller:nickname] declined your offer of [conversation:buyer_currency_code] [conversation:buyer_last_offer_price].",
                           "last_system_message_tokens": {
@@ -5122,7 +5061,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer decline",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "You declined the offer of [conversation:seller_currency_code] [conversation:seller_last_offer_price] from [buyer:nickname].",
                           "last_system_message_tokens": {
@@ -5164,7 +5103,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "made offer",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FFA054"
                           },
                           "last_system_message": "[buyer:nickname] made an offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] on this item.",
                           "last_system_message_tokens": {
@@ -5205,7 +5144,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "made offer",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FFA054"
                           },
                           "last_system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
                           "last_system_message_tokens": {
@@ -5245,7 +5184,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "accept offer",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#00B869"
                           },
                           "last_system_message": "You accepted the offer of [conversation:seller_currency_code] [conversation_detail:seller_offer_price] from [buyer:nickname].",
                           "last_system_message_tokens": {
@@ -5286,7 +5225,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "purchased",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#00B869"
                           },
                           "last_system_message": "[seller:nickname] accepted your offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price]. Complete payment by [dates:offer_accepted_expiry] today/tomorrow to secure your item.",
                           "last_system_message_tokens": {
@@ -5325,7 +5264,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "offer_expired",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#FF5A60"
                           },
                           "last_system_message": "Your offer to purchase this item has expired.",
                           "last_system_message_tokens" : null
@@ -5366,7 +5305,7 @@ social_ids - all social ids for user order by unseen & updated at
                           },
                           "last_status" : {
                             "status_name" : "purchased",
-                            "status_color": "#FFFFFFF"
+                            "status_color": "#00B869"
                           }
                         },
                         "product": {
@@ -5394,6 +5333,7 @@ social_ids - all social ids for user order by unseen & updated at
 
 
 ## POST : Get Buying / Selling Conversation List By Ids [/activity/get_conversation_byids.json]
+status : modify
 ### Get Conversation List By Ids [POST]
 + Request(application/json)
 
@@ -5425,14 +5365,25 @@ social_ids - all social ids for user order by unseen & updated at
                     "created_at": "1455701289",
                     "updated_at": "1455701289",
                     "conversation": {
+                      "last_offer" : null,
+                      "last_sender": {
+                        "uid": 1243,
+                        "nickname": "Yessika"
+                      },
+                      "last_status" : {
+                        "status_name" : "offer_expired",
+                        "status_color": "#FFFFFFF"
+                      },
                       "last_system_message": "Your offer to purchase this item has expired."
                     },
                     "product": {
                       "id": "12734",
                       "image": "mobile-400220-29.09.15-15-08-47-0-720x1280.jpg",
-                      "status": "open"
+                      "status": "open",
+                      "brand_name": "HERMES",
+                      "title" : "Lindy Eutope"
                     },
-                    "last_sender": {
+                    "sender": {
                       "uid": "-1",
                       "nickname": "Reebonz Atelier",
                       "avatar": "reebonz_atelier_logo.jpg"
@@ -5447,6 +5398,18 @@ social_ids - all social ids for user order by unseen & updated at
                     "created_at": "1455701289",
                     "updated_at": "1455701289",
                     "conversation": {
+                      "last_offer" : {
+                        "currency_code":"SGD",
+                        "offer_price": 1450
+                      },
+                      "last_sender": {
+                        "uid": 1243,
+                        "nickname": "Yessika"
+                      },
+                      "last_status" : {
+                        "status_name" : "offer_expired",
+                        "status_color": "#FFFFFFF"
+                      },
                       "last_system_message": "[buyer:nickname]'s option to purchase this item has expired.",
                       "last_system_message_tokens": {
                         "buyer:nickname": "herman_hk1"
@@ -5455,9 +5418,11 @@ social_ids - all social ids for user order by unseen & updated at
                     "product": {
                       "id": "12734",
                       "image": "mobile-400220-29.09.15-15-08-47-0-720x1280.jpg",
-                      "status": "open"
+                      "status": "open",
+                      "brand_name": "HERMES",
+                      "title" : "Lindy Eutope"
                     },
-                    "last_sender": {
+                    "sender": {
                       "uid": "-1",
                       "nickname": "Reebonz Atelier",
                       "avatar": "reebonz_atelier_logo.jpg"
@@ -6394,6 +6359,50 @@ update order status.
                         "title": "laurel Magnolia",
                         "brand_name": "HERMES",
                         "image": "product.jpg"    
+                    },
+                    "order" : {
+                        "id" : 1,
+                        "created_at": 12312342,
+                        "updated_at": 12312402,
+                        "fulfillment_status_name" : "purchased",
+                        "fulfillment_status_color": "#000000",
+                        "fulfillment_status_code": "purchased",
+                    },
+                    "system_message" : {
+                        "message" : "[sender_name] this item was successfully",
+                        "tokens" :{
+                            "sender_name" : "reebonz"
+                        }
+                    }
+                }
+            ]
+        }
+        
+## GET : Sales History [/order/sales_history.json{?limit}{?page}{?language_code}]
+>  status : ready
+
+### Sales History [GET]
++ Parameters
+    + limit : 10 (number)
+    + page: 1 (number)
+    + language_code : EN (string)
+    
++ Response 200 (application/json)
+
+        {
+            "status": true,
+            "message": "",
+            "count" : 30,
+            "data" : [
+                {
+                    "product" : {
+                        "id" : 12,
+                        "title": "laurel Magnolia",
+                        "brand_name": "HERMES",
+                        "image": "product.jpg",
+                        "status_code" : "sold",
+                        "status_name" : "sold",
+                        "status_color" : "#FFFFFF"
                     },
                     "order" : {
                         "id" : 1,
