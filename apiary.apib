@@ -589,16 +589,21 @@ show active category
             [
                 {
                     "id" : 1,
+                    "category_name" : "BAGS",
+                    "localization" : "BAGS"
+                },
+                {
+                    "id" : 2,
                     "category_name" : "APPAREL",
                     "localization" : "APPAREL"
                 },
                 {
-                    "id" : 2,
+                    "id" : 3,
                     "category_name" : "ACCESSORIES",
                     "localization" : "ACCESSORIES"
                 },
                 {
-                    "id" : 3,
+                    "id" : 4,
                     "category_name" : "JEWELLERY",
                     "localization" : "JEWELLERY"
                 }
@@ -4759,7 +4764,7 @@ status : modify
                         "conversation": {
                           "last_offer" : null,
                           "last_sender": {
-                            "uid": 1243,
+                            "uid": 1002310,
                             "nickname": "Yessika"
                           },
                           "last_status" : null,
@@ -4792,7 +4797,7 @@ status : modify
                         "conversation": {
                           "last_offer" : null,
                           "last_sender": {
-                            "uid": 1243,
+                            "uid": 1002310,
                             "nickname": "Yessika"
                           },
                           "last_status" : null,
@@ -4828,7 +4833,7 @@ status : modify
                           "last_status" : null,
                           "last_system_message": "[seller:nickname] sent you a photo.",
                           "last_system_message_tokens": {
-                            "seller:nickname": "Argo SG"
+                            "seller:nickname": "Maria"
                           }
                         },
                         "product": {
@@ -4840,8 +4845,8 @@ status : modify
                         },
                         "sender": {
                           "uid": 3500842,
-                          "nickname": "Argo SG",
-                          "avatar": "argo_sg.jpg"
+                          "nickname": "Maria",
+                          "avatar": "profile_5117803_1459857525.jpg"
                         }
                     },
                     {
@@ -6573,4 +6578,199 @@ get fulfillment data.
                 "shipping_time": "Saturday, 7pm-10pm",
                 "fulfillment_status": "order_payment_completed"
             }
+        }
+        
+        
+# Group Dummy Data
+
+## GET : Size  1 [/preset/product_sizes.json{?language_code,variant_code,size_group_code}?category_id=1]
+>  status : ready
+
+### Get product size [GET]
++ Parameters
+    + language_code : EN (string)
+    + variant_code : "F/M" (string) - optional
+    + size_group_code: "UK" (string) - optional
+ 
++ Response 200 (application/json)
+
+        {
+          "status": true,
+          "message": "",
+          "data": [
+            {
+              "variant_code": "F",
+              "variant_name": "FEMALE",
+              "type": "chart",
+              "data": {
+                "group": [
+                  {
+                    "id": 1,
+                    "code": "US",
+                    "name": "US",
+                    "weight": 0,
+                    "values": [
+                      {
+                        "id": 1,
+                        "name": 10
+                      },
+                      {
+                        "id": 2,
+                        "name": 11
+                      }
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "code": "UK",
+                    "name": "Uk",
+                    "weight": 1,
+                    "values": [
+                      {
+                        "id": 3,
+                        "name": 10
+                      },
+                      {
+                        "id": 4,
+                        "name": 11
+                      }
+                    ]
+                  },
+                  {
+                    "id": 3,
+                    "code": "EU",
+                    "name": "EU",
+                    "weight": 2,
+                    "values": [
+                      {
+                        "id": 5,
+                        "name": 10
+                      },
+                      {
+                        "id": 6,
+                        "name": 11
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "variant_code": "M",
+              "variant_name": "MALE",
+              "type": "chart",
+              "data": {
+                "group": [
+                  {
+                    "id": 4,
+                    "code": "US",
+                    "name": "US",
+                    "weight": 0,
+                    "values": [
+                      {
+                        "id": 10,
+                        "name": 10
+                      },
+                      {
+                        "id": 11,
+                        "name": 11
+                      }
+                    ]
+                  },
+                  {
+                    "id": 5,
+                    "code": "UK",
+                    "name": "Uk",
+                    "weight": 1,
+                    "values": [
+                      {
+                        "id": 12,
+                        "name": 10
+                      },
+                      {
+                        "id": 13,
+                        "name": 11
+                      }
+                    ]
+                  },
+                  {
+                    "id": 6,
+                    "code": "EU",
+                    "name": "EU",
+                    "weight": 2,
+                    "values": [
+                      {
+                        "id": 14,
+                        "name": 10
+                      },
+                      {
+                        "id": 15,
+                        "name": 11
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+        
+## GET : Size 2 [/preset/product_sizes.json{?language_code,variant_code,size_group_code}?category_id=2]
+>  status : ready
+
+### Get product size [GET]
++ Parameters
+    + language_code : EN (string)
+    + variant_code : "F/M" (string) - optional
+    + size_group_code: "UK" (string) - optional
+ 
++ Response 200 (application/json)
+
+        {
+          "status": true,
+          "message": "",
+          "data": [
+            {
+              "variant_code": "INCH",
+              "variant_name": "INCH",
+              "type": "field",
+              "data": {
+                "group": [
+                  {
+                    "code": "WIDTH",
+                    "name": "WIDTH",
+                    "weight": 0,
+                    "values": []
+                  },
+                  {
+                    "code": "LENGTH",
+                    "name": "LENGTH",
+                    "weight": 1,
+                    "values": []
+                  },
+                  {
+                    "code": "HEIGHT",
+                    "name": "HEIGHT",
+                    "weight": 2,
+                    "values": []
+                  }
+                ]
+              }
+            },
+            {
+              "variant_code": "CM",
+              "variant_name": "CM",
+              "type": "field",
+              "data": {
+                "group": [
+                  {
+                    "code": "LENGTH",
+                    "name": "LENGTH",
+                    "weight": 0,
+                    "values": []
+                  }
+                ]
+              }
+            }
+          ]
         }
