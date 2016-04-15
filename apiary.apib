@@ -250,10 +250,10 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
 # Group Profile 
 user profile in closets
 
-## POST : Check Exist Nickname [/users/change_password.json]
-status : new
+## POST : Change Password [/users/change_password.json]
+>  status : ready
 
-### Post Exist Nickname [POST]
+### Post Change Password [POST]
 + Request
 
     + Headers
@@ -279,7 +279,8 @@ status : new
         
 
 ## POST : Check Exist Nickname [/users/exist_nickname.json]
-status : new
+>  status : ready
+
 ### Post Exist Nickname [POST]
 + Request
 
@@ -309,7 +310,8 @@ status : new
 if uid = requestor uid then show all status except unpublished also return sales count and order count
 else just item approve and sold and hide (0) sales and order count
 
-status : changed
+>  status : ready
+
 ### Get Closets Profile [GET]
 
 + Parameters
@@ -354,6 +356,8 @@ status : changed
         }
 
 ## POST : Update Profile User  [/users/users_profile.json]
+>  status : ready
+
 ### Update Profile User [POST]
 + Request
 
@@ -373,7 +377,7 @@ status : changed
                 "description": "sample description",
                 "user_mail":"user@reebonz.com",
                 "language_preference":"EN",
-                "gender":"male",
+                "gender":"M/F",
                 "contact_number":21312313
             }
 
@@ -387,6 +391,8 @@ status : changed
             }
 
 ## POST : User Blacklist  [/users/blacklist.json]
+>  status : ready
+
 ### user blacklist [POST]
 need log for change
 
@@ -417,11 +423,9 @@ need log for change
             }
 
 ## GET : Get Profile User  [/users/getprofile.json{?field}]
+>  status : ready
+
 ### Get Profile User [GET]
-contact number -> titan
-addresses -> titan
-
-
 + Parameters
     + field : user.uid,user.last_name (string) - optional
 + Response 200 (application/json)
@@ -638,7 +642,7 @@ show active brand
             [
                 {
                     "id" : 1,
-                    "brand_name" : "3.1 PHILLIP LIM",
+                    "brand_name" : "PRADA",
                     "currency_code" : "SGD",
                     "min_price" : 200
                 },
@@ -913,15 +917,15 @@ show active brand
                     "id" : 1,
                     "code" : "CHAT",
                     "name" : "CHAT",
-                    "weight": 0,
-                    "default_value":true
+                    "default_value":true,
+                    "is_public":true
                 },
                 {
                     "id" : 2,
                     "code" : "NEGO",
                     "name" : "NEGO",
-                    "weight": 1,
-                    "default_value" : false
+                    "default_value" : false,
+                    "is_public":true
                 }
             ]
         }
@@ -1235,8 +1239,9 @@ show active brand
 # Group Product Item
 Api For Product
 
-## GET : Product List by liked[/product/product_liked.json{?uid}{?limit}{?page}]
-status : new
+## GET : Product List by liked[/product/product_liked.json{?uid}{?language_code}{?limit}{?page}]
+> status : ready
+
 ### Get Product List by liked [GET]
 + Parameters
     + limit : 20 (number) 
@@ -1346,8 +1351,8 @@ field available ex : product.id , product.sku etc
                     "contact_number": "62494853",
                     "images": [
                         "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
-                        "mobile-3500810-25.09.16-09-01-20-0-960x720.jpg",
-                        "mobile-3500810-25.09.17-09-01-20-0-960x720.jpg"
+                        "mobile-1968143-26.12.15-09-37-30-0-720x960.jpg",
+                        "mobile-5083965-14.04.16-01-59-57-0-1231x720.jpg"
                     ],
                     "selling_price": 1000,
                     "original_price": 1150,
@@ -1573,7 +1578,7 @@ field available ex : product.id , product.sku etc
 if uid session = uid parameter and uid session = seller_uid parameter then show all except unpublished
 else show only sold approved
 
-status : changed
+> status : ready
 
 ### Get Product listing [GET]
 
@@ -6384,7 +6389,7 @@ update order status.
         }
         
 ## GET : Sales History [/order/sales_history.json{?limit}{?page}{?language_code}]
->  status : ready
+>  status : new
 
 ### Sales History [GET]
 + Parameters
