@@ -4579,7 +4579,7 @@ social_ids - all social ids for user order by unseen & updated at
                           "system_message": "[sender:nickname] commented on your item: \"[social_feed:comment_message]\".",
                           "system_message_tokens": {
                             "sender:nickname": "Candra_3500070",
-                            "social_feed:comment_message": "nice @fian @bebe @rizqi"
+                            "social_feed:comment_message": "nice @fian @bebe @rizqi 😂"
                           }
                         },
                         "product": {
@@ -6638,11 +6638,44 @@ get fulfillment data.
             "payment_options":[
                 {
                     "payment_name":"Bank Transfer",
-                    "payment_fields": ["Account Name","Account Number"]
+                    "intruction_message":"Please enter your bank details to receive",
+                    "condition_message":"please allow 5business days",
+                    "payment_fields": 
+                                [
+                                    {
+                                        "field_name":"Bank Account",
+                                        "field_type":"selection",
+                                        "option_value":["UOB","DBS","CITIBANK"],
+                                        "placeholder":"Select Bank Name",
+                                        "compulsory":1
+                                    },
+                                    {
+                                        "field_name":"Bank Account Number",
+                                        "field_type":"number",
+                                        "placeholder":"eq: 123123",
+                                        "compulsory":1
+                                    },
+                                    {
+                                        "field_name":"Payee Name",
+                                        "field_type":"text",
+                                        "placeholder":"Enter payee name",
+                                        "compulsory":1
+                                    },
+                                ]
                 },
                 {
                     "payment_name":"Paypal",
-                    "payment_fields": ["Email"]
+                    "intruction_message":"Please enter in paypay email address",
+                    "condition_message":"please allow 5business days",
+                    "payment_fields": 
+                                [
+                                    {
+                                        "field_name":"Email",
+                                        "field_type":"text",
+                                        "placeholder":"enter your paypal email account",
+                                        "compulsory":1
+                                    }
+                                ]
                 }
             ]
         }
