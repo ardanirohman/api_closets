@@ -1213,6 +1213,47 @@ show active brand
                 }
             ]
         }
+        
+## GET : Size Chart Guide by id [/preset/product_size_guide_by_id.json{?language_code}{?size_chart_value_id}]
+>  status : new
+
+bust, weist, hips ignore first
+### Get product size chart guide[GET]
++ Parameters
+    + language_code : EN (string)
+    + size_chart_value_id : 1 (number)
+    
+ 
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message" : "",
+            "data" : [
+                {
+                    "id" : 1,
+                    "code": "US",
+                    "name": "US",
+                    "weight": 0,
+                    "value" : 2
+               },
+                {
+                    "id" : 2,
+                    "code": "UK",
+                    "name": "Uk",
+                    "weight": 1,
+                    "value":7
+                },
+                {
+                    "id" : 3,
+                    "code": "EU",
+                    "name": "EU",
+                    "weight": 2,
+                    "value" : 40
+                }
+            ]
+        }
+
 
 # Group Product Item
 Api For Product
@@ -6633,7 +6674,7 @@ get pickup preferred time.
         
 
 ## POST : Update pickup data from seller API [/fulfillment/fulfillment/arrange_pickup.json]
-arrange collection for seller.
+arrange collection from seller.
 ### arrange collection from seller api [POST]
 
 + Request(application/json)
@@ -6670,8 +6711,8 @@ arrange collection for seller.
         
 
 ## POST : Update delivery data to buyer API [/fulfillment/fulfillment/arrange_delivery.json]
-arrange delivery for buyer.
-### arrange delivery for buyer api [POST]
+arrange delivery to buyer.
+### arrange delivery to buyer api [POST]
 
 + Request(application/json)
     + Headers
@@ -6706,7 +6747,7 @@ arrange delivery for buyer.
         }
         
 ## POST : Update pickup data from buyer API [/fulfillment/fulfillment/arrange_refund.json]
-arrange collection for buyer when they request return.
+arrange collection from buyer when they request return.
 ### arrange collection from buyer api [POST]
 
 + Request(application/json)
@@ -6741,9 +6782,9 @@ arrange collection for buyer when they request return.
             "message":""
         }
         
-## POST : Update delivery data from seller API [/fulfillment/fulfillment/arrange_return.json]
-arrange delivery for seller when the return occure.
-### arrange delivery for seller api [POST]
+## POST : Update delivery data to seller API [/fulfillment/fulfillment/arrange_return.json]
+arrange delivery to seller when the return occure.
+### arrange delivery to seller api [POST]
 
 + Request(application/json)
     + Headers
@@ -6777,6 +6818,56 @@ arrange delivery for seller when the return occure.
             "message":""
         }
         
+    
+## POST : Accept Product API [/fulfillment/fulfillment/accept_product.json]
+accept product by buyer.
+### accept product api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "order_id":1,
+                "uid":123,
+                "country_code":"SG"
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "status":"success",
+            "message":""
+        }
+        
+## POST : Cancel Return Request API [/fulfillment/fulfillment/cancel_return.json]
+cancel return request by buyer.
+### cancel return request api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "order_id":1,
+                "uid":123,
+                "country_code":"SG"
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "status":"success",
+            "message":""
+        }
         
 # Group Dummy Data
 
