@@ -692,17 +692,20 @@ show active brand
                         {
                             "min_price":0,
                             "max_price":1000,
-                            "commission_value":"0.1"
+                            "commission_value":"0.1",
+                            "flat_commission":"100"
                         },
                         {
                             "min_price":1000,
                             "max_price":1500,
-                            "commission_value":"0.2"
+                            "commission_value":"0.2",
+                            "flat_commission":"0"
                         },
                         {
                             "min_price":1500,
                             "max_price":2000,
-                            "commission_value":"0.3"
+                            "commission_value":"0.3",
+                            "flat_commission":"0"
                         }
                     ]
                 },
@@ -713,17 +716,20 @@ show active brand
                         {
                             "min_price":0,
                             "max_price":1000,
-                            "commission_value":"0.1"
+                            "commission_value":"0.1",
+                            "flat_commission":"100"
                         },
                         {
                             "min_price":1000,
                             "max_price":1500,
-                            "commission_value":"0.2"
+                            "commission_value":"0.2",
+                            "flat_commission":"0"
                         },
                         {
                             "min_price":1500,
                             "max_price":2000,
-                            "commission_value":"0.3"
+                            "commission_value":"0.3",
+                            "flat_commission":"0"
                         }
                         
                     ]
@@ -1214,7 +1220,7 @@ show active brand
             ]
         }
         
-## GET : Size Chart Guide by id [/preset/product_size_guide_by_id.json{?language_code}{?size_chart_value_id}]
+## GET : Size Chart Guide by id [/preset/product_size_guide_by_checid.json{?language_code}{?size_chart_value_id}]
 >  status : new
 
 bust, weist, hips ignore first
