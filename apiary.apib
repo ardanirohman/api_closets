@@ -688,7 +688,7 @@ show active brand
                 {
                     "category_id":1,
                     "category_name" : "ACCESSORIS",
-                    "commission" : [
+                    "commissions" : [
                         {
                             "min_price":0,
                             "max_price":1000,
@@ -709,7 +709,7 @@ show active brand
                 {
                     "category_id":2,
                     "category_name" : "BAGS",
-                    "commission" : [
+                    "commissions" : [
                         {
                             "min_price":0,
                             "max_price":1000,
@@ -1142,7 +1142,8 @@ show active brand
                     "variant_code" : "F",
                     "variant_name" : "FEMALE",
                     "type" : "chart",
-                    "data" :{
+                    "data" :
+                    {
                             "group" : [
                                 {
                                     "id" : 1,
@@ -1173,13 +1174,14 @@ show active brand
                                     "name" : [3,8,41]
                                 }
                             ]
-                        }
+                    }
                 },
                 {
                     "variant_code" : "M",
                     "variant_name" : "MALE",
                     "type" : "chart",
-                    "data" :{
+                    "data" :
+                    {
                             "group" : [
                                 {
                                     "code": "US",
@@ -1207,48 +1209,6 @@ show active brand
                                     "name" : [3,8,41]
                                 }
                             ]
-                        }
-                },
-                {
-                    "variant_code" : "INCH",
-                    "variant_name" : "INCH",
-                    "type" : "field",
-                    "data" :{
-                        "group" : [
-                                {
-                                    "code": "WIDTH",
-                                    "name": "WIDTH",
-                                    "weight" : 0
-                                },
-                                {
-                                    "code": "LENGTH",
-                                    "name": "LENGTH",
-                                    "weight" : 1
-                                },
-                                {
-                                    "code": "HEIGHT",
-                                    "name": "HEIGHT",
-                                    "weight" : 2
-                                }
-                            ],
-                        "value" : [
-                        ]
-                    }
-                },
-                {
-                    "variant_code" : "CM",
-                    "variant_name" : "CM",
-                    "type" : "field",
-                    "data" :{
-                        "group" : [
-                                {
-                                    "code": "LENGTH",
-                                    "name": "LENGTH",
-                                    "weight" : 0
-                                }
-                            ],
-                        "value" : [
-                        ]
                     }
                 }
             ]
@@ -4529,6 +4489,32 @@ social_ids - all social ids for user order by unseen & updated at
                         }
                     },
                     {
+                        "id": "621",
+                        "destination_page": "comment_page",
+                        "is_seen": "1",
+                        "is_opened": "1",
+                        "is_followed": null,
+                        "created_at": "1454380802",
+                        "updated_at": "1454380802",
+                        "sender": {
+                          "uid": "3500070",
+                          "nickname": "Candra_3500070",
+                          "avatar": null
+                        },
+                        "social_feed": {
+                         "system_message_code":"comment_tagged",
+                          "system_message": "[sender:nickname] mentioned you in comment.",
+                          "system_message_tokens": {
+                            "sender:nickname": "Candra_3500070"
+                          }
+                        },
+                        "product": {
+                            "id": "81682",
+                            "image": "mobile-3500871-13.11.15-16-16-39-0-960x1280.jpg",
+                            "status": "sold"
+                        }
+                    },
+                    {
                         "id": "606",
                         "destination_page": "comment_page",
                         "is_seen": "1",
@@ -4654,7 +4640,7 @@ social_ids - all social ids for user order by unseen & updated at
                           }
                         },
                         "product": []
-                    },
+                    }
                 ]
             },
             "social_ids":{
@@ -6468,6 +6454,7 @@ get fulfillment data.
                 "is_seller":"1",
                 "product_id":1,
                 "preffered_language":"en"
+                "country_code":"SG"
             }
 
 + Response 200 (application/json)
@@ -6600,7 +6587,194 @@ get fulfillment data.
                 "shipping_date": "2016-03-19",
                 "shipping_time": "Saturday, 7pm-10pm",
                 "fulfillment_status": "order_payment_completed"
+            },
+            "payment_options":[
+                {
+                    "payment_name":"Bank Transfer",
+                    "payment_fields": ["Account Name","Account Number"]
+                },
+                {
+                    "payment_name":"Paypal",
+                    "payment_fields": ["Email"]
+                }
+            ]
+        }
+        
+## POST : Pickup Preferred Time API [/fulfillment/fulfillment/pickup_preferred_time.json]
+get pickup preferred time.
+### pickup preferred time api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "shipment_type_code":"pick_up",
+                "shipment_date":"2016-01-21",
+                "country_code":"SG"
             }
+
++ Response 200 (application/json)
+        
+        {
+            "return_code":1,
+            "error_code":"",
+            "error_msg":"",
+            "preferred_times": 
+            [
+                "9am to 6pm",
+                "7pm to 10pm"
+            ]
+        }
+        
+
+## POST : Update pickup data from seller API [/fulfillment/fulfillment/arrange_pickup.json]
+arrange collection for seller.
+### arrange collection from seller api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "product_id":1,
+                "name":"Seller SG",
+                "address1":"Tai Seng",
+                "address2":"Street",
+                "state":"Singapore",
+                "city":"Singapore",
+                "country":"Singapore",
+                "postal_code":"10202",
+                "contact_number":"98765432",
+                "date":"2016-04-01",
+                "time":"weekdays, 9am-6pm",
+                "passport_number":"1234",
+                "payment_mode":"bank transfer",
+                "payment_info":"bank name:uob"
+            }
+    
++ Response 200 (application/json)
+
+        {
+            "fulfillment_id":1,
+            "message":""
+        }
+        
+
+## POST : Update delivery data to buyer API [/fulfillment/fulfillment/arrange_delivery.json]
+arrange delivery for buyer.
+### arrange delivery for buyer api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "product_id":1,
+                "name":"Seller SG",
+                "address1":"Tai Seng",
+                "address2":"Street",
+                "state":"Singapore",
+                "city":"Singapore",
+                "country":"Singapore",
+                "postal_code":"10202",
+                "contact_number":"98765432",
+                "date":"2016-04-01",
+                "time":"weekdays, 9am-6pm",
+                "passport_number":"1234",
+                "payment_mode":"bank transfer",
+                "payment_info":"bank name:uob"
+            }
+    
++ Response 200 (application/json)
+
+        {
+            "fulfillment_id":1,
+            "message":""
+        }
+        
+## POST : Update pickup data from buyer API [/fulfillment/fulfillment/arrange_refund.json]
+arrange collection for buyer when they request return.
+### arrange collection from buyer api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "product_id":1,
+                "name":"Seller SG",
+                "address1":"Tai Seng",
+                "address2":"Street",
+                "state":"Singapore",
+                "city":"Singapore",
+                "country":"Singapore",
+                "postal_code":"10202",
+                "contact_number":"98765432",
+                "date":"2016-04-01",
+                "time":"weekdays, 9am-6pm",
+                "passport_number":"1234",
+                "payment_mode":"bank transfer",
+                "payment_info":"bank name:uob"
+            }
+    
++ Response 200 (application/json)
+
+        {
+            "fulfillment_id":1,
+            "message":""
+        }
+        
+## POST : Update delivery data from seller API [/fulfillment/fulfillment/arrange_return.json]
+arrange delivery for seller when the return occure.
+### arrange delivery for seller api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "product_id":1,
+                "name":"Seller SG",
+                "address1":"Tai Seng",
+                "address2":"Street",
+                "state":"Singapore",
+                "city":"Singapore",
+                "country":"Singapore",
+                "postal_code":"10202",
+                "contact_number":"98765432",
+                "date":"2016-04-01",
+                "time":"weekdays, 9am-6pm",
+                "passport_number":"1234",
+                "payment_mode":"bank transfer",
+                "payment_info":"bank name:uob"
+            }
+    
++ Response 200 (application/json)
+
+        {
+            "fulfillment_id":1,
+            "message":""
         }
         
         
