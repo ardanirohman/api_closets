@@ -2132,6 +2132,35 @@ same function with trigger comment
             }
         }
 
+## POST : Product Relist [/product/relist.json]
+>  status : ready
+
+### Product Relist [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+    
+            {
+                "id" : 1,
+                "uid" : 2323
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message": "product relist successfully",
+            "data": {
+                
+            }
+        }
+        
 ## GET : Product Get Comment [/product/product_get_comment.json{?product_id}{?limit}{?last_created_at}]
 >  status : ready
 
@@ -4699,7 +4728,7 @@ social_ids - all social ids for user order by unseen & updated at
         }
            
 ## POST : Social Activity Feed By Ids [/activity/get_social_byids.json]
-status : modify
+status : ready
 ### List Social feed By Ids [POST]
 
 + Request (application/json)
@@ -4780,7 +4809,7 @@ status : modify
         }
         
 
-## POST : Get Buying / Selling Conversation List [/activity/conversation.json{?limit}{?uid}{?page}{?language_code}{?type}]
+## POST : Get Buying / Selling Conversation List [/activity/conversation.json{?limit}{?uid}{?page}{?language_code}{?type}{?product_id}]
 status : modify
 ### Get Conversation List [POST]
 
@@ -4796,6 +4825,7 @@ status : modify
     + uid : 1 (number)
     + page : 1
     + type : selling/buying
+    + product_id : 1111 (number) - optional
 
 + Response 200 (application/json)
 
@@ -4834,6 +4864,9 @@ status : modify
                           "image": "mobile-3500457-28.09.15-14-38-47-0-960x1280.jpg",
                           "status": "open",
                           "brand_name": "HERMES",
+                          "original_price" : 1000,
+                          "selling_price" : 900,
+                          "currency_code" : "SGD",
                           "title" : "Lindy Eutope"
                         },
                         "sender": {
@@ -5493,6 +5526,7 @@ status : modify
         }
         
 ## GET : Conversation Details By Id [/activity/conversation_details.json{?conversation_id}{?limit}{?page}{?uid}{?language_code}]
+status : modify
 ### List Conversation Details By Id [GET]
 + Request(application/json)
     + Headers
@@ -5552,7 +5586,7 @@ status : modify
                             "icon_filename":"icon.jpg"
                         },
                         "destination_path":"-",
-                        "fulfillment_id": null,
+                        "fulfillment": null,
                         "created_at":12313131
                     },
                     {
@@ -5563,12 +5597,17 @@ status : modify
                             "avatar": "ardani.jpg"
                             
                         },
-                        "system_message":"[message]",
+                        "system_message":"[message_image][message]",
                         "system_message_tokens":{
-                            "message":"hello"
+                            "message":"hello",
+                            "message_image":"image.jpg"
                         },
                         "destination_path":"-",
-                        "fulfillment_id":141414,
+                        "fulfillment" : {
+                            "id" : 141414,
+                            "status" : "pending collection",
+                            "color" : "#FFFFFF"
+                        },
                         "created_at":12313131
                     }
                 ],
@@ -6701,14 +6740,16 @@ get pickup preferred time.
 + Response 200 (application/json)
         
         {
-            "return_code":1,
-            "error_code":"",
-            "error_msg":"",
-            "preferred_times": 
-            [
-                "9am to 6pm",
-                "7pm to 10pm"
-            ]
+            "status":true,
+            "message":"",
+            "data":
+            {
+                "preferred_times": 
+                [
+                    "9am to 6pm",
+                    "7pm to 10pm"
+                ]
+            }
         }
         
 
@@ -6744,8 +6785,12 @@ arrange collection from seller.
 + Response 200 (application/json)
 
         {
-            "fulfillment_id":1,
-            "message":""
+            "status":true,
+            "message":"",
+            "data":
+            {
+                "fulfillment_id":1
+            }
         }
         
 
@@ -6781,8 +6826,12 @@ arrange delivery to buyer.
 + Response 200 (application/json)
 
         {
-            "fulfillment_id":1,
-            "message":""
+            "status":true,
+            "message":"",
+            "data":
+            {
+                "fulfillment_id":1
+            }
         }
         
 ## POST : Update pickup data from buyer API [/fulfillment/fulfillment/arrange_refund.json]
@@ -6817,8 +6866,12 @@ arrange collection from buyer when they request return.
 + Response 200 (application/json)
 
         {
-            "fulfillment_id":1,
-            "message":""
+            "status":true,
+            "message":"",
+            "data":
+            {
+                "fulfillment_id":1
+            }
         }
         
 ## POST : Update delivery data to seller API [/fulfillment/fulfillment/arrange_return.json]
@@ -6853,8 +6906,12 @@ arrange delivery to seller when the return occure.
 + Response 200 (application/json)
 
         {
-            "fulfillment_id":1,
-            "message":""
+            "status":true,
+            "message":"",
+            "data":
+            {
+                "fulfillment_id":1
+            }
         }
         
     
@@ -6879,7 +6936,7 @@ accept product by buyer.
 + Response 200 (application/json)
 
         {
-            "status":"success",
+            "status":true,
             "message":""
         }
         
@@ -6904,7 +6961,7 @@ cancel return request by buyer.
 + Response 200 (application/json)
 
         {
-            "status":"success",
+            "status":true,
             "message":""
         }
         
