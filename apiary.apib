@@ -1264,7 +1264,7 @@ bust, weist, hips ignore first
 # Group Product Item
 Api For Product
 
-## GET : Product List by liked[/product/product_liked.json{?uid}{?language_code}{?limit}{?page}]
+## GET : Product List by liked[/product/product_liked.json{?uid}{?language_code}{?limit}{?page}{?country_code}]
 > status : ready
 
 ### Get Product List by liked [GET]
@@ -1272,6 +1272,7 @@ Api For Product
     + limit : 20 (number) 
     + uid : 123 (number)
     + page : 1 (number)
+    + country_code : SG (string)
     
 + Response 200 (application/json)
 
@@ -1411,7 +1412,7 @@ field available ex : product.id , product.sku etc
                             "id": 1,
                             "code": "L",
                             "name": "Length",
-                            "value": 12,
+                            "value": "12",
                             "weight" : 0,
                             "variant_name":"inch",
                             "type": "field"
@@ -1420,7 +1421,7 @@ field available ex : product.id , product.sku etc
                             "id" : 2,
                             "code": "H",
                             "name": "Height",
-                            "value": 12,
+                            "value": "12",
                             "weight" : 1,
                             "variant_name":"inch",
                             "type": "field"
@@ -1429,7 +1430,7 @@ field available ex : product.id , product.sku etc
                             "id" : 3,
                             "code": "UK",
                             "name": "UK",
-                            "value": 10,
+                            "value": "10",
                             "weight" : 2,
                             "variant_name":"Female",
                             "type": "chart"
@@ -2147,7 +2148,7 @@ same function with trigger comment
     + Body
     
             {
-                "id" : 1,
+                "product_id" : 1,
                 "uid" : 2323
             }
 
@@ -2157,7 +2158,7 @@ same function with trigger comment
             "status" : true,
             "message": "product relist successfully",
             "data": {
-                
+                "product_id":1
             }
         }
         
@@ -4818,14 +4819,17 @@ status : modify
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-            
-+ Parameters
-
-    + limit : 20 (number)
-    + uid : 1 (number)
-    + page : 1
-    + type : selling/buying
-    + product_id : 1111 (number) - optional
+    
+    + Body
+    
+        {
+            "limit" : 20,
+            "uid" : 1,
+            "page" : 1,
+            "language_code":"en",
+            "type":"selling/buying",
+            "product_id":1111 - optional
+        }
 
 + Response 200 (application/json)
 
@@ -6562,7 +6566,20 @@ get fulfillment data.
                 "message": ""
             },
             "fulfillment_button": [
-                ""
+                {
+                    "text":"ARRANGE REFUND",
+                    "action":"arrange_refund",
+                    "valid_payment_method":
+                    [
+                        "ep_off_bank_transfer"
+                    ],
+                    "dates_allowed":
+                    [
+                        "2016-04-21",
+                        "2016-04-22",
+                        "2016-04-25"
+                    ]
+                }
             ],
             "language_code": "en",
             "is_seller": true,
@@ -7157,4 +7174,35 @@ cancel return request by buyer.
               }
             }
           ]
+        }
+
+# Group Send Email
+
+## POST : Send email API [/email/send.json]
+
+### send email api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "to":
+                [
+                    "user.one@reebonz.com",
+                    "user.two@reebonz.com"
+                ],
+                "subject":"Hello World!",
+                "content":"Message from me"
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":""
         }
