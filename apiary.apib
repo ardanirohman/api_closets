@@ -9,7 +9,7 @@ Api Auth for SSO user closets to Titan
 >  ACCOUNT_CODE = "RBZ0001"
 >  SECRET_KEY = "f0c9fc1cb63bf86e83eb5858000786b9"
 
-*  SIT: http://sso.sit.titan.reebonz-dev.com:8080
+*  SIT: http://sso.sit.titan.rseebonz-dev.com:8080
 *  UAT: http://sso.uat.titan.reebonz-dev.com:8080
 *  PROD: http://10.100.96.31:8080
 
@@ -5529,22 +5529,25 @@ status : modify
             ]
         }
         
-## GET : Conversation Details By Id [/activity/conversation_details.json{?conversation_id}{?limit}{?page}{?uid}{?language_code}]
+## POST : Conversation Details By Id [/activity/conversation_details.json]
 status : modify
-### List Conversation Details By Id [GET]
+### List Conversation Details By Id [POST]
 + Request(application/json)
     + Headers
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
+    
+            {
+                "conversation_id":1,
+                "limit":"20",
+                "page":"20",
+                "uid":1,
+                "language_code" : "en"
+            }
             
-+ Parameters
-
-    + conversation_id : 1 (number)
-    + uid:2 (number)
-    + limit : 20 (number)
-    + page : 1 (number)
-
 + Response 200 (application/json)
 
         {
@@ -5784,6 +5787,55 @@ param {type}
                 
             }
         }
+        
+## POST : Conversation  [/activity/conversation_get_images.json]
+status : modify
+### List Conversation Details By Id [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+    
+    + Body
+    
+            {
+                "conversation_id":1,
+                "uid":1,
+            }
+            
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message" : "",
+                "data" :[
+                    {
+                        "id" : 1,
+                        "image" : "sample1.jpg",
+                        "message": "message sample one",
+                        "created_at" : 13123123131
+                    },
+                    {
+                        "id" : 2,
+                        "image" : "sample2.jpg",
+                        "message": "message sample two",
+                        "created_at" : 13123123131
+                    },
+                    {
+                        "id" : 3,
+                        "image" : "sample3.jpg",
+                        "message": "message sample three",
+                        "created_at" : 13123123131
+                    },
+                    {
+                        "id" : 4,
+                        "image" : "sample4.jpg",
+                        "message": "message sample four",
+                        "created_at" : 13123123131
+                    }
+                ]
+            }
 
 # Group Action Trigger Center
 Api Design for action trigger center. for web only
@@ -7191,6 +7243,8 @@ cancel return request by buyer.
     + Body
     
             {
+                "from":"no-reply@reebonz.com",
+                "from_name":"REEBONZ",
                 "to":
                 [
                     "user.one@reebonz.com",
