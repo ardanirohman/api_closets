@@ -5593,12 +5593,12 @@ or
                             "avatar": "yessika.jpg"
                             
                         },
+                        "system_message_code": "offer_accepted",
                         "system_message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
                         "system_message_tokens":{
                             "seller_name" : "shopoholic",
                             "date" : "1.45 today",
                             "offer_price":"SGD 100",
-                            "icon_filename":"icon.jpg"
                         },
                         "destination_path":"-",
                         "fulfillment": null,
@@ -5607,22 +5607,42 @@ or
                     {
                         "id" : 1,
                         "sender":{
+                            "uid" : -1,
+                            "nickname": "Reebonz",
+                            "avatar": "reebonz_logo.jpg"
+                            
+                        },
+                        "system_message_code": "order_collection_scheduled",
+                        "system_message":"Item will be collected from [seller:nickname] on [fulfillment:pickup_date].",
+                        "system_message_tokens":{
+                            "seller:nickname" : "shopoholic",
+                            "fulfillment:pickupdate" : "12-12-2016",
+                        },
+                        "destination_path":"-",
+                        "fulfillment": {
+                            "id" : 141414,
+                            "status" : "pending collection",
+                            "color" : "#FFFFFF",
+                            "icon_filename" : "icon.jpg",
+                        },
+                        "created_at":12313131
+                    },
+                    {
+                        "id" : 2,
+                        "sender":{
                             "uid" : 1231,
                             "nickname": "ardani",
                             "avatar": "ardani.jpg"
                             
                         },
+                        "system_message_code":"message_sent"
                         "system_message":"[message_image][message]",
                         "system_message_tokens":{
                             "message":"hello",
                             "message_image":"image.jpg"
                         },
                         "destination_path":"-",
-                        "fulfillment" : {
-                            "id" : 141414,
-                            "status" : "pending collection",
-                            "color" : "#FFFFFF"
-                        },
+                        "fulfillment" : null,
                         "created_at":12313131
                     }
                 ],
