@@ -1464,7 +1464,7 @@ field available ex : product.id , product.sku etc
                             "weight" : 1
                         }
                     ],
-                    "includes" : [
+                    "comes" : [
                         {
                             "id" : 6,
                             "code" : "Receipt",
@@ -5531,6 +5531,11 @@ status : modify
         
 ## POST : Conversation Details By Id [/activity/conversation_details.json]
 status : modify
+thats 2 way sent parameter for conversation details
+1. conversation_id,limit,page,uid,language_code
+or
+2. product_id,seller_uid,buyer_uid,limit,page,uid,language_code
+
 ### List Conversation Details By Id [POST]
 + Request(application/json)
     + Headers
@@ -5542,6 +5547,9 @@ status : modify
     
             {
                 "conversation_id":1,
+                "product_id":1,
+                "seller_uid":2,
+                "buyer_uid":4,
                 "limit":"20",
                 "page":"20",
                 "uid":1,
