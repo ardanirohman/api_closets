@@ -5594,11 +5594,11 @@ or
                             
                         },
                         "system_message_code": "offer_accepted",
-                        "system_message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
+                        "system_message":"[seller:nickname] accepted your offer of [conversation:buyer_currency_code] [conversation:buyer_last_offer_price]. Complete payment by [dates:offer_accepted_expiry] to secure your item.",
                         "system_message_tokens":{
-                            "seller_name" : "shopoholic",
-                            "date" : "1.45 today",
-                            "offer_price":"SGD 100",
+                            "seller:nickname" : "shopoholic",
+                            "conversation:buyer_currency_code" : "SGD",
+                            "conversation:buyer_last_offer_price":1000,
                         },
                         "destination_path":"-",
                         "fulfillment": null,
