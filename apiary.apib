@@ -86,6 +86,7 @@ Api Auth for SSO user closets to Titan
                        "email": "candra.laksono@reebonz.com",
                        "currency_code": "SGD",
                        "country_code": "SG",
+                       "contact_number":12343,
                        "description":null,
                        "avatar":null,
                        "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
@@ -133,6 +134,7 @@ Api Auth for SSO user closets to Titan
                        "currency_code": "SGD",
                        "country_code": "SG",
                        "description":null,
+                       "contact_number":12343,
                        "avatar":null,
                        "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
                        "email_verified":1,
@@ -181,6 +183,7 @@ Api Auth for SSO user closets to Titan
                        "email": "candra.laksono@reebonz.com",
                        "currency_code": "SGD",
                        "country_code": "SG",
+                       "contact_number":12343,
                        "description":null,
                        "avatar":null,
                        "sso_token":"d1da098531a501debf7fd8ec8221e8eb17330a2c",
@@ -223,10 +226,11 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
                 "data" : {}   
             }
 
+
 ## POST : SSO Logout [/sso/logout.json]
 >  status : ready
 
-### Logoutuser [POST]
+### Logout user [POST]
 
 + Request
 
@@ -1414,6 +1418,7 @@ field available ex : product.id , product.sku etc
                             "name": "Length",
                             "value": "12",
                             "weight" : 0,
+                            "variant_code":"inch",
                             "variant_name":"inch",
                             "type": "field"
                         },
@@ -1423,6 +1428,7 @@ field available ex : product.id , product.sku etc
                             "name": "Height",
                             "value": "12",
                             "weight" : 1,
+                            "variant_code":"inch",
                             "variant_name":"inch",
                             "type": "field"
                         },
@@ -1432,6 +1438,7 @@ field available ex : product.id , product.sku etc
                             "name": "UK",
                             "value": "10",
                             "weight" : 2,
+                            "variant_code":"inch",
                             "variant_name":"Female",
                             "type": "chart"
                         }
@@ -2993,36 +3000,7 @@ Api For Follower Following Feed Discover Recommendation
         {
             "status" : true,
             "message" : "following successful / unfollow successful",
-            "seller": {
-                "uid": "3500852",
-                "nickname": "widy",
-                "avatar": "",
-                "item_count": 10,
-                "followed": 1
-              },
-              "product": [
-                {
-                  "id": "5028",
-                  "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
-                  "status": "sold",
-                  "created_at": "2015-09-29T12:54:38Z",
-                  "updated_at": "2015-10-05T19:28:13Z"
-                },
-                {
-                  "id": "5028",
-                  "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
-                  "status": "sold",
-                  "created_at": "2015-09-29T12:54:38Z",
-                  "updated_at": "2015-10-05T19:28:13Z"
-                },
-                {
-                  "id": "5028",
-                  "image": "mobile-3500852-29.09.15-11-54-36-0-960x1280.jpg",
-                  "status": "sold",
-                  "created_at": "2015-09-29T12:54:38Z",
-                  "updated_at": "2015-10-05T19:28:13Z"
-                }
-              ]
+            "data": []
         }
 
 
@@ -4810,7 +4788,7 @@ status : ready
         }
         
 
-## POST : Get Buying / Selling Conversation List [/activity/conversation.json{?limit}{?uid}{?page}{?language_code}{?type}{?product_id}]
+## POST : Get Buying / Selling Conversation List [/activity/conversation.json]
 status : modify
 ### Get Conversation List [POST]
 
@@ -5529,14 +5507,14 @@ status : modify
             ]
         }
         
-## POST : Conversation Details By Id [/activity/conversation_details.json]
+## POST : Conversation Details [/activity/conversation_details.json]
 status : modify
 thats 2 way sent parameter for conversation details
 1. conversation_id,limit,page,uid,language_code
 or
 2. product_id,seller_uid,buyer_uid,limit,page,uid,language_code
 
-### List Conversation Details By Id [POST]
+### List Conversation Details [POST]
 + Request(application/json)
     + Headers
 
@@ -5571,7 +5549,8 @@ or
                         "currency_code":"SGD",
                         "country_code":"SG",
                         "title":"saint laurent",
-                        "status":"open"
+                        "status":"open",
+                        "uid":1223213
                     },
                     "other_buyers":0,
                     "currency_code":"SGD",
@@ -5663,7 +5642,12 @@ or
                         "created_at":12313131
                     }
                 ],
-              "negotiation_action": ["accept","reject"]
+              "negotiation_action": [
+                {
+                    "action": "Make New Offer",
+                    "to_status": "offer_made"
+                }
+               ]
             },
             "limit" : 20,
             "page" : 1
@@ -5699,7 +5683,33 @@ param {type}
             "status":true,
             "message":"sent",
             "data" : {
-                
+                "chat": {
+                  "id": 158,
+                  "sender": {
+                    "uid": 1002310,
+                    "nickname": "nendy_1002310",
+                    "avatar": ""
+                  },
+                  "system_message_code": "photo_sent_buyer",
+                  "system_message": "[conversation_detail:message]",
+                  "destination_path": "conversation_detail",
+                  "created_at": "1462863435",
+                  "fulfillment_id": null,
+                  "system_message_tokens": {
+                    "conversation_detail:message": "Hai, aku seller Ardani",
+                    "conversation_detail:message_image": "test.jpg"
+                  }
+                },
+                "negotiation_status": [
+                  {
+                    "action": "Withdraw Offer",
+                    "to_status": "offer_withdrawn"
+                  },
+                  {
+                    "action": "Revise Offer",
+                    "to_status": "offer_revised"
+                  }
+                ]
             }
         }
 
@@ -5738,24 +5748,33 @@ param {type}
             "status":true,
             "message":"",
             "data" : {
-                "body" : {
-                    "id" : 1,
-                    "sender":{
-                        "uid" : 1231,
-                        "nickname": "yessika",
-                        "avatar": "yessika.jpg"
-                    },
-                    "system_message":"[seller_name] accepted your offer of [offer_price]. Make payment by [date] to secure your item.",
-                    "system_message_tokens":{
-                        "seller_name" : "shopoholic",
-                        "date" : "1.45 today",
-                        "offer_price":"SGD 100",
-                        "icon_filename":"icon.jpg"
-                    },
-                    "destination_path":"-",
-                    "created_at":12313131
+                "offer": {
+                  "id": 157,
+                  "sender": {
+                    "uid": 1002310,
+                    "nickname": "nendy_1002310",
+                    "avatar": ""
+                  },
+                  "system_message_code": "offer_revised",
+                  "system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
+                  "destination_path": "conversation_detail",
+                  "created_at": "1462854578",
+                  "fulfillment_id": null,
+                  "system_message_tokens": {
+                    "conversation:buyer_currency_code": "SGD",
+                    "conversation_detail:buyer_offer_price": "600.00"
+                  }
                 },
-                "negotiation_action": ["accept","reject"]
+                "negotiation_status": [
+                  {
+                    "action": "Withdraw Offer",
+                    "to_status": "offer_withdrawn"
+                  },
+                  {
+                    "action": "Revise Offer",
+                    "to_status": "offer_revised"
+                  }
+                ]
             }
         }
 
@@ -6419,6 +6438,7 @@ place order.
                     "language_code":"EN",
                     "promo_code":"",
                     "remarks":"",
+                    "platform":"ios",
                     "products":
                     [
                         {
@@ -6638,7 +6658,6 @@ get fulfillment data.
     
             {
                 "uid":001,
-                "is_seller":"1",
                 "product_id":1,
                 "preferred_language":"en"
                 "country_code":"SG"
