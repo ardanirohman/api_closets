@@ -2081,7 +2081,7 @@ same function with trigger like
             }
         }
 
-## POST : Product Comment [/product/product_comment.json]
+## POST : Post Product Comment [/product/product_comment.json]
 same function with trigger comment
 >  status : ready
 
@@ -2111,7 +2111,7 @@ same function with trigger comment
             }
         }
 
-## POST : Product Comment [/product/unpublish_comment.json]
+## POST : Unpublish Product Comment [/product/unpublish_comment.json]
 >  status : ready
 
 ### Product Comment [POST]
@@ -2169,14 +2169,15 @@ same function with trigger comment
             }
         }
         
-## GET : Product Get Comment [/product/product_get_comment.json{?product_id}{?limit}{?last_created_at}]
+## GET : Product Get Comment [/product/product_get_comment.json{?product_id}{?limit}{?last_created_at}{?order_by_created_at}]
 >  status : ready
 
 ### Product Get Comment [GET]
 + Parameters
     + product_id:111 (number)
-    + last_created_at : 123435
-    + limit : 10
+    + last_created_at : 123435 (optional with now as default)
+    + limit : 10 (optional with min 10 and 50)
+    + order_by_created_at : desc or asc (optional with default desc)
 
 + Response 200 (application/json)
 
