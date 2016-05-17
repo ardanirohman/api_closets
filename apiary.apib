@@ -6204,8 +6204,26 @@ get checkout order.
                 "delivery_timeslots":
                 [   
                     {
-                        "code":"weekdays",
-                        "name":"Monday-Friday, 9am-6pm"
+                        "parent_code":"weekdays",
+                        "parent_name":"Weekdays",
+                        "children":[
+                        {
+                            "child_code":"9to12",
+                            "child_name":"9am to 12pm",
+                        },
+                        {
+                            "child_code":"2to6",
+                            "child_name":"2pm to 6pm",
+                        }]
+                    },
+                    {
+                        "parent_code":"weekend",
+                        "parent_name":"Weekend",
+                        "children":[
+                        {
+                            "child_code":"8to11",
+                            "child_name":"8am to 11am",
+                        }]
                     }
                 ],
                 "payment_method_groups":
