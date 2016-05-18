@@ -6496,8 +6496,8 @@ place order.
                     },
                     "delivery_timeslots":
                     {
-                        "code":"weekdays",
-                        "name":"Monday-Friday, 9am-6pm"
+                        "parent_code":"weekdays",
+                        "child_code":"9to12"
                     },
                     "payment_methods":
                     {
@@ -6507,11 +6507,31 @@ place order.
                         "tenure_plan":"0",
                         "payment_information":
                         [
-                            {"label" : "Name on Card", "values": "Buyer", "key": "name_on_card"},
-                            {"label" : "IC Number", "values": "0001", "key": "ic_number"},
-                            {"label" : "Credit Card Brand" "values" : "visa", "key": "card_type"},
-                            {"label" : "Remarks", "values": "", "key": "remarks"},
-                            {"label" : "Installment", "values" : "3", "key": "ipp_months"}
+                            {
+                                "label" : "Name on Card", 
+                                "values": "Buyer", 
+                                "key": "name_on_card"
+                            },
+                            {
+                                "label" : "IC Number", 
+                                "values": "0001", 
+                                "key": "ic_number"
+                            },
+                            {
+                                "label" : "Credit Card Brand", 
+                                "values" : "visa", 
+                                "key": "card_type"
+                            },
+                            {
+                                "label" : "Remarks", 
+                                "values": "", 
+                                "key": "remarks"
+                            },
+                            {
+                                "label" : "Installment", 
+                                "values" : "3", 
+                                "key": "ipp_months"
+                            }
                         ]
                     }
             }
@@ -6522,8 +6542,10 @@ place order.
             "message":"",
             "data":
             {
-                "order_id":"1",
-                "order_status":"in_checkout"
+                "order_id":"12312",
+                "order_status":"in_checkout",
+                "estimated_delivery": "Thursday, 24 March 2016",
+                "url_response":"http://closets.reebonz.com/confirmation?order_id=12312"
             }
         }
         
@@ -6572,11 +6594,8 @@ update order payment info.
                 "order_id":"1",
                 "payment_information":
                 [
-                    {"label" : "Name on Card", "values": "Buyer", "key": "name_on_card"},
-                    {"label" : "IC Number", "values": "0001", "key": "ic_number"},
-                    {"label" : "Credit Card Brand" "values" : "visa", "key": "card_type"},
-                    {"label" : "Remarks", "values": "", "key": "remarks"},
-                    {"label" : "Installment", "values" : "3", "key": "ipp_months"}
+                    "reference_number":"142j23rg",
+                    "your_initials":"Nendy Gede"
                 ]
             }
 + Response 200 (application/json)
