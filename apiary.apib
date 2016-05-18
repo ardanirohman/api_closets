@@ -6545,7 +6545,8 @@ place order.
                 "order_id":"12312",
                 "order_status":"in_checkout",
                 "estimated_delivery": "Thursday, 24 March 2016",
-                "url_response":"http://closets.reebonz.com/confirmation?order_id=12312"
+                "payment_method":"bank_transfer",
+                "url_response":"http://closets.reebonz.com/confirmation?order_id=12312&key=12312412414"
             }
         }
         
@@ -6565,6 +6566,7 @@ update order status.
                 "order_status":"payment_received",
                 "buyer_uid":"111",
                 "approval_code":"",
+                "erp_payment_code":"",
                 "payment_received_timestamp":""
             }
 + Response 200 (application/json)
@@ -6593,10 +6595,10 @@ update order payment info.
             {
                 "order_id":"1",
                 "payment_information":
-                [
+                {
                     "reference_number":"142j23rg",
                     "your_initials":"Nendy Gede"
-                ]
+                }
             }
 + Response 200 (application/json)
 
@@ -6692,6 +6694,47 @@ update order payment info.
             ]
         }
         
+## GET : timeslots [/order/timeslots.json{?type}{?country_code}{?language_code}]
+>  status : new
+
+### Sales History [GET]
++ Parameters
+    + type : "delivery or pikcup" (string)
+    + country_code: "SG" (string)
+    + language_code : "EN" (string)
+    
++ Response 200 (application/json)
+
+        {
+            "status": true,
+            "message": "",
+            "data" : 
+                [   
+                    {
+                        "parent_code":"weekdays",
+                        "parent_name":"Weekdays",
+                        "children":[
+                        {
+                            "child_code":"9to12",
+                            "child_name":"9am to 12pm",
+                        },
+                        {
+                            "child_code":"2to6",
+                            "child_name":"2pm to 6pm",
+                        }]
+                    },
+                    {
+                        "parent_code":"weekend",
+                        "parent_name":"Weekend",
+                        "children":[
+                        {
+                            "child_code":"8to11",
+                            "child_name":"8am to 11am",
+                        }]
+                    }
+                ],
+        } 
+        
 # Group Fulfillment
 still use existing api v1 fulfillment.
 ## POST : Fulfillment API [/fulfillment/fulfillment/get.json]
@@ -6709,7 +6752,8 @@ get fulfillment data.
                 "uid":001,
                 "product_id":1,
                 "preferred_language":"en"
-                "country_code":"SG"
+                "country_code":"SG",
+                "order_id":123123
             }
 
 + Response 200 (application/json)
@@ -6933,7 +6977,7 @@ get pickup preferred time.
                 ]
             }
         }
-        
+ 
 
 ## POST : Update pickup data from seller API [/fulfillment/fulfillment/arrange_pickup.json]
 arrange collection from seller.
