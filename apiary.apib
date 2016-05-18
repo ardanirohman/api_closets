@@ -6229,6 +6229,7 @@ get checkout order.
                 "payment_method_groups":
                 [
                     {
+                        "group_code":"credit_card",
                         "group_name":"Credit/Debit Card Payment (Visa / Master)",
                         "payment_methods":
                         [
@@ -6242,20 +6243,14 @@ get checkout order.
                                 "support_add_card":"0",
                                 "bool_online":"1",
                                 "tenure_plans":
-                                [
-                                    {
-                                        "tenure_plan":"0",
-                                        "min_amount":"0",
-                                        "erp_payment_code":"D7",
-                                        "interest_fee":"0"
-                                    }
-                                ],
+                                [],
                                 "lists_field": []
                             }
                         ]
                     },
                     {
-                        "group_name":"Online IPP",
+                        "group_code":"ipp",
+                        "group_name":"IPP",
                         "payment_methods":
                         [
                             {
@@ -6315,17 +6310,11 @@ get checkout order.
                                     }
                                 ],
                                 "lists_field": []
-                            }
-                        ]
-                    },
-                    {
-                        "group_name":"Offline IPP",
-                        "payment_methods":
-                        [
+                            },
                             {
                                 "display_name":"Citibank",
                                 "method_code":"rbz_pay_off_ipp_citibank_sg",
-                                "method_name":"Reebonz Singapore Citibank Offline IPP",
+                                "method_name":"Citibank Offline IPP",
                                 "payment_type_code":"IPP",
                                 "icon_filename":"",
                                 "support_discount_code":"0",
@@ -6391,6 +6380,7 @@ get checkout order.
                         ]
                     },
                     {
+                        "group_code":"bank_transfer",
                         "group_name":"Bank Transfer",
                         "payment_methods":
                         [
@@ -6405,13 +6395,7 @@ get checkout order.
                                 "bool_online":"0",
                                 "tenure_plans":[],
                                 "lists_field":
-                                [
-                                    {"label" : "Name on Card", "type": "text", "values": "", "required" : "true", "key": "name_on_card"},
-                                    {"label" : "IC Number", "type" : "text", "values": "", "required" : "true", "key": "ic_number"},
-                                    {"label" : "Credit Card Brand", "type" : "select", "values" : {"visa" : "Visa", "mastercard" : "Mastercard"}, "required" : "true", "key": "card_type"},
-                                    {"label" : "Remarks", "type" : "textarea", "values": "", "key": "remarks"},
-                                    {"label" : "Installment", "type" : "select", "values" : {"3" : "3 Months", "6" : "6 Months", "12" : "12 Months"}, "required" : "true", "key": "ipp_months"}
-                                ]
+                                []
                             },
                             {
                                 "display_name":"Krungthai Bank Pcl",
@@ -6424,13 +6408,7 @@ get checkout order.
                                 "bool_online":"1",
                                 "tenure_plans":[],
                                 "lists_field":
-                                [
-                                    {"label" : "Name on Card", "type": "text", "values": "", "required" : "true", "key": "name_on_card"},
-                                    {"label" : "IC Number", "type" : "text", "values": "", "required" : "true", "key": "ic_number"},
-                                    {"label" : "Credit Card Brand", "type" : "select", "values" : {"visa" : "Visa", "mastercard" : "Mastercard"}, "required" : "true", "key": "card_type"},
-                                    {"label" : "Remarks", "type" : "textarea", "values": "", "key": "remarks"},
-                                    {"label" : "Installment", "type" : "select", "values" : {"3" : "3 Months", "6" : "6 Months", "12" : "12 Months"}, "required" : "true", "key": "ipp_months"}
-                                ]
+                                []
                             }
                         ]
                     }
@@ -6579,6 +6557,39 @@ update order status.
             }
         }
 
+## POST : Update Order Payment Info [/order/order/update_payment_info.json]
+update order payment info.
+### Update order status [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+        
+            {
+                "order_id":"1",
+                "payment_information":
+                [
+                    {"label" : "Name on Card", "values": "Buyer", "key": "name_on_card"},
+                    {"label" : "IC Number", "values": "0001", "key": "ic_number"},
+                    {"label" : "Credit Card Brand" "values" : "visa", "key": "card_type"},
+                    {"label" : "Remarks", "values": "", "key": "remarks"},
+                    {"label" : "Installment", "values" : "3", "key": "ipp_months"}
+                ]
+            }
++ Response 200 (application/json)
+
+        {
+            "status":"true",
+            "message":"",
+            "data":
+            {
+                "order_id":"1"
+            }
+        }
+        
 ## GET : Order History [/order/order_history.json{?limit}{?page}{?language_code}]
 ### Order History [GET]
 + Parameters
@@ -7342,4 +7353,156 @@ cancel return request by buyer.
         {
             "status":true,
             "message":""
+        }
+
+
+# Group Address Book
+
+## GET : Get Shipping or Billing Address [/get_address_book.json]
+get shipping or billing address.
+### Get shipping or billing address [GET]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
++ Response 200 (application/json)
+
+        {
+            "status":"true",
+            "message":"",
+            "data":
+            {
+                "addresses":
+                [
+                    {
+                        "id":1,
+                        "given_name":"User",
+                        "family_name":"Test",
+                        "address_1":"address 1",
+                        "address_2":"address 2",
+                        "identity_no":"",
+                        "city":"Jakut",
+                        "state":"",
+                        "postal_code":"14350",
+                        "country_name":"Singapore",
+                        "country_code":"SG",
+                        "mobile_phone":"112233",
+                        "is_primary":false
+                    },
+                    {
+                        "id":2,
+                        "given_name":"User",
+                        "family_name":"Test",
+                        "address_1":"address 1",
+                        "address_2":"address 2",
+                        "identity_no":"",
+                        "city":"Jakut",
+                        "state":"",
+                        "postal_code":"14350",
+                        "country_name":"Singapore",
+                        "country_code":"SG",
+                        "mobile_phone":"112233",
+                        "is_primary":false
+                    }
+                ]
+            }
+        }
+        
+## POST : Add Shipping or Billing Address [/address_book/add.json]
+add shipping or billing address.
+### Add shipping or billing address [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+        
+            {
+                "given_name":"User",
+                "family_name":"Test",
+                "address_1":"address 1",
+                "address_2":"address 2",
+                "identity_no":"",
+                "city":"Jakut",
+                "state":"",
+                "postal_code":"14350",
+                "country_name":"Singapore",
+                "country_code":"SG",
+                "mobile_phone":"112233"
+            }
++ Response 200 (application/json)
+
+        {
+            "status":"true",
+            "message":"",
+            "data":
+            {
+                "address_id":1
+            }
+        }
+
+## POST : Update Shipping or Billing Address [/address_book/update.json]
+update shipping or billing address.
+### Update shipping or billing address [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+        
+            {
+                "id":1,
+                "given_name":"User",
+                "family_name":"Test",
+                "address_1":"address 1",
+                "address_2":"address 2",
+                "identity_no":"",
+                "city":"Jakut",
+                "state":"",
+                "postal_code":"14350",
+                "country_name":"Singapore",
+                "country_code":"SG",
+                "mobile_phone":"112233"
+
+            }
++ Response 200 (application/json)
+
+        {
+            "status":"true",
+            "message":"",
+            "data":
+            {
+                "address_id":1
+            }
+        }
+      
+## POST : Delete Shipping or Billing Address [/address_book/delete.json]
+delete shipping or billing address.
+### Delete shipping or billing address [POST]
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+        
+            {
+                "address_id":1
+            }
++ Response 200 (application/json)
+
+        {
+            "status":"true",
+            "message":"",
+            "data":
+            {
+                "address_id":1
+            }
         }
