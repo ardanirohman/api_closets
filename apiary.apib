@@ -5615,7 +5615,7 @@ or
                             "avatar": "ardani.jpg"
                             
                         },
-                        "system_message_code":"photo_sent"
+                        "system_message_code":"photo_sent_buyer"
                         "system_message":"[message]",
                         "system_message_tokens":{
                             "message":"hello",
@@ -5629,11 +5629,11 @@ or
                         "id" : 3,
                         "sender":{
                             "uid" : 1231,
-                            "nickname": "ardani",
-                            "avatar": "ardani.jpg"
+                            "nickname": "yessika",
+                            "avatar": "yessika.jpg"
                             
                         },
-                        "system_message_code":"photo_sent"
+                        "system_message_code":"photo_sent_seller"
                         "system_message":"",
                         "system_message_tokens":{
                             "message_image":"image.jpg"
@@ -6242,9 +6242,8 @@ get checkout order.
                                 "support_discount_code":"1",
                                 "support_add_card":"0",
                                 "bool_online":"1",
-                                "tenure_plans":
-                                [],
-                                "lists_field": []
+                                "tenure_plans":NULL,
+                                "lists_field": NULL
                             }
                         ]
                     },
@@ -6283,7 +6282,7 @@ get checkout order.
                                         "interest_fee":"0"
                                     }
                                 ],
-                                "lists_field": []
+                                "lists_field": NULL
                             },
                             {
                                 "display_name":"",
@@ -6309,7 +6308,7 @@ get checkout order.
                                         "interest_fee":"0"
                                     }
                                 ],
-                                "lists_field": []
+                                "lists_field": NULL
                             },
                             {
                                 "display_name":"Citibank",
@@ -6393,9 +6392,8 @@ get checkout order.
                                 "support_discount_code":"0",
                                 "support_add_card":"0",
                                 "bool_online":"0",
-                                "tenure_plans":[],
-                                "lists_field":
-                                []
+                                "tenure_plans":NULL,
+                                "lists_field":NULL
                             },
                             {
                                 "display_name":"Krungthai Bank Pcl",
@@ -6406,9 +6404,8 @@ get checkout order.
                                 "support_discount_code":"0",
                                 "support_add_card":"0",
                                 "bool_online":"1",
-                                "tenure_plans":[],
-                                "lists_field":
-                                []
+                                "tenure_plans":NULL,
+                                "lists_field":NULL
                             }
                         ]
                     }
@@ -6543,10 +6540,29 @@ place order.
             "data":
             {
                 "order_id":"12312",
-                "order_status":"in_checkout",
-                "estimated_delivery": "Thursday, 24 March 2016",
+                "order_status":"cancelled",
                 "payment_method":"bank_transfer",
-                "url_response":"http://closets.reebonz.com/confirmation?order_id=12312&key=12312412414"
+                "bool_online":1,
+                "url_response":"http://closets.reebonz.com/confirmation?order_id=12312&language_code=en&key=12312412414"
+                
+                
+            },
+            "data":
+            {
+                "order_id":"12312",
+                "order_status":"online_pending",
+                "payment_method":"easypay",
+                "is_online":1,
+                "url_response":"http://goldrush.reebonz.com/payment_service_api/redirect"
+                "url_params": 
+                            {
+                                "bu_code":"08",
+                                "platform_name":"mobile",
+                                "country_code":"SG",
+                                "txn_ref_no":"SC123123",
+                                "datetime":"2016-05-20 11:11:11",
+                                "signature":"aer3ayg983ny4t"
+                            }
             }
         }
         
@@ -6583,7 +6599,7 @@ update order status.
 
 ## POST : Update Order Payment Info [/order/order/update_payment_info.json]
 update order payment info.
-### Update order status [POST]
+### Update order payment info [POST]
 + Request(application/json)
     + Headers
 
@@ -6694,12 +6710,12 @@ update order payment info.
             ]
         }
         
-## GET : timeslots [/order/timeslots.json{?type}{?country_code}{?language_code}]
+## GET : Timeslots [/order/timeslots.json{?type}{?country_code}{?language_code}]
 >  status : new
 
-### Sales History [GET]
+### Get timeslots [GET]
 + Parameters
-    + type : "delivery or pikcup" (string)
+    + type : "delivery or pickup" (string)
     + country_code: "SG" (string)
     + language_code : "EN" (string)
     
@@ -6709,11 +6725,12 @@ update order payment info.
             "status": true,
             "message": "",
             "data" : 
-                [   
-                    {
-                        "parent_code":"weekdays",
-                        "parent_name":"Weekdays",
-                        "children":[
+            [   
+                {
+                    "parent_code":"weekdays",
+                    "parent_name":"Weekdays",
+                    "children":
+                    [
                         {
                             "child_code":"9to12",
                             "child_name":"9am to 12pm",
@@ -6721,18 +6738,21 @@ update order payment info.
                         {
                             "child_code":"2to6",
                             "child_name":"2pm to 6pm",
-                        }]
-                    },
-                    {
-                        "parent_code":"weekend",
-                        "parent_name":"Weekend",
-                        "children":[
+                        }
+                    ]
+                },
+                {
+                    "parent_code":"weekend",
+                    "parent_name":"Weekend",
+                    "children":
+                    [
                         {
                             "child_code":"8to11",
                             "child_name":"8am to 11am",
-                        }]
-                    }
-                ],
+                        }
+                    ]
+                }
+            ]
         } 
         
 # Group Fulfillment
@@ -7416,6 +7436,25 @@ cancel return request by buyer.
         {
             "status":true,
             "message":""
+        }
+
+# Group Mobile App Version
+
+## GET : Get Mobile Version API [/mobile/get_version.json{?platform}{?language_code}]
+>  status : ready
+
+### Get mobile version [GET]
++ Parameters
+    + platform : ios (string)
+    + language_code : en (string)        
+    
++ Response 200 (application/json)
+
+        {
+            "version":2.4,
+            "cancel":"Y",
+            "message":"New Exciting Update please update your app",
+            "url":"https://play.google.com/store/apps/details?id=com.reebonz.closet",
         }
 
 
