@@ -2,7 +2,17 @@ FORMAT: 1A
 HOST: http://closets.sit.reebonz-dev.com/closets/rest/v2
 
 # Closets API
-Documentation of API Closets 2.0.
+
+## Getting Started
+The Closets 2.0 APIs is designed to allow you to have access to our Closets2.0 backoffice functionilities (such as conversation, login, register, place order etc)
+The API follows RESTful principals, so please pay close attention to HTTP status codes in your responses as these will help you determine the success or failure of any given API call.
+We are continually working to improve and enhance this API and welcome any feedback.
+
+## Authentication
+Before you use the API you must provide valid credentials in order to generate a token which you can then use on subsequent API calls. The credentials you use to generate a token are the same username / password you use to access the Merchant Back Office application to manage your merchant account.
+If you do not yet have an account please contact tech.closets@reebonz.com and they will help you get set up.
+The token system follows the oAuth2 specification and the token has an expiry date, as indicated in the response to the Token API call.
+You can invalidate an existing token simply by requesting a new token via the API, in other words you can only have one active token at a time.
 
 # Group SSO Auth
 Api Auth for SSO user closets to Titan 
@@ -6409,9 +6419,7 @@ get checkout order.
                             }
                         ]
                     }
-                ],
-                "response_url":"",
-                "return_url":""
+                ]
             }
         }
 
@@ -6555,14 +6563,14 @@ place order.
                 "is_online":1,
                 "url_response":"http://goldrush.reebonz.com/payment_service_api/redirect"
                 "url_params": 
-                            {
-                                "bu_code":"08",
-                                "platform_name":"mobile",
-                                "country_code":"SG",
-                                "txn_ref_no":"SC123123",
-                                "datetime":"2016-05-20 11:11:11",
-                                "signature":"aer3ayg983ny4t"
-                            }
+                {
+                    "bu_code":"08",
+                    "platform_name":"mobile",
+                    "country_code":"SG",
+                    "txn_ref_no":"SC123123",
+                    "datetime":"2016-05-20 11:11:11",
+                    "signature":"aer3ayg983ny4t"
+                }
             }
         }
         
@@ -6644,21 +6652,22 @@ update order payment info.
                 {
                     "product" : {
                         "id" : 12,
+                        "seller_uid": 12312,
                         "title": "laurel Magnolia",
                         "brand_name": "HERMES",
-                        "image": "product.jpg",
-                        "seller_uid":12312
+                        "image": "product.jpg"
                     },
                     "order" : {
-                        "id" : 1,
+                        "id": 1,
+                        "buyer_uid": 123,
                         "created_at": 12312342,
                         "updated_at": 12312402,
                         "fulfillment_status_name" : "purchased",
                         "fulfillment_status_color": "#000000",
-                        "fulfillment_status_code": "purchased",
-                        "conversation_id" : 12
+                        "fulfillment_status_code": "purchased"
                     },
                     "system_message" : {
+                        "conversation_id" : 12,
                         "message" : "[sender_name] this item was successfully",
                         "tokens" :{
                             "sender_name" : "reebonz"
@@ -6687,6 +6696,7 @@ update order payment info.
                 {
                     "product" : {
                         "id" : 12,
+                        "seller_uid": 1234,
                         "title": "laurel Magnolia",
                         "brand_name": "HERMES",
                         "image": "product.jpg",
@@ -6696,6 +6706,7 @@ update order payment info.
                     },
                     "order" : {
                         "id" : 1,
+                        "buyer_uid": 123,
                         "created_at": 12312342,
                         "updated_at": 12312402,
                         "fulfillment_status_name" : "purchased",
@@ -6703,6 +6714,7 @@ update order payment info.
                         "fulfillment_status_code": "purchased",
                     },
                     "system_message" : {
+                        "conversation_id" : 12,
                         "message" : "[sender_name] this item was successfully",
                         "tokens" :{
                             "sender_name" : "reebonz"
