@@ -7634,13 +7634,14 @@ delete shipping or billing address.
         
 # Group Main Landing Page
 
-## GET : Main Landing Page [/main_landing_page{?country_code}{?language_code}{?uid}]
+## GET : Main Landing Page [/main_landing_page.json{?country_code}{?language_code}{?uid}{?platform}]
 Get all objects for Main Landing Page
 ### Get mobile version [GET]
 + Parameters
     + country_code : SG (string)
     + language_code : en (string)        
-    + uid : 123123 (number)
+    + uid : 123123* (number)
+    + platform : MBL or WEB (string)
     
 + Response 200 (application/json)
 
