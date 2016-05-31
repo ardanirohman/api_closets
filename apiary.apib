@@ -1278,7 +1278,7 @@ bust, weist, hips ignore first
 # Group Product Item
 Api For Product
 
-## GET : Product List by liked[/product/product_liked.json{?uid}{?language_code}{?limit}{?page}{?country_code}]
+## GET : Product List by liked [/product/product_liked.json{?uid}{?language_code}{?limit}{?page}{?country_code}]
 > status : ready
 
 ### Get Product List by liked [GET]
@@ -5661,6 +5661,7 @@ or
                ]
             },
             "limit" : 20,
+            "num_found":2,
             "page" : 1
         }
 
@@ -5790,17 +5791,18 @@ param {type}
         }
 
 
-## POST : Count Unseen Notification [/notification/activity.json{?uid}]
+## POST : Count Unseen Notification [/notification/activity.json]
 ### Count activity notification unseen [POST]
 + Request(application/json)
     + Headers
 
             Accept: application/json, text/plain, */*
             X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
-
-+ Parameters
-
-    + uid : 1 (number)
+    + Body
+            
+            {
+               "uid" : 1233213
+            }
     
 + Response 200 (application/json)
 
@@ -5808,8 +5810,14 @@ param {type}
             "status":true,
             "message":"",
             "data" :{
-                "notification" : 23
-            }
+                "notification" : 23,
+                "header" : {
+                    "social_is_opened" : false,
+                    "buying_is_opened" : true,
+                    "selling_is_opened" : false
+                }
+            },
+            
         }
 
 ## POST : Archieve Conversation Action [/activity/conversation_archive.json]
@@ -6560,7 +6568,7 @@ place order.
                 "order_id":"12312",
                 "order_status":"online_pending",
                 "payment_method":"easypay",
-                "is_online":1,
+                "bool_online":1,
                 "url_response":"http://goldrush.reebonz.com/payment_service_api/redirect"
                 "url_params": 
                 {
