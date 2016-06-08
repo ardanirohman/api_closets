@@ -4728,10 +4728,11 @@ status : ready
         
         
 # Group Conversations
-Api Design For activity such as social feed,conversation listing, conversation detail
+Api Design For Conversations
 
-## POST : Get Conversation List (Buying/Selling) [/activity/conversation.json]
-status : modify
+## POST : Get Conversation List [/activity/conversation.json]
+Get List of conversation for a particular user, and there are 2 possible type, buying or selling.
+
 ### Get Conversation List [POST]
 
 + Request(application/json)
@@ -4880,7 +4881,7 @@ status : modify
                             "nickname": "Yessika"
                           },
                           "last_status" : {
-                            "status_name" : "offer made",
+                            "status_name" : "Offer Made",
                             "status_color": "#FF5A60"
                           },
                           "last_system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
@@ -5350,11 +5351,11 @@ status : modify
         }
 
 
-## POST : Get Conversation List By Ids ( Buying / Selling )[/activity/get_conversation_byids.json]
-status : modify
+
+## POST : Get Conversation List By Ids [/activity/get_conversation_byids.json]
+
 ### Get Conversation List By Ids [POST]
 + Request(application/json)
-
     + Headers
     
             Accept: application/json, text/plain, */*
