@@ -4416,12 +4416,13 @@ Api For Follower Following Feed Discover Recommendation
               "page": "1",
               "next_page": 1,
               "total": 44
-            }
+        }
 
-# Group Activity And Conversation
-Api Design For activity such as social feed,conversation listing, conversation detail
 
-## POST : GET Social Activity Feed [/activity/social.json]
+# Group Social Feeds
+Api Design For Social Feeds
+
+## POST : GET Social Feeds [/activity/social.json]
 order by updated_at and unseen per page 5,
 social_ids - all social ids for user order by unseen & updated at 
 ### List Social feed [POST]
@@ -4644,7 +4645,7 @@ social_ids - all social ids for user order by unseen & updated at
             "page" : 1
         }
            
-## POST : Social Activity Feed By Ids [/activity/get_social_byids.json]
+## POST : Social Feeds By Ids [/activity/get_social_byids.json]
 status : ready
 ### List Social feed By Ids [POST]
 
@@ -4725,8 +4726,11 @@ status : ready
             ]
         }
         
+        
+# Group Conversations
+Api Design For activity such as social feed,conversation listing, conversation detail
 
-## POST : Get Buying / Selling Conversation List [/activity/conversation.json]
+## POST : Get Conversation List (Buying/Selling) [/activity/conversation.json]
 status : modify
 ### Get Conversation List [POST]
 
@@ -5346,7 +5350,7 @@ status : modify
         }
 
 
-## POST : Get Buying / Selling Conversation List By Ids [/activity/get_conversation_byids.json]
+## POST : Get Conversation List By Ids ( Buying / Selling )[/activity/get_conversation_byids.json]
 status : modify
 ### Get Conversation List By Ids [POST]
 + Request(application/json)
@@ -5582,6 +5586,7 @@ or
                 ],
               "negotiation_action": [
                 {
+                    "action_code":"offer_make",
                     "action": "Make New Offer",
                     "to_status": "offer_made"
                 }
@@ -5592,7 +5597,7 @@ or
             "page" : 1
         }
 
-## POST : Action Chat Conversation [/activity/send_chat.json]
+## POST : Submit Chat Conversation [/activity/send_chat.json]
 for seller and buyer
 param {type}
 *  message_sent
@@ -5641,27 +5646,24 @@ param {type}
                 },
                 "negotiation_status": [
                   {
-                    "action": "Withdraw Offer",
-                    "to_status": "offer_withdrawn"
-                  },
-                  {
-                    "action": "Revise Offer",
-                    "to_status": "offer_revised"
+                    "action_code": "offer_make",
+                    "action": "Make Offer",
+                    "to_status": "offer_made"
                   }
                 ]
             }
         }
 
-## POST : Action Offer Conversation [/activity/send_offer.json]
+## POST : Submit Offer Action Conversation [/activity/send_offer.json]
 for seller and buyer
 param {type}
-*  offer_made
-*  offer_withdrawn
+*  offer_make
+*  offer_withdraw
 *  offer_revise
-*  offer_declined
-*  offer_accepted
-*  offer_accepted_reminder
-*  offer_expired
+*  offer_decline
+*  offer_accept
+*  offer_cancel
+
 ### Action Offer Conversation [POST]
 + Request(application/json)
     + Headers
@@ -5672,7 +5674,7 @@ param {type}
     + Body
             
             {
-               "action" : "offer_made",
+               "action" : "offer_make",
                "seller_uid":22,
                "buyer_uid":23,
                "sender_uid":23,
@@ -5694,7 +5696,7 @@ param {type}
                     "nickname": "nendy_1002310",
                     "avatar": ""
                   },
-                  "system_message_code": "offer_revised",
+                  "system_message_code": "offer_made",
                   "system_message": "You made an offer of [conversation:buyer_currency_code] [conversation_detail:buyer_offer_price] on this item.",
                   "destination_path": "conversation_detail",
                   "created_at": "1462854578",
@@ -5706,10 +5708,12 @@ param {type}
                 },
                 "negotiation_status": [
                   {
+                    "action_code": "offer_withdraw",
                     "action": "Withdraw Offer",
                     "to_status": "offer_withdrawn"
                   },
                   {
+                    "action_code": "offer_revise",
                     "action": "Revise Offer",
                     "to_status": "offer_revised"
                   }
