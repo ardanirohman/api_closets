@@ -490,6 +490,21 @@ need log for change
                 }
             }
 
+## GET : Last Contact Number [/user/get_last_contact.json{?uid}]
+### Get Rating [GET]
++ Parameters
+    + uid : 111 (number)
+
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message": "",
+            "count" : 100,
+            "data": {
+                "contact_number" : 111
+            }
+        }
 
 # Group Preset
 Api Design for Preset Data
@@ -2274,22 +2289,6 @@ Api rating user seller and buyer
                     },
                 },
             ]
-        }
-
-## GET : Last Contact Number [/user/get_last_contact.json{?uid}]
-### Get Rating [GET]
-+ Parameters
-    + uid : 111 (number)
-
-+ Response 200 (application/json)
-
-        {
-            "status" : true,
-            "message": "",
-            "count" : 100,
-            "data": {
-                "contact_number" : 111
-            }
         }
     
 ## POST : Ratings [/user/rating.json]
