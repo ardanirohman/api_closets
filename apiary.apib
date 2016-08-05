@@ -345,26 +345,17 @@ else just item approve and sold and hide (0) sales and order count
                     "last_login" : 123131313,
                     "created_at" : 21231313
                 },
-                "ratings" : [
-                    {
-                        "icon" : "sad.jpg",
-                        "count" : 10
-                    },
-                    {
-                        "icon" : "normal.jpg",
-                        "count" : 3
-                    },
-                    {
-                        "icon" : "happy.jpg",
-                        "count" : 20
-                    }
-                ],
+                "ratings" : {
+                    "average" : 4.5,
+                    "count" : 10
+                },
                 "item_count" : 121,
                 "like_count" : 200,
                 "sales_count" : 200,
                 "order_count" : 200,
                 "following_count" : 317,
                 "followers_count" : 200,
+                "closets_subscription":1,
                 "following_status" : true
             }
         }
@@ -392,7 +383,8 @@ else just item approve and sold and hide (0) sales and order count
                 "user_mail":"user@reebonz.com",
                 "language_preference":"EN",
                 "gender":"M/F",
-                "contact_number":21312313
+                "contact_number":21312313,
+                "closets_subscription":1
             }
 
 + Response 200 (application/json)
@@ -455,6 +447,7 @@ need log for change
                         "last_name":"last name",
                         "country_code":"SG",
                         "is_blacklist":1,
+                        "closets_subscription":1,
                         "contact_number":1223,
                         "addresses":
                         [
@@ -1293,6 +1286,7 @@ Api For Product
         {
             "status":true,
             "message":"",
+            "count": 16,
             "data" : [
                 {
                     "product" : {
@@ -1539,20 +1533,10 @@ field available ex : product.id , product.sku etc
                     "product_count" : 53,
                     "created_at" : 21231313,
                     "is_followed": true,
-                    "ratings" : [
-                        {
-                            "icon" : "sad.jpg",
-                            "count" : 10
-                        },
-                        {
-                            "icon" : "normal.jpg",
-                            "count" : 3
-                        },
-                        {
-                            "icon" : "happy.jpg",
-                            "count" : 20
-                        }
-                    ],
+                    "ratings" : {
+                        "average" : 4.5,
+                        "count" : 10
+                    },
                     "products": [
                         {
                             "id": "4991",
@@ -1694,20 +1678,10 @@ else show only sold approved
                         "product_count" : 53,
                         "created_at" : 21231313,
                         "is_followed": true,
-                        "ratings" : [
-                            {
-                                "icon" : "sad.jpg",
-                                "count" : 10
-                            },
-                            {
-                                "icon" : "normal.jpg",
-                                "count" : 3
-                            },
-                            {
-                                "icon" : "happy.jpg",
-                                "count" : 20
-                            }
-                        ]
+                        "ratings" : {
+                            "average" : 4.5,
+                            "count" : 10
+                        }
                     }
                 },
                 {
@@ -1746,21 +1720,10 @@ else show only sold approved
                         "product_count" : 3,
                         "created_at" : 21231313,
                         "is_followed": true,
-                        "ratings" : [
-                            {
-                                "icon" : "sad.jpg",
-                                "count" : 10
-                            },
-                            {
-                                "icon" : "normal.jpg",
-                                "count" : 3
-                            },
-                            {
-                                "icon" : "happy.jpg",
-                                "count" : 20
-                            }
-                        ]
-                        
+                        "ratings" : {
+                            "average" : 4.5,
+                            "count" : 10
+                        },
                     }
                 }
             ]
@@ -2277,7 +2240,8 @@ Api rating user seller and buyer
                         "comment" : "comment text",
                         "created_at" : 12313131,
                         "type" : "seller",
-                        "icon" : "smile.jpg"
+                        "icon" : "",
+                        "value" : 4
                     },
                 },
                 {
@@ -2290,7 +2254,8 @@ Api rating user seller and buyer
                         "comment" : "comment text",
                         "created_at" : 12313131,
                         "type" : "buyer",
-                        "icon" : "sad.jpg"
+                        "icon" : "",
+                        "value" : 2
                     },
                 },
             ]
@@ -6217,7 +6182,7 @@ get fulfillment data.
             {
                 "uid":001,
                 "product_id":1,
-                "preferred_language":"en"
+                "preferred_language":"en",
                 "country_code":"SG",
                 "order_id":123123
             }
@@ -6259,6 +6224,11 @@ get fulfillment data.
             "language_code": "en",
             "is_seller": true,
             "status": "order_payment_completed",
+            "notes": {
+                "type":"pickup",
+                "message":"",
+                "color":"#FF0000"
+            },
             "closet_response": {
                 "error": 0,
                 "items": [
@@ -6897,10 +6867,15 @@ cancel return request by buyer.
 + Response 200 (application/json)
 
         {
-            "version":2.4,
-            "cancel":"Y",
-            "message":"New Exciting Update please update your app",
-            "url":"https://play.google.com/store/apps/details?id=com.reebonz.closet",
+            "status":true,
+            "message":"",
+            "data" : {
+                "version":2.4,
+                "cancel":"Y",
+                "message":"New Exciting Update please update your app",
+                "url":"https://play.google.com/store/apps/details?id=com.reebonz.closet"
+            }
+            
         }
 
 
