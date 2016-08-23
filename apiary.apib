@@ -2249,11 +2249,11 @@ same function with trigger comment
 # Group Rating
 Api rating user seller and buyer
 
-## GET : Ratings [/users/get_ratings.json{?uid}{?type}{?limit}{?last_created_at}]
+## GET : Ratings [/users/get_ratings.json{?uid}{?type}{?limit}{?last_updated_at}]
 ### Get Rating [GET]
 + Parameters
     + uid : 111 (number)
-    + last_created_at : 123435
+    + last_updated_at : 123435
     + limit : 10
     + type : "seller/buyer" (string) - optional
 
@@ -2274,6 +2274,7 @@ Api rating user seller and buyer
                         "comment" : "comment text",
                         "reply_comment" : "The reply is in here",
                         "created_at" : 12313131,
+                        "updated_at" : 12313131,
                         "type" : "seller",
                         "icon" : "",
                         "value" : 4,
@@ -2290,6 +2291,7 @@ Api rating user seller and buyer
                         "comment" : "comment text",
                         "reply_comment" : "The reply is in here",
                         "created_at" : 12313131,
+                        "updated_at" : 12313131,
                         "type" : "buyer",
                         "icon" : "",
                         "value" : 2,
