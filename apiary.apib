@@ -583,7 +583,10 @@ Api Design for Preset Data
                     "contact_email" : "closets@reebonz.com",
                     "contact_no" : 123456,
                     "url" : "http://www.reebonz.com.sg",
-                    "default_language_code" : "EN"
+                    "default_language_code" : "EN",
+                    "company_name" : "Reebonz Limited",
+                    "address1" : "21 Tai Seng Street",
+                    "address2" : "Singapore 534166"
                 },
                 {
                     "code" : "MY",
@@ -592,7 +595,10 @@ Api Design for Preset Data
                     "contact_email" : "conciergemy@reebonz.com",
                     "contact_no" : 123456,
                     "url" : "http://www.reebonz.com.my",
-                    "default_language_code" : "EN"
+                    "default_language_code" : "EN",
+                    "company_name" : "Reebonz Lifestyle Sdn Bhd (936916-X)",
+                    "address1" : "3.007 & 3.009, Level 3, 129 Offices, Block J, Jaya One,",
+                    "address2" : "72A, Jalan Universiti, Seksyen 13, 46200 Petaling Jaya, Selangor."
                 },
                 {
                     "code" : "HK",
@@ -601,7 +607,10 @@ Api Design for Preset Data
                     "contact_email" : "conciergehk@reebonz.com",
                     "contact_no" : 123456,
                     "url" : "http://www.reebonz.com.hk",
-                    "default_language_code" : "zh-hk"
+                    "default_language_code" : "zh-hk",
+                    "company_name" : "Reebonz HK. Ltd.",
+                    "address1" : "Unit D-E, 18/F, Seabright Plaza,",
+                    "address2" : "9-23 Shell Street, Fortress Hill (MTR Exit A)"
                 }
             ]
         }
@@ -6434,7 +6443,18 @@ get fulfillment data.
                                     }
                                 ]
                 }
-            ]
+            ],
+            "rating": {
+                "comment": "comment text",
+                "reply_comment": "The reply is in here",
+                "last_reply_at": 12313131,
+                "created_at": 12313131,
+                "updated_at": 12313131,
+                "type": "seller",
+                "icon": "",
+                "value": 4,
+                "order_id": 12312
+            }
         }
         
 ## POST : Pickup Preferred Time API [/fulfillment/fulfillment/pickup_preferred_time.json]
@@ -7487,3 +7507,73 @@ Get all objects for Main Landing Page
                 }
             ]
         }
+
+# Group Discount
+## GET : Get My Discount API [/discount/my_discount.json{?user_type}{?price}{?language_code}]
+Get user logged discount
+### Get My Discount [GET]
+
++ Parameters
+    + user_type : seller/buyer (string)
+    + language_code : en (string)     
+    + price : 1000 (number)
+    
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "data" : {
+                "discount":[
+                    {
+                        "type" : "unique",
+                        "effect_type":"percentage_off",
+                        "description" : "sample description discount",
+                        "discount_value" :"10"
+                    },
+                    {
+                        "type" : "codeless",
+                        "effect_type":"fixed_amount",
+                        "description" : "sample description discount",
+                        "discount_value" :"10"
+                    }
+                ],
+                "total" : 900,
+                "currency_code":"SGD"
+            }
+        }
+        
+## POST : Apply Discount [/discount/apply_discount.json]
+Apply discount code.
+### Apply Discount [POST]
++ Request(application/json)
+
+            {
+                "code":"RBZ",
+                "user_type":"seller/buyer",
+                "price":1000
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message":"",
+                "data": {
+                    "discount" : [
+                        {
+                            "type" : "unique",
+                            "effect_type":"percentage_off",
+                            "description" : "sample description discount",
+                            "discount_value" :"10"
+                        },
+                        {
+                            "type" : "codeless",
+                            "effect_type":"fixed_amount",
+                            "description" : "sample description discount",
+                            "discount_value" :"10"
+                        }
+                    ],
+                    "total":300,
+                    "currency_code":"SGD"
+                }
+            }
