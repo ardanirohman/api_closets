@@ -5620,11 +5620,13 @@ get checkout order.
                 "order_line_items":[
                     {
                         "label":"Shipping Fee",
+                        "code":"SHIPPING",
                         "currency_code":"IDR",
                         "amount":"100000"
                     },
                     {
                         "label":"Custom Duty",
+                        "code":"CUSTOM",
                         "currency_code":"IDR",
                         "amount":"10000"
                     }
@@ -5909,11 +5911,13 @@ place order.
                     "order_line_item":[
                         {
                             "label":"Shipping Fee",
+                            "code":"SHIPPING",
                             "currency_code":"IDR",
                             "amount":"100000"
                         },
                         {
                             "label":"Custom Duty",
+                            "code":"CUSTOM",
                             "currency_code":"IDR",
                             "amount":"10000"
                         }
@@ -6262,6 +6266,7 @@ get fulfillment data.
                 "Payment"
             ],
             "fulfillment_selected_timeline": 3,
+            "fulfillment_record_id": 123123,
             "fulfillment_timeline_is_complete": true,
             "fulfillment_status": "PAYMENT COMPLETED",
             "fulfillment_body1": "Thank you for selling on Closets!\n\nPayment has been made via your selected payment mode:",
@@ -6283,6 +6288,38 @@ get fulfillment data.
                         "2016-04-21",
                         "2016-04-22",
                         "2016-04-25"
+                    ]
+                    "form_fields":[
+                        {
+                            "field_code":"first_name",
+                            "field_name":"First name",
+                            "placeholder":"Enter your First Name",
+                            "default_value":"Fandy",
+                            "data_type":"Textfield",
+                            "options":"",
+                            "is_compulsory":1,
+                            "is_editable":1
+                        },
+                        {
+                            "field_code":"last_name",
+                            "field_name":"Last Name",
+                            "placeholder":"Enter Your Last Name",
+                            "default_value":"Dharmawan"
+                            "data_type":"Textfield"
+                            "options":"",
+                            "is_compulsory":1,
+                            "is_editable":1
+                        },
+                        {
+                            "field_code":"schedule_date",
+                            "field_name":"Schedule Date",
+                            "placeholder":"",
+                            "default_value":"",
+                            "data_type":"Calender",
+                            "options":["2016-10-14","2016-10-15","2016-10-16"]
+                            "is_compulsory":1,
+                            "is_editable":0
+                        }
                     ]
                 }
             ],
@@ -6456,6 +6493,36 @@ get fulfillment data.
                 "order_id": 12312
             }
         }
+        
+## POST : Post Fulfillment Action General API [/fulfillment/post_action.json]
+get pickup preferred time.
+### pickup preferred time api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+            
+    + Body
+    
+            {
+                "order_id":123
+                "record_id":345,
+                "uid":12312,
+                "action_code":"seller_schedule_collection",
+                "field_name1":"field_value1",
+                "country_code":"SG"
+            }
+
++ Response 200 (application/json)
+        
+        {
+            "status":true,
+            "message":"You have successfully scheduled collection",
+            
+        }
+ 
         
 ## POST : Pickup Preferred Time API [/fulfillment/fulfillment/pickup_preferred_time.json]
 get pickup preferred time.
@@ -7544,7 +7611,7 @@ Get user logged discount
             }
         }
         
-## GET : Calculate Discount [/discount/calculate_discount.json{?user_type}{?price}{?language_code}{?code}]
+## GET : Calculate Discount [/discount/calculate_discount.json{?user_type}{?price}{?language_code}{?code}{?product_id}]
 Apply discount code.
 ### Apply Discount [GET]
 + Parameters
@@ -7552,6 +7619,7 @@ Apply discount code.
     + user_type : seller/buyer (string)
     + language_code : en (string)     
     + price : 1000 (number)
+    + product_id : 99 (number)
 
 + Response 200 (application/json)
 
