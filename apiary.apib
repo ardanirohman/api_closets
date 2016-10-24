@@ -6295,7 +6295,7 @@ get fulfillment data.
                             "field_name":"First name",
                             "placeholder":"Enter your First Name",
                             "default_value":"Fandy",
-                            "data_type":"Textfield",
+                            "data_type":"textfield",
                             "options":"",
                             "is_compulsory":1,
                             "is_editable":1
@@ -6304,8 +6304,8 @@ get fulfillment data.
                             "field_code":"last_name",
                             "field_name":"Last Name",
                             "placeholder":"Enter Your Last Name",
-                            "default_value":"Dharmawan"
-                            "data_type":"Textfield"
+                            "default_value":"Dharmawan",
+                            "data_type":"textarea",
                             "options":"",
                             "is_compulsory":1,
                             "is_editable":1
@@ -6317,6 +6317,36 @@ get fulfillment data.
                             "default_value":"",
                             "data_type":"Calender",
                             "options":["2016-10-14","2016-10-15","2016-10-16"]
+                            "is_compulsory":1,
+                            "is_editable":0
+                        },
+                        {
+                            "field_code":"bank_name",
+                            "field_name":"Bank Name",
+                            "placeholder":"",
+                            "default_value":"",
+                            "data_type":"options",
+                            "options":["BCA","Mandiri","LippoBank"]
+                            "is_compulsory":1,
+                            "is_editable":0
+                        },
+                        {
+                            "field_code":"timeslot",
+                            "field_name":"Time Slot",
+                            "placeholder":"",
+                            "default_value":"Mon-Fri 9am-12pm",
+                            "data_type":"radio",
+                            "options":["Mon-Fri 9am-12pm","Weekend 9am-12pm"]
+                            "is_compulsory":1,
+                            "is_editable":0
+                        },
+                        {
+                            "field_code":"include",
+                            "field_name":"Items Include",
+                            "placeholder":"",
+                            "default_value":"",
+                            "data_type":"checkbox",
+                            "options":["Receipt","Box","Authenticity Card"]
                             "is_compulsory":1,
                             "is_editable":0
                         }
