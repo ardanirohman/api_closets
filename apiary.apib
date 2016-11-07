@@ -1360,6 +1360,12 @@ Api For Product
                                 "value": 1
                             }
                         ]
+                    },
+                    "seller" : {
+                        "uid": 12312,
+                        "nickname" : "nickn123ame user",
+                        "avatar" : "avata12r.jpg"
+                    }
                 },
                 {
                     "product" : {
@@ -1390,8 +1396,13 @@ Api For Product
                                 "value": 1
                             }
                         ]
-                },
-                
+                    },
+                    "seller" : {
+                        "uid": 12312,
+                        "nickname" : "nickn123ame user",
+                        "avatar" : "avata12r.jpg"
+                    }
+                }
             ]
         }
 
@@ -1713,8 +1724,9 @@ else show only sold approved
                                 "name" : "reebonz stock",
                                 "value": 1
                             }
-                        ],
-                        "seller" : {
+                        ]
+                    },
+                    "seller" : {
                         "uid": 3500717,
                         "nickname" : "nickname user",
                         "avatar" : "avatar.jpg",
@@ -1755,8 +1767,9 @@ else show only sold approved
                                 "name" : "reebonz stock",
                                 "value": 1
                             }
-                        ],
-                        "seller" : {
+                        ]
+                    },
+                    "seller" : {
                         "uid": 12312,
                         "nickname" : "nickn123ame user",
                         "avatar" : "avata12r.jpg",
@@ -1766,7 +1779,7 @@ else show only sold approved
                         "ratings" : {
                             "average" : 4.5,
                             "count" : 10
-                        },
+                        }
                     }
                 }
             ]
@@ -1873,6 +1886,7 @@ else show only sold approved
             "status" : true,
             "message": "product submit successfully",
             "data":{
+                "product_id": 1
             }
         }
 
@@ -6278,7 +6292,8 @@ get fulfillment data.
             "fulfillment_button": [
                 {
                     "text":"ARRANGE REFUND",
-                    "action":"arrange_refund",
+                    "action_code":"arrange_refund",
+                    "state_code":"new",
                     "valid_payment_method":
                     [
                         "ep_off_bank_transfer"
@@ -6295,7 +6310,7 @@ get fulfillment data.
                             "field_name":"First name",
                             "placeholder":"Enter your First Name",
                             "default_value":"Fandy",
-                            "data_type":"textfield",
+                            "data_type":"text",
                             "options":"",
                             "is_compulsory":1,
                             "is_editable":1
@@ -6305,7 +6320,7 @@ get fulfillment data.
                             "field_name":"Last Name",
                             "placeholder":"Enter Your Last Name",
                             "default_value":"Dharmawan",
-                            "data_type":"textarea",
+                            "data_type":"text",
                             "options":"",
                             "is_compulsory":1,
                             "is_editable":1
@@ -6315,18 +6330,8 @@ get fulfillment data.
                             "field_name":"Schedule Date",
                             "placeholder":"",
                             "default_value":"",
-                            "data_type":"Calender",
+                            "data_type":"selection",
                             "options":["2016-10-14","2016-10-15","2016-10-16"]
-                            "is_compulsory":1,
-                            "is_editable":0
-                        },
-                        {
-                            "field_code":"bank_name",
-                            "field_name":"Bank Name",
-                            "placeholder":"",
-                            "default_value":"",
-                            "data_type":"options",
-                            "options":["BCA","Mandiri","LippoBank"]
                             "is_compulsory":1,
                             "is_editable":0
                         },
@@ -6334,19 +6339,14 @@ get fulfillment data.
                             "field_code":"timeslot",
                             "field_name":"Time Slot",
                             "placeholder":"",
-                            "default_value":"Mon-Fri 9am-12pm",
-                            "data_type":"radio",
-                            "options":["Mon-Fri 9am-12pm","Weekend 9am-12pm"]
-                            "is_compulsory":1,
-                            "is_editable":0
-                        },
-                        {
-                            "field_code":"include",
-                            "field_name":"Items Include",
-                            "placeholder":"",
                             "default_value":"",
-                            "data_type":"checkbox",
-                            "options":["Receipt","Box","Authenticity Card"]
+                            "data_type":"selection",
+                            "options":
+                            {
+                                "2016-10-14":["Mon-Fri 9am-12pm","Weekend 9am-12pm"],
+                                "2016-10-15":["Mon-Fri 9am-12pm","Weekend 9am-12pm"],
+                                "2016-10-16":["Mon-Fri 9am-12pm","Weekend 9am-12pm"]
+                            },
                             "is_compulsory":1,
                             "is_editable":0
                         }
@@ -6470,6 +6470,7 @@ get fulfillment data.
             },
             "payment_options":[
                 {
+                    "payment_method:"Bank Transfer",
                     "payment_name":"Bank Transfer",
                     "intruction_message":"Please enter your bank details to receive",
                     "condition_message":"please allow 5business days",
@@ -6524,9 +6525,9 @@ get fulfillment data.
             }
         }
         
-## POST : Post Fulfillment Action General API [/fulfillment/post_action.json]
-get pickup preferred time.
-### pickup preferred time api [POST]
+## POST : Post Fulfillment Action General API [/fulfillment/fulfillment/post_action.json]
+general post action fulfillment
+### post action fulfillment api [POST]
 
 + Request(application/json)
     + Headers
@@ -6541,6 +6542,7 @@ get pickup preferred time.
                 "record_id":345,
                 "uid":12312,
                 "action_code":"seller_schedule_collection",
+                "state_code:"new",
                 "field_name1":"field_value1",
                 "country_code":"SG"
             }
@@ -7627,7 +7629,10 @@ Get user logged discount
                         "code":"RBZ",
                         "effect_type":"percentage_off",
                         "description" : "sample description discount",
-                        "discount_value" :"10"
+                        "discount_value" :"10",
+                        "start_at":"1449021713",
+                        "end_at":"1449021713",
+                        "is_redeemed":false
                     },
                     {
                         "id":2,
@@ -7635,7 +7640,10 @@ Get user logged discount
                         "type" : "general",
                         "effect_type":"fixed_amount",
                         "description" : "sample description discount",
-                        "discount_value" :"10"
+                        "discount_value" :"10",
+                        "start_at":"1449021713",
+                        "end_at":"1449021713",
+                        "is_redeemed":true
                     }
                 ]
             }
