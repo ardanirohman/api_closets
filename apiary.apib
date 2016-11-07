@@ -7608,11 +7608,12 @@ Get all objects for Main Landing Page
         }
 
 # Group Discount
-## GET : Get My Discount API [/discount/my_discount.json{?user_type}{?price}{?language_code}]
+## GET : Get My Discount API [/discount/my_discount.json{?page_type}{?user_type}{?price}{?language_code}]
 Get user logged discount
 ### Get My Discount [GET]
 
 + Parameters
+    + page_type : checkout/submission/mycoupon
     + user_type : seller/buyer (string)
     + language_code : en (string)     
     + price : 1000 (number)
