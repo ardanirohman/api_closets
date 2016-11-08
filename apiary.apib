@@ -1876,7 +1876,8 @@ else show only sold approved
                         "code" : "NEGO",
                         "value" : false
                     }
-                ]
+                ],
+                
                 
             }
 
@@ -7650,7 +7651,7 @@ Get user logged discount
             }
         }
         
-## GET : Calculate Discount [/discount/calculate_discount.json{?user_type}{?price}{?language_code}{?code}{?product_id}]
+## GET : Calculate Discount [/discount/calculate_discount.json{?user_type}{?price}{?commission}{?language_code}{?code}{?product_id}]
 Apply discount code.
 ### Apply Discount [GET]
 + Parameters
@@ -7659,6 +7660,7 @@ Apply discount code.
     + language_code : en (string)     
     + price : 1000 (number)
     + product_id : 99 (number)
+    + commission:100 (number)
 
 + Response 200 (application/json)
 
@@ -7669,12 +7671,13 @@ Apply discount code.
                     "discount" : 
                         {
                             "id":1,
+                            "code":"halloween10",
                             "type" : "unique",
                             "effect_type":"percentage_off",
                             "description" : "sample description discount",
-                            "discount_value" :"10"
+                            "discount_value" :"0.1"
                         },
-                    "total":300,
+                    "discount_amount":-100,
                     "currency_code":"SGD"
                 }
             }
