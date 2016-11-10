@@ -1550,7 +1550,12 @@ field available ex : product.id , product.sku etc
                             "name" : "New with tags",
                             "weight" : 0
                         }
-                    ]
+                    ],
+                    "discount" : {
+                        "discount_id":123,
+                        "discount_code":"VALENTINE",
+                        "discount_amount":"-100"
+                    }
                     
                 },
                 "comment" : {
@@ -1877,8 +1882,11 @@ else show only sold approved
                         "value" : false
                     }
                 ],
-                
-                
+                "discount" : {
+                    "discount_id":123,
+                    "discount_code":"VALENTINE",
+                    "discount_amount":"-100"
+                }
             }
 
 + Response 200 (application/json)
@@ -1984,7 +1992,12 @@ else show only sold approved
                         "code" : "NEGO",
                         "value" : false
                     }
-                ]
+                ],
+                "discount" : {
+                    "discount_id":123,
+                    "discount_code":"VALENTINE",
+                    "discount_amount":"-100"
+                }
                 
             }
 
