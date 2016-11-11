@@ -5948,6 +5948,13 @@ place order.
                             "code":"CUSTOM",
                             "currency_code":"IDR",
                             "amount":"10000"
+                        },
+                        {
+                            "code":"DISCOUNT",
+                            "discount_id":12312,
+                            "discount_code":"VALENTINE10",                
+                            "currency_code":"IDR",
+                            "amount":"-10000"
                         }
                     ],
                     "addresses":
@@ -7664,7 +7671,7 @@ Get user logged discount
             }
         }
         
-## GET : Calculate Discount [/discount/calculate_discount.json{?user_type}{?price}{?commission}{?language_code}{?code}{?product_id}]
+## GET : Calculate Discount [/discount/calculate_discount.json{?user_type}{?price}{?commission}{?language_code}{?code}{?product_id}{?discount_id}]
 Apply discount code.
 ### Apply Discount [GET]
 + Parameters
@@ -7673,6 +7680,7 @@ Apply discount code.
     + language_code : en (string)     
     + price : 1000 (number)
     + product_id : 99 (number)
+    + discount_id : 99 (number)
     + commission:100 (number)
 
 + Response 200 (application/json)
