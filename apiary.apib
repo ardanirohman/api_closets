@@ -682,6 +682,7 @@ show active brand
     + country_code : SG (string)
     + category_id : 1 (number)
     + brand_id : 1 (number) - optional
+    + is_not_shipped : 1 (number) - optional
     
 + Response 200 (application/json)
 
@@ -694,19 +695,22 @@ show active brand
                     "id" : 1,
                     "brand_name" : "PRADA",
                     "currency_code" : "SGD",
-                    "min_price" : 200
+                    "min_price" : 200,
+                    "is_not_shipped" : 1
                 },
                 {
                     "id" : 2,
                     "brand_name" : "A.LANGE & SÖHNE",
                     "currency_code" : "SGD",
-                    "min_price" : 200
+                    "min_price" : 200,
+                    "is_not_shipped" : 0
                 },
                 {
                     "id" : 3,
                     "brand_name" : "AGNÈS B",
                     "currency_code" : "SGD",
-                    "min_price" : 200
+                    "min_price" : 200,
+                    "is_not_shipped" : 1
                 }
             ]
         }
