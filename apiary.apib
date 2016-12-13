@@ -6299,9 +6299,9 @@ update order payment info.
                 "order" : {
                     "id": 123456,
                     "date": 412312333,
-                    "payment_type": "ep_on_full_2",
                     "sales_price":2000,
                     "currency_code": "SGD",
+                    "payment_type": "ep_on_full_2",
                     "billing_first_name": "Ardani",
                     "billing_last_name": "Rohman",
                     "billing_identity_no":"",
@@ -6326,29 +6326,30 @@ update order payment info.
                         {
                             "label": "Shipping Charges",
                             "code":"SHIPPING",
-                            "currency_code":"IDR",
-                            "amount":"1000"
+                            "currency_code":"SGD",
+                            "amount":"10",
+                            "discount_id":null,
+                            "discount_code":null
                         },
                         {
                             "label":"Discount",
                             "code":"DISCOUNT",
-                            "discount_id":12312,
-                            "discount_code":"VALENTINE10",                
                             "currency_code":"SGD",
-                            "amount":"-100"
+                            "amount":"-100",
+                            "discount_id":12312,
+                            "discount_code":"VALENTINE10"
                         }
                     ]
                 },
-                "product" : {
+                "order_product" : {
                     "id": "12695",
-                    "sku": "",
                     "uid" :3500871,
                     "country_code": "SG",
                     "title": "Product",
                     "description": "Desc Product",
                     "brand_name": "PRADA",
-                    "category_name": "BAGS",
-                },
+                    "category_name": "BAGS"
+                }
             }
         } 
         
