@@ -6,7 +6,7 @@ HOST: http://closets.sit.reebonz-dev.com/new_closets/rest/v2
 ## Getting Started
 The Closets 2.0 APIs is designed to allow you to have access to our Closets2.0 backoffice functionilities (such as conversation, login, register, place order etc)
 The API follows RESTful principals, so please pay close attention to HTTP status codes in your responses as these will help you determine the success or failure of any given API call.
-We are continually working to improve and enhance this API and welcome any feedback.
+We are continually working to improve and enhancsae this API and welcome any feedback.
 
 ## Authentication
 Before you use the API you must provide valid credentials in order to generate a token which you can then use on subsequent API calls. The credentials you use to generate a token are the same username / password you use to access closets application.
@@ -6278,6 +6278,75 @@ update order payment info.
                     ]
                 }
             ]
+        } 
+        
+## GET : Order Detail [/order/order_detail.json{?type}{?order_id}{?language_code}]
+>  status : develop
+
+### Get timeslots [GET]
++ Parameters
+    + type : "sales or order" (string)
+    + order_id : 123456 (number)
+    + language_code : "SG" (string)
+    
++ Response 200 (application/json)
+
+        {
+            "status": true,
+            "message": "",
+            "data" : 
+            {
+                "order" : {
+                    "id": 123456,
+                    "date": 412312333,
+                    "payment_type": "ep_on_full_2",
+                    "sales_price":2000,
+                    "seller_currency_code": "SGD",
+                    "billing_first_name": "Ardani",
+                    "billing_last_name": "Rohman",
+                    "billing_identity_no":"",
+                    "billing_address1": "Yogyakarta",
+                    "billing_address2": NULL,
+                    "billing_city": "Singapore",
+                    "billing_state":"",
+                    "billing_postal_code":"14350",
+                    "billing_country":"Singapore",
+                    "billing_mobile_phone":"112233",
+                    "shipping_first_name": "Ardani",
+                    "shipping_last_name": "Rohman",
+                    "shipping_identity_no":"",
+                    "shipping_address1": "Yogyakarta",
+                    "shipping_address2": NULL,
+                    "shipping_city": "Singapore",
+                    "shipping_state":"",
+                    "shipping_postal_code":"14350",
+                    "shipping_country":"Singapore",
+                    "shipping_mobile_phone":"112233",
+                    "order_line_item":[
+                        {
+                            "code":"SHIPPING",
+                            "currency_code":"IDR",
+                            "amount":"1000"
+                        },
+                        {
+                            "code":"DISCOUNT",
+                            "discount_id":12312,
+                            "discount_code":"VALENTINE10",                
+                            "currency_code":"SGD",
+                            "amount":"-100"
+                        }
+                    ]
+                },
+                "product" : {
+                    "id": "12695",
+                    "sku": "",
+                    "uid" :3500871,
+                    "country_code": "SG",
+                    "title": "Product",
+                    "description": "Desc Product",
+                    "brand_name": "PRADA"
+                },
+            }
         } 
         
 # Group Fulfillment
