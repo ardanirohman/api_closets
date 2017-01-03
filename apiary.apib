@@ -6280,12 +6280,11 @@ update order payment info.
             ]
         } 
         
-## GET : Order Detail [/order/order_detail.json{?type}{?order_id}{?language_code}]
+## GET : Order Detail [/order/order_detail.json{?order_id}{?language_code}]
 >  status : develop
 
 ### Order Detail [GET]
 + Parameters
-    + type : "sales or order" (string)
     + order_id : 123456 (number)
     + language_code : "en" (string)
     
@@ -6302,6 +6301,7 @@ update order payment info.
                     "sales_price":2000,
                     "currency_code": "SGD",
                     "payment_type": "ep_on_full_2",
+                    "order_status": "payment_received",
                     "billing_first_name": "Ardani",
                     "billing_last_name": "Rohman",
                     "billing_identity_no":"",
@@ -6322,6 +6322,9 @@ update order payment info.
                     "shipping_postal_code":"14350",
                     "shipping_country":"Singapore",
                     "shipping_mobile_phone":"112233",
+                    "fulfillment_status_name": "Refund in Progress",
+                    "fulfillment_status_color": "#FFA054",
+                    "fulfillment_status_code": "cancelled_refund_scheduled",
                     "order_line_item":[
                         {
                             "label": "Shipping Charges",
