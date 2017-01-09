@@ -6326,24 +6326,6 @@ update order payment info.
                     "fulfillment_status_name": "Refund in Progress",
                     "fulfillment_status_color": "#FFA054",
                     "fulfillment_status_code": "cancelled_refund_scheduled",
-                    "order_line_item":[
-                        {
-                            "label": "Shipping Charges",
-                            "code":"SHIPPING",
-                            "currency_code":"SGD",
-                            "amount":"10",
-                            "discount_id":null,
-                            "discount_code":null
-                        },
-                        {
-                            "label":"Discount",
-                            "code":"DISCOUNT",
-                            "currency_code":"SGD",
-                            "amount":"-100",
-                            "discount_id":12312,
-                            "discount_code":"VALENTINE10"
-                        }
-                    ]
                 },
                 "order_product" : {
                     "id": "12695",
@@ -6356,6 +6338,29 @@ update order payment info.
                     "image": "image.jpeg",
                     "selling_price":34324,
                     "currency_code":"SGD"
+                },
+                "order_line_item":[
+                    {
+                        "label": "Shipping Charges",
+                        "code":"SHIPPING",
+                        "currency_code":"SGD",
+                        "amount":"10",
+                        "discount_id":null,
+                        "discount_code":null
+                    },
+                    {
+                        "label":"Discount",
+                        "code":"DISCOUNT",
+                        "currency_code":"SGD",
+                        "amount":"-100",
+                        "discount_id":12312,
+                        "discount_code":"VALENTINE10"
+                    }
+                ],
+                "bank_transfer": {
+                    "bank_name": "HSBC WTC Sudirman",
+                    "account_number": "8882727189191",
+                    "country_code": "SG"
                 }
             }
         } 
