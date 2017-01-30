@@ -7849,3 +7849,39 @@ Apply discount code.
                     "currency_code":"SGD"
                 }
             }
+
+## GET : Credit History [/credit_history.json{?page}{?limit}]
+Credit history.
+### Credit History [GET]
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message":"",
+                "data": {
+                    "credit":[
+                        {
+                            "id":123,
+                            "description":"Your friend Fandy Make a purchase",
+                            "parent_category":"MARKETING",
+                            "category":"FFP",
+                            "points":50,
+                            "created_dt":"2012-04-12",
+                            "expiry_dt":"2012-05-12",
+                            "reminder_dt":"2012-05-10",
+                            "deduction":[
+                                {
+                                    "id":1,
+                                    "category":"redeem",
+                                    "date":"2012-05-12",
+                                    "points":-25,
+                                    "order_id": 8728,
+                                    "description":"Used in Order 8728",
+                                    "status":"confirmed"
+                                }
+                        }
+                    ]
+                },
+                "total":200
+            }
