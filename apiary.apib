@@ -5718,6 +5718,12 @@ get checkout order.
                         "code":"CUSTOM",
                         "currency_code":"IDR",
                         "amount":"10000"
+                    },
+                    {
+                        "label":"Credit",
+                        "code":"CREDIT",
+                        "currency_code":"IDR",
+                        "amount":"100000"
                     }
                 ],
                 "addresses":
@@ -6016,6 +6022,11 @@ place order.
                             "discount_code":"VALENTINE10",                
                             "currency_code":"IDR",
                             "amount":"-10000"
+                        },
+                        {
+                            "code":"CREDIT",
+                            "currency_code":"IDR",
+                            "amount":"100000"
                         }
                     ],
                     "addresses":
@@ -7888,4 +7899,44 @@ Credit history.
                     ]
                 },
                 "total":200
+            }
+
+## POST : PNS Create Token [/pns/create_token.json]
+
+### PNS Create Token [POST]
+
++ Request (application/json)
+            
+            {
+                "uid" : 3424,
+                "app_name" : "closets",
+                "platform_type" : "ios",
+                "token":"242dwdwfwefefwr232e2e"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message":""
+            }
+
+## POST : PNS Delete Token [/pns/delete_token.json]
+
+### PNS Delete Token [POST]
+
++ Request (application/json)
+            
+            {
+                "uid" : 3424,
+                "app_name" : "closets",
+                "platform_type" : "ios",
+                "token":"242dwdwfwefefwr232e2e"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message":""
             }
