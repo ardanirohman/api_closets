@@ -7901,6 +7901,18 @@ Credit history.
                 "total":200
             }
 
+## GET : Geo IP [/geoip.json]
+
+### Geo IP [GET]
+
++ Response 200 (application/json)
+
+            {
+                "ip":1,
+                "country":"",
+                "status":""
+            }
+
 ## POST : PNS Create Token [/pns/create_token.json]
 
 ### PNS Create Token [POST]
@@ -7917,8 +7929,9 @@ Credit history.
 + Response 200 (application/json)
 
             {
-                "status" : true,
-                "message":""
+                "status":true,
+                "message":"",
+                "data":[]
             }
 
 ## POST : PNS Delete Token [/pns/delete_token.json]
@@ -7937,6 +7950,7 @@ Credit history.
 + Response 200 (application/json)
 
             {
-                "status" : true,
-                "message":""
+                "status":true,
+                "message":"",
+                "data":[]
             }
