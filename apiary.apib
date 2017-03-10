@@ -640,7 +640,8 @@ Api Design for Preset Data
                     "default_language_code" : "EN",
                     "company_name" : "Reebonz Limited",
                     "address1" : "21 Tai Seng Street",
-                    "address2" : "Singapore 534166"
+                    "address2" : "Singapore 534166",
+                    "credit_available" : 1
                 },
                 {
                     "code" : "MY",
@@ -652,7 +653,8 @@ Api Design for Preset Data
                     "default_language_code" : "EN",
                     "company_name" : "Reebonz Lifestyle Sdn Bhd (936916-X)",
                     "address1" : "3.007 & 3.009, Level 3, 129 Offices, Block J, Jaya One,",
-                    "address2" : "72A, Jalan Universiti, Seksyen 13, 46200 Petaling Jaya, Selangor."
+                    "address2" : "72A, Jalan Universiti, Seksyen 13, 46200 Petaling Jaya, Selangor.",
+                    "credit_available" : 0
                 },
                 {
                     "code" : "HK",
@@ -664,7 +666,8 @@ Api Design for Preset Data
                     "default_language_code" : "zh-hk",
                     "company_name" : "Reebonz HK. Ltd.",
                     "address1" : "Unit D-E, 18/F, Seabright Plaza,",
-                    "address2" : "9-23 Shell Street, Fortress Hill (MTR Exit A)"
+                    "address2" : "9-23 Shell Street, Fortress Hill (MTR Exit A)",
+                    "credit_available" : 0
                 }
             ]
         }
@@ -2342,12 +2345,244 @@ same function with trigger comment
             ]
         }
 
+## GET : Product Get Summary [/product/product_get_summary.json{?start_date}{?end_date}{?country_code}]
+>  status : ready
+
+### Product Get Summary [GET]
++ Parameters
+    + start_date:2017-02-05 (date)
+    + end_date:2017-02-25 (date)
+    + country_code:SG
+
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message": "",
+            "count" : 2,
+            "data": [{
+                "brand_id":12,
+                "category_id":5,
+                "brand_name":"BALENCIAGA",
+                "category_name":"BAGS",
+                "weekly_details":[{
+                    "start_date":"2017-02-05",
+                    "end_date":"2017-02-11",
+                    "sales_price":600,"value":-5979,
+                    "percentage":-90.88
+                },{
+                    "start_date":"2017-02-12",
+                    "end_date":"2017-02-18",
+                    "sales_price":900,
+                    "value":300,
+                    "percentage":50
+                },{
+                    "start_date":"2017-02-19",
+                    "end_date":"2017-02-25",
+                    "sales_price":5470,
+                    "value":4570,
+                    "percentage":507.78
+                }]
+            },{
+                "brand_id":12,
+                "category_id":6,
+                "brand_name":"BALENCIAGA",
+                "category_name":"SHOES",
+                "weekly_details":[{
+                    "start_date":"2017-02-05",
+                    "end_date":"2017-02-11",
+                    "sales_price":500,"value":500,
+                    "percentage":100
+                }]
+            },{
+                "brand_id":80,
+                "category_id":2,
+                "brand_name":"GUCCI",
+                "category_name":"ACCESSORIES",
+                "weekly_details":[{
+                    "start_date":"2017-02-12",
+                    "end_date":"2017-02-18",
+                    "sales_price":485,
+                    "value":485,
+                    "percentage":100
+                },{
+                    "start_date":"2017-02-19",
+                    "end_date":"2017-02-25",
+                    "sales_price":600,
+                    "value":115,
+                    "percentage":23.71
+                }]
+            },{
+                "brand_id":80,
+                "category_id":5,
+                "brand_name":"GUCCI",
+                "category_name":"BAGS",
+                "weekly_details":[{
+                    "start_date":"2017-02-05",
+                    "end_date":"2017-02-11",
+                    "sales_price":3030,
+                    "value":1430,
+                    "percentage":89.38
+                },{
+                    "start_date":"2017-02-12",
+                    "end_date":"2017-02-18",
+                    "sales_price":300,
+                    "value":-2730,
+                    "percentage":-90.1
+                },{
+                    "start_date":"2017-02-19",
+                    "end_date":"2017-02-25",
+                    "sales_price":2320,
+                    "value":2020,
+                    "percentage":673.33
+                }]
+            },{
+                "brand_id":80,
+                "category_id":6,
+                "brand_name":"GUCCI",
+                "category_name":"SHOES",
+                "weekly_details":[{
+                    "start_date":"2017-02-05",
+                    "end_date":"2017-02-11",
+                    "sales_price":710,
+                    "value":710,
+                    "percentage":100
+                }]
+            },{
+                "brand_id":141,
+                "category_id":2,
+                "brand_name":"PRADA",
+                "category_name":"ACCESSORIES",
+                "weekly_details":[{
+                    "start_date":"2017-02-05",
+                    "end_date":"2017-02-11",
+                    "sales_price":200,
+                    "value":-1010,
+                    "percentage":-83.47
+                },{
+                    "start_date":"2017-02-19",
+                    "end_date":"2017-02-25",
+                    "sales_price":250,
+                    "value":50,
+                    "percentage":25
+                }]
+            },{
+                "brand_id":141,
+                "category_id":5,
+                "brand_name":"PRADA",
+                "category_name":"BAGS",
+                "weekly_details":[{
+                    "start_date":"2017-02-05",
+                    "end_date":"2017-02-11",
+                    "sales_price":1920,
+                    "value":-480,
+                    "percentage":-20
+                },{
+                    "start_date":"2017-02-12",
+                    "end_date":"2017-02-18",
+                    "sales_price":5690,
+                    "value":3770,
+                    "percentage":196.35
+                },{
+                    "start_date":"2017-02-19",
+                    "end_date":"2017-02-25",
+                    "sales_price":3980,
+                    "value":-1710,
+                    "percentage":-30.05
+                }]
+            }]
+        }
+
+## GET : Product Listing By Model [/product/product_by_model.json{?start_date}{?end_date}{?brand_id}{?category_id}{?country_code}]
+>  status : ready
+
+### Product Listing By Model [GET]
++ Parameters
+    + start_date:2017-02-01 (date)
+    + end_date:2017-02-11 (date)
+    + brand_id : 34 (optional)
+    + category_id : 5 (optional)
+    + country_code : SG (mandatory)
+
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message": "",
+            "count" : 1,
+            "data": [
+                {
+                    "brand_name":"CHANEL",
+                    "category_name":"BAGS",
+                    "model_info":{
+                        "title":"Chanel Classic Flap Bag",
+                        "description":"description1",
+                        "image":"chanel_classic_flap_bag.jpg"
+                    },
+                    "weekly_details":[{
+                        "start_date":"2017-02-01",
+                        "end_date":"2017-02-04",
+                        "sales_price":{
+                            "highest": 2000,
+                            "lowest": 1600,
+                            "average":1875
+                        },
+                        "number_of_sales":100,
+                        "value":100,
+                        "percentage":10
+                    },{
+                        "start_date":"2017-02-05",
+                        "end_date":"2017-02-11",
+                        "sales_price":{
+                            "highest": 1800,
+                            "lowest": 1600,
+                            "average":1700
+                        },
+                        "number_of_sales":50,
+                        "value":-175,
+                        "percentage":-5
+                    }]
+                },
+                {
+                    "brand_name":"CHANEL",
+                    "category_name":"BAGS",
+                    "model_info":{
+                        "title":"Chanel Blablabla",
+                        "description":"description2",
+                        "image":"chanel_blablabla.jpg"
+                    },
+                    "weekly_details":[{
+                        "start_date":"2017-02-01",
+                        "end_date":"2017-02-04",
+                        "sales_price":{
+                            "highest": 2000,
+                            "lowest": 1600,
+                            "average":1875
+                        },
+                        "number_of_sales":100,
+                        "value":100,
+                        "percentage":10
+                    },{
+                        "start_date":"2017-02-05",
+                        "end_date":"2017-02-11",
+                        "sales_price":{
+                            "highest": 1800,
+                            "lowest": 1600,
+                            "average":1700
+                        },
+                        "number_of_sales":50,
+                        "value":-175,
+                        "percentage":-5
+                    }]
+                }
+            ]
+        }
 
 
 # Group Rating
 Api rating user seller and buyer
 
-## GET : Ratings [/users/get_ratings.json{?uid}{?type}{?limit}{?last_updated_at}{?sender_uid}{?order_id}]
+## GET : Ratings [/users/get_ratings.json{?uid}{?type}{?limit}{?last_updated_at}{?sender_uid}{?order_id}{?product_id}]
 ### Get Rating [GET]
 + Parameters
     + uid : 111 (number)
@@ -2356,6 +2591,7 @@ Api rating user seller and buyer
     + type : "seller/buyer/all" (string)
     + sender_uid : 123 (number)
     + order_id : 123 (number)
+    + product_id: 123 (number)
 
 + Response 200 (application/json)
 
@@ -2425,10 +2661,12 @@ Api rating user seller and buyer
 >  POST and Edit Review
 
 * Mandatory: All fields required except reply_comment
+* product_id optional
 
 >  POST and Edit Reply
 
 * Mandatory: All fields required except comment
+* product_id optional
 
 ### Post Ratings [POST]
 
@@ -2450,6 +2688,7 @@ Api rating user seller and buyer
                 "rate_id": 1,
                 "type" : "seller/buyer",
                 "order_id":1
+                "product_id":10
             }
 
 + Response 200 (application/json)
@@ -6133,6 +6372,26 @@ place order.
                     "txn_ref_no":"SC123123",
                     "datetime":"2016-05-20 11:11:11",
                     "signature":"aer3ayg983ny4t"
+                }
+            },
+            "data":
+            {
+                "order_id":"12312",
+                "order_status":"online_pending",
+                "payment_method":"easypay",
+                "bool_online":1,
+                "url_response":"http://goldrush.reebonz.com/payment_service_api/redirect"
+                "url_params": 
+                {
+                    "bu_code":"08",
+                    "platform_name":"mobile",
+                    "country_code":"SG",
+                    "txn_ref_no":"SC123123",
+                    "datetime":"2016-05-20 11:11:11",
+                    "signature":"aer3ayg983ny4t",
+                    "amount":"100",
+                    "currency_code":"SGD",
+                    "return_url":"http://closets.sit.reebonz-dev.com"
                 }
             }
         }
