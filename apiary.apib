@@ -8052,7 +8052,6 @@ Get all objects for New Landing Page
     + language_code : en (string)        
     + uid : 123123* (number)
     + platform : MBL or WEB (string)
-    + new_arrival_limit: 100 (number)
     
 + Response 200 (application/json)
 
@@ -8061,87 +8060,274 @@ Get all objects for New Landing Page
             "message":"New Exciting Update please update your app",
             "data": [
                 {
-                    "content_type_name": "CLOSETS_REEBONZ_BANNER",
-                    "content_data": [
+                    "content_type_name": "CLOSETS_TOP_BANNER",
+                    "sub_content_type": [
                         {
-                            "code": "reebonz_banner",
-                            "vertical": "CLS",
-                            "platform": "MBL",
-                            "country": [
-                                "SG"
-                            ],
-                            "startdate": "2017-03-06 00:00:00",
-                            "enddate": "2017-04-01 00:00:00",
-                            "data_fields": [
+                            "content_type_name": "CLOSETS_HERO_BANNERS",
+                            "content_data": [
                                 {
-                                    "field_name": "title",
-                                    "field_type": "textfield",
-                                    "field_values": [
+                                    "code": "thechanelcolonyclosets",
+                                    "vertical": "CLS",
+                                    "platform": "MBL",
+                                    "country": [
+                                        "SG"
+                                    ],
+                                    "startdate": "0000-00-00 00:00:00",
+                                    "enddate": "0000-00-00 00:00:00",
+                                    "data_fields": [
                                         {
-                                            "lang_code": "en",
-                                            "value": "Reebonz.com"
+                                            "field_name": "title",
+                                            "field_type": "textfield",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "THE CHANEL COLONY"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "description",
+                                            "field_type": "textarea",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "Shop a wide range of vintage rare chanel exclusive to Closets"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "text_link",
+                                            "field_type": "textfield",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "VIEW HERE"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "url_link",
+                                            "field_type": "hyperlink",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "/closets/brand/chanel"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "font_color",
+                                            "field_type": "color_picker",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "#000000"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "banner",
+                                            "field_type": "image",
+                                            "field_values": [
+                                                {
+                                                   "lang_code": "en",
+                                                    "value": "https://cdn3.reebonz.com/cms_dev/20160524-Hero5-Chanel_4f172ddc695b5cd1ac582c9ee23b72b396fd0021_20160531112655.jpg"
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
                                 {
-                                    "field_name": "title_font_attribute",
-                                    "field_type": "textfield",
-                                    "field_values": [
+                                    "code": "letsparty",
+                                    "vertical": "CLS",
+                                    "platform": "MBL",
+                                    "country": [
+                                        "SG"
+                                    ],
+                                    "startdate": "0000-00-00 00:00:00",
+                                    "enddate": "0000-00-00 00:00:00",
+                                    "data_fields": [
                                         {
-                                            "lang_code": "en",
-                                            "value": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "title_font_color",
-                                    "field_type": "color_picker",
-                                    "field_values": [
+                                            "field_name": "title",
+                                            "field_type": "textfield",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "LET'S PARTY"
+                                                }
+                                            ]
+                                        },
                                         {
-                                            "lang_code": "en",
-                                            "value": "#000000"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "title_font_size",
-                                    "field_type": "selectbox",
-                                    "field_values": [
-                                        {       
-                                            "lang_code": "en",
-                                            "value": "s:5:\"small\";"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "url_link",
-                                    "field_type": "hyperlink",
-                                    "field_values": [
+                                            "field_name": "description",
+                                            "field_type": "textarea",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "Call out to Fashion Savvy, Fashion Blogger, Fashion Lover, Its PARTY TIME"
+                                                }
+                                            ]
+                                        },
                                         {
-                                            "lang_code": "en",
-                                            "value": "https://www.reebonz.com/"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "banner",
-                                    "field_type": "image",
-                                    "field_values": [
+                                            "field_name": "text_link",
+                                            "field_type": "textfield",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "PARTY HERE"
+                                                }
+                                            ]
+                                        },
                                         {
-                                            "lang_code": "en",
-                                            "value": "https://cdn3.reebonz.com/cms_dev/reebonz_closets_20170306105844.jpg"
+                                            "field_name": "text_link_font_attribute",
+                                            "field_type": "checkbox",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": [
+                                                        [
+                                                            "bold",
+                                                            "underline"
+                                                        ]
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "url_link",
+                                            "field_type": "hyperlink",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                    "value": "/closets/party"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "field_name": "popup_message",
+                                            "field_type": "html",
+                                            "field_values": [
+                                            {
+                                                "lang_code": "en",
+                                                "value": "<p><u><b>Header</b></u></p><h6>body here alrhaehrgiauehrl;k oiaejrgojargaer arhgiaurhgagaerugh</h6><p><br></p><p><u><b>Second Header</b></u><br></p><p><br></p><h6>body here alrhaehrgiauehrl;k oiaejrgojargaer arhgiaurhgagaerugh</h6><p><br></p><p><br></p><p><br></p>"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                            "field_name": "banner",
+                                            "field_type": "image",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "en",
+                                                   "value": "https://cdn3.reebonz.com/cms_dev/HB_style_bb7d3de535b527d2c9764c4ab2e19debc232095a_20160531113402.gif"
+                                                }
+                                            ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "content_type_name": "CLOSETS_CURATED_EVENTS",
+                            "content_data": [
+                                {
+                                    "code": "CE_1411_2011_Chanel",
+                                    "vertical": "CLS",
+                                    "platform": "MBL",
+                                    "country": [
+                                        "SG"
+                                    ],
+                                    "startdate": "2016-11-14 00:00:00",
+                                    "enddate": "2017-04-01 23:59:59",
+                                    "data_fields": [
+                                        {
+                                            "field_name": "title",
+                                            "field_type": "textfield",
+                                            "field_values": [
+                                                {
+                                                    "lang_code": "EN",
+                                                    "value": "Simplicity Is Elegance "
+                                                }
+                                            ]
+                                        },
+                                    {
+                                        "field_name": "title_font_attribute",
+                                        "field_type": "checkbox",
+                                        "field_values": [
+                                            {
+                                                "lang_code": "EN",
+                                                "value": [
+                                                    "bold"
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "field_name": "title_font_color",
+                                        "field_type": "color_picker",
+                                        "field_values": [
+                                            {
+                                                "lang_code": "EN",
+                                                "value": "#000000"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "field_name": "description",
+                                        "field_type": "textarea",
+                                        "field_values": [
+                                            {
+                                                "lang_code": "EN",
+                                                "value": "Beauty begins when you start being yourself."
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "field_name": "description_font_attribute",
+                                        "field_type": "checkbox",
+                                        "field_values": [
+                                            {
+                                                "lang_code": "EN",
+                                                "value": [
+                                                    "italic"
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "field_name": "description_font_color",
+                                        "field_type": "color_picker",
+                                        "field_values": [
+                                            {
+                                                "lang_code": "EN",
+                                                "value": "#000000"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "field_name": "product_id",
+                                        "field_type": "closets_product_id",
+                                        "field_values": []
+                                    },
+                                    {
+                                        "field_name": "banner",
+                                        "field_type": "image",
+                                        "field_values": [
+                                            {
+                                                "lang_code": "EN",
+                                                "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "content_type_name": "CLOSETS_NEW_ARRIVAL",
+                    "content_type_name": "CLOSETS_FEATURED_BANNER",
                     "content_data": [
                         {
-                            "code": "New Arrivals",
+                            "code": "new_arrivals",
                             "vertical": "CLS",
                             "platform": "MBL",
                             "country": [
@@ -8235,17 +8421,17 @@ Get all objects for New Landing Page
                     ]
                 },
                 {
-                    "content_type_name": "CLOSETS_HERO_BANNERS",
+                    "content_type_name": "CLOSETS_REEBONZ_BANNER",
                     "content_data": [
                         {
-                            "code": "thechanelcolonyclosets",
+                            "code": "reebonz_banner",
                             "vertical": "CLS",
                             "platform": "MBL",
                             "country": [
                                 "SG"
                             ],
-                            "startdate": "0000-00-00 00:00:00",
-                            "enddate": "0000-00-00 00:00:00",
+                            "startdate": "2017-03-06 00:00:00",
+                            "enddate": "2017-04-01 00:00:00",
                             "data_fields": [
                                 {
                                     "field_name": "title",
@@ -8253,183 +8439,17 @@ Get all objects for New Landing Page
                                     "field_values": [
                                         {
                                             "lang_code": "en",
-                                            "value": "THE CHANEL COLONY"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "description",
-                                    "field_type": "textarea",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "Shop a wide range of vintage rare chanel exclusive to Closets"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "text_link",
-                                    "field_type": "textfield",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "VIEW HERE"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "url_link",
-                                    "field_type": "hyperlink",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "/closets/brand/chanel"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "font_color",
-                                    "field_type": "color_picker",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "#000000"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "banner",
-                                    "field_type": "image",
-                                    "field_values": [
-                                        {
-                                           "lang_code": "en",
-                                            "value": "https://cdn3.reebonz.com/cms_dev/20160524-Hero5-Chanel_4f172ddc695b5cd1ac582c9ee23b72b396fd0021_20160531112655.jpg"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "code": "letsparty",
-                            "vertical": "CLS",
-                            "platform": "MBL",
-                            "country": [
-                                "SG"
-                            ],
-                            "startdate": "0000-00-00 00:00:00",
-                            "enddate": "0000-00-00 00:00:00",
-                            "data_fields": [
-                                {
-                                    "field_name": "title",
-                                    "field_type": "textfield",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "LET'S PARTY"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "description",
-                                    "field_type": "textarea",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "Call out to Fashion Savvy, Fashion Blogger, Fashion Lover, Its PARTY TIME"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "text_link",
-                                    "field_type": "textfield",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "PARTY HERE"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "text_link_font_attribute",
-                                    "field_type": "checkbox",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": [
-                                                [
-                                                    "bold",
-                                                    "underline"
-                                                ]
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "url_link",
-                                    "field_type": "hyperlink",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "/closets/party"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "popup_message",
-                                    "field_type": "html",
-                                    "field_values": [
-                                    {
-                                        "lang_code": "en",
-                                        "value": "<p><u><b>Header</b></u></p><h6>body here alrhaehrgiauehrl;k oiaejrgojargaer arhgiaurhgagaerugh</h6><p><br></p><p><u><b>Second Header</b></u><br></p><p><br></p><h6>body here alrhaehrgiauehrl;k oiaejrgojargaer arhgiaurhgagaerugh</h6><p><br></p><p><br></p><p><br></p>"
-                                    }
-                                  ]
-                                },
-                                {
-                                    "field_name": "banner",
-                                    "field_type": "image",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                           "value": "https://cdn3.reebonz.com/cms_dev/HB_style_bb7d3de535b527d2c9764c4ab2e19debc232095a_20160531113402.gif"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "content_type_name": "CLOSETS_CURATED_EVENTS",
-                    "content_data": [
-                        {
-                            "code": "CE_1411_2011_Chanel",
-                            "vertical": "CLS",
-                            "platform": "MBL",
-                            "country": [
-                                "SG"
-                            ],
-                            "startdate": "2016-11-14 00:00:00",
-                            "enddate": "2017-04-01 23:59:59",
-                            "data_fields": [
-                                {
-                                    "field_name": "title",
-                                    "field_type": "textfield",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "Simplicity Is Elegance "
+                                            "value": "Reebonz.com"
                                         }
                                     ]
                                 },
                                 {
                                     "field_name": "title_font_attribute",
-                                    "field_type": "checkbox",
+                                    "field_type": "textfield",
                                     "field_values": [
                                         {
                                             "lang_code": "en",
-                                            "value": [
-                                                "bold"
-                                            ]
+                                            "value": ""
                                         }
                                     ]
                                 },
@@ -8444,66 +8464,22 @@ Get all objects for New Landing Page
                                     ]
                                 },
                                 {
-                                    "field_name": "description",
-                                    "field_type": "textarea",
+                                    "field_name": "title_font_size",
+                                    "field_type": "selectbox",
                                     "field_values": [
-                                        {
+                                        {       
                                             "lang_code": "en",
-                                            "value": "Beauty begins when you start being yourself."
+                                            "value": "s:5:\"small\";"
                                         }
                                     ]
                                 },
                                 {
-                                    "field_name": "description_font_attribute",
-                                    "field_type": "checkbox",
+                                    "field_name": "url_link",
+                                    "field_type": "hyperlink",
                                     "field_values": [
                                         {
                                             "lang_code": "en",
-                                            "value": [
-                                                "italic"
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "description_font_color",
-                                    "field_type": "color_picker",
-                                    "field_values": [
-                                        {
-                                            "lang_code": "en",
-                                            "value": "#000000"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "field_name": "product_id",
-                                    "field_type": "closets_product_id",
-                                    "field_values": [
-                                        {
-                                            "id": "1042486",
-                                            "brand_name": "CHANEL",
-                                            "title": "J12 38mm H0970",
-                                            "currency_code": "SGD",
-                                            "selling_price": 4500,
-                                            "primary_image": "http://cdn2.reebonz.com/closet/mobilecloset-5004316-06-11-16-01-20-52-2-1080x1081.jpg",
-                                            "like_count": 0,
-                                            "liked": false,
-                                            "comment_count": 0,
-                                            "commented": 0,
-                                            "status": false
-                                        },
-                                        {
-                                            "id": "1042365",
-                                            "brand_name": "CHANEL",
-                                            "title": "Smooth leather wine red cross body single flap mini-medium bag",
-                                            "currency_code": "SGD",
-                                            "selling_price": 1850,
-                                            "primary_image": "http://cdn2.reebonz.com/closet/mobilecloset-3826432-05-11-16-05-35-51-0-640x640.jpg",
-                                            "like_count": 0,
-                                            "liked": false,
-                                            "comment_count": 0,
-                                            "commented": 0,
-                                            "status": false
+                                            "value": "https://www.reebonz.com/"
                                         }
                                     ]
                                 },
@@ -8513,7 +8489,7 @@ Get all objects for New Landing Page
                                     "field_values": [
                                         {
                                             "lang_code": "en",
-                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
+                                            "value": "https://cdn3.reebonz.com/cms_dev/reebonz_closets_20170306105844.jpg"
                                         }
                                     ]
                                 }
@@ -8573,6 +8549,16 @@ Get all objects for New Landing Page
                                             "value": "closet/"
                                         }
                                     ]
+                                },
+                                {
+                                    "field_name": "category_banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
+                                        }
+                                    ]
                                 }
                             ]
                         },
@@ -8623,6 +8609,16 @@ Get all objects for New Landing Page
                                         {
                                             "lang_code": "en",
                                             "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "category_banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
                                         }
                                     ]
                                 }
@@ -8677,6 +8673,16 @@ Get all objects for New Landing Page
                                             "value": ""
                                         }
                                     ]
+                                },
+                                {
+                                    "field_name": "category_banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
+                                        }
+                                    ]
                                 }
                             ]
                         },
@@ -8727,6 +8733,16 @@ Get all objects for New Landing Page
                                         {
                                             "lang_code": "en",
                                             "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "category_banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
                                         }
                                     ]
                                 }
@@ -8781,7 +8797,17 @@ Get all objects for New Landing Page
                                             "value": ""
                                         }
                                     ]
-                                }
+                                },
+                                {
+                                    "field_name": "category_banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
+                                        }
+                                    ]
+                                },
                             ]
                         },
                         {
@@ -8833,9 +8859,215 @@ Get all objects for New Landing Page
                                             "value": ""
                                         }
                                     ]
+                                },
+                                {
+                                    "field_name": "category_banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms/5235-Chanel_20161108104736.jpg"
+                                        }
+                                    ]
                                 }
                             ]
                         }   
+                    ]
+                },
+                {
+                    "content_type_name": "CLOSETS_FOOTER_BANNER",
+                    "content_data": [
+                        {
+                            "code": "footer_banner",
+                            "vertical": "CLS",
+                            "platform": "MBL",
+                            "country": [
+                                "SG"
+                            ],
+                            "startdate": "2017-03-06 00:00:00",
+                            "enddate": "2017-04-01 00:00:00",
+                            "data_fields": [
+                                {
+                                    "field_name": "title",
+                                    "field_type": "textfield",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "Invite Friends"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "title_font_attribute",
+                                    "field_type": "textfield",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "title_font_color",
+                                    "field_type": "color_picker",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "#000000"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "title_font_size",
+                                    "field_type": "selectbox",
+                                    "field_values": [
+                                        {       
+                                            "lang_code": "en",
+                                            "value": "s:5:\"small\";"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "url_link",
+                                    "field_type": "hyperlink",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "/invite_friends"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "banner",
+                                    "field_type": "image",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "https://cdn3.reebonz.com/cms_dev/reebonz_closets_20170306105844.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        
+## GET : Get Event Products API [/event_products.json{?country_code}{?language_code}{?uid}{?platform}{?content_type}{?event_code}{?limit}]
+Get all objects for New Landing Page
+### Get Event Products [GET]
+
++ Parameters
+    + country_code : SG (string)
+    + language_code : en (string)
+    + uid : 123123* (number)
+    + platform : MBL or WEB (string)
+    + content_type : CLOSETS_FEATURED_BANNER (string)
+    + event_code : new_arrivals (string)
+    + limit: 100 (number)
+    
++ Response 200 (application/json)
+
+        {
+            "status":"true",
+            "message":"New Exciting Update please update your app",
+            "data": [
+                {
+                    "content_type_name": "CLOSETS_FEATURED_BANNER",
+                    "content_data": [
+                        {
+                            "code": "new_arrivals",
+                            "vertical": "CLS",
+                            "platform": "MBL",
+                            "country": [
+                                "SG"
+                            ],
+                            "startdate": "2017-03-06 00:00:00",
+                            "enddate": "2017-04-01 00:00:00",
+                            "data_fields": [
+                                {
+                                    "field_name": "title",
+                                    "field_type": "textfield",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "New Arrivals"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "title_font_color",
+                                    "field_type": "color_picker",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "#ffffff"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "description",
+                                    "field_type": "textarea",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "description_font_color",
+                                    "field_type": "color_picker",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": "#000000"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "is_new_arrival",
+                                    "field_type": "checkbox",
+                                    "field_values": [
+                                        {
+                                            "lang_code": "en",
+                                            "value": [
+                                                "1"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "field_name": "product_id",
+                                    "field_type": "closets_product_id",
+                                    "field_values": [
+                                        {
+                                            "id": "84059",
+                                            "brand_name": "BURBERRY",
+                                            "title": "smuck",
+                                            "currency_code": "SGD",
+                                            "primary_image": "mobilecloset-1501078-20-03-17-12-17-32-0-1440x1440.jpg",
+                                            "like_count": 0,
+                                            "liked": false,
+                                            "comment_count": 0,
+                                            "commented": false
+                                        },
+                                        {
+                                            "id": "84058",
+                                            "brand_name": "ALEXANDER MCQUEEN",
+                                            "title": "Riid",
+                                            "currency_code": "SGD",
+                                            "primary_image": "mobilecloset-3502342-20-03-17-09-50-11-0-1000x1000.jpg",
+                                            "like_count": 0,
+                                            "liked": false,
+                                            "comment_count": 0,
+                                            "commented": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
             ]
