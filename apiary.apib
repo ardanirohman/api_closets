@@ -4580,7 +4580,32 @@ status : ready
                     },
             ]
         }
-        
+
+## POST : Archieve Social Feed Action [/activity/social_archive.json]
+### Action Archieve Social Feed [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token: 1RUPyaCmQC7VAYlJOX-rliSZvxhx1BfpYj_5iY9DvJk
+
+    + Body
+    
+            {
+                "social_id" : 1,
+                "uid":1
+            }
+    
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message" : "archive successful",
+            "data" :{
+                "social_id" : 1
+            }
+        }        
         
 # Group Conversations
 Api Design For Conversations
