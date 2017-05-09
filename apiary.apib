@@ -9253,7 +9253,8 @@ Apply discount code.
                     "currency_code":"SGD"
                 }
             }
-
+            
+# Group Credit
 ## GET : Credit History [/credit_history.json{?page}{?limit}]
 Credit history.
 ### Credit History [GET]
@@ -9267,34 +9268,53 @@ Credit history.
                 "status" : true,
                 "message":"",
                 "data": {
+                    "credit_available": 10,
+                    "currency_code": "SGD",
+                    "expired_at": 123123123132,
                     "credit":[
                         {
                             "id":123,
-                            "description":"Your friend Fandy Make a purchase",
-                            "parent_category":"MARKETING",
-                            "category":"FFP",
-                            "points":50,
-                            "created_dt":"2012-04-12",
-                            "expiry_dt":"2012-05-12",
-                            "reminder_dt":"2012-05-10",
-                            "deduction":[
-                                {
-                                    "id":1,
-                                    "category":"redeem",
-                                    "date":"2012-05-12",
-                                    "points":-25,
-                                    "order_id": 8728,
-                                    "description":"Used in Order 8728",
-                                    "status":"confirmed"
-                                }
+                            "code": "CREDITS_EXPIRED",
+                            "label": "CREDITS EXPIRED",
+                            "description": "Your friend Fandy Make a purchase",
+                            "points": -50,
+                            "currency_code": "SGD",
+                            "created_at": 213123131,
+                            "expiry_at": 123124214,
+                            "status": null
+                            "order_id":null
+                        },
+                         {
+                            "id":123,
+                            "code": "CREDITS_EARNED",
+                            "label": "CREDITS EARNED",
+                            "description": "Your friend Fandy Make a purchase",
+                            "points": 50,
+                            "currency_code": "SGD",
+                            "created_at": 213123131,
+                            "expiry_at": 123124214,
+                            "status": "confirmed"
+                            "order_id":23432
+                        },
+                        {
+                            "id":123,
+                            "code": "CREDITS_USED",
+                            "label": "CREDITS USED",
+                            "description": "credit used",
+                            "points": 50,
+                            "currency_code": "SGD",
+                            "created_at": 213123131,
+                            "expiry_at": null,
+                            "status": "confirmed"
+                            "order_id":23432
                         }
                     ]
                 },
                 "total":200
             }
 
+# Group Geo IP
 ## GET : Geo IP [/geoip.json]
-
 ### Geo IP [GET]
 
 + Response 200 (application/json)
@@ -9305,8 +9325,8 @@ Credit history.
                 "status":""
             }
 
+# Group PNS
 ## POST : PNS Create Token [/pns/create_token.json]
-
 ### PNS Create Token [POST]
 
 + Request (application/json)
