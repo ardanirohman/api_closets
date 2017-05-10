@@ -9367,3 +9367,247 @@ Credit history.
                 "message":"",
                 "data":[]
             }
+# Group Price Guide
+Price guide in closets
+
+## POST : Price Guide Listing [/price_guide/listing.json]
+
+### Price Guide Listing [POST]
+
++ Request (application/json)
+
+            {
+                "sold_at" : "desc",
+                "price" : "desc",
+                "category_id" : [1,2,3],
+                "brand_id" : [4,5,6],
+                "search": "some text",
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message" : "",
+                "data":[
+                    {
+                        "product" : {
+                            "id": "12695",
+                            "country_code": "SG",
+                            "currency_code": "SGD",
+                            "title": "Product",
+                            "category_name": "BAGS",
+                            "brand_name": "PRADA",
+                            "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                            "selling_price": 1000,
+                            "like_count": 10,
+                            "comment_count": 2,
+                            "liked": true,
+                            "commented": true,
+                            "sold_date": "1342424234",
+                            "created_date": "12242424234",
+                            "updated_date": "12312312313",
+                        }
+                    },
+                    {
+                        "product" : {
+                            "id": "12696",
+                            "country_code": "SG",
+                            "currency_code": "SGD",
+                            "title": "Product",
+                            "category_name": "BAGS",
+                            "brand_name": "CHANEL",
+                            "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                            "selling_price": 1000,
+                            "like_count": 10,
+                            "comment_count": 2,
+                            "liked": true,
+                            "commented" : true,
+                            "sold_date": "1342424234",
+                            "created_date": "12242424234",
+                            "updated_date": "12312312313",
+                        }
+                    }
+                ]
+            }
+            
+## GET : Price Guide Detail [/price_guide/detail.json{?product_id}{?country_code}{?language_code}]
+
+### Price Guide Listing [GET]
+
++ Parameters
+    + product_id : 1 (number) 
+    + country_code : SG (string)
+    + language_code : EN (string)
+    
++ Response 200 (application/json)
+
+        {
+            "status" : true,
+            "message" : "",
+            "data":{
+                "product" : {
+                    "id": "12695",
+                    "sku": "",
+                    "country_code": "SG",
+                    "currency_code": "SGD",
+                    "title": "Product",
+                    "description": "Desc Product",
+                    "category_name": "BAGS",
+                    "brand_name": "PRADA",
+                    "category_id" :1,
+                    "brand_id":1,
+                    "contact_number": "62494853",
+                    "images": [
+                        "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
+                        "mobile-1968143-26.12.15-09-37-30-0-720x960.jpg",
+                        "mobile-5083965-14.04.16-01-59-57-0-1231x720.jpg"
+                    ],
+                    "selling_price": 1000,
+                    "like_count": 10,
+                    "comment_count": 2,
+                    "liked": true,
+                    "commented" : true,
+                    "sold_date": "1345526262",
+                    "created_date": "12242424234",
+                    "updated_date": "12312312313",
+                    "flags" : [
+                        {
+                            "code" : "reebonz_stock",
+                            "name" : "reebonz stock",
+                            "value": 1
+                        }
+                    ],
+                    "gender": [
+                        {
+                            "id" : 1,
+                            "code" : "F",
+                            "name" : "Female",
+                            "weight" : 1
+                        }
+                    ],
+                    "size": [
+                        {
+                            "id": 1,
+                            "code": "L",
+                            "name": "Length",
+                            "value": "12",
+                            "weight" : 0,
+                            "variant_code":"inch",
+                            "variant_name":"inch",
+                            "type": "field"
+                        },
+                        {
+                            "id" : 2,
+                            "code": "H",
+                            "name": "Height",
+                            "value": "12",
+                            "weight" : 1,
+                            "variant_code":"inch",
+                            "variant_name":"inch",
+                            "type": "field"
+                        },
+                        {
+                            "id" : 3,
+                            "code": "UK",
+                            "name": "UK",
+                            "value": "10",
+                            "weight" : 2,
+                            "variant_code":"inch",
+                            "variant_name":"Female",
+                            "type": "chart"
+                        }
+                    ],
+                    "color": [
+                        {
+                            "id" : 2,
+                            "code" : "#ffffff",
+                            "name" : "white",
+                            "weight" : 0
+                        },
+                        {
+                            "id" : 3,
+                            "code" : "#000000",
+                            "name" : "black",
+                            "weight" : 1
+                        }
+                    ],
+                    "material":[
+                        {
+                            "id" : 4,
+                            "code" : "Leather",
+                            "name" : "Leather",
+                            "weight" : 0
+                        },
+                        {
+                            "id" : 5,
+                            "code" : "Fabric",
+                            "name" : "Fabric",
+                            "weight" : 1
+                        }
+                    ],
+                    "comes" : [
+                        {
+                            "id" : 6,
+                            "code" : "Receipt",
+                            "name" : "Receipt",
+                            "weight" : 0
+                        },
+                        {
+                            "id" : 7,
+                            "code" : "Authenticity Card",
+                            "name" : "Authenticity Card",
+                            "weight" : 1
+                        }
+                    ],
+                    "condition" : [
+                        {
+                            "id" : 8,
+                            "code" : "New",
+                            "name" : "New with tags",
+                            "weight" : 0
+                        }
+                    ]
+                    
+                },
+                "comment" : {
+                    "count" : 10,
+                    "data": [
+                        {
+                            "user" :{
+                                "uid" : 112,
+                                "nickname" : "reebonz",
+                                "avatar": "avatar.jpg"
+                            },
+                            "comment":{
+                                "text":"test comment",
+                                "created_at":12313131
+                            }
+                        },
+                        {
+                            "user" :{
+                                "uid" : 113,
+                                "nickname" : "reebonz",
+                                "avatar": "avatar.jpg"
+                            },
+                            "comment":{
+                                "text":"test comment @nickname",
+                                "created_at":12313131
+                            }
+                        }
+                    ]
+                },
+                "action_button" : [
+                    {
+                        "name" : "Sell Now",
+                        "order_id" : null",
+                        "destination" : "upload_product"
+                    },
+                    {
+                        "name" : "Buy Similar",
+                        "order_id" : null,
+                        "destination" : "product_listing"
+                    }
+                ]
+            }
+        }
