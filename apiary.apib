@@ -9382,7 +9382,11 @@ Price guide in closets
                 "price" : "desc",
                 "category_id" : [1,2,3],
                 "brand_id" : [4,5,6],
-                "search": "some text",
+                "search" : "some text",
+                "country_code" : "SG",
+                "uid" : 123,
+                "limit" : 10,
+                "page" : 1
             }
 
 + Response 200 (application/json)
@@ -9390,6 +9394,7 @@ Price guide in closets
             {
                 "status" : true,
                 "message" : "",
+                "count" : "2000",
                 "data":[
                     {
                         "product" : {
@@ -9401,10 +9406,6 @@ Price guide in closets
                             "brand_name": "PRADA",
                             "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
                             "selling_price": 1000,
-                            "like_count": 10,
-                            "comment_count": 2,
-                            "liked": true,
-                            "commented": true,
                             "sold_date": "1342424234",
                             "created_date": "12242424234",
                             "updated_date": "12312312313",
@@ -9419,11 +9420,7 @@ Price guide in closets
                             "category_name": "BAGS",
                             "brand_name": "CHANEL",
                             "images": "mobile-3500810-25.09.15-09-01-20-0-960x720.jpg",
-                            "selling_price": 1000,
-                            "like_count": 10,
-                            "comment_count": 2,
-                            "liked": true,
-                            "commented" : true,
+                            "selling_price": 2000,
                             "sold_date": "1342424234",
                             "created_date": "12242424234",
                             "updated_date": "12312312313",
@@ -9602,7 +9599,7 @@ Price guide in closets
                     {
                         "name" : "Sell Now",
                         "order_id" : null",
-                        "destination" : "upload_product"
+                        "destination" : "sell"
                     },
                     {
                         "name" : "Buy Similar",
