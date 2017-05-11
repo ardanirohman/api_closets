@@ -9256,12 +9256,13 @@ Apply discount code.
             }
             
 # Group Credit
-## GET : Credit History [/credit_history.json{?page}{?limit}]
+## GET : Credit History [/credit_history.json{?page}{?limit}{?language_code}]
 Credit history.
 ### Credit History [GET]
 + Parameters
     + page : 1 (number)
     + limit : 20 (number)
+    + language_code : 'en' (string)
 
 + Response 200 (application/json)
 
@@ -9281,7 +9282,7 @@ Credit history.
                             "points": -50,
                             "currency_code": "SGD",
                             "created_at": 213123131,
-                            "expiry_at": 123124214,
+                            "expired_at": 123124214,
                             "status": null,
                             "order_id":null
                         },
@@ -9293,7 +9294,7 @@ Credit history.
                             "points": 50,
                             "currency_code": "SGD",
                             "created_at": 213123131,
-                            "expiry_at": 123124214,
+                            "expired_at": 123124214,
                             "status": "confirmed",
                             "order_id":23432
                         },
@@ -9305,7 +9306,7 @@ Credit history.
                             "points": 50,
                             "currency_code": "SGD",
                             "created_at": 213123131,
-                            "expiry_at": null,
+                            "expired_at": null,
                             "status": "confirmed",
                             "order_id":23432
                         }
@@ -9433,7 +9434,7 @@ Price guide in closets
             
 ## GET : Price Guide Detail [/price_guide/detail.json{?product_id}{?country_code}{?language_code}]
 
-### Price Guide Listing [GET]
+### Price Guide Detail [GET]
 
 + Parameters
     + product_id : 1 (number) 
