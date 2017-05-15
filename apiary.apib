@@ -7282,6 +7282,53 @@ cancel return request by buyer.
             "message":""
         }
         
+## POST : Update Return Authorization ID API [/netsuite/fulfillment/update_return_authorization_id.json]
+update return authorization id.
+### update return authorization id api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            Authorization: user=netsuite, password=@t@sERP
+
+    + Body
+    
+            {
+                "order_id":1,
+                "ra_id":123
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":""
+        }
+        
+## POST : Update Return Status API [/netsuite/fulfillment/update_return_status.json]
+update return status.
+### update return status api [POST]
+
++ Request(application/json)
+    + Headers
+
+            Accept: application/json, text/plain, */*
+            Authorization: user=netsuite, password=@t@sERP
+            
+    + Body
+    
+            {
+                "ra_id":123
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "status":true,
+            "message":""
+        }
+        
 # Group Dummy Data
 
 ## GET : Size  1 [/preset/product_sizes.json{?language_code,variant_code,size_group_code}?category_id=1]
