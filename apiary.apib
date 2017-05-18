@@ -7295,8 +7295,8 @@ update return authorization id.
     + Body
     
             {
-                "order_id":1,
-                "ra_id":123
+                "order_id":"SC001",
+                "ra_id":"123"
             }
             
 + Response 200 (application/json)
@@ -7319,7 +7319,7 @@ update return status.
     + Body
     
             {
-                "ra_id":123
+                "ra_id":"123"
             }
             
 + Response 200 (application/json)
@@ -9319,6 +9319,7 @@ Credit history.
                 "data": {
                     "credit_available": 10,
                     "currency_code": "SGD",
+                    "credit_expiry": 21,
                     "expired_at": 123123123132,
                     "credit":[
                         {
