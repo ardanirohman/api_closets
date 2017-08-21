@@ -190,6 +190,7 @@ Api Auth for SSO user closets to Titan
             {
                 "fbid" : 12312423242342,
                 "email" : "email@reebonz.com",
+                "token" : "sa21defew23234234(optional)",
                 "country_code" : "SG",
                 "first_name":"ardani",
                 "last_name":"rohman"
@@ -329,7 +330,61 @@ drupal_uid : **mandatory** , email : option, password : optional, country_code :
               "data": []
             }
 
+## POST : SSO Forgot Password [/sso/forgot_password.json]
+>  status : ready
 
+### Forgot Password [POST]
+
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+
+    + Body
+
+            {
+                "email" : "email@reebonz.com",
+                "language_code" : "en"
+            }
+
++ Response 200 (application/json)
+
+            {  
+               "status" : true,
+               "message" : "E-mail successfully sent"
+            }
+            
+            
+## POST : SSO Forgot Password after login [/sso/login_forgot_password.json]
+>  status : ready
+
+### Login Forgot Password [POST]
+
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
+
+    + Body
+
+            {
+                "email" : "email@reebonz.com",
+                "language_code" : "en"
+            }
+
++ Response 200 (application/json)
+
+            {  
+               "status" : true,
+               "message" : "E-mail successfully sent"
+            }
+            
+            
 # Group Profile 
 user profile in closets
 
@@ -9855,3 +9910,190 @@ Price guide in closets
                 ]
             }
         }
+        
+## POST : Price Guide Buy Similar [/solr_closet_bridge/buy_similar.json]
+
+### Price Guide Buy Similar [POST]
+
++ Request (application/json)
+
+            {  
+                "language_code":"en",
+                "country_code":"SG",
+                "rows":20,
+                "page":1,
+                "product":{  
+                    "id":83809,
+                    "platform":"ios",
+                    "sku":null,
+                    "uid":3502342,
+                    "brand_id":1,
+                    "category_id":5,
+                    "country_code":"SG",
+                    "contact_number":"881818181",
+                    "currency_code":"SGD",
+                    "original_price":"0.00",
+                    "selling_price":"500.00",
+                    "title":"Skskks",
+                    "description":"Snsn",
+                    "reference_code":"",
+                    "brand_name":"3.1 PHILLIP LIM",
+                    "category_name":"Bags",
+                    "status":"APPROVED",
+                    "status_name":"Approved",
+                    "status_id":2,
+                    "like_count":0,
+                    "comment_count":0,
+                    "liked":false,
+                    "commented":false,
+                    "is_sold_offline":null,
+                    "is_not_authenticated":0,
+                    "view_count":0,
+                    "created_at":1487919503,
+                    "updated_at":1487919503,
+                    "flag":[  
+                        {  
+                            "code":"REEBONZ_STOCK",
+                            "name":"Reebonz Stock",
+                            "value":0
+                        },
+                        {  
+                            "code":"CHAT",
+                            "name":"Dis-Allow Chat",
+                            "value":0
+                        },
+                        {  
+                            "code":"NEGO",
+                            "name":"Dis-Allow Negotiation",
+                            "value":0
+                        }
+                    ],
+                    "images":[  
+                        "mobilecloset-3502342-27-01-17-01-58-27-0-1000x1000.jpg"
+                    ],
+                    "gender":[  
+                        {  
+                            "id":11,
+                            "code":"FEMALE",
+                            "name":"For Women",
+                            "weight":1
+                        }
+                    ],
+                    "color":[  
+                        {  
+                            "id":4,
+                            "code":"#000000",
+                            "name":"Black",
+                            "weight":1
+                        },
+                        {  
+                            "id":20,
+                            "code":"#974b19",
+                            "name":"Brown",
+                            "weight":2
+                        }
+                    ]
+                }
+            }
+
++ Response 200 (application/json)
+
+            {  
+                "error_code":0,
+                "return_code":1,
+                "total_page":90,
+                "page":1,
+                "result":{  
+                    "responseHeader":{  
+                        "status":0,
+                        "QTime":9,
+                        "params":{  
+                            "q":"-status_en:\"close\" OR -status_en:\"Unpublished\" OR -status_en:\"reject\" OR -status_en:\"Rejected\" OR -status_en:\"new_order\" OR -status_en:\"New\" OR images:[* TO *] OR -images:\"\" OR title:Skskks OR brand_name:3.1 PHILLIP LIM OR category_name_en:Bags OR colors_en_str:(Black,#000000 OR Brown,#974b19 OR Beige,#CDBBA3 OR White,#FFFFFF OR Red,#ef4b42 OR Orange,#ed7e34 OR Yellow,#f1c40f OR Green,#00af65 OR Blue,#0080b6 OR Purple,#9e58b3 OR Pink,#f75f95 OR Gold,#9E6C37)",
+                            "fq":[  
+                                "country_code:SG",
+                                "status_en:Approved"
+                            ],
+                            "rows":"1",
+                            "wt":"json"
+                        }
+                    },
+                    "response":{  
+                        "numFound":90,
+                        "start":0,
+                        "docs":[  
+                            {  
+                                "id":"83809",
+                                "sku":"",
+                                "country_code":"SG",
+                                "currency_code":"SGD",
+                                "title":"Skskks",
+                                "description":"Snsn",
+                                "brand_name":"3.1 PHILLIP LIM",
+                                "brand_name_str":"3.1 PHILLIP LIM",
+                                "images":[  
+                                    "mobilecloset-3502342-27-01-17-01-58-27-0-1000x1000.jpg"
+                                ],
+                                "original_price":0,
+                                "selling_price":500,
+                                "like_count":0,
+                                "comment_count":0,
+                                "created_date":"2017-01-27T14:59:07Z",
+                                "updated_date":"2017-02-24T14:58:23Z",
+                                "approved_date":"2017-02-24T14:58:23Z",
+                                "sold_date":"1970-01-01T07:30:00Z",
+                                "is_sold_offline":false,
+                                "sales_price":0,
+                                "view_count":0,
+                                "user_id":3502342,
+                                "user_nick":"dan_123",
+                                "user_avatar":"profile_3502342_1489395524.jpg",
+                                "category_id":5,
+                                "category_name_en":"Bags",
+                                "category_name_zh_tw":"包款",
+                                "category_name_zh_hk":"手袋",
+                                "category_name_th":"Bags",
+                                "status_id":2,
+                                "status_en":"Approved",
+                                "status_zh_tw":"審核通過",
+                                "status_zh_hk":"批准",
+                                "status_th":"ผ่านการพิจารณา testing",
+                                "colors_en":[  
+                                    "Red,#ef4b42"
+                                ],
+                                "colors_en_str":[  
+                                    "Red,#ef4b42"
+                                ],
+                                "colors_zh_hk":[  
+                                    "紅,#ef4b42"
+                                ],
+                                "colors_zh_hk_str":[  
+                                    "紅,#ef4b42"
+                                ],
+                                "colors_zh_tw":[  
+                                    "紅色,#ef4b42"
+                                ],
+                                "colors_zh_tw_str":[  
+                                    "紅色,#ef4b42"
+                                ],
+                                "genders_en":[  
+                                    "For Women", 
+                                    "For Men"
+                                ],
+                                "genders_zh_hk":[  
+                                    "女裝",
+                                    "男裝"
+                                ],
+                                "genders_zh_tw":[  
+                                    "女用",
+                                    "男用"
+                                ],
+                                "genders_th":[  
+                                    "For Women",
+                                    "For Men"
+                                ],
+                                "_version_":1576313610260447232
+                            }
+                        ]
+                    }
+                }
+            }
