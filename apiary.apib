@@ -10150,7 +10150,7 @@ Price guide in closets
             
 # Group Sell To Reebonz
 
-## POST : Sell to Reebonz API  [/sell_to_reebonz.json]
+## POST : Sell to Reebonz API  [/product/sell_to_reebonz.json]
 >  status : develop
 
 ### Sell to Reebonz [POST]
@@ -10160,10 +10160,12 @@ Price guide in closets
 
             Content-Type: application/json
             Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
             
     + Body
 
             {
+                "uid" : 3500871,
                 "product_id" : [
                     87123,
                     84383,
