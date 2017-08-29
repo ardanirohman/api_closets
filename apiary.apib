@@ -10147,3 +10147,36 @@ Price guide in closets
                     }
                 }
             }
+            
+# Group Sell To Reebonz
+
+## POST : Sell to Reebonz API  [/sell_to_reebonz.json]
+>  status : ready
+
+### Sell to Reebonz [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            
+    + Body
+
+            {
+                "product_id" : [
+                    87123,
+                    84383,
+                    84384,
+                    84385
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message": "Successfully trigger chat to Reebonz",
+                "data" : {
+                }
+            }
