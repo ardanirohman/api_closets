@@ -1808,7 +1808,7 @@ field available ex : product.id , product.sku etc
             }
         }
 
-## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?section}{?uid}{?seller_uid}{?product_id}{?limit_per_seller}{?limit}{?page}]
+## GET : Product listing [/product/product_listing.json{?country_code}{?language_code}{?field}{?section}{?uid}{?seller_uid}{?product_id}{?limit_per_seller}{?limit}{?page}{?shipped}{?is_sold_to_reebonz}]
 closets profile product for mobile
 
 field available ex : product.id , product.sku etc
@@ -1830,6 +1830,8 @@ else show only sold approved
     + limit_per_seller : 3 (integer) - optional
     + limit : 10 (integer) - optional
     + page : 1 (integer) - optional
+    + shipped : 1 (boolean) - optional 1 = true, 0 = false
+    + is_sold_to_reebonz : 1 (boolean) - optional 1 = true, 0 = false
     
 + Response 200 (application/json)
 
@@ -2413,239 +2415,6 @@ same function with trigger comment
                         "text":"nice product",
                         "created_at":12313131
                     }
-                }
-            ]
-        }
-
-## GET : Product Get Summary [/product/product_get_summary.json{?start_date}{?end_date}{?country_code}]
->  status : ready
-
-### Product Get Summary [GET]
-+ Parameters
-    + start_date:2017-02-05 (date)
-    + end_date:2017-02-25 (date)
-    + country_code:SG
-
-+ Response 200 (application/json)
-
-        {
-            "status" : true,
-            "message": "",
-            "count" : 2,
-            "data": [{
-                "brand_id":12,
-                "category_id":5,
-                "brand_name":"BALENCIAGA",
-                "category_name":"BAGS",
-                "weekly_details":[{
-                    "start_date":"2017-02-05",
-                    "end_date":"2017-02-11",
-                    "sales_price":600,"value":-5979,
-                    "percentage":-90.88
-                },{
-                    "start_date":"2017-02-12",
-                    "end_date":"2017-02-18",
-                    "sales_price":900,
-                    "value":300,
-                    "percentage":50
-                },{
-                    "start_date":"2017-02-19",
-                    "end_date":"2017-02-25",
-                    "sales_price":5470,
-                    "value":4570,
-                    "percentage":507.78
-                }]
-            },{
-                "brand_id":12,
-                "category_id":6,
-                "brand_name":"BALENCIAGA",
-                "category_name":"SHOES",
-                "weekly_details":[{
-                    "start_date":"2017-02-05",
-                    "end_date":"2017-02-11",
-                    "sales_price":500,"value":500,
-                    "percentage":100
-                }]
-            },{
-                "brand_id":80,
-                "category_id":2,
-                "brand_name":"GUCCI",
-                "category_name":"ACCESSORIES",
-                "weekly_details":[{
-                    "start_date":"2017-02-12",
-                    "end_date":"2017-02-18",
-                    "sales_price":485,
-                    "value":485,
-                    "percentage":100
-                },{
-                    "start_date":"2017-02-19",
-                    "end_date":"2017-02-25",
-                    "sales_price":600,
-                    "value":115,
-                    "percentage":23.71
-                }]
-            },{
-                "brand_id":80,
-                "category_id":5,
-                "brand_name":"GUCCI",
-                "category_name":"BAGS",
-                "weekly_details":[{
-                    "start_date":"2017-02-05",
-                    "end_date":"2017-02-11",
-                    "sales_price":3030,
-                    "value":1430,
-                    "percentage":89.38
-                },{
-                    "start_date":"2017-02-12",
-                    "end_date":"2017-02-18",
-                    "sales_price":300,
-                    "value":-2730,
-                    "percentage":-90.1
-                },{
-                    "start_date":"2017-02-19",
-                    "end_date":"2017-02-25",
-                    "sales_price":2320,
-                    "value":2020,
-                    "percentage":673.33
-                }]
-            },{
-                "brand_id":80,
-                "category_id":6,
-                "brand_name":"GUCCI",
-                "category_name":"SHOES",
-                "weekly_details":[{
-                    "start_date":"2017-02-05",
-                    "end_date":"2017-02-11",
-                    "sales_price":710,
-                    "value":710,
-                    "percentage":100
-                }]
-            },{
-                "brand_id":141,
-                "category_id":2,
-                "brand_name":"PRADA",
-                "category_name":"ACCESSORIES",
-                "weekly_details":[{
-                    "start_date":"2017-02-05",
-                    "end_date":"2017-02-11",
-                    "sales_price":200,
-                    "value":-1010,
-                    "percentage":-83.47
-                },{
-                    "start_date":"2017-02-19",
-                    "end_date":"2017-02-25",
-                    "sales_price":250,
-                    "value":50,
-                    "percentage":25
-                }]
-            },{
-                "brand_id":141,
-                "category_id":5,
-                "brand_name":"PRADA",
-                "category_name":"BAGS",
-                "weekly_details":[{
-                    "start_date":"2017-02-05",
-                    "end_date":"2017-02-11",
-                    "sales_price":1920,
-                    "value":-480,
-                    "percentage":-20
-                },{
-                    "start_date":"2017-02-12",
-                    "end_date":"2017-02-18",
-                    "sales_price":5690,
-                    "value":3770,
-                    "percentage":196.35
-                },{
-                    "start_date":"2017-02-19",
-                    "end_date":"2017-02-25",
-                    "sales_price":3980,
-                    "value":-1710,
-                    "percentage":-30.05
-                }]
-            }]
-        }
-
-## GET : Product Listing By Model [/product/product_by_model.json{?start_date}{?end_date}{?brand_id}{?category_id}{?country_code}]
->  status : ready
-
-### Product Listing By Model [GET]
-+ Parameters
-    + start_date:2017-02-01 (date)
-    + end_date:2017-02-11 (date)
-    + brand_id : 34 (optional)
-    + category_id : 5 (optional)
-    + country_code : SG (mandatory)
-
-+ Response 200 (application/json)
-
-        {
-            "status" : true,
-            "message": "",
-            "count" : 1,
-            "data": [
-                {
-                    "brand_name":"CHANEL",
-                    "category_name":"BAGS",
-                    "model_info":{
-                        "title":"Chanel Classic Flap Bag",
-                        "description":"description1",
-                        "image":"chanel_classic_flap_bag.jpg"
-                    },
-                    "weekly_details":[{
-                        "start_date":"2017-02-01",
-                        "end_date":"2017-02-04",
-                        "sales_price":{
-                            "highest": 2000,
-                            "lowest": 1600,
-                            "average":1875
-                        },
-                        "number_of_sales":100,
-                        "value":100,
-                        "percentage":10
-                    },{
-                        "start_date":"2017-02-05",
-                        "end_date":"2017-02-11",
-                        "sales_price":{
-                            "highest": 1800,
-                            "lowest": 1600,
-                            "average":1700
-                        },
-                        "number_of_sales":50,
-                        "value":-175,
-                        "percentage":-5
-                    }]
-                },
-                {
-                    "brand_name":"CHANEL",
-                    "category_name":"BAGS",
-                    "model_info":{
-                        "title":"Chanel Blablabla",
-                        "description":"description2",
-                        "image":"chanel_blablabla.jpg"
-                    },
-                    "weekly_details":[{
-                        "start_date":"2017-02-01",
-                        "end_date":"2017-02-04",
-                        "sales_price":{
-                            "highest": 2000,
-                            "lowest": 1600,
-                            "average":1875
-                        },
-                        "number_of_sales":100,
-                        "value":100,
-                        "percentage":10
-                    },{
-                        "start_date":"2017-02-05",
-                        "end_date":"2017-02-11",
-                        "sales_price":{
-                            "highest": 1800,
-                            "lowest": 1600,
-                            "average":1700
-                        },
-                        "number_of_sales":50,
-                        "value":-175,
-                        "percentage":-5
-                    }]
                 }
             ]
         }
@@ -5999,6 +5768,39 @@ for update status product by atelier
             "message":"trigger action sent",
             "data" :{}
         }
+        
+        ## POST : Sell to Reebonz API  [/product/sell_to_reebonz.json]
+>  status : develop
+
+### Sell to Reebonz [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
+            
+    + Body
+
+            {
+                "uid" : 3500871,
+                "product_id" : [
+                    87123,
+                    84383,
+                    84384,
+                    84385
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message": "Successfully trigger chat to Reebonz",
+                "data" : {
+                }
+            }
 
 # Group Order
 as middleware for existing system order. so endpoint same with existing but
@@ -10145,40 +9947,5 @@ Price guide in closets
                             }
                         ]
                     }
-                }
-            }
-            
-# Group Sell To Reebonz
-
-## POST : Sell to Reebonz API  [/product/sell_to_reebonz.json]
->  status : develop
-
-### Sell to Reebonz [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token : xxxxxx
-            
-    + Body
-
-            {
-                "uid" : 3500871,
-                "product_id" : [
-                    87123,
-                    84383,
-                    84384,
-                    84385
-                ]
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "status" : true,
-                "message": "Successfully trigger chat to Reebonz",
-                "data" : {
                 }
             }
