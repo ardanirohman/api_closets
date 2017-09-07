@@ -2418,6 +2418,39 @@ same function with trigger comment
                 }
             ]
         }
+        
+## POST : Sell to Reebonz API  [/product/sell_to_reebonz.json]
+>  status : develop
+
+### Sell to Reebonz [POST]
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Accept: application/json, text/plain, */*
+            X-CSRF-Token : xxxxxx
+            
+    + Body
+
+            {
+                "uid" : 3500871,
+                "product_id" : [
+                    87123,
+                    84383,
+                    84384,
+                    84385
+                ]
+            }
+
++ Response 200 (application/json)
+
+            {
+                "status" : true,
+                "message": "Successfully trigger chat to Reebonz",
+                "data" : {
+                }
+            }
 
 # Group Rating
 Api rating user seller and buyer
@@ -5767,40 +5800,6 @@ for update status product by atelier
             "message":"trigger action sent",
             "data" :{}
         }
-        
-        
-## POST : Sell to Reebonz API  [/product/sell_to_reebonz.json]
->  status : develop
-
-### Sell to Reebonz [POST]
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Accept: application/json, text/plain, */*
-            X-CSRF-Token : xxxxxx
-            
-    + Body
-
-            {
-                "uid" : 3500871,
-                "product_id" : [
-                    87123,
-                    84383,
-                    84384,
-                    84385
-                ]
-            }
-
-+ Response 200 (application/json)
-
-            {
-                "status" : true,
-                "message": "Successfully trigger chat to Reebonz",
-                "data" : {
-                }
-            }
 
 # Group Order
 as middleware for existing system order. so endpoint same with existing but
