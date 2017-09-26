@@ -469,6 +469,9 @@ else just item approve and sold and hide (0) sales and order count
                     "last_login" : 123131313,
                     "created_at" : 21231313
                 },
+                "subheader": {
+                    "sell_to_reebonz": 1
+                },
                 "ratings" : {
                     "average" : 4.5,
                     "count" : 10
@@ -4438,8 +4441,8 @@ status : ready
             ]
         }
 
-## POST : Archieve Social Feed Action [/activity/social_archive.json]
-### Action Archieve Social Feed [POST]
+## POST : Archive Social Feed Action [/activity/social_archive.json]
+### Action Archive Social Feed [POST]
 
 + Request(application/json)
     + Headers
@@ -4499,6 +4502,9 @@ Get List of conversation for a particular user, and there are 2 possible type, b
                 "social_is_opened" : true,
                 "buying_is_opened" : false,
                 "selling_is_opened" : true
+            },
+            "subheader": {
+                "sell_to_reebonz": 1
             },
             "body" : [
                     {
@@ -5490,8 +5496,8 @@ param {type}
             
         }
 
-## POST : Archieve Conversation Action [/activity/conversation_archive.json]
-### Action Archieve Conversation [POST]
+## POST : Archiee Conversation Action [/activity/conversation_archive.json]
+### Action Archive Conversation [POST]
 
 + Request(application/json)
     + Headers
@@ -9414,7 +9420,10 @@ Credit history.
                         }
                     ]
                 },
-                "total":200
+                "total":200,
+                "subheader": {
+                    "sell_to_reebonz": 1
+                }
             }
 
 # Group Geo IP
